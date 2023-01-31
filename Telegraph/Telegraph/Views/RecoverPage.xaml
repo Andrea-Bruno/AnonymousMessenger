@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<telegraph:BasePage
+    x:Class="Telegraph.Views.RecoverPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:dh="clr-namespace:Telegraph.DesignHandler"
+    xmlns:telegraph="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:view="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{x:DynamicResource Color1}"
+    mc:Ignorable="d">
+    <telegraph:BasePage.Resources>
+        <Style x:Name="btn" TargetType="Button">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{DynamicResource Theme}" />
+                                <Setter Property="TextColor" Value="{DynamicResource Color1}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundSecondary}" />
+                                <Setter Property="TextColor" Value="{DynamicResource WhiteColor}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </telegraph:BasePage.Resources>
+    <telegraph:BasePage.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <view:MyCustomToolbar
+                x:Name="Toolbar"
+                Title="{x:Static local1:Resources.Dictionary.Recover}"
+                OnBackBtnClicked="Back_Clicked" />
+            <view:CustomLabel
+                Margin="24,12,24,0"
+                FontFamily="PoppinsLight"
+                FontSize="18"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static local1:Resources.Dictionary.TwelveWordforRecover}"
+                TextColor="{DynamicResource WhiteColor}" />
+            <Frame
+                x:Name="AddWordFrame"
+                Margin="32,12,32,0"
+                Padding="12,4,12,4"
+                BackgroundColor="{x:DynamicResource Color2}"
+                CornerRadius="24"
+                HasShadow="False"
+                HeightRequest="42"
+                HorizontalOptions="FillAndExpand"
+                MinimumHeightRequest="42">
+                <AbsoluteLayout>
+                    <view:CustomEntry
+                        x:Name="PhraseEntry"
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        FontFamily="PoppinsRegular"
+                        FontSize="15"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        IsVisible="True"
+                        MaxLength="13"
+                        Placeholder="Insert the 1 word here"
+                        PlaceholderColor="{x:DynamicResource BackgroundSecondary}"
+                        TextChanged="PhraseEntry_TextChanged"
+                        TextColor="{x:DynamicResource WhiteColor}" />
+                    <ImageButton
+                        x:Name="AddWord"
+                        Padding="6"
+                        AbsoluteLayout.LayoutBounds="1,0.5"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        BackgroundColor="Transparent"
+                        Clicked="AddWord_Clicked"
+                        HeightRequest="36"
+                        HorizontalOptions="Start"
+                        Source="{dh:ImageResourceExtension ic_add_word.png}"
+                        VerticalOptions="Center"
+                        WidthRequest="36" />
+                </AbsoluteLayout>
+            </Frame>
+            <StackLayout
+                Margin="0,24,0,0"
+                Padding="16,12,12,12"
+                BackgroundColor="{x:DynamicResource LightColor}"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                Spacing="12">
+                <Image
+                    HeightRequest="24"
+                    Source="{dh:ImageResourceExtension ic_tip.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="24" />
+                <Label
+                    Margin="0,2,0,0"
+                    FontFamily="PoppinsLight"
+                    FontSize="12"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{x:Static local1:Resources.Dictionary.RemoveWrongWord}"
+                    TextColor="{x:DynamicResource BlackColor}"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <Frame
+                Margin="-2,0,-2,0"
+                Padding="14,12,14,12"
+                BackgroundColor="{x:DynamicResource Color2}"
+                BorderColor="{x:DynamicResource Gray}"
+                HeightRequest="200"
+                VerticalOptions="Fill">
+                <FlexLayout
+                    x:Name="Gaps"
+                    Margin="4"
+                    AlignItems="Start"
+                    JustifyContent="SpaceAround"
+                    Wrap="Wrap" />
+            </Frame>
+            <pancakeview:PancakeView
+                Padding="48,0,48,0"
+                BackgroundColor="{x:DynamicResource Color2}"
+                CornerRadius="12,12,0,0"
+                HeightRequest="120"
+                VerticalOptions="EndAndExpand">
+                <Button
+                    x:Name="ContinueButton"
+                    BackgroundColor="{x:DynamicResource BackgroundSecondary}"
+                    BorderWidth="0"
+                    Clicked="Restore_Clicked"
+                    CornerRadius="28"
+                    FontFamily="PoppinsSemiBold"
+                    FontSize="20"
+                    HeightRequest="52"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="False"
+                    Text="{x:Static local1:Resources.Dictionary.Continue}"
+                    TextColor="{DynamicResource BlackColor}"
+                    TextTransform="Uppercase"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="200" />
+            </pancakeview:PancakeView>
+        </StackLayout>
+    </telegraph:BasePage.Content>
+</telegraph:BasePage>

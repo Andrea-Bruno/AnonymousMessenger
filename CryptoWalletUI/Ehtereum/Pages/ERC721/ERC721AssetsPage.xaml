@@ -1,0 +1,89 @@
+﻿<local:BasePage  xmlns:local="clr-namespace:CryptoWalletUI"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="CryptoWalletUI.Ehtereum.Pages.ERC721AssetsPage"
+                 xmlns:model1="clr-namespace:CryptoWalletLibrary.Ehtereum.Models;assembly=CryptoWalletLibrary"
+                 xmlns:viewModel1="clr-namespace:CryptoWalletLibrary.Ehtereum.ViewModels;assembly=CryptoWalletLibrary"
+                 x:DataType="viewModel1:ERC721ViewModel">
+
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   MaxLines="1"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Text="NFT Assets"
+                   FontSize="20" />
+        </Grid>
+        <StackLayout x:Name="RefreshLayout"></StackLayout>
+
+        <ListView HasUnevenRows="True"
+                  SelectionMode="None"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  ItemsSource="{Binding NFTAssets}"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model1:NFTAsset">
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding  CollcetionName}"
+                                               VerticalOptions="Center"
+                                               FontSize="Large" />
+                                        <Label Text="{Binding  CollcetionAbbr}"
+                                               VerticalOptions="Center"
+                                               FontSize="Large" />
+                                        <StackLayout VerticalOptions="Center">
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="Owner:"
+                                                       VerticalOptions="Center"
+                                                       FontSize="Large" />
+                                                <Label Text="{Binding OwnerAddr}"
+                                                       VerticalOptions="Center"
+                                                       FontSize="Large" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Token Id:"
+                                                       VerticalOptions="Center"
+                                                       FontSize="Large" />
+                                                <Label Text="{Binding TokenId}"
+                                                       VerticalOptions="Center"
+                                                       FontSize="Large" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout  HorizontalOptions="EndAndExpand">
+                                        <Image x:Name="backgroundImage"
+                                               Source="{Binding TokenURI}"
+                                               WidthRequest="100"
+                                               HeightRequest="100"
+                                               AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                               AbsoluteLayout.LayoutFlags="All"
+                                               Aspect="AspectFill" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</local:BasePage>

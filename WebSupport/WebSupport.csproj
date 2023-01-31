@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;DEBUG_RAM_SOCIAL</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Crypto-Messenger\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\SubAppInterface\SubAppInterface.csproj" />
+  </ItemGroup>
+
+</Project>

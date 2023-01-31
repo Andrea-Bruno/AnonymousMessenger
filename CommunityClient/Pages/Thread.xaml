@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Localization;assembly=Localization"
+             x:Class="CommunityClient.Pages.Thread">
+  <StackLayout>
+    <ListView x:Name="Posts"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+      <!--Built in Cells-->
+      <!--<ListView.ItemTemplate>
+        <DataTemplate>
+            <TextCell Text="{Binding .}" />
+        </DataTemplate>
+    </ListView.ItemTemplate>-->
+
+      <!--Custom View Cells-->
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem
+                                                Clicked="Edit_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                Text="{x:Static local:Resources.Dictionary.Edit}" />
+              <MenuItem
+                                                Clicked="Report_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                IsDestructive="True"
+                                                Text="{x:Static local:Resources.Dictionary.Report}" />
+              <MenuItem
+                                                Clicked="Delete_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                IsDestructive="True"
+                                                Text="{x:Static local:Resources.Dictionary.Delete}" />
+            </ViewCell.ContextActions>
+            <StackLayout>
+              <Label Text="{Binding UserName}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+              <Label Text="{Binding Text}" LineBreakMode="WordWrap" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+              <Label Text="{Binding Time, StringFormat='{0:hh:mm dd MMMM, yyyy}'}" FontSize="Micro" />
+              <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Like, StringFormat='{0}'}"></Label>
+                  <Button Text="👍" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnLikeTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Dislike, StringFormat='{0}'}"></Label>
+                  <Button Text="👎" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnDislikeTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Love, StringFormat='{0}'}"></Label>
+                  <Button Text="❤️" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnLoveTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Haha, StringFormat='{0}'}"></Label>
+                  <Button Text="😂" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnHahaTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Yay, StringFormat='{0}'}"></Label>
+                  <Button Text="😀" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnYayTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Wow, StringFormat='{0}'}"></Label>
+                  <Button Text="😮" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnWowTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Sad, StringFormat='{0}'}"></Label>
+                  <Button Text="😢" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnSadTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                  <Label Text="{Binding Angry, StringFormat='{0}'}"></Label>
+                  <Button Text="😠" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnAngryTapped" CommandParameter="{Binding .}" />
+                </StackLayout>
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+    <Label Text="{x:Static local:Resources.Dictionary.WriteAPost}" />
+    <Editor x:Name="Text" HeightRequest="100" x:FieldModifier="public"></Editor>
+    <Button x:Name="NewPost" Text="Create New Post" x:FieldModifier="public" Clicked="NewPost_Clicked"></Button>
+  </StackLayout>
+</ContentPage>

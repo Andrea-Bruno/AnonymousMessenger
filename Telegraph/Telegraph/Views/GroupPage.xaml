@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local1:BaseContentView
+    x:Class="Telegraph.Views.GroupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:Telegraph"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    x:Name="GroupGridPage"
+    ios:Page.UseSafeArea="true">
+    <local1:BaseContentView.Content>
+        <StackLayout BackgroundColor="{DynamicResource MainBackgroundColor}">
+            <Grid Padding="0,0,0,-28" BackgroundColor="{DynamicResource MainBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <local1:CustomPageHeaderLabel
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0,-12,0,0"
+                    FontFamily="RobotoMedium"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    MaxLines="1"
+                    Text="{x:Static local:Resources.Dictionary.LetsGroupUp}"
+                    TextColor="{x:DynamicResource ToolbarTitleColor}"
+                    VerticalOptions="Center" />
+
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Margin="5,-10,0,0"
+                    Padding="16"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center">
+                    <Image
+                        x:Name="AddGroup"
+                        HeightRequest="35"
+                        Source="{local1:ImageResourceExtension ic_add_group.png}"
+                        WidthRequest="35" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddGroup_Tapped" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+
+            <Frame
+                Margin="0"
+                Padding="0,0,0,0"
+                BackgroundColor="{DynamicResource MainBackgroundColor}"
+                CornerRadius="0"
+                HasShadow="False"
+                VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="{x:DynamicResource MainPagePlusCancelBackgroundTextColor}" Orientation="Vertical">
+                    <Frame
+                        x:Name="SearchBarFrame"
+                        Margin="15,0,15,0"
+                        Padding="0,0,0,0"
+                        BackgroundColor="{x:DynamicResource SearchBarBackgroundColor}"
+                        CornerRadius="25"
+                        HasShadow="False"
+                        HeightRequest="54">
+                        <StackLayout Orientation="Horizontal">
+                            <local1:CustomEntry
+                                x:Name="SearchBar"
+                                Margin="30,0,45,0"
+                                FontFamily="RobotoMedium"
+                                FontSize="15"
+                                HeightRequest="54"
+                                HorizontalOptions="FillAndExpand"
+                                Placeholder="{x:Static local:Resources.Dictionary.Search}"
+                                PlaceholderColor="{x:DynamicResource MainPageSearchbarTextColor}"
+                                TextChanged="Search_TextChanged"
+                                TextColor="{x:DynamicResource MainPageSearchbarTextColor}"
+                                VerticalOptions="CenterAndExpand" />
+                            <Image
+                                x:Name="ic_search_clear"
+                                Margin="0,0,18,0"
+                                HeightRequest="15"
+                                HorizontalOptions="EndAndExpand"
+                                Source="{local1:ImageResourceExtension ic_search_clear.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="15">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SearchClearButton_Clicked" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout BackgroundColor="#2d2d2d">
+                        <syncfusion:SfListView
+                            x:Name="ItemsListView"
+                            AutoFitMode="Height"
+                            BackgroundColor="Transparent"
+                            ItemTapped="ItemsListView_ItemTapped"
+                            VerticalOptions="FillAndExpand">
+
+                            <syncfusion:SfListView.LayoutManager>
+                                <syncfusion:GridLayout SpanCount="3" />
+                            </syncfusion:SfListView.LayoutManager>
+
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="15,15,15,0" BackgroundColor="{DynamicResource MainBackgroundColor}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Margin="0"
+                                            Padding="16"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center">
+                                            <Image
+                                                HeightRequest="54"
+                                                HorizontalOptions="Start"
+                                                Source="{local1:ImageResourceExtension ic_group_icon.png}"
+                                                WidthRequest="54" />
+                                            <Frame
+                                                Margin="0,-60,-5,34"
+                                                Padding="0,0,0,0"
+                                                BackgroundColor="{DynamicResource NumberOfUnreadMessageBackgroundColor}"
+                                                BorderColor="{DynamicResource NumberOfUnreadMessageBorderColor}"
+                                                CornerRadius="10"
+                                                HasShadow="False"
+                                                HeightRequest="20"
+                                                HorizontalOptions="End"
+                                                VerticalOptions="Start"
+                                                WidthRequest="20">
+                                                <local1:CustomLabel
+                                                    x:Name="UnreadedMessages"
+                                                    FontAttributes="Bold"
+                                                    FontSize="10"
+                                                    HeightRequest="11"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    LineBreakMode="NoWrap"
+                                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                                    Text="{Binding UnreadMessages}"
+                                                    TextColor="{DynamicResource NumberOfUnreadMessageTextColor}"
+                                                    VerticalOptions="CenterAndExpand" />
+                                                <Frame.Triggers>
+                                                    <DataTrigger
+                                                        Binding="{Binding UnreadMessages}"
+                                                        TargetType="Frame"
+                                                        Value="0">
+                                                        <Setter Property="IsVisible" Value="False" />
+                                                    </DataTrigger>
+                                                </Frame.Triggers>
+                                            </Frame>
+
+                                        </StackLayout>
+                                        <local1:CustomPageHeaderLabel
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Margin="0,-12,0,0"
+                                            FontFamily="Roboto"
+                                            FontSize="16"
+                                            HorizontalOptions="Center"
+                                            HorizontalTextAlignment="Center"
+                                            MaxLines="2"
+                                            Text="{Binding Name}"
+                                            TextColor="{x:DynamicResource ToolbarTitleColor}"
+                                            VerticalOptions="Center"
+                                            VerticalTextAlignment="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+
+                        </syncfusion:SfListView>
+                    </StackLayout>
+                    <!--     <ListView
+                    x:Name="ItemsListView1"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="Transparent"
+                    HasUnevenRows="true"
+                    ItemSelected="OnItemSelected"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid
+                                    BackgroundColor="{DynamicResource MainBackgroundColor}"
+                                    Padding="10,0,0,0"
+                                    Margin="15,15,15,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition
+                                                Height="Auto" />
+                                        <RowDefinition
+                                                Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                                Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Padding="16"
+                                            Grid.Row="0"
+                                            Grid.Column="0">
+                                        <Image
+                                            WidthRequest="54"
+                                            HeightRequest="54"
+                                            Source="ic_group" />
+                                    </StackLayout>
+                                    <local1:CustomPageHeaderLabel
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Margin="0,-12,0,0"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        FontFamily="Roboto"
+                                        Text="{Binding Name}"
+                                        MaxLines="1"
+                                        FontSize="16"
+                                        TextColor="{x:DynamicResource ToolbarTitleColor}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </local1:BaseContentView.Content>
+</local1:BaseContentView>

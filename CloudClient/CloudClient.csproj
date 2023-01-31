@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;DEBUG_RAM</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EncryptedMessaging" Version="1.23.1.25" />
+  </ItemGroup>
+ 
+</Project>

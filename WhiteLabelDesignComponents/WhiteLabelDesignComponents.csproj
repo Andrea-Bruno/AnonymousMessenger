@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;DEBUG_RAM_SOCIAL</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Image\Common\**" />
+    <Compile Remove="Image\LightImage\**" />
+    <EmbeddedResource Remove="Image\Common\**" />
+    <EmbeddedResource Remove="Image\LightImage\**" />
+    <None Remove="Image\Common\**" />
+    <None Remove="Image\LightImage\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Image\ic_add_new_chat.png" />
+    <None Remove="Image\ic_location.png" />
+    <None Remove="Image\ic_new_addGroup_contact.png" />
+    <None Remove="Image\ic_new_back_icon.png" />
+    <None Remove="Image\ic_noItem.png" />
+    <None Remove="Image\ic_noResult.png" />
+    <None Remove="Image\ic_pick_video.png" />
+    <None Remove="Image\ic_toolbar_search.png" />
+    <None Remove="Image\ic_toolbar_search_clear.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Image\ic_add_new_chat.png" />
+    <EmbeddedResource Include="Image\ic_audio.png" />
+    <EmbeddedResource Include="Image\ic_audio_pause.png" />
+    <EmbeddedResource Include="Image\ic_camera.png" />
+    <EmbeddedResource Include="Image\ic_contact.png" />
+    <EmbeddedResource Include="Image\ic_gallery.png" />
+    <EmbeddedResource Include="Image\ic_location.png" />
+    <EmbeddedResource Include="Image\ic_new_addGroup_contact.png" />
+    <EmbeddedResource Include="Image\ic_new_attachment.png" />
+    <EmbeddedResource Include="Image\ic_new_audio_send.png" />
+    <EmbeddedResource Include="Image\ic_new_back_icon.png" />
+    <EmbeddedResource Include="Image\ic_new_camera.png" />
+    <EmbeddedResource Include="Image\ic_new_cancel.png" />
+    <EmbeddedResource Include="Image\ic_new_delete.png" />
+    <EmbeddedResource Include="Image\ic_new_finish_recording.png" />
+    <EmbeddedResource Include="Image\ic_new_play.png" />
+    <EmbeddedResource Include="Image\ic_new_record.png" />
+    <EmbeddedResource Include="Image\ic_new_send.png" />
+    <EmbeddedResource Include="Image\ic_noItem.png" />
+    <EmbeddedResource Include="Image\ic_noResult.png" />
+    <EmbeddedResource Include="Image\ic_pdf_menu.png" />
+    <EmbeddedResource Include="Image\ic_pick_video.png" />
+    <EmbeddedResource Include="Image\ic_toolbar_search.png" />
+    <EmbeddedResource Include="Image\ic_toolbar_search_clear.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Styles\Theme.xaml.cs">
+      <DependentUpon>Theme.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

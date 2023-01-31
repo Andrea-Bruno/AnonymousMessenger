@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local:BasePage
+    x:Class="Telegraph.Views.UupLoginSignupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:dh="clr-namespace:Telegraph.DesignHandler"
+    ios:Page.UseSafeArea="true">
+    <StackLayout
+        Padding="0"
+        BackgroundColor="{DynamicResource Color1}"
+        HorizontalOptions="FillAndExpand"
+        Orientation="Vertical"
+        VerticalOptions="FillAndExpand">
+        <Image
+            Margin="0,100,0,0"
+            Aspect="AspectFit"
+            HeightRequest="230"
+            Source="{dh:ImageResourceExtension ic_login_splashscreen.png}"
+            WidthRequest="230" />
+        <StackLayout
+            Margin="0,15,0,0"
+            HorizontalOptions="Fill"
+            VerticalOptions="EndAndExpand">
+            <Button
+                x:Name="SignUpButton"
+                Margin="80,0,80,20"
+                Padding="0"
+                BackgroundColor="{DynamicResource Theme}"
+                Clicked="SignUp_Clicked"
+                CornerRadius="26"
+                FontFamily="PoppinsSemiBold"
+                FontSize="18"
+                HeightRequest="51"
+                Text="{x:Static local1:Resources.Dictionary.NewUserHeader}"
+                TextColor="{DynamicResource DarkColor}" />
+            <local:CustomLabel
+                x:Name="SignInButton"
+                Padding="0"
+                BackgroundColor="{DynamicResource Color1}"
+                FontFamily="PoppinsSemiBold"
+                FontSize="14"
+                HeightRequest="50"
+                HorizontalOptions="CenterAndExpand"
+                Text="{x:Static local1:Resources.Dictionary.Recover}"
+                TextColor="{DynamicResource WhiteColor}"
+                TextDecorations="Underline">
+                <local:CustomLabel.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Login_Clicked" />
+                </local:CustomLabel.GestureRecognizers>
+            </local:CustomLabel>
+        </StackLayout>
+    </StackLayout>
+</local:BasePage>
+

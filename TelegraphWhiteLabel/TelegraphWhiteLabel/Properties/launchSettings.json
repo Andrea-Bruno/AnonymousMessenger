@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AnonymousWhiteLabel": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

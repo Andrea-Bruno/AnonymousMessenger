@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    x:Class="Telegraph.Views.TermsAndConditionsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout>
+        <local:MyCustomToolbar
+            x:Name="Toolbar"
+            Title="{x:Static local1:Resources.Dictionary.TermsAndConditions}"
+            OnBackBtnClicked="Back_Clicked" />
+        <Frame
+            Margin="0,-10,0,0"
+            Padding="0,0,0,-24"
+            CornerRadius="0"
+            HasShadow="False"
+            VerticalOptions="FillAndExpand">
+            <WebView
+                x:Name="privacyPolicy"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+        </Frame>
+    </StackLayout>
+</local:BasePage>

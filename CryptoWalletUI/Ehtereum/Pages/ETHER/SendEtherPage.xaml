@@ -1,0 +1,127 @@
+﻿<local:BasePage  xmlns:local="clr-namespace:CryptoWalletUI"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="CryptoWalletUI.Ehtereum.Pages.SendEtherPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout HorizontalOptions="Start"
+                             Margin="20,0,0,0"
+                             VerticalOptions="Center"
+                             Padding="0"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                    <Label Text="ᐸ"
+                           FontSize="20">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back_Clicked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       MaxLines="1"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Send ETH"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+
+            </Grid>
+            <BoxView HeightRequest="10"></BoxView>
+            <StackLayout Margin="10,0,10,0">
+                <Label  Text="Choose Sending Account:" />
+
+                <Picker x:Name="myPicker"
+                        Grid.Column="4"
+                        Grid.Row="2" />
+
+                <Label  Text="Amount:" />
+                <Entry  x:Name="Amount"
+                        TextChanged="Amount_TextChanged"
+                        VerticalOptions="Start"
+                        Keyboard="Numeric" />
+                <Label x:Name="AmountError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+                <Label  Text="Address:" />
+                <Editor x:Name="Address"
+                        Placeholder=""
+                        TextChanged="Address_TextChanged" />
+                <Label x:Name="AddressError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Automatically Selected Gas Price:"></Label>
+                    <Label x:Name="AutoGasPrice"
+                           Text="Specify Address and Amount"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Manual Gas Price Selection Mode:"
+                           VerticalOptions="Center"></Label>
+                    <Switch x:Name="ManualGasPriceSelectionMode"
+                            IsToggled="False"
+                            Toggled="ManualGasPriceSelectionMode_Toggled"
+                            VerticalOptions="Center" />
+                </StackLayout>
+                <Entry x:Name="GasPrice"
+                       Placeholder="Fee"
+                       IsEnabled="False"
+                       TextChanged="GasPrice_TextChanged" />
+
+                <Label x:Name="GasPriceError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+                <Label  Text="Gas Limit:" />
+                <Entry x:Name="GasLimit"
+                       TextChanged="GasLimit_TextChanged"
+                       Placeholder="Optional"
+                       VerticalOptions="Start"
+                       Keyboard="Numeric" />
+                <Label x:Name="GasLimitError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label  Text="Fee:" />
+                    <Label  x:Name="Fee" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label  Text="Total Fee:" />
+                    <Label  x:Name="TotalFee" />
+                </StackLayout>
+
+                <BoxView HeightRequest="10"></BoxView>
+
+                <Button x:Name="SendButton"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        BorderRadius="20"
+                        Text="Send"
+                        IsEnabled="False"
+                        Clicked="Confirm_Clicked" />
+            </StackLayout>
+
+            <StackLayout Margin="10, 0, 10 ,0">
+                <Label x:Name="activIndicText"
+                       Text="Your transaction is being processed. It can take couple of minutes, please wait."
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+                <ActivityIndicator x:Name="activIndic"
+                                   IsRunning="False"
+                                   IsVisible="False" />
+                <Label x:Name="TransacSuccessStatus"
+                       Text=""
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+                <Label x:Name="transacId"
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Localization;assembly=Localization"
+             x:Class="CommunityClient.Pages.TextAndDescription">
+  <ContentPage.Content>
+    <StackLayout>
+      <Label x:Name="Title" FontSize="Header" HorizontalTextAlignment="End" BackgroundColor="DarkGray" TextColor="White" />
+      <Label x:Name="EmoticonLabel" Text="{x:Static localization:Resources.Dictionary.Emoticon}" />
+      <Entry x:Name="Emoticon" MaxLength="2" FontSize="Large" Keyboard="Chat" x:FieldModifier="public"></Entry>
+      <Label x:Name="TextLabel" Text="{x:Static localization:Resources.Dictionary.Name}" />
+      <Entry x:Name="Text" x:FieldModifier="public"></Entry>
+      <Label Text="{x:Static localization:Resources.Dictionary.Description}" />
+      <Editor x:Name="Description" HeightRequest="100" x:FieldModifier="public"></Editor>
+      <Button x:Name="CreateNew" Text="{x:Static localization:Resources.Dictionary.CreateNewGroup}" IsEnabled="False" x:FieldModifier="public"></Button>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

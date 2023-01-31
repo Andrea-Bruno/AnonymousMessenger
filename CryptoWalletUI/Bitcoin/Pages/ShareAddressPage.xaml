@@ -1,0 +1,83 @@
+﻿<local:BasePage xmlns:local="clr-namespace:CryptoWalletUI"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                ios:Page.UseSafeArea="true"
+                xmlns:model1="clr-namespace:CryptoWalletLibrary.Models;assembly=CryptoWalletLibrary"
+                x:DataType="model1:BitcoinTransactionViewModel"
+                x:Class="CryptoWalletUI.Bitcoin.Views.ShareAddressPage">
+    
+    <ContentPage.BindingContext>
+        <model1:BitcoinTransactionViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Topbar Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout HorizontalOptions="Start"
+                             Margin="20,0,0,0"
+                             VerticalOptions="Center"
+                             Padding="0"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                    <Label Text="ᐸ"
+                           FontSize="20">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back_Clicked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       MaxLines="1"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Receive BTC"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+            </Grid>
+            <!---->
+
+            <BoxView HeightRequest="10"></BoxView>
+            <StackLayout Orientation="Vertical">
+                <!-- User Address-->
+                <Label Text="Your Address: "
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="Address"
+                       FontSize="Medium"
+                       Margin="10,0,10,0"
+                       HorizontalOptions="Center" />
+                <Button BorderRadius="20"
+                        HorizontalOptions="Center"
+                        Text="Copy To Clipboard"
+                        Clicked="OnCopyToClipBoardClicked" />
+                <!---->
+
+                <!-- Get new Address-->
+                <BoxView HeightRequest="50"></BoxView>
+                <Button BorderRadius="20"
+                        HorizontalOptions="Center"
+                        Text="Get New One"
+                        Clicked="OnRefreshButtonClicked" />
+                <!---->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

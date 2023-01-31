@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launcher_background">#000000</color>
+    <color name="colorPrimary">#2D2D2D</color>
+    <color name="colorPrimaryDark">#2d2d2d</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="ListViewSelected">#96BCE3</color>
+    <color name="ListViewHighlighted">#96BCE3</color>
+    <color name="splash_background">#FFFFFF</color>
+    <color name="colorPrimarySemiTransparent">#803a4fb7</color>
+    <color name="windowBackground">#FEC140</color>
+    <color name="navigationBarColor">#2d2d2d</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="roomActivityBackgroundColor">#2d2d2d</color>
+    <color name="splashScreenBackground">#14131A</color>
+    <color name="tabBarUnselected">#80ffffff</color>
+    <color name="tabBarSelected">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+</resources>

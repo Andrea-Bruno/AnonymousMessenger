@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local1:BaseContentView
+    x:Class="ChatComposer.ContactList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+    <local1:BaseContentView.Content>
+        <!-- SwipeEnded="ItemsListView_SwipeEnded" -->
+        <!-- SwipeStarted="ItemsListView_SwipeStarted" -->
+        <syncfusion:SfListView
+            x:Name="ItemsListView"
+            AllowSwiping="True"
+            BackgroundColor="Transparent"
+            ItemSize="100"
+            ItemTapped="OnItemSelected"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            HeightRequest="75"
+                            MinimumHeightRequest="75"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <StackLayout
+                                Margin="12"
+                                HeightRequest="50"
+                                MinimumHeightRequest="50"
+                                Orientation="Horizontal"
+                                Spacing="0"
+                                VerticalOptions="FillAndExpand">
+                                <local1:CustomAvatar
+                                    Contact="{Binding .}"
+                                    CornerRadius="25"
+                                    HeightRequest="50"
+                                    WidthRequest="50" />
+                                <local1:CustomLabel
+                                    x:Name="Name"
+                                    Margin="16,0,0,0"
+                                    FontFamily="PoppinsBold"
+                                    FontSize="16"
+                                    HorizontalOptions="FillAndExpand"
+                                    MaxLines="1"
+                                    Style="{DynamicResource ListItemTextStyle}"
+                                    Text="{Binding Name}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="92,0,0,0"
+                                HeightRequest="1"
+                                VerticalOptions="Fill"
+                                Color="{x:DynamicResource Color3}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </local1:BaseContentView.Content>
+</local1:BaseContentView>

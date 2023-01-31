@@ -1,0 +1,87 @@
+﻿<local:BasePage  xmlns:local="clr-namespace:CryptoWalletUI"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="CryptoWalletUI.Ehtereum.Pages.ShareAddressPage"
+                 xmlns:Helpers="clr-namespace:CryptoWalletUI.Ehtereum.Utilies"
+                 xmlns:model1="clr-namespace:CryptoWalletLibrary.Ehtereum.ViewModels;assembly=CryptoWalletLibrary"
+                 x:DataType="model1:EthTxViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:NegateBooleanConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout HorizontalOptions="Start"
+                             Margin="20,0,0,0"
+                             VerticalOptions="Center"
+                             Padding="0"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                    <Label Text="ᐸ"
+                           FontSize="20">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back_Clicked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       MaxLines="1"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Share Your Address"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+
+            </Grid>
+            <BoxView HeightRequest="10"></BoxView>
+            <StackLayout x:Name="BalanceLayout"
+                         Orientation="Vertical">
+
+                <Label Text="Your Address: "
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+                <BoxView HeightRequest="50"></BoxView>
+                <Label Text="We are updating your wallet, this adress might be already used, please wait"
+                       IsVisible="{Binding IsDataLoading}"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+                <ActivityIndicator IsRunning="{Binding IsDataLoading}"
+                                   IsVisible="{Binding IsDataLoading}" />
+
+                <Label x:Name="ShareAddress"
+                       Text="{Binding ShareAddress}"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="10,0,10,0"
+                       FontSize="Medium" />
+                <BoxView HeightRequest="50"></BoxView>
+
+                <Button BorderRadius="20"
+                        HorizontalOptions="Center"
+                        Text="Get New One"
+                        IsEnabled="{Binding IsDataLoading, Converter={StaticResource  InvertedBoolConverter}}"
+                        Clicked="OnRefreshButtonClicked" />
+
+                <Button BorderRadius="20"
+                        HorizontalOptions="Center"
+                        Text="Copy To Clipboard"
+                        Clicked="OnCopyToClipBoardClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</local:BasePage>

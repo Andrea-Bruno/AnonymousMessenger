@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local1:BasePage
+    x:Class="Telegraph.Views.ShareFileFromExternalAppPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:Telegraph"
+    xmlns:local11="clr-namespace:Telegraph.Views"
+    x:Name="ShareFile"
+    ios:Page.UseSafeArea="true">
+    <StackLayout BackgroundColor="{x:StaticResource MainBackgroundColor}">
+        <Grid BackgroundColor="{x:StaticResource MainBackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5,-12,0,0"
+                Padding="16"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+                <Image
+                    x:Name="BackButton"
+                    HeightRequest="15"
+                    Source="{local1:ImageResourceExtension ic_back_icon.png}"
+                    WidthRequest="15" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Clicked" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <local1:CustomPageHeaderLabel
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,-12,0,0"
+                FontSize="22"
+                HorizontalOptions="Center"
+                Text="{x:Static local:Resources.Dictionary.ShareFile}"
+                TextColor="{x:DynamicResource ToolbarTitleColor}"
+                VerticalOptions="Center" />
+        </Grid>
+        <Frame
+            Margin="0"
+            Padding="0"
+            BackgroundColor="{x:StaticResource MainBackgroundColor}"
+            CornerRadius="18"
+            HasShadow="False">
+            <StackLayout Orientation="Vertical">
+                <StackLayout>
+                    <Frame
+                        Margin="15,15,15,10"
+                        Padding="0,0,0,0"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <Frame.BorderColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android">#3C607E</On>
+                                <On Platform="iOS, WinPhone, UWP">#F6F8FB</On>
+                            </OnPlatform>
+                        </Frame.BorderColor>
+                        <Frame.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color">
+                                <On Platform="Android">#F6F8FB</On>
+                                <On Platform="iOS, WinPhone, UWP">#F6F8FB</On>
+                            </OnPlatform>
+                        </Frame.BackgroundColor>
+                        <local1:CustomSearchBar
+                            x:Name="ContactSearch"
+                            HeightRequest="42"
+                            Opacity="1"
+                            Placeholder="{x:Static local:Resources.Dictionary.Search}"
+                            TextChanged="Search_TextChanged" />
+                    </Frame>
+                </StackLayout>
+                <ListView
+                    x:Name="ItemsListView"
+                    HasUnevenRows="true"
+                    ItemSelected="OnItemSelected"
+                    ItemsSource="{Binding Items}"
+                    SeparatorVisibility="None"
+                    VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame
+                                    Margin="-2,3,10,3"
+                                    Padding="15,10,18,10"
+                                    BackgroundColor="White"
+                                    CornerRadius="5"
+                                    HasShadow="False">
+                                    <StackLayout Padding="1" Orientation="Horizontal">
+                                        <controls:CircleImage
+                                            HeightRequest="50"
+                                            HorizontalOptions="Start"
+                                            Source="{local1:ImageResourceExtension ic_chat_user.xml}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="50">
+                                            <controls:CircleImage.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding isGroup}"
+                                                    TargetType="controls:CircleImage"
+                                                    Value="True">
+                                                    <Setter Property="Source" Value="group" />
+                                                </DataTrigger>
+                                            </controls:CircleImage.Triggers>
+                                        </controls:CircleImage>
+                                        <Image
+                                            x:Name="isOnlineImage"
+                                            Margin="-20,35,0,0"
+                                            HeightRequest="13"
+                                            IsVisible="false"
+                                            Source="{local1:ImageResourceExtension ic_offline.xml}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="13" />
+                                        <StackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                                            <local1:CustomLabel
+                                                x:Name="Name"
+                                                FontSize="16"
+                                                HorizontalOptions="Start"
+                                                LineBreakMode="NoWrap"
+                                                Style="{DynamicResource ListItemTextStyle}"
+                                                Text="{Binding Name}"
+                                                TextColor="Black" />
+                                            <StackLayout Orientation="Horizontal">
+                                                <local1:CustomLabel
+                                                    x:Name="Message"
+                                                    FontSize="13"
+                                                    IsVisible="False"
+                                                    LineBreakMode="NoWrap"
+                                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                                    Text="{x:Static local:Resources.Dictionary.Online}"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</local1:BasePage>

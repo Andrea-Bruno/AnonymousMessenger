@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CustomViewElements.CustomNoItem"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    >
+    <ContentView.Content>
+        <StackLayout>
+            <StackLayout
+                x:Name="NoItemPage"
+                Margin="0,30,0,0"
+                Padding="-50,0,-10,0"
+                Orientation="Vertical">
+                <Image
+                    x:Name="Image"
+                    HeightRequest="300"
+                    WidthRequest="500" />
+            </StackLayout>
+            <StackLayout Margin="70,30,70,0">
+                <Label
+                    FontFamily="PoppinsSemiBold"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static local:Resources.Dictionary.YourConversationsWillBeListedHere}"
+                    TextColor="{x:DynamicResource Background}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

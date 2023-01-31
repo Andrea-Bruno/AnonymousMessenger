@@ -1,0 +1,150 @@
+﻿<local:BasePage xmlns:local="clr-namespace:CryptoWalletUI"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                ios:Page.UseSafeArea="true"
+                xmlns:Helpers="clr-namespace:CryptoWalletUI.Bitcoin.Utils"
+                xmlns:model1="clr-namespace:CryptoWalletLibrary.Models;assembly=CryptoWalletLibrary"
+                x:DataType="model1:BitcoinTransactionViewModel"
+                x:Class="CryptoWalletUI.Bitcoin.Views.ShowBalancePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:BoolToStringConverter x:Key="BoolToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--Topbar Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <StackLayout HorizontalOptions="End"
+                             Margin="0,0,20,0"
+                             VerticalOptions="Center"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                    <Label Text="Send BTC ↑">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSendBitcoinClciked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       MaxLines="1"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Text="BTC Wallet"
+                       FontSize="20" />
+                
+                <StackLayout HorizontalOptions="Start"
+                             Margin="20,0,0,0"
+                             VerticalOptions="Center"
+                             Grid.Row="0"
+                             Grid.Column="2">
+                    <Label Text="Receive BTC ↓">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnReceiveBitcoinClciked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+            <!---->
+
+            <!--Balance-->
+            <StackLayout x:Name="BalanceLayout"
+                         Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="Balance: "
+                       FontSize="Large" />
+                <Label x:Name="BalanceAmount"
+                       FontSize="Large"
+                       Text="{Binding Balance.Total,  StringFormat='{0:0.#######}'}" />
+                <Label Text="BTC"
+                       FontSize="Large" />
+            </StackLayout>
+            <!---->
+
+            <!--Transaction History and query indicators-->
+            <Label Text=" Transactions History"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Large"
+                   FontAttributes="Bold"></Label>
+            <Label Text="  We are getting transactions"
+                   IsVisible="{Binding IsWeAreQueryingBChain}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"></Label>
+            <ActivityIndicator IsRunning="{Binding IsDataLoading}"
+                               IsVisible="{Binding IsDataLoading}" />
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="CenterAndExpand">
+                <Label Text=" Transactions not Found. Pull to Refresh"
+                       IsVisible="{Binding IfListEmpty}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout x:Name="RefreshLayout"></StackLayout>
+            <!---->
+
+            <!--Transactions List-->
+            <ListView x:Name="TxList"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      ItemTapped="ListView_ItemTapped"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      ItemsSource="{Binding Transactions}"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model1:BitcoinTransaction">
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                       HasShadow="True">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding FromOrTo }"
+                                               WidthRequest="66"
+                                               VerticalOptions="Center"
+                                               FontSize="Large" />
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Text="{Binding Amount ,  StringFormat='{0:0.########}' }"
+                                                   VerticalOptions="Center"
+                                                   FontSize="Large" />
+                                            <Label FontSize="Medium"
+                                                   Text="{Binding  Address }"
+                                                   VerticalOptions="Center" />
+                                            <Label x:Name="Address"
+                                                   FontSize="Medium"
+                                                   Text="{Binding Date}"
+                                                   VerticalOptions="Center" />
+                                            <Label x:Name="Status"
+                                                   FontSize="Medium"
+                                                   Text="{Binding Confirmed, Converter={StaticResource  BoolToStringConverter}}"
+                                                   VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!---->
+            
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

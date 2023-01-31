@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    x:Class="Telegraph.Views.TermsAndConditionPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Telegraph"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    ios:Page.UseSafeArea="true">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="200"
+            DurationOut="140"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="0.6"
+            ScaleOut="0.6" />
+    </pages:PopupPage.Animation>
+
+    <StackLayout
+        Padding="20,0"
+        HeightRequest="400"
+        VerticalOptions="Center">
+        <Frame
+            Padding="0"
+            BackgroundColor="{DynamicResource MainBackgroundColor}"
+            CornerRadius="10"
+            HasShadow="False">
+            <StackLayout Padding="10">
+                <local:CustomLabel
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static local1:Resources.Dictionary.TermsAndConditions}"
+                    TextColor="White" />
+                <StackLayout>
+                    <StackLayout Padding="10">
+                        <Frame
+                            Margin="0,0,0,20"
+                            BackgroundColor="White"
+                            BorderColor="Black"
+                            CornerRadius="10"
+                            HasShadow="False">
+                            <WebView
+                                x:Name="privacyPolicy"
+                                HeightRequest="250"
+                                Source="http://www.bitboxlab.eu/PrivacyPolicy.html" />
+                        </Frame>
+
+                        <Button
+                            Padding="10,0,10,0"
+                            BackgroundColor="White"
+                            Clicked="Button_Clicked"
+                            CornerRadius="10"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{x:Static local1:Resources.Dictionary.Ok}"
+                            TextColor="{DynamicResource BlackTextColor}"
+                            VerticalOptions="End"
+                            WidthRequest="100" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,148 @@
+﻿<local:BasePage xmlns:local="clr-namespace:CryptoWalletUI"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                ios:Page.UseSafeArea="true"
+                xmlns:model1="clr-namespace:CryptoWalletLibrary.Models;assembly=CryptoWalletLibrary"
+                x:DataType="model1:UnspentCoinViewModel"
+                x:Class="CryptoWalletUI.Bitcoin.Views.SendBitcoinPage">
+
+    <ContentPage.BindingContext>
+        <model1:UnspentCoinViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <!--Topbar Menu-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout HorizontalOptions="Start"
+                             Margin="20,0,0,0"
+                             VerticalOptions="Center"
+                             Padding="0"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                    <Label Text="ᐸ"
+                           FontSize="20">
+                    </Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back_Clicked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       MaxLines="1"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Send BTC"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+            </Grid>
+            <!---->
+
+            <BoxView HeightRequest="10"></BoxView>
+
+            <!--Entry-->
+            <Label Text="Enter Details for Transaction"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="Medium" />
+
+           
+            
+            <StackLayout Margin="10,0,10,0">
+                <Label  Text="Address:" />
+                <Editor x:Name="Address"
+                        Placeholder=""
+                        TextChanged="Address_TextChanged" />
+                <Label x:Name="AddressError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+                
+                <Label  Text="Amount:" />
+                <Entry  x:Name="Amount"
+                        TextChanged="Amount_TextChanged"
+                        VerticalOptions="Start" />
+                <Label x:Name="AmountError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Automatically Selected Fee:"></Label>
+                    <Label x:Name="AutoFee"
+                           Text="Specify Address and Amount"></Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Manual Fee Selection Mode:"
+                           VerticalOptions="Center"></Label>
+                    <Switch x:Name="ManualFeeSelectionMode"
+                            IsToggled="False"
+                            Toggled="ManualFeeSwitch_Toggled"
+                            VerticalOptions="Center" />
+                </StackLayout>
+                <Entry x:Name="Fee"
+                       Placeholder="Fee"
+                       IsEnabled="False"
+                       TextChanged="Fee_TextChanged" />
+                <Label x:Name="FeeError"
+                       TextColor="{DynamicResource RedColor}"></Label>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Manual Coin Selection Mode:"
+                           VerticalOptions="Center"></Label>
+                    <Switch x:Name="ManualCoinSelectionMode"
+                            IsToggled="False"
+                            Toggled="ManualCoinSwitch_Toggled" />
+                    <Button x:Name="CoinSelection"
+                            IsEnabled="False"
+                            Text="Select Coins"
+                            BorderRadius="20"
+                            Pressed="ManualCoinSeletion_Clicked">
+                    </Button>
+                </StackLayout>
+                <BoxView HeightRequest="50"></BoxView>
+            </StackLayout>
+            <!---->
+
+            <Label x:Name="invalidUserInput"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource RedColor}"></Label>
+            <Button x:Name="SendButton"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    BorderRadius="20"
+                    Text="Send"
+                    IsEnabled="False"
+                    Clicked="Confirm_Clicked" />
+            <StackLayout Margin="10, 0,10,0">
+                <Label x:Name="activIndicText"
+                       Text="Your transaction is being processed. It can take couple of minutes, please wait."
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+                <ActivityIndicator x:Name="activIndic"
+                                   IsRunning="False"
+                                   IsVisible="False" />
+                <Label x:Name="succTransac"
+                       Text="Transaction is successfully broadcasted, your Transaction ID:"
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+                <Label x:Name="transacId"
+                       HorizontalOptions="Center"></Label>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</local:BasePage>

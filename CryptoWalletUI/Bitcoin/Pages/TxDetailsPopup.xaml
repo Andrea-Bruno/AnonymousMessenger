@@ -1,0 +1,138 @@
+﻿<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 mc:Ignorable="d"
+                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                 ios:Page.UseSafeArea="true"
+                 xmlns:model="clr-namespace:CryptoWalletLibrary.Models;assembly=CryptoWalletLibrary"
+                 x:Class="CryptoWalletUI.Bitcoin.Views.TxDetailsPopup">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="0.6"
+                                   ScaleOut="0.6"
+                                   DurationIn="200"
+                                   DurationOut="140"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="False" />
+    </pages:PopupPage.Animation>
+    
+    <ContentPage.BindingContext>
+        <model:BitcoinTxDetailsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Frame CornerRadius="10"
+               BackgroundColor="{DynamicResource LightColor}"
+               Margin="40,80,40,40"
+               HasShadow="False"
+               VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <Label Text="Transaction Details"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"></Label>
+                
+                <!--Transaction Inputs-->
+                <CollectionView ItemsSource="{Binding Vins}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:VinOut">
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                       BackgroundColor="{DynamicResource WhiteColor}"
+                                       HasShadow="True">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="Address"
+                                                   HorizontalOptions="Start"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label FontSize="Medium"
+                                                   Text="{Binding  Adress }"
+                                                   HorizontalOptions="Start" />
+                                        </StackLayout>
+                                        <StackLayout  Orientation="Vertical">
+                                            <Label Text="Amount"
+                                                   HorizontalOptions="Start"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label Text="{Binding Amount }"
+                                                   HorizontalOptions="Start"
+                                                   FontSize="Medium" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Header>
+                        <Label HorizontalOptions="CenterAndExpand"
+                               Text="Inputs"
+                               HorizontalTextAlignment="Center" />
+                    </CollectionView.Header>
+                </CollectionView>
+                <!---->
+                
+                <!--Transaction Ouptuts-->
+                <CollectionView ItemsSource="{Binding Vouts}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:VinOut">
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                       BackgroundColor="{DynamicResource WhiteColor}"
+                                       HasShadow="True">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout  Orientation="Vertical">
+                                            <Label Text="Address"
+                                                   HorizontalOptions="Start"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label Text="{Binding Adress }"
+                                                   HorizontalOptions="Start"
+                                                   FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="Amount"
+                                                   HorizontalOptions="Start"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label FontSize="Medium"
+                                                   Text="{Binding  Amount }"
+                                                   HorizontalOptions="Start" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Header>
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="CenterAndExpand"
+                                   Text="Outputs"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </CollectionView.Header>
+                </CollectionView>
+                <!---->
+                
+                <StackLayout Orientation="Horizontal">
+                    <Button CornerRadius="10"
+                            Margin="0,20,0,20"
+                            WidthRequest="50"
+                            Padding="12, 3, 12, 3"
+                            VerticalOptions="End"
+                            HorizontalOptions="CenterAndExpand"
+                            Clicked="Back_Clicked"
+                            Text="Ok"
+                            BackgroundColor="{DynamicResource WhiteColor}">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

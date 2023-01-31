@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local1:BasePage
+    x:Class="Telegraph.Views.VideoPreviewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local2="clr-namespace:Localization;assembly=Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout>
+        <local1:MyCustomToolbar
+            x:Name="Toolbar"
+            Title="{x:Static local2:Resources.Dictionary.Video}"
+            OnBackBtnClicked="Back_Clicked" />
+        <xct:MediaElement
+            x:Name="VideoPlayer"
+            Aspect="Fill"
+            HorizontalOptions="FillAndExpand"
+            KeepScreenOn="True"
+            ShowsPlaybackControls="True"
+            VerticalOptions="FillAndExpand">
+            <xct:MediaElement.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS">500</On>
+                </OnPlatform>
+            </xct:MediaElement.HeightRequest>
+        </xct:MediaElement>
+    </StackLayout>
+</local1:BasePage>

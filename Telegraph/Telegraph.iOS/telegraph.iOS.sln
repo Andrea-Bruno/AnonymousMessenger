@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telegraph.iOS", "telegraph.iOS.csproj", "{46436CE2-0D26-44E9-8FFD-3F0A890014B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Debug|iPhone.Build.0 = Debug|iPhone
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Release|iPhone.ActiveCfg = Release|iPhone
+		{46436CE2-0D26-44E9-8FFD-3F0A890014B7}.Release|iPhone.Build.0 = Release|iPhone
+	EndGlobalSection
+EndGlobal

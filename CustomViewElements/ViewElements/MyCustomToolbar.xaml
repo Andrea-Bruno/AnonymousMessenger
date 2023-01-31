@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CustomViewElements.MyCustomToolbar"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:views="clr-namespace:CustomViewElements"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    <ContentView.Content>
+        <StackLayout HeightRequest="58" Spacing="0">
+            <AbsoluteLayout
+                x:Name="toolbar"
+                HeightRequest="58"
+                IsVisible="true"
+                MinimumHeightRequest="58">
+                <views:CustomLabel
+                    x:Name="TitleLabel"
+                    Margin="0"
+                    Padding="0"
+                    x:FieldModifier="public"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    CharacterSpacing="0"
+                    FontFamily="PoppinsBold"
+                    FontSize="27"
+                    MaxLines="1"
+                    Text="{x:Static local:Resources.Dictionary.Chat}"
+                    TextColor="{DynamicResource ToolbarTitleColor}"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    Padding="0,12,0,0"
+                    AbsoluteLayout.LayoutBounds="1,0.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    HeightRequest="58"
+                    WidthRequest="55">
+
+                    <yummy:PancakeView
+                        x:Name="pancake"
+                        x:FieldModifier="public"
+                        BackgroundColor="{DynamicResource Color2}"
+                        CornerRadius="10,10,0,0"
+                        HeightRequest="58"
+                        IsVisible="false"
+                        WidthRequest="50" />
+                </StackLayout>
+                <StackLayout
+                    x:Name="LeftButtonsLayout"
+                    AbsoluteLayout.LayoutBounds="0,0.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Orientation="Horizontal"
+                    Spacing="0" />
+                <Grid
+                    x:Name="RightButtonsLayout"
+                    AbsoluteLayout.LayoutBounds="1,0.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    ColumnSpacing="0" />
+            </AbsoluteLayout>
+            <StackLayout
+                x:Name="ToolbarSearchLayout"
+                x:FieldModifier="public"
+                BackgroundColor="{DynamicResource Color2}"
+                HeightRequest="58"
+                IsVisible="false"
+                MinimumHeightRequest="58"
+                Orientation="Horizontal"
+                Spacing="0">
+                <Frame
+                    x:Name="SearchBarFrame"
+                    Margin="30,6,0,6"
+                    Padding="12,0,12,0"
+                    BackgroundColor="{DynamicResource Color1}"
+                    CornerRadius="24"
+                    HasShadow="False"
+                    HeightRequest="38"
+                    HorizontalOptions="FillAndExpand"
+                    MinimumHeightRequest="38">
+                    <StackLayout Orientation="Horizontal">
+                        <Image
+                            x:Name="SearchIcon"
+                            Margin="0,0,0,0"
+                            HeightRequest="24"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            WidthRequest="24" />
+                        <views:CustomEntry
+                            x:Name="SearchEntry"
+                            x:FieldModifier="public"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand"
+                            Placeholder="{x:Static local:Resources.Dictionary.Search}"
+                            PlaceholderColor="{x:DynamicResource ToolbarTitleColor}"
+                            TextColor="{x:DynamicResource ToolbarTitleColor}" />
+                    </StackLayout>
+                </Frame>
+                <ImageButton
+                    x:Name="toolbarSearchClear"
+                    Padding="16"
+                    x:FieldModifier="public"
+                    BackgroundColor="Transparent"
+                    Clicked="SearchClearButton_Clicked"
+                    HeightRequest="48"
+                    HorizontalOptions="Center"
+                    MinimumHeightRequest="48"
+                    MinimumWidthRequest="48"
+                    VerticalOptions="Center"
+                    WidthRequest="48" />
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

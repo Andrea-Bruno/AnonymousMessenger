@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<customViewElements:BaseContentView
+    x:Class="MessageCompose.Composer"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customViewElements="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:utils="clr-namespace:Utils;assembly=Utils"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    <customViewElements:BaseContentView.Content>
+        <StackLayout
+            x:Name="MainLayout"
+            Orientation="Vertical"
+            Spacing="0"
+            VerticalOptions="FillAndExpand">
+            <Grid
+                x:Name="NormalState"
+                Margin="12,0,12,0"
+                Padding="0"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="true"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    x:Name="ReplyBox"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="4"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="false"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Frame
+                        Padding="0"
+                        BackgroundColor="{x:DynamicResource Background}"
+                        CornerRadius="5"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <BoxView BackgroundColor="{x:DynamicResource BoxView}" WidthRequest="5" />
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                <Label
+                                    x:Name="UserName"
+                                    FontSize="12"
+                                    HorizontalOptions="FillAndExpand" />
+                                <Label x:Name="Reply" HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                            <Button
+                                BackgroundColor="Transparent"
+                                Text="X"
+                                VerticalOptions="Start"
+                                WidthRequest="35" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    x:Name="Attachment"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HeightRequest="36"
+                    MinimumHeightRequest="36"
+                    MinimumWidthRequest="36"
+                    Spacing="0"
+                    VerticalOptions="Center"
+                    WidthRequest="36">
+                    <Image
+                        x:Name="AttachmentIcon"
+                        HeightRequest="24"
+                        HorizontalOptions="CenterAndExpand"
+                        MinimumHeightRequest="24"
+                        MinimumWidthRequest="24"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="24" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Attachment_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <Frame
+                    x:Name="MessageFrame"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,12,6,12"
+                    Padding="10,0,10,2"
+                    BackgroundColor="{x:DynamicResource Color2}"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center">
+                    <customViewElements:CustomEditor
+                        x:Name="TextMessage"
+                        x:FieldModifier="public"
+                        AutoSize="TextChanges"
+                        AutoSizeMaximumHeight="80"
+                        BackgroundColor="Transparent"
+                        FontSize="16"
+                        Keyboard="Chat"
+                        Placeholder="{x:Static local:Resources.Dictionary.TypeAMessage}"
+                        PlaceholderColor="{x:DynamicResource PlaceholColor}"
+                        TextChanged="MessageText_Changed"
+                        TextColor="{DynamicResource PopupTextColor}" />
+                </Frame>
+                <StackLayout
+                    x:Name="Camera"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HeightRequest="36"
+                    MinimumHeightRequest="36"
+                    MinimumWidthRequest="36"
+                    VerticalOptions="Center"
+                    WidthRequest="36">
+                    <Image
+                        x:Name="CameraIcon"
+                        HeightRequest="24"
+                        HorizontalOptions="CenterAndExpand"
+                        MinimumHeightRequest="24"
+                        MinimumWidthRequest="24"
+                        Source="{utils:ImageResourceExtension ic_new_camera.png}"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="24" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Camera_ClickedAsync" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="Rec"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    HeightRequest="36"
+                    MinimumHeightRequest="36"
+                    MinimumWidthRequest="36"
+                    VerticalOptions="Center"
+                    WidthRequest="36">
+                    <Image
+                        x:Name="RecIcon"
+                        HeightRequest="24"
+                        HorizontalOptions="CenterAndExpand"
+                        MinimumHeightRequest="24"
+                        MinimumWidthRequest="24"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="24" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_ClickedAsync" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="Send"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    HeightRequest="48"
+                    IsVisible="false"
+                    MinimumHeightRequest="48"
+                    MinimumWidthRequest="48"
+                    VerticalOptions="Center"
+                    WidthRequest="48">
+                    <Image
+                        x:Name="SendIcon"
+                        HeightRequest="32"
+                        HorizontalOptions="CenterAndExpand"
+                        MinimumHeightRequest="32"
+                        MinimumWidthRequest="32"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="32" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_ClickedAsync" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+            <StackLayout
+                x:Name="SelectionState"
+                BackgroundColor="{x:DynamicResource Background}"
+                HeightRequest="35"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                Orientation="Horizontal"
+                Spacing="0">
+                <StackLayout
+                    x:Name="ReplyLayout"
+                    HorizontalOptions="StartAndExpand"
+                    Orientation="Horizontal">
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Reply_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Image
+                        HeightRequest="24"
+                        Source="{utils:ImageResourceExtension ic_multiforward_forward.png}"
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
+                    <Label
+                        Margin="0"
+                        FontFamily="PoppinsRegular"
+                        FontSize="14"
+                        HorizontalTextAlignment="Start"
+                        Text="Reply"
+                        TextColor="{x:DynamicResource Foreground}"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                <StackLayout
+                    x:Name="ForwardLaoyut"
+                    HorizontalOptions="EndAndExpand"
+                    Orientation="Horizontal">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Forward_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Label
+                        FontFamily="PoppinsRegular"
+                        FontSize="14"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        Text="Forward"
+                        TextColor="{x:DynamicResource Foreground}"
+                        VerticalOptions="Center" />
+                    <Image
+                        HeightRequest="24"
+                        Source="{utils:ImageResourceExtension ic_multiforward_forward.png}"
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
+                </StackLayout>
+            </StackLayout>
+            <AbsoluteLayout
+                x:Name="RecordingState"
+                Margin="10,0,8,0"
+                Padding="0,-2"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                VerticalOptions="Center">
+                <Frame
+                    Margin="6,12,16,12"
+                    Padding="16,10"
+                    AbsoluteLayout.LayoutBounds="0,0,1,-1"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    BackgroundColor="{x:DynamicResource Color2}"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center">
+                    <StackLayout
+                        x:Name="Audio_Lyt"
+                        Orientation="Horizontal"
+                        Spacing="0"
+                        VerticalOptions="Center">
+                        <ImageButton
+                            x:Name="Cancel"
+                            BackgroundColor="Transparent"
+                            Clicked="Cancel_Clicked"
+                            HeightRequest="24"
+                            VerticalOptions="Center"
+                            WidthRequest="24" />
+                        <ImageButton
+                            x:Name="FinishRecordIcon"
+                            Margin="16,0,0,0"
+                            BackgroundColor="Transparent"
+                            Clicked="Finish_Recording_Clicked"
+                            HeightRequest="22"
+                            VerticalOptions="Center"
+                            WidthRequest="22" />
+                        <Grid
+                            Margin="12,0,45,0"
+                            ColumnSpacing="0"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                x:Name="AudioTxt"
+                                Grid.Column="0"
+                                FontSize="15"
+                                HorizontalTextAlignment="End"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1"
+                                Text="{x:Static local:Resources.Dictionary.AudioRecording}"
+                                TextColor="{x:DynamicResource Audio}"
+                                VerticalOptions="Center" />
+                            <Label
+                                x:Name="AudioTime"
+                                Grid.Column="1"
+                                FontSize="15"
+                                MaxLines="1"
+                                Text="00:00"
+                                TextColor="{x:DynamicResource Audio}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <yummy:PancakeView
+                    AbsoluteLayout.LayoutBounds="1,0"
+                    AbsoluteLayout.LayoutFlags="XProportional"
+                    CornerRadius="33">
+                    <forms:AnimationView
+                        x:Name="recorderIcon"
+                        Animation="microphone-animation.json"
+                        AutoPlay="True"
+                        BackgroundColor="{x:DynamicResource Color2}"
+                        HeightRequest="66"
+                        HorizontalOptions="FillAndExpand"
+                        RepeatMode="Infinite"
+                        VerticalOptions="Center"
+                        WidthRequest="66" />
+                </yummy:PancakeView>
+            </AbsoluteLayout>
+            <AbsoluteLayout x:Name="SendState" IsVisible="false">
+                <Frame
+                    Margin="16,12"
+                    Padding="0"
+                    AbsoluteLayout.LayoutBounds="0,0,1,-1"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    BackgroundColor="{x:DynamicResource Color2}"
+                    CornerRadius="20"
+                    HasShadow="False"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center">
+                    <StackLayout x:Name="Audio_Send_Lyt" Orientation="Horizontal">
+                        <StackLayout
+                            Padding="12,8"
+                            HorizontalOptions="StartAndExpand"
+                            Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AudioPlay_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                            <Image
+                                x:Name="Play"
+                                HeightRequest="24"
+                                VerticalOptions="Center"
+                                WidthRequest="24" />
+                            <Label
+                                x:Name="PlayTxt"
+                                Margin="0"
+                                FontFamily="PoppinsRegular"
+                                FontSize="14"
+                                HorizontalTextAlignment="Start"
+                                Text="{x:Static local:Resources.Dictionary.Play}"
+                                TextColor="{x:DynamicResource Audio}"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout
+                            Padding="12,8"
+                            HorizontalOptions="EndAndExpand"
+                            Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                FontFamily="PoppinsRegular"
+                                FontSize="14"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static local:Resources.Dictionary.Delete}"
+                                TextColor="{x:DynamicResource Audio}"
+                                VerticalOptions="Center" />
+                            <Image
+                                x:Name="Delete"
+                                HeightRequest="24"
+                                VerticalOptions="Center"
+                                WidthRequest="24" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <ImageButton
+                    x:Name="AudioSend"
+                    AbsoluteLayout.LayoutBounds="0.5,-4"
+                    AbsoluteLayout.LayoutFlags="XProportional"
+                    BackgroundColor="Transparent"
+                    Clicked="AudioSend_ClickedAsync"
+                    HeightRequest="80"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="80" />
+            </AbsoluteLayout>
+        </StackLayout>
+    </customViewElements:BaseContentView.Content>
+</customViewElements:BaseContentView>

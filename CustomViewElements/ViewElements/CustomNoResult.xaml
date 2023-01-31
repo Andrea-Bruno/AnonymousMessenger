@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="CustomViewElements.CustomNoResult"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements">
+    <ContentView.Content>
+        <StackLayout x:Name="NoResultPage" Orientation="Vertical">
+            <Image
+                x:Name="Image"
+                Margin="0,50,0,0"
+                HeightRequest="250"
+                WidthRequest="200" />
+            <Label
+                Margin="0,40,0,0"
+                FontFamily="PoppinsBold"
+                FontSize="18"
+                HorizontalOptions="Center"
+                Text="{x:Static local:Resources.Dictionary.NoResultFound}"
+                TextColor="{x:DynamicResource Background}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823429171516",
+    "project_id": "uup-whitelabel",
+    "storage_bucket": "uup-whitelabel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823429171516:android:ef200a5aa8b01162b67639",
+        "android_client_info": {
+          "package_name": "com.bitboxlab.telegraphwhitelabel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823429171516-llocs6ocknepc12vu1tuiv55g8vin6a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMj25cOw3s3JRd_dmp1Nul5bhxJgqWEkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823429171516-llocs6ocknepc12vu1tuiv55g8vin6a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
