@@ -6,6 +6,8 @@ Our mission is to exacerbate the concept of security in messaging and create som
 
 This project also includes a Bitcoin Wallet, Ethereum, token management on the ethereum network, NFT, integrated with the messaging app, to activate these projects at startup you need to use the DEBUG_RAM startup mode.
 
+The project also includes the foundation for a decentralized social platform (launching as DEBUG_AND).
+
 This project has three open source dependencies for security and functionality. These dependencies are implemented here in the form of Nuget packages, and here are the sources on GitHub (you can replace the nuget packages with the source projects if you want):
 
 [Secure storage](https://github.com/Andrea-Bruno/SecureStorage) it is a powerful data safe, the cryptographic keys and data that would allow the software to be attacked are kept with this tool.
