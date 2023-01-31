@@ -10,9 +10,11 @@ The project also includes the foundation for a decentralized social platform (la
 
 This project has three open source dependencies for security and functionality. These dependencies are implemented here in the form of Nuget packages, and here are the sources on GitHub (you can replace the nuget packages with the source projects if you want):
 
-[Secure storage](https://github.com/Andrea-Bruno/SecureStorage) it is a powerful data safe, the cryptographic keys and data that would allow the software to be attacked are kept with this tool.
-[Encrypted messaging](https://github.com/Andrea-Bruno/EncryptedMessaging) it is a powerful low-level cryptographic protocol, of the Trustless type, which manages communication, groups and contacts (this software will never access your address book, this library is the heart of the application)
-[Communication channel](https://github.com/Andrea-Bruno/EncryptedMessaging/tree/master/CommunicationChannel) is the low-level socket communication protocol underlying encrypted communication.
+* [Secure storage](https://github.com/Andrea-Bruno/SecureStorage) it is a powerful data safe, the cryptographic keys and data that would allow the software to be attacked are kept with this tool.
+
+* [Encrypted messaging](https://github.com/Andrea-Bruno/EncryptedMessaging) it is a powerful low-level cryptographic protocol, of the Trustless type, which manages communication, groups and contacts (this software will never access your address book, this library is the heart of the application).
+
+* [Communication channel](https://github.com/Andrea-Bruno/EncryptedMessaging/tree/master/CommunicationChannel) is the low-level socket communication protocol underlying encrypted communication.
 
 Friendly projects for which we underline the importance of maintaining computer privacy:
 
