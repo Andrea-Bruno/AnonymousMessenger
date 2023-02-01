@@ -2,11 +2,11 @@
 using System;
 using System.IO;
 using AVFoundation;
-using TelegraphWhiteLabel.iOS.Services;
+using AnonymousWhiteLabel.iOS.Services;
 using XamarinShared.ViewCreator;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AudioPlayerManager))]
-namespace TelegraphWhiteLabel.iOS.Services
+namespace AnonymousWhiteLabel.iOS.Services
 {
     public class AudioPlayerManager : IAudioPlayer
     {

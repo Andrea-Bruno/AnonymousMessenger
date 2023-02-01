@@ -1,11 +1,11 @@
-﻿using TelegraphWhiteLabel.Droid.Services;
+﻿using AnonymousWhiteLabel.Droid.Services;
 using Xamarin.Forms;
 using Android.Content;
 using Android.Locations;
 using XamarinShared.ViewCreator;
 
 [assembly: Dependency(typeof(GpsManager))]
-namespace TelegraphWhiteLabel.Droid.Services
+namespace AnonymousWhiteLabel.Droid.Services
 {
     public class GpsManager : IGpsService
     {

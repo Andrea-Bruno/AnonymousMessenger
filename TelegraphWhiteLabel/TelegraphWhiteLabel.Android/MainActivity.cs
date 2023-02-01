@@ -7,6 +7,7 @@ using Android.OS;
 using Android.Provider;
 using Android.Runtime;
 using Com.Xamarin.Formsviewgroup;
+using Firebase;
 using Firebase.Iid;
 using System;
 using System.IO;
@@ -16,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace AnonymousWhiteLabel.Droid
 {
-	[Activity(Label = "TelegraphWhiteLabel", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Label = "AnonymousWhiteLabel", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IOnSuccessListener
 	{
 		internal static MainActivity Instance { get; private set; }
@@ -50,9 +51,10 @@ namespace AnonymousWhiteLabel.Droid
 				//========================================================
 			};
 
-			if (FirebaseInstanceId.Instance != null)
-				App.FirebaseToken = FirebaseInstanceId.Instance.Token;
-			FirebaseInstanceId.Instance.GetInstanceId().AddOnSuccessListener(this, this);
+            //var fapp = FirebaseApp.InitializeApp(this);
+   //         if (FirebaseInstanceId.Instance != null)
+			//	App.FirebaseToken = FirebaseInstanceId.Instance.Token;
+			//FirebaseInstanceId.Instance.GetInstanceId().AddOnSuccessListener(this, this);
 
 
 		}

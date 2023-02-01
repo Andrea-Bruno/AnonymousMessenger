@@ -2,12 +2,12 @@
 using System;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using TelegraphWhiteLabel.Droid.Services;
+using AnonymousWhiteLabel.Droid.Services;
 using System.IO;
 using XamarinShared.ViewCreator;
 
 [assembly: Dependency(typeof(AudioRecorder))]
-namespace TelegraphWhiteLabel.Droid.Services
+namespace AnonymousWhiteLabel.Droid.Services
 {
     public class AudioRecorder : IAudioRecorder
     {

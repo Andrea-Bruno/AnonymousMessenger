@@ -2,11 +2,11 @@
 using Foundation;
 using System;
 using System.IO;
-using TelegraphWhiteLabel.iOS.Services;
+using AnonymousWhiteLabel.iOS.Services;
 using XamarinShared.ViewCreator;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AudioRecorder))]
-namespace TelegraphWhiteLabel.iOS.Services
+namespace AnonymousWhiteLabel.iOS.Services
 {
     public class AudioRecorder : IAudioRecorder
     {

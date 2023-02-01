@@ -60,8 +60,8 @@ namespace AnonymousWhiteLabel.Droid
                     .SetAutoCancel(true)
                     .SetPriority(NotificationCompat.PriorityMax)
                     .SetDefaults(NotificationCompat.DefaultSound | NotificationCompat.DefaultVibrate)
-                    //.SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, TelegraphWhiteLabel.Droid.Resource.Drawable.app_logo))
-                    //.SetSmallIcon(TelegraphWhiteLabel.Droid.Resource.Drawable.app_logo)
+                    //.SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, AnonymousWhiteLabel.Droid.Resource.Drawable.app_logo))
+                    //.SetSmallIcon(AnonymousWhiteLabel.Droid.Resource.Drawable.app_logo)
                     .Build();
             Manager.Notify(_messageId, notification);
             return _messageId;

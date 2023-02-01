@@ -1,12 +1,12 @@
 ﻿using CoreLocation;
 using Foundation;
-using TelegraphWhiteLabel.iOS.Services;
+using AnonymousWhiteLabel.iOS.Services;
 using UIKit;
 using Xamarin.Forms;
 using XamarinShared.ViewCreator;
 
 [assembly: Dependency(typeof(GpsManager))]
-namespace TelegraphWhiteLabel.iOS.Services
+namespace AnonymousWhiteLabel.iOS.Services
 {
     public class GpsManager : IGpsService
     {
