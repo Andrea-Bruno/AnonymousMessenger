@@ -191,9 +191,6 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EncryptedMessaging">
-      <Version>1.23.1.25</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Iid">
       <Version>121.1.0.3</Version>
     </PackageReference>

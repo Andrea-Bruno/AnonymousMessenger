@@ -18,7 +18,7 @@ namespace AnonymousWhiteLabel.Config
 		private static string GetEntryPoint()
 		{
 			string entryPoint = null;
-			entryPoint = "server.cloudservices.agency"; //Main Server
+			entryPoint = "test.cloudservices.agency"; //Main Server
 			return entryPoint;
 		}
 
