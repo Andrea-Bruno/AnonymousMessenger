@@ -6,6 +6,7 @@ using Android.Gms.Tasks;
 using Android.OS;
 using Android.Provider;
 using Android.Runtime;
+using Android.Views;
 using Com.Xamarin.Formsviewgroup;
 using Firebase;
 using Firebase.Iid;
@@ -23,6 +24,29 @@ namespace AnonymousWhiteLabel.Droid
         internal static MainActivity Instance { get; private set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
+
+            //======================== launcer app ========================
+            //Hide soft buttons
+            //int uiOptions = (int)Window.DecorView.SystemUiVisibility;
+            //uiOptions |= (int)SystemUiFlags.LowProfile;
+            //uiOptions |= (int)SystemUiFlags.Fullscreen;
+            //uiOptions |= (int)SystemUiFlags.HideNavigation;
+            //uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+            //Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
+
+            //// Preventing "Sleep mode" - Keeping the app alive
+            ////https://forums.xamarin.com/discussion/38489/preventing-sleep-mode-keeping-the-app-alive
+            //this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+
+            ////Fullscreen FULL SCREEN
+            //this.Window.AddFlags(WindowManagerFlags.Fullscreen);
+
+            //android_id = Settings.Secure.GetString(Application.Context.ContentResolver, Settings.Secure.AndroidId);
+            //======================== launcer app ========================
+
+
+
             TabLayoutResource = Xamarin.Forms.Platform.Android.Resource.Layout.Tabbar;
             ToolbarResource = Xamarin.Forms.Platform.Android.Resource.Layout.Toolbar;
             base.OnCreate(savedInstanceState);
@@ -51,7 +75,6 @@ namespace AnonymousWhiteLabel.Droid
                 //========================================================
             };
 
-            //var fapp = FirebaseApp.InitializeApp(this);
             //if (FirebaseInstanceId.Instance != null)
             //    App.FirebaseToken = FirebaseInstanceId.Instance.Token;
             //FirebaseInstanceId.Instance.GetInstanceId().AddOnSuccessListener(this, this);
@@ -115,6 +138,78 @@ namespace AnonymousWhiteLabel.Droid
                 App.UpdateFirebaseToken(refreshedToken);
             }
         }
+
+
+
+        // START ======================== launcer app ========================
+        static string android_id;
+        const int NPressBack = 5;
+        public int CountKeyBack = 0;
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.Menu)
+            {
+                //reboot=======================================
+                try
+                {
+                    PowerManager pm = (PowerManager)GetSystemService(Context.PowerService);
+                    pm.Reboot(null);
+                }
+                catch (Exception ex) { Android.Util.Log.Error("", ex.Message); }
+                //reboot=======================================
+                try
+                {
+                    Java.Lang.Runtime.GetRuntime().Exec("su");
+                    Java.Lang.Runtime.GetRuntime().Exec("reboot");
+                }
+                catch (Exception ex) { Android.Util.Log.Error("", ex.Message); }
+                //reboot=======================================
+            }
+
+
+            if (keyCode == Keycode.Back)
+            {
+
+
+                CountKeyBack += 1;
+                if (CountKeyBack == NPressBack - 1)
+                {
+                    //Toast.MakeText(Application.Context, "ID=" + android_id, ToastLength.Long).Show();
+
+                    new AlertDialog.Builder(this)
+                        .SetPositiveButton("Yes", (sender, args) =>
+                        {
+                            // User pressed yes
+                        })
+                        //.SetNegativeButton("No", (sender, args) =>
+                        //{
+                        //    // User pressed no 
+                        //})
+                        .SetMessage("ID=" + android_id)
+                        .SetTitle("Device info")
+                        .Show();
+
+                }
+                else if (CountKeyBack == NPressBack)
+                {
+                    CountKeyBack = 0;
+
+                    using (var serviceIntent = new Intent(Android.Provider.Settings.ActionWifiSettings))
+                    {
+                        serviceIntent.SetFlags(ActivityFlags.NewTask);
+                        Application.Context.StartActivity(serviceIntent);
+                    }
+                }
+                return true; //Sopprimi funzione di sistema
+            }
+            if (keyCode == Keycode.VolumeDown || keyCode == Keycode.VolumeUp)
+            {
+                return base.OnKeyDown(keyCode, e);
+            }
+            return true; //Sopprimi funzione di sistema
+        }
+        // END ======================== launcer app ========================
+
 
     }
 }

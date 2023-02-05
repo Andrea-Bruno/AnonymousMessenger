@@ -18,6 +18,15 @@ This project has three open source dependencies for security and functionality. 
 
 * [Communication channel](https://github.com/Andrea-Bruno/EncryptedMessaging/tree/master/CommunicationChannel) is the low-level socket communication protocol underlying encrypted communication.
 
+The reasons that led to this project with dontnet is that it is an open source development environment, and effective security is achieved only by being able to inspect all parts of the code, including the development framework.
+* [.NET is open source](https://dotnet.microsoft.com/en-us/platform/open-source)
+
+Our target is very linux oriented, and the partnership between Microsoft and Canonical ensure the highest standard of security and reliability.
+
+* [Microsoft and Canonical: partnering for security](https://ubuntu.com/blog/install-dotnet-on-ubuntu)
+
+* [Red Hat works with Microsoft to ensure new major versions and service releases are available in tandem with Microsoft releases](https://developers.redhat.com/products/dotnet/overview)
+
 Friendly projects for which we underline the importance of maintaining computer privacy:
 
 * [DuckDuckGo (DDG)](https://duckduckgo.com/) is an internet search engine that emphasizes protecting searchers' privacy and avoiding the filter bubble of personalized search results.

@@ -53,7 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\SubAppInterface\SubAppInterface.csproj" />
   </ItemGroup>

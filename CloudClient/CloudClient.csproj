@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
   </ItemGroup>
  
 </Project>

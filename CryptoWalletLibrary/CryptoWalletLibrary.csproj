@@ -57,7 +57,7 @@
     <PackageReference Include="System.Text.Json" Version="6.0.0-preview.7.21377.19" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
     <ProjectReference Include="..\ElectrumXClient\src\ElectrumXClient\ElectrumXClient.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
   </ItemGroup>

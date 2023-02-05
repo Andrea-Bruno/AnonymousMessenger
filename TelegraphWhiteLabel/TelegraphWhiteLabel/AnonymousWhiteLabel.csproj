@@ -81,7 +81,7 @@
   <ItemGroup>
     <!--<ProjectReference Include="..\..\Banking\Banking.csproj" />-->
 
-    <ProjectReference Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
 
     <ProjectReference Include="..\..\CloudClient\CloudClient.csproj" />
 

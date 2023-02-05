@@ -1,7 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.bitboxlab.AnonymousWhiteLabel" android:installLocation="internalOnly">
 	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="30" />
-	<application android:label="AnonymousWhiteLabel.Android"></application>
+	<application android:label="AnonymousWhiteLabel.Android">
+	
+		<!--======================== launcer app ========================-->
+		<!--<receiver android:enabled="true" android:exported="true" android-permission="android.permission.RECEIVE_BOOT_COMPLETED" android:name=".BootComplete" >
+			<intent-filter >
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.intent.action.QUICKBOOT_POWERON" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</receiver>-->
+		<!--======================== launcer app ========================-->
+
+	</application>
+
+	<!--======================== launcer app ========================-->
+	<!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />-->
+	<!--======================== launcer app ========================-->
+
+
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 	<uses-permission android:name="android.permission.RECORD_AUDIO" />
