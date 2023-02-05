@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <Configurations>Debug;DEBUG_ALI;DEBUG_MUS;DEBUG_FAI;DEBUG_ZUB;DEBUG_AND;DEBUG_RAM_SOCIAL;DEBUG_RAM;Release</Configurations>
   </PropertyGroup>
 
