@@ -303,16 +303,16 @@
   <data name="Vibrate" xml:space="preserve">
     <value>Vibration</value>
   </data>
-	<data name="Authentication" xml:space="preserve">
+  <data name="Authentication" xml:space="preserve">
     <value>Authentification</value>
   </data>
-	<data name="BiometricAuthenticationNotAvailable" xml:space="preserve">
+  <data name="BiometricAuthenticationNotAvailable" xml:space="preserve">
     <value>L'authentification biométrique n'est pas disponible ou n'est pas configurée</value>
   </data>
-	<data name="ConfirmYourIdentity" xml:space="preserve">
+  <data name="ConfirmYourIdentity" xml:space="preserve">
     <value>Confirmez votre identité</value>
   </data>
-	<data name="Information" xml:space="preserve">
+  <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
   <data name="View" xml:space="preserve">
@@ -585,11 +585,11 @@
   <data name="LocationPermissionDidNotGranted" xml:space="preserve">
     <value>L'autorisation de localisation n'a pas été accordée</value>
   </data>
-  <data name="SendAndReceiveMoneySecurelyViaTelegraphApplication" xml:space="preserve">
-    <value>Envoyez et recevez de l'argent en toute sécurité via l'application Telegraph</value>
+  <data name="SendAndReceiveMoneySecurelyViaAnonymousApplication" xml:space="preserve">
+    <value>Envoyez et recevez de l'argent en toute sécurité via l'application Anonymous</value>
   </data>
-  <data name="PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptTelegraphPrivacyPolicy" xml:space="preserve">
-    <value>Vérifiez « Termes et conditions » et appuyez sur « Accepter et continuer » pour accepter la politique de confidentialité de Telegraph</value>
+  <data name="PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolicy" xml:space="preserve">
+    <value>Vérifiez « Termes et conditions » et appuyez sur « Accepter et continuer » pour accepter la politique de confidentialité de Anonymous</value>
   </data>
   <data name="CannotStartAudioRecordWhileAudioIsPlaying" xml:space="preserve">
     <value>Impossible de démarrer l'enregistrement audio pendant la lecture audio</value>
@@ -687,8 +687,8 @@
   <data name="PaymentHistory" xml:space="preserve">
     <value>Historique de paiement</value>
   </data>
-  <data name="UupApplicationIsTheMostSecure" xml:space="preserve">
-    <value>Uup est l'application la plus sûre et vos messages seront hautement cryptés.</value>
+  <data name="AnonymousApplicationIsTheMostSecure" xml:space="preserve">
+    <value>Anonymous est l'application la plus sûre et vos messages seront hautement cryptés.</value>
   </data>
   <data name="DeleteAccount" xml:space="preserve">
     <value>Supprimer le compte</value>
@@ -1182,8 +1182,8 @@
   <data name="NewVersion" xml:space="preserve">
     <value>Nouvelle version</value>
   </data>
-  <data name="WhatIsUup" xml:space="preserve">
-    <value>Qu'est-ce que Uup ?</value>
+  <data name="WhatIsAnonymous" xml:space="preserve">
+    <value>Qu'est-ce que Anonymous ?</value>
   </data>
   <data name="WhoCanIMessageAnswer" xml:space="preserve">
     <value>L'utilisateur doit maintenant la clé publique d'un autre utilisateur afin d'envoyer un message.</value>
@@ -1197,8 +1197,8 @@
   <data name="ContactAndGroup" xml:space="preserve">
     <value>Contact et groupe</value>
   </data>
-  <data name="WhatIsSecurityStatusForUupAnswer" xml:space="preserve">
-    <value>Si nous comparons Uup avec d'autres applications de chat comme Messenger, Whatsapp et Telegram. Nous pouvons certainement dire que l'application Uup est plus sécurisée.</value>
+  <data name="WhatIsSecurityStatusForAnonymousAnswer" xml:space="preserve">
+    <value>Si nous comparons Anonymous avec d'autres applications de chat comme Messenger, Whatsapp et Telegram. Nous pouvons certainement dire que l'application Anonymous est plus sécurisée.</value>
   </data>
   <data name="Incoming" xml:space="preserve">
     <value>Entrant</value>
@@ -1209,8 +1209,8 @@
   <data name="NotificationProblems" xml:space="preserve">
     <value>Problèmes de notification</value>
   </data>
-  <data name="WhatIsSecurityStatusForUup" xml:space="preserve">
-    <value>Quel est le statut de sécurité pour Uup ?</value>
+  <data name="WhatIsSecurityStatusForAnonymous" xml:space="preserve">
+    <value>Quel est le statut de sécurité pour Anonymous ?</value>
   </data>
   <data name="HowCanIChangeDurationOfMessageAnswer" xml:space="preserve">
     <value>1. Cliquez sur l'icône de menu située dans le coin droit de la barre de navigation inférieure. 2. Entrez dans la page d'affichage. 3. L'utilisateur peut modifier la durée du message à partir de la page d'affichage.</value>
@@ -1239,8 +1239,8 @@
   <data name="PublicKeyTopWarning" xml:space="preserve">
     <value>NE partagez cette phrase avec personne !</value>
   </data>
-  <data name="HelloWellcomeToUUP" xml:space="preserve">
-    <value>Bonjour, bienvenue à UUP !</value>
+  <data name="HelloWellcomeToAnonymous" xml:space="preserve">
+    <value>Bonjour, bienvenue à Anonymous !</value>
   </data>
   <data name="YouHaveReceivedNewDocumentFrom" xml:space="preserve">
     <value>Vous avez reçu un nouveau document de</value>
@@ -1269,8 +1269,8 @@
   <data name="ContactShared" xml:space="preserve">
     <value>Contact partagé</value>
   </data>
-  <data name="HowToUpdateUup" xml:space="preserve">
-    <value>Comment mettre à jour Uup ?</value>
+  <data name="HowToUpdateAnonymous" xml:space="preserve">
+    <value>Comment mettre à jour Anonymous ?</value>
   </data>
   <data name="Me" xml:space="preserve">
     <value>Moi</value>
@@ -1377,20 +1377,20 @@
   <data name="RemoveWrongWord" xml:space="preserve">
     <value>supprimer le mauvais mot en cliquant simplement dessus.</value>
   </data>
-  <data name="HowToUpdateUupAnswer" xml:space="preserve">
-    <value>L'utilisateur doit utiliser Play/Apple stor pour mettre à jour l'application Uup.</value>
+  <data name="HowToUpdateAnonymousAnswer" xml:space="preserve">
+    <value>L'utilisateur doit utiliser Play/Apple stor pour mettre à jour l'application Anonymous.</value>
   </data>
   <data name="CameraPermissionIsNeeded" xml:space="preserve">
     <value>L'autorisation de l'appareil photo est nécessaire</value>
   </data>
-  <data name="WhoIsUupFor" xml:space="preserve">
-    <value>A qui s'adresse Uup ?</value>
+  <data name="WhoIsAnonymousFor" xml:space="preserve">
+    <value>A qui s'adresse Anonymous ?</value>
   </data>
   <data name="Troubleshooting" xml:space="preserve">
     <value>Dépannage</value>
   </data>
-  <data name="WhoIsUupForAnswer" xml:space="preserve">
-    <value>Uup est pour tous ceux qui veulent rapide et fiable. Les utilisateurs professionnels et les petites équipes peuvent aimer les grands groupes et les puissantes options de partage de fichiers.</value>
+  <data name="WhoIsAnonymousForAnswer" xml:space="preserve">
+    <value>Anonymous est pour tous ceux qui veulent rapide et fiable. Les utilisateurs professionnels et les petites équipes peuvent aimer les grands groupes et les puissantes options de partage de fichiers.</value>
   </data>
   <data name="CallEnded" xml:space="preserve">
     <value>Appel terminé</value>
@@ -1425,8 +1425,8 @@
   <data name="VerifyPassphraseTopLabel" xml:space="preserve">
     <value>Appuyez sur les mots pour les placer les uns à côté des autres dans le bon ordre.</value>
   </data>
-  <data name="WhatIsUupAnswer" xml:space="preserve">
-    <value>Uup est l'application de messagerie qui se concentre principalement sur la fiabilité. L'utilisateur qui télécharge l'application Uup depuis PlayStore/Apple Store peut avoir un accès pour l'utiliser pour envoyer des messages, des photos, des vidéos, etc.</value>
+  <data name="WhatIsAnonymousAnswer" xml:space="preserve">
+    <value>Anonymous est l'application de messagerie qui se concentre principalement sur la fiabilité. L'utilisateur qui télécharge l'application Anonymous depuis PlayStore/Apple Store peut avoir un accès pour l'utiliser pour envoyer des messages, des photos, des vidéos, etc.</value>
   </data>
   <data name="TextSize" xml:space="preserve">
     <value>Taille du texte</value>
@@ -1499,5 +1499,11 @@
   </data>
   <data name="YourAccountWasSuccessFullyRecovered" xml:space="preserve">
     <value>Votre compte a été récupéré avec succès</value>
+  </data>
+  <data name="Anonymous" xml:space="preserve">
+    <value>Anonymous</value>
+  </data>
+  <data name="Crypto-Messenger" xml:space="preserve">
+    <value>Crypto-Messenger</value>
   </data>
 </root>

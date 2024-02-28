@@ -251,24 +251,24 @@ namespace CommunityClient
 
         private int MyActionInfo;
 
-        public static Dictionary<long, Post> LoadAllPostsLocal(BaseCommunity baseCommubity)
+        public static Dictionary<long, Post> LoadAllPostsLocal(BaseCommunity baseCommunity)
         {
             var result = new Dictionary<long, Post>();
-            var directory = baseCommubity.Directory();
-            if (baseCommubity.IsoStore.DirectoryExists(directory))
+            var directory = baseCommunity.Directory();
+            if (baseCommunity.IsoStore.DirectoryExists(directory))
             {
-                foreach (var file in baseCommubity.IsoStore.GetFileNames(Path.Combine(directory, "*.post")))
+                foreach (var file in baseCommunity.IsoStore.GetFileNames(Path.Combine(directory, "*.post")))
                 {
 #if DEBUG
                     if (Social.Reset)
                     {
-                        baseCommubity.IsoStore.DeleteFile(Path.Combine(directory, file));
+                        baseCommunity.IsoStore.DeleteFile(Path.Combine(directory, file));
                         continue;
                     }
 #endif
                     var id = long.Parse(Path.GetFileNameWithoutExtension(file));
                     var fileError = false;
-                    using (var stream = baseCommubity.IsoStore.OpenFile(Path.Combine(directory, file), FileMode.Open, FileAccess.Read))
+                    using (var stream = baseCommunity.IsoStore.OpenFile(Path.Combine(directory, file), FileMode.Open, FileAccess.Read))
                     {
                         if (stream.Length != 0)
                         {
@@ -277,7 +277,7 @@ namespace CommunityClient
                                 stream.CopyTo(memoryStream);
                                 var data = memoryStream.ToArray();
                                 var MyActionInfo = BitConverter.ToInt32(data, 0);
-                                var post = new Post(baseCommubity, id, ExportType.ExportRecord, data.Skip(4), out var successful)
+                                var post = new Post(baseCommunity, id, ExportType.ExportRecord, data.Skip(4), out var successful)
                                 {
                                     MyActionInfo = MyActionInfo
                                 };
@@ -289,7 +289,7 @@ namespace CommunityClient
                         }
                     }
                     if (fileError)
-                        baseCommubity.IsoStore.DeleteFile(Path.Combine(directory, file));
+                        baseCommunity.IsoStore.DeleteFile(Path.Combine(directory, file));
                 }
             }
             return result;

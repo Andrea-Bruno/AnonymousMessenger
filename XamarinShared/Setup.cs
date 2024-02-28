@@ -1,6 +1,6 @@
-﻿using System;
+﻿using EncryptedMessaging;
+using System;
 using System.Diagnostics;
-using EncryptedMessaging;
 using Xamarin.Forms;
 using XamarinShared.ViewCreator;
 
@@ -24,22 +24,22 @@ namespace XamarinShared
         /// <param name="multipleChatModes"></param>
         /// <param name="newMessageOnTop"></param>
         /// <param name="messageScrollView"></param>
-        /// <param name="privatKeyOrPassphrase"></param>
+        /// <param name="privateKeyOrPassphrase"></param>
         /// <param name="getFirebaseToken">Function to get FirebaseToken (the function is passed and not the value, so as not to block the main thread as this sometimes takes a long time). FirebaseToken is used by firebase, to send notifications to a specific device. The sender needs this information to make the notification appear to the recipient.</param>
         /// <param name="getAppleDeviceToken">Function to get AppleDeviceToken (the function is passed and not the value, so as not to block the main thread as this sometimes takes a long time). In ios AppleDeviceToken is used to generate notifications for the device. Whoever sends the encrypted message needs this data to generate a notification on the device of who will receive the message.</param>
         /// <param name="paletteSetting"></param>
         /// <param name="">Action that must be performed after context initialization (optional parameter)</param>
         /// <returns>Context of the application</returns>
-        public static Context Initialize(Context.OnMessageArrived onNotification, ChatPageSupport.OnNewMessageAddedToView onNewMessageAddedToView, string entryPoint, string networkName, bool multipleChatModes, bool newMessageOnTop, ScrollView messageScrollView, string privatKeyOrPassphrase = null, PaletteSetting paletteSetting = null, Action<Context> OnInizialized = null, Func<string> getFirebaseToken = null, Func<string> getAppleDeviceToken = null)
+        public static Context Initialize(Context.OnMessageArrived onNotification, ChatPageSupport.OnNewMessageAddedToView onNewMessageAddedToView, string entryPoint, string networkName, bool multipleChatModes, bool newMessageOnTop, ScrollView messageScrollView, string privateKeyOrPassphrase = null, PaletteSetting paletteSetting = null, Action<Context> OnInitialized = null, Func<string> getFirebaseToken = null, Func<string> getAppleDeviceToken = null, OEM oem = null)
         {
-            //privatKeyOrPassphrase = "title because exile rhythm expire note rare smile alpha merit loan curve";
+            //privateKeyOrPassphrase = "title because exile rhythm expire note rare smile alpha merit loan curve";
             //Xamarin.Essentials.SecureStorage.SetAsync("s", "fff").ConfigureAwait(true).GetAwaiter().GetResult();
 
             //Xamarin.Essentials.SecureStorage.SetAsync("0.test", "fff").Wait();
             //Xamarin.Essentials.SecureStorage.SetAsync("0.test", "dsdsd").Wait();
             //Xamarin.Essentials.SecureStorage.SetAsync("0.test", "").Wait();
 
-            //privatKeyOrPassphrase = "spike garage secret until wise lab ball mesh exhibit twice wife sea";
+            //privateKeyOrPassphrase = "spike garage secret until wise lab ball mesh exhibit twice wife sea";
 
 #if DEBUG_RAM
             //privatKeyOrPassphrase = "engage lizard foam just reform way agent silver equip stomach imitate spike";
@@ -60,7 +60,7 @@ namespace XamarinShared
                 MessageViewCreator.Instance.SetReadStatus(messageReadStatus);
                 ChatPageSupport.Initialize(multipleChatModes, newMessageOnTop, messageScrollView, onNewMessageAddedToView);
                 var currentInternetAccess = Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet;
-                Context.OnContextIsInitialized += OnInizialized;
+                Context.OnContextIsInitialized += OnInitialized;
                 Contact.RuntimePlatform os;
                 if (Device.RuntimePlatform == Device.Android)
                     os = Contact.RuntimePlatform.Android;
@@ -71,7 +71,7 @@ namespace XamarinShared
                 else
                     os = Contact.RuntimePlatform.Undefined;
 
-                Context = new Context(entryPoint, networkName, multipleChatModes, privatKeyOrPassphrase, Modality.Client, currentInternetAccess, Device.BeginInvokeOnMainThread, GetSecureValue, SetSecureValue, getFirebaseToken, getAppleDeviceToken);
+                Context = new Context(entryPoint, networkName, multipleChatModes, privateKeyOrPassphrase, Modality.Client, currentInternetAccess, Device.BeginInvokeOnMainThread, GetSecureValue, SetSecureValue, getFirebaseToken, getAppleDeviceToken, null, oem);
                 //privatKeyOrPassphrase = "base cup tape theory segment document spare dove slush absurd enough February";
                 Context.ViewMessage += ChatPageSupport.ViewMessage;
                 Context.OnContactEvent += ChatPageSupport.OnContactEvent;

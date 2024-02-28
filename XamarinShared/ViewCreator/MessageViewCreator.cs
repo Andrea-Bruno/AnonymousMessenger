@@ -44,7 +44,7 @@ namespace XamarinShared.ViewCreator
         public delegate void LocationMessageClickedEvent(double lat, double lng);
 
         private LocationMessageClickedEvent _onLocationMessageClicked;
-
+ 
         public delegate void PdfMessageClickedEvent(byte[] data);
 
         private PdfMessageClickedEvent _onPdfMessageClicked;
@@ -568,7 +568,7 @@ namespace XamarinShared.ViewCreator
                 baseView.MessageFrame.BackgroundColor = Palette.CommonFrameBackground;
             }
 
-            void addPdfDocument()
+            void addPdfDocument() 
             {
                 if (_fileDetailsProvider == null) return;
                 byte[] pdfData;
@@ -786,13 +786,15 @@ namespace XamarinShared.ViewCreator
             }
 
             content = baseView;
-            baseView.MessageFrameContent.LongPressing += (s, e) =>
-            {
-                if (contact.IsBlocked) return;
-                contactViewItems.IsMessageSelection = true;
-                if (!baseView.SelectionCheckBox.IsChecked)
-                    baseView.SelectionCheckBox.IsChecked = true;
-            };
+            //uncomment below lines if you want to enable long press features
+
+            //baseView.MessageFrameContent.LongPressing += (s, e) =>
+            //{
+            //    if (contact.IsBlocked) return;
+            //    contactViewItems.IsMessageSelection = true;
+            //    if (!baseView.SelectionCheckBox.IsChecked)
+            //        baseView.SelectionCheckBox.IsChecked = true;
+            //};
             baseView.MessageFrameContent.Tapped += (s1, e1) =>
             {
                 if (contactViewItems.IsMessageSelection)

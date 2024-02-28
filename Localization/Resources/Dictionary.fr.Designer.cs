@@ -1294,11 +1294,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bonjour, bienvenue à UUP !.
+        ///   Looks up a localized string similar to Bonjour, bienvenue à Anonymous !.
         /// </summary>
-        public static string HelloWellcomeToUUP {
+        public static string HelloWellcomeToAnonymous {
             get {
-                return ResourceManager.GetString("HelloWellcomeToUUP", resourceCulture);
+                return ResourceManager.GetString("HelloWellcomeToAnonymous", resourceCulture);
             }
         }
         
@@ -1438,20 +1438,20 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comment mettre à jour Uup ?.
+        ///   Looks up a localized string similar to Comment mettre à jour Anonymous ?.
         /// </summary>
-        public static string HowToUpdateUup {
+        public static string HowToUpdateAnonymous {
             get {
-                return ResourceManager.GetString("HowToUpdateUup", resourceCulture);
+                return ResourceManager.GetString("HowToUpdateAnonymous", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to L&apos;utilisateur doit utiliser Play/Apple stor pour mettre à jour l&apos;application Uup..
+        ///   Looks up a localized string similar to L&apos;utilisateur doit utiliser Play/Apple stor pour mettre à jour l&apos;application Anonymous..
         /// </summary>
-        public static string HowToUpdateUupAnswer {
+        public static string HowToUpdateAnonymousAnswer {
             get {
-                return ResourceManager.GetString("HowToUpdateUupAnswer", resourceCulture);
+                return ResourceManager.GetString("HowToUpdateAnonymousAnswer", resourceCulture);
             }
         }
         
@@ -2455,11 +2455,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vérifiez « Termes et conditions » et appuyez sur « Accepter et continuer » pour accepter la politique de confidentialité de Telegraph.
+        ///   Looks up a localized string similar to Vérifiez « Termes et conditions » et appuyez sur « Accepter et continuer » pour accepter la politique de confidentialité de Anonymous.
         /// </summary>
-        public static string PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptTelegraphPrivacyPolicy {
+        public static string PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolicy {
             get {
-                return ResourceManager.GetString("PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptTelegraphPrivacyPolic" +
+                return ResourceManager.GetString("PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolic" +
                         "y", resourceCulture);
             }
         }
@@ -3059,11 +3059,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Envoyez et recevez de l&apos;argent en toute sécurité via l&apos;application Telegraph.
+        ///   Looks up a localized string similar to Envoyez et recevez de l&apos;argent en toute sécurité via l&apos;application Anonymous.
         /// </summary>
-        public static string SendAndReceiveMoneySecurelyViaTelegraphApplication {
+        public static string SendAndReceiveMoneySecurelyViaAnonymousApplication {
             get {
-                return ResourceManager.GetString("SendAndReceiveMoneySecurelyViaTelegraphApplication", resourceCulture);
+                return ResourceManager.GetString("SendAndReceiveMoneySecurelyViaAnonymousApplication", resourceCulture);
             }
         }
         
@@ -3689,11 +3689,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uup est l&apos;application la plus sûre et vos messages seront hautement cryptés..
+        ///   Looks up a localized string similar to Anonymous est l&apos;application la plus sûre et vos messages seront hautement cryptés..
         /// </summary>
-        public static string UupApplicationIsTheMostSecure {
+        public static string AnonymousApplicationIsTheMostSecure {
             get {
-                return ResourceManager.GetString("UupApplicationIsTheMostSecure", resourceCulture);
+                return ResourceManager.GetString("AnonymousApplicationIsTheMostSecure", resourceCulture);
             }
         }
         
@@ -3806,38 +3806,38 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quel est le statut de sécurité pour Uup ?.
+        ///   Looks up a localized string similar to Quel est le statut de sécurité pour Anonymous ?.
         /// </summary>
-        public static string WhatIsSecurityStatusForUup {
+        public static string WhatIsSecurityStatusForAnonymous {
             get {
-                return ResourceManager.GetString("WhatIsSecurityStatusForUup", resourceCulture);
+                return ResourceManager.GetString("WhatIsSecurityStatusForAnonymous", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Si nous comparons Uup avec d&apos;autres applications de chat comme Messenger, Whatsapp et Telegram. Nous pouvons certainement dire que l&apos;application Uup est plus sécurisée..
+        ///   Looks up a localized string similar to Si nous comparons Anonymous avec d&apos;autres applications de chat comme Messenger, Whatsapp et Telegram. Nous pouvons certainement dire que l&apos;application Anonymous est plus sécurisée..
         /// </summary>
-        public static string WhatIsSecurityStatusForUupAnswer {
+        public static string WhatIsSecurityStatusForAnonymousAnswer {
             get {
-                return ResourceManager.GetString("WhatIsSecurityStatusForUupAnswer", resourceCulture);
+                return ResourceManager.GetString("WhatIsSecurityStatusForAnonymousAnswer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qu&apos;est-ce que Uup ?.
+        ///   Looks up a localized string similar to Qu&apos;est-ce que Anonymous ?.
         /// </summary>
-        public static string WhatIsUup {
+        public static string WhatIsAnonymous {
             get {
-                return ResourceManager.GetString("WhatIsUup", resourceCulture);
+                return ResourceManager.GetString("WhatIsAnonymous", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uup est l&apos;application de messagerie qui se concentre principalement sur la fiabilité. L&apos;utilisateur qui télécharge l&apos;application Uup depuis PlayStore/Apple Store peut avoir un accès pour l&apos;utiliser pour envoyer des messages, des photos, des vidéos, etc..
+        ///   Looks up a localized string similar to Anonymous est l&apos;application de messagerie qui se concentre principalement sur la fiabilité. L&apos;utilisateur qui télécharge l&apos;application Anonymous depuis PlayStore/Apple Store peut avoir un accès pour l&apos;utiliser pour envoyer des messages, des photos, des vidéos, etc..
         /// </summary>
-        public static string WhatIsUupAnswer {
+        public static string WhatIsAnonymousAnswer {
             get {
-                return ResourceManager.GetString("WhatIsUupAnswer", resourceCulture);
+                return ResourceManager.GetString("WhatIsAnonymousAnswer", resourceCulture);
             }
         }
         
@@ -3860,20 +3860,20 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A qui s&apos;adresse Uup ?.
+        ///   Looks up a localized string similar to A qui s&apos;adresse Anonymous ?.
         /// </summary>
-        public static string WhoIsUupFor {
+        public static string WhoIsAnonymousFor {
             get {
-                return ResourceManager.GetString("WhoIsUupFor", resourceCulture);
+                return ResourceManager.GetString("WhoIsAnonymousFor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uup est pour tous ceux qui veulent rapide et fiable. Les utilisateurs professionnels et les petites équipes peuvent aimer les grands groupes et les puissantes options de partage de fichiers..
+        ///   Looks up a localized string similar to Anonymous est pour tous ceux qui veulent rapide et fiable. Les utilisateurs professionnels et les petites équipes peuvent aimer les grands groupes et les puissantes options de partage de fichiers..
         /// </summary>
-        public static string WhoIsUupForAnswer {
+        public static string WhoIsAnonymousForAnswer {
             get {
-                return ResourceManager.GetString("WhoIsUupForAnswer", resourceCulture);
+                return ResourceManager.GetString("WhoIsAnonymousForAnswer", resourceCulture);
             }
         }
         

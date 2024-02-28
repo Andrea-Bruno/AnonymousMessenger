@@ -5,45 +5,11 @@
 	<LangVersion>9.0</LangVersion>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <Configurations>Debug;DEBUG_ALI;DEBUG_MUS;DEBUG_FAI;DEBUG_ZUB;DEBUG_AND;DEBUG_RAM_SOCIAL;DEBUG_RAM;Release</Configurations>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_ALI|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_MUS|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_FAI|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_ZUB|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_AND|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_RAM_SOCIAL|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_RAM|AnyCPU'">
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_RAM|AnyCPU'">
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <DefineConstants>TRACE;DEBUG;RAM</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -54,10 +20,10 @@
     <PackageReference Include="Nethereum.Web3" Version="4.2.0" />
     <PackageReference Include="QBitNinja.Client" Version="1.0.3.52" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-    <PackageReference Include="System.Text.Json" Version="6.0.0-preview.7.21377.19" />
+    <PackageReference Include="System.Text.Json" Version="8.0.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
     <ProjectReference Include="..\ElectrumXClient\src\ElectrumXClient\ElectrumXClient.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
   </ItemGroup>

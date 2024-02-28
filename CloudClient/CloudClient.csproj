@@ -2,11 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Configurations>Debug;Release;DEBUG_RAM</Configurations>
+    <Configurations>Debug;Release;DebugNuget</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.2.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Condition="'$(Configuration)' != 'DebugNuget'" Include="..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
   </ItemGroup>
  
 </Project>

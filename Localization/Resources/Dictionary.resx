@@ -636,11 +636,11 @@
   <data name="PaymentConfiguration" xml:space="preserve">
     <value>Payment Configuration</value>
   </data>
-  <data name="SendAndReceiveMoneySecurelyViaTelegraphApplication" xml:space="preserve">
-    <value>Send and receive money securely via Telegraph application</value>
+  <data name="SendAndReceiveMoneySecurelyViaAnonymousApplication" xml:space="preserve">
+    <value>Send and receive money securely via Anonymous application</value>
   </data>
-  <data name="PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptTelegraphPrivacyPolicy" xml:space="preserve">
-    <value>Please check 'Terms and Conditions' and tap 'Accept and Continue' to accept the Telegraph privacy policy</value>
+  <data name="PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolicy" xml:space="preserve">
+    <value>Please check 'Terms and Conditions' and tap 'Accept and Continue' to accept the Anonymous privacy policy</value>
   </data>
   <data name="AcceptAndContiune" xml:space="preserve">
     <value>Accept and Continue</value>
@@ -928,7 +928,7 @@
     <value>Position</value>
   </data>
   <data name="StoragePermissionIsNeeded" xml:space="preserve">
-    <value>UUP does not have an access to your photos, media, and files</value>
+    <value>Anonymous does not have an access to your photos, media, and files</value>
   </data>
   <data name="ImportKeys" xml:space="preserve">
     <value>Import keys</value>
@@ -981,8 +981,8 @@
   <data name="PleaseEnterYourPrivatekey" xml:space="preserve">
     <value>Please enter passphrase key to get the contact</value>
   </data>
-  <data name="UupApplicationIsTheMostSecure" xml:space="preserve">
-    <value>Uup is the most secure application and your messages will be highly encrypted.</value>
+  <data name="AnonymousApplicationIsTheMostSecure" xml:space="preserve">
+    <value>Anonymous is the most secure application and your messages will be highly encrypted.</value>
   </data>
   <data name="Restore" xml:space="preserve">
     <value>Restore</value>
@@ -1389,8 +1389,8 @@
   <data name="General" xml:space="preserve">
     <value>General</value>
   </data>
-  <data name="HelloWellcomeToUUP" xml:space="preserve">
-    <value>Hello, wellcome to UUP!</value>
+  <data name="HelloWellcomeToAnonymous" xml:space="preserve">
+    <value>Hello, wellcome to Anonymous!</value>
   </data>
   <data name="HeyHowAreYouDoing" xml:space="preserve">
     <value>Hey Joni, how are you doing?</value>
@@ -1431,11 +1431,11 @@
   <data name="HowDoUserCanEditProfileAnswer" xml:space="preserve">
     <value>1. Go to the chat page.  2. Click on profile icon which is located on middle of bottom bar. 3. User can edit his/her name and photo, share public key, export private key by using profile page.</value>
   </data>
-  <data name="HowToUpdateUup" xml:space="preserve">
-    <value>How to update Uup?</value>
+  <data name="HowToUpdateAnonymous" xml:space="preserve">
+    <value>How to update Anonymous?</value>
   </data>
-  <data name="HowToUpdateUupAnswer" xml:space="preserve">
-    <value>The user should use Play/Apple stor in order to update Uup application.</value>
+  <data name="HowToUpdateAnonymousAnswer" xml:space="preserve">
+    <value>The user should use Play/Apple stor in order to update Anonymous application.</value>
   </data>
   <data name="IAmDoingGoodHowAboutYou" xml:space="preserve">
     <value>I am doing good, how about you? Is everything ok?</value>
@@ -1455,17 +1455,17 @@
   <data name="Troubleshooting" xml:space="preserve">
     <value>Troubleshooting</value>
   </data>
-  <data name="WhatIsSecurityStatusForUup" xml:space="preserve">
-    <value>What is security status for Uup?</value>
+  <data name="WhatIsSecurityStatusForAnonymous" xml:space="preserve">
+    <value>What is security status for Anonymous?</value>
   </data>
-  <data name="WhatIsSecurityStatusForUupAnswer" xml:space="preserve">
-    <value>If we compare Uup with other chat applications like Messenger, Whatsapp and Telegram. We can definetely say that Uup application is more secure.</value>
+  <data name="WhatIsSecurityStatusForAnonymousAnswer" xml:space="preserve">
+    <value>If we compare Anonymous with other chat applications like Messenger, Whatsapp and Telegram. We can definetely say that Anonymous application is more secure.</value>
   </data>
-  <data name="WhatIsUup" xml:space="preserve">
-    <value>What is Uup?</value>
+  <data name="WhatIsAnonymous" xml:space="preserve">
+    <value>What is Anonymous?</value>
   </data>
-  <data name="WhatIsUupAnswer" xml:space="preserve">
-    <value>Uup is the messaging app which is mainly focus on reliability. The user who download Uup application from PlayStore/Apple store can have an access to use it fot send messages, photos, videos and etc.</value>
+  <data name="WhatIsAnonymousAnswer" xml:space="preserve">
+    <value>Anonymous is the messaging app which is mainly focus on reliability. The user who download Anonymous application from PlayStore/Apple store can have an access to use it fot send messages, photos, videos and etc.</value>
   </data>
   <data name="WhoCanIMessage" xml:space="preserve">
     <value>Who can I message?</value>
@@ -1473,11 +1473,11 @@
   <data name="WhoCanIMessageAnswer" xml:space="preserve">
     <value>The user should now the public key of another user in order to send a message.</value>
   </data>
-  <data name="WhoIsUupFor" xml:space="preserve">
-    <value>Who is Uup for?</value>
+  <data name="WhoIsAnonymousFor" xml:space="preserve">
+    <value>Who is Anonymous for?</value>
   </data>
-  <data name="WhoIsUupForAnswer" xml:space="preserve">
-    <value>Uup is for everyone who wants fast and reliable. Business users and small teams may like the large groups and powerfull file sharin options.</value>
+  <data name="WhoIsAnonymousForAnswer" xml:space="preserve">
+    <value>Anonymous is for everyone who wants fast and reliable. Business users and small teams may like the large groups and powerfull file sharin options.</value>
   </data>
   <data name="YeahEverythingIsFine" xml:space="preserve">
     <value>Yeah, everything is fine. What is your plan for today?</value>

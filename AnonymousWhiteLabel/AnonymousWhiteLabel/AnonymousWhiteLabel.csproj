@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Configurations>Debug;Release</Configurations>
+    <UserSecretsId>02dbd2df-0492-4f76-a4ca-b31679e77684</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ContactPage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<ProjectReference Include="..\..\Banking\Banking.csproj" />-->
+
+	  <ProjectReference Include="..\..\MessageCompose\MessageCompose.csproj" />
+
+	  <ProjectReference Include="..\..\NotificationService\NotificationService.csproj" />
+
+	  <ProjectReference Include="..\..\Utils\Utils.csproj" />
+
+	  <ProjectReference Include="..\..\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj" />
+
+	  <ProjectReference Include="..\..\XamarinShared\XamarinShared.csproj" />
+	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\RestoreAccount.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
