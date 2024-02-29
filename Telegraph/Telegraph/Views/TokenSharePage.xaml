@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:local="clr-namespace:Telegraph"
+    x:Class="Telegraph.Views.TokenSharePage">
+    <StackLayout>
+        <Grid
+            BackgroundColor="{DynamicResource MainBackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                HorizontalOptions="Start"
+                Margin="5,-12,0,0"
+                VerticalOptions="Center"
+                Padding="16"
+                Grid.Row="0"
+                Grid.Column="0">
+                <Image
+                    WidthRequest="15"
+                    HeightRequest="15"
+                    Source="{local:ImageResourceExtension ic_back_icon.png}"
+                    x:Name="BackButton" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="Back_Clicked"
+                        NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <local:CustomPageHeaderLabel
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                Grid.Row="0"
+                MaxLines="1"
+                Margin="0,-12,0,0"
+                Grid.Column="1"
+                Text="{x:Static local1:Resources.Dictionary.TokenSharing} "
+                FontFamily="{DynamicResource BoldFont}"
+                FontSize="22"
+                TextColor="{DynamicResource ToolbarTitleColor}" />
+        </Grid>
+        <Frame
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="{ DynamicResource MainBackgroundColor}"
+            Margin="0,-10,0,0"
+            HasShadow="False"
+            CornerRadius="0"
+            Padding="0,0,0,24">
+
+            <StackLayout
+                Orientation="Vertical"
+                VerticalOptions="CenterAndExpand">
+
+                <local:CustomLabel
+                    Text="{x:Static local1:Resources.Dictionary.ShareThisLinkToThreeFriendsToGetAFreeMembership}"
+                    TextColor="{DynamicResource BlackTextColor}"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+                <StackLayout
+                    Orientation="Horizontal">
+
+
+                    <Frame
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        WidthRequest="100"
+                        HeightRequest="1"
+                        HasShadow="False"
+                        BackgroundColor="{DynamicResource BlackTextColor}"
+                        Padding="0"
+                        Margin="20,0,0,0" />
+
+                    <local:CustomLabel
+                        Text=""
+                        x:Name="tokenLabel"
+                        FontSize="20"
+                        Margin="0,20,0,20"
+                        FontAttributes="Bold"
+                        TextColor="{DynamicResource BlackTextColor}"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+                    <Frame
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center"
+                        WidthRequest="100"
+                        HeightRequest="1"
+                        HasShadow="False"
+                        BackgroundColor="{DynamicResource BlackTextColor}"
+                        Padding="0"
+                        Margin="0,0,20,0" />
+
+                </StackLayout>
+                <Frame
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="10"
+                    BackgroundColor="{DynamicResource MainBackgroundColor}"
+                    Padding="12, 3, 12, 3"
+                    HasShadow="False">
+                    <local:CustomLabel
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        Margin="0,0,0,5"
+                        VerticalOptions="End"
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="White"
+                        FontSize="12"
+                        HeightRequest="42"
+                        
+                        Text="{x:Static local1:Resources.Dictionary.ShareInviteLink}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="ShareInviteLink_ClickedAsync"
+                                NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </local:CustomLabel>
+                </Frame>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</local:BasePage>

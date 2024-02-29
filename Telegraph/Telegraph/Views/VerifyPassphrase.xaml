@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<telegraph:BasePage
+    x:Class="Telegraph.Views.VerifyPassphrase"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:telegraph="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{x:DynamicResource Color2}">
+    <StackLayout BackgroundColor="{x:DynamicResource Color1}" Orientation="Vertical">
+        <local:MyCustomToolbar
+            x:Name="Toolbar"
+            Title="{x:Static local1:Resources.Dictionary.VerifyPrivateKey}"
+            OnBackBtnClicked="Back_Clicked" />
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <telegraph:CustomLabel
+                    Margin="50,20,50,0"
+                    FontFamily="PoppinsLight"
+                    FontSize="18"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static local1:Resources.Dictionary.VerifyPassphraseTopLabel}"
+                    TextColor="{x:DynamicResource WhiteColor}" />
+                <StackLayout
+                    Margin="0,32,0,0"
+                    BackgroundColor="{x:DynamicResource Color2}"
+                    MinimumHeightRequest="200"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                    <BoxView
+                        BackgroundColor="{x:DynamicResource Gray}"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                    <Frame
+                        x:Name="TapWordsBelowFrame"
+                        Margin="0,50,0,0"
+                        Padding="20,10,20,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{x:DynamicResource WhiteColor}"
+                        HorizontalOptions="Center"
+                        MinimumHeightRequest="200"
+                        VerticalOptions="Center">
+                        <Label
+                            FontFamily="PoppinsMedium"
+                            FontSize="22"
+                            Text="{x:Static local1:Resources.Dictionary.TappWord}"
+                            TextColor="{x:DynamicResource WhiteColor}" />
+                    </Frame>
+                    <FlexLayout
+                        x:Name="Gaps"
+                        Margin="20"
+                        JustifyContent="SpaceEvenly"
+                        MinimumHeightRequest="200"
+                        Wrap="Wrap" />
+                    <BoxView
+                        BackgroundColor="{x:DynamicResource Gray}"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <FlexLayout
+                    x:Name="Words"
+                    Margin="20,40,20,20"
+                    AlignContent="SpaceEvenly"
+                    AlignItems="Center"
+                    JustifyContent="SpaceEvenly"
+                    Wrap="Wrap" />
+            </StackLayout>
+        </ScrollView>
+        <pancakeview:PancakeView
+            x:Name="NextButtonLyt"
+            BackgroundColor="{DynamicResource Color2}"
+            CornerRadius="12,12,0,0"
+            HeightRequest="120"
+            VerticalOptions="EndAndExpand">
+            <Button
+                x:Name="ContinueButton"
+                BackgroundColor="{x:DynamicResource BackgroundSecondary}"
+                Clicked="ContinueButton_Clicked"
+                CornerRadius="28"
+                FontFamily="PoppinsSemiBold"
+                FontSize="20"
+                HeightRequest="52"
+                HorizontalOptions="CenterAndExpand"
+                IsEnabled="False"
+                Text="{x:Static local1:Resources.Dictionary.Continue}"
+                TextColor="{DynamicResource WhiteColor}"
+                TextTransform="Uppercase"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="200" />
+        </pancakeview:PancakeView>
+    </StackLayout>
+</telegraph:BasePage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local1:BasePage
+    x:Class="Telegraph.Views.EditImagePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout>
+        <local1:MyCustomToolbar
+            x:Name="Toolbar"
+            Title="{x:Static local:Resources.Dictionary.Photo}"
+            OnBackBtnClicked="Back_Clicked"
+            RightBtnCount="2" />
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image x:Name="imageHolder" Aspect="AspectFit" />
+        </Grid>
+    </StackLayout>
+</local1:BasePage>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local11:BasePopupPage
+    x:Class="Telegraph.PopupViews.SuccessPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local11="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:dh="clr-namespace:Telegraph.DesignHandler"
+    ios:Page.UseSafeArea="true">
+    <local11:BasePopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="200"
+            DurationOut="140"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="0.6"
+            ScaleOut="0.6" />
+    </local11:BasePopupPage.Animation>
+    <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+        <Frame
+            Margin="20,56,20,20"
+            Padding="20,0"
+            BackgroundColor="{DynamicResource Color2}"
+            CornerRadius="10"
+            HasShadow="False">
+            <StackLayout Margin="0,56,0,0" Padding="0">
+                <Label
+                    x:Name="Title"
+                    Margin="0,20,0,0"
+                    FontFamily="PoppinsSemiBold"
+                    FontSize="25"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static local:Resources.Dictionary.Congratulations}"
+                    TextColor="{DynamicResource WhiteColor}" />
+                <Label
+                    x:Name="InfoLabel"
+                    Margin="20,34,20,0"
+                    FontFamily="PoppinsLight"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static local:Resources.Dictionary.YouWillNotHaveProblemToRecoverYourAccount}"
+                    TextColor="{DynamicResource WhiteColor}" />
+                <Button
+                    x:Name="CloseButton"
+                    Margin="60,34,60,34"
+                    BackgroundColor="{DynamicResource Theme}"
+                    Clicked="CloseButton_Clicked"
+                    CornerRadius="28"
+                    FontFamily="PoppinsMedium"
+                    FontSize="22"
+                    HeightRequest="55"
+                    Text="{x:Static local:Resources.Dictionary.Close}"
+                    TextColor="{DynamicResource Color1}"
+                    TextTransform="Uppercase" />
+            </StackLayout>
+        </Frame>
+        <forms:AnimationView
+            x:Name="SuccessIcon"
+            Animation="ok_animation.json"
+            HeightRequest="120"
+            HorizontalOptions="Center"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                              Property=Width,
+                                                              Factor=0.5,
+                                                              Constant=-56}"
+            RepeatCount="0"
+            Speed="5"
+            VerticalOptions="Center"
+            WidthRequest="120" />
+    </RelativeLayout>
+</local11:BasePopupPage>

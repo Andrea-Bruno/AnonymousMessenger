@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local:BasePage
+    x:Class="Telegraph.Views.LogsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:dh="clr-namespace:Telegraph.DesignHandler"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="LightYellow">
+    <StackLayout Orientation="Vertical">
+        <Grid BackgroundColor="{DynamicResource MainBackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5,-12,0,0"
+                Padding="16"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+                <Image
+                    x:Name="BackButton"
+                    HeightRequest="20"
+                    Source="{dh:ImageResourceExtension ic_back_icon.png}"
+                    WidthRequest="15" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Clicked" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <local:CustomLabel
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,-12,0,0"
+                FontFamily="{StaticResource BoldFont}"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="{x:Static local1:Resources.Dictionary.Test}"
+                TextColor="{DynamicResource ToolbarTitleColor}"
+                VerticalOptions="Center" />
+        </Grid>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Button
+                    Margin="0,20,0,0"
+                    BackgroundColor="AliceBlue"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Refresh" />
+                <Label x:Name="DeviceToken" Margin="0,8,0,0" />
+                <Label x:Name="NewDeviceToken" Margin="0,8,0,0" />
+                <Label x:Name="CloudPubKey" Margin="0,8,0,0" />
+                <Label x:Name="CloudUserId" Margin="0,8,0,0" />
+                <Label x:Name="Internet" Margin="0,8,0,0" />
+                <Label x:Name="ClientExists" Margin="0,8,0,0" />
+                <Label x:Name="ClientConnected" Margin="0,8,0,0" />
+                <Label x:Name="ID" Margin="0,8,0,0" />
+                <Label x:Name="Logged" Margin="0,8,0,0" />
+                <Label x:Name="QueeCount" Margin="0,8,0,0" />
+                <Label x:Name="LastMessageParts" Margin="0,8,0,0" />
+                <Label x:Name="PostCounter" Margin="0,8,0,0" />
+                <Label x:Name="ServerUrl" Margin="0,8,0,0" />
+                <Label x:Name="Port" Margin="0,8,0,0" />
+                <Label x:Name="Error" Margin="0,8,0,0" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</local:BasePage>

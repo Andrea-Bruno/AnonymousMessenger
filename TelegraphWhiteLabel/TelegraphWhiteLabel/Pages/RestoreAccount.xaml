@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:em="clr-namespace:EncryptedMessaging;assembly=EncryptedMessaging"
+             x:Class="AnonymousWhiteLabel.Pages.RestoreAccount">
+  <ContentPage.Content>
+    <StackLayout>
+      <Label x:Name="Spot" Text="{x:Static em:Resources.Dictionary.Info}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+      <Entry x:Name="Passphrase" IsPassword="True" Placeholder="passphrase"></Entry>
+      <Button x:Name="Restore" Text="{x:Static em:Resources.Dictionary.RestoreAccount}"></Button>
+      <Button x:Name="CreateAccount" Text="{x:Static em:Resources.Dictionary.CreateAccount}"></Button>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<views:BasePage
+    xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    x:Class="Telegraph.Views.QRCodeScanPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:dh="clr-namespace:Telegraph.DesignHandler"
+    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    ios:Page.UseSafeArea="true">
+    <StackLayout>
+        <Grid
+            Margin="0,-15,0,0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <zxing:ZXingScannerView
+                x:Name="qrScanner"
+                IsScanning="True"
+                OnScanResult="Handle_OnScanResult" />
+            <zxing:ZXingDefaultOverlay
+                x:Name="Overlay"
+                Opacity="0.5"
+                ShowFlashButton="False" />
+        </Grid>
+        <Frame
+            Margin="0,-120,0,30"
+            Padding="0"
+            BackgroundColor="{DynamicResource Color1}"
+            CornerRadius="30"
+            HorizontalOptions="Center"
+            VerticalOptions="End">
+            <Image
+                HeightRequest="60"
+                Source="{dh:ImageResourceExtension ic_popup_cancel.png}"
+                WidthRequest="60">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Clicked" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Frame>
+    </StackLayout>
+</views:BasePage>

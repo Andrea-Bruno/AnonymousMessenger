@@ -1,0 +1,207 @@
+<local1:BasePage
+    x:Class="Telegraph.Views.QRScanAndShowPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+    xmlns:dh="clr-namespace:Telegraph.DesignHandler"
+    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    ios:Page.UseSafeArea="true">
+    <StackLayout>
+        <local1:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local:Resources.Dictionary.QRCode}" />
+        <ScrollView>
+            <StackLayout BackgroundColor="{DynamicResource Color1}">
+                <pancakeview:PancakeView
+                    Margin="30,35,30,0"
+                    BackgroundColor="{DynamicResource Color2}"
+                    CornerRadius="15"
+                    HeightRequest="330"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Margin="0,20,0,0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <local1:CustomLabel
+                            x:Name="Username"
+                            Margin="8,0,8,10"
+                            FontFamily="PoppinsBold"
+                            FontSize="24"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="{x:DynamicResource Theme}"
+                            VerticalOptions="Center" />
+                        <pancakeview:PancakeView
+                            Padding="0"
+                            BackgroundColor="{DynamicResource WhiteColor}"
+                            CornerRadius="15"
+                            HeightRequest="180"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="197">
+                            <zxing:ZXingBarcodeImageView
+                                x:Name="QRcode"
+                                BackgroundColor="{DynamicResource WhiteColor}"
+                                BarcodeValue="-1"
+                                WidthRequest="227">
+                                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                    <zxcm:EncodingOptions
+                                        Width="227"
+                                        Height="227"
+                                        PureBarcode="True" />
+                                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                            </zxing:ZXingBarcodeImageView>
+                        </pancakeview:PancakeView>
+                    </StackLayout>
+                </pancakeview:PancakeView>
+                <StackLayout
+                    Margin="100,-395,100,290"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="65"
+                    WidthRequest="65">
+                    <controls:CircleImage
+                        x:Name="User_Photo"
+                        Margin="3,25,0,14"
+                        Aspect="AspectFill"
+                        HeightRequest="65"
+                        HorizontalOptions="Center"
+                        Source="{dh:ImageResourceExtension ic_add_contact_profile.png}"
+                        WidthRequest="65" />
+                </StackLayout>
+                <local1:CustomLabel
+                    x:Name="PublicKey"
+                    Margin="53,45,53,20"
+                    FontFamily="PoppinsMedium"
+                    FontSize="16"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{x:DynamicResource WhiteColor}"
+                    VerticalOptions="Center" />
+                <Grid Margin="35,0,35,40" BackgroundColor="{DynamicResource Color1}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.35*" />
+                        <ColumnDefinition Width="0.35*" />
+                        <ColumnDefinition Width="0.35*" />
+                        <ColumnDefinition Width="0.35*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Orientation="Vertical">
+                        <Image
+                            x:Name="Send"
+                            HeightRequest="60"
+                            Source="{dh:ImageResourceExtension ic_qrcode_send.png}"
+                            WidthRequest="60">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Send_Clicked" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <local1:CustomLabel
+                            x:Name="Send_Label"
+                            FontFamily="PoppinsMedium"
+                            FontSize="12"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static local:Resources.Dictionary.Send}"
+                            TextColor="{DynamicResource WhiteColor}" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Orientation="Vertical">
+                        <Image
+                            x:Name="Copy"
+                            HeightRequest="60"
+                            Source="{dh:ImageResourceExtension ic_qrcode_copy.png}"
+                            WidthRequest="60">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Copy_Clicked" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <local1:CustomLabel
+                            x:Name="Copy_Label"
+                            FontFamily="PoppinsMedium"
+                            FontSize="12"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static local:Resources.Dictionary.Copy}"
+                            TextColor="{DynamicResource WhiteColor}" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Orientation="Vertical">
+                        <Image
+                            x:Name="Camera"
+                            HeightRequest="60"
+                            Source="{dh:ImageResourceExtension ic_qrcode_scan.png}"
+                            WidthRequest="60">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CodeScanner_Clicked" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <local1:CustomLabel
+                            x:Name="CodeScanner_Label"
+                            FontFamily="PoppinsMedium"
+                            FontSize="12"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static local:Resources.Dictionary.Camera}"
+                            TextColor="{DynamicResource WhiteColor}" />
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Orientation="Vertical">
+                        <Image
+                            x:Name="AddNew"
+                            HeightRequest="60"
+                            Source="{dh:ImageResourceExtension ic_qrcode_add_contact.png}"
+                            WidthRequest="60">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddContact_Clicked" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <local1:CustomLabel
+                            x:Name="AddNewContact_Label"
+                            FontFamily="PoppinsMedium"
+                            FontSize="12"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static local:Resources.Dictionary.Add}"
+                            TextColor="{DynamicResource WhiteColor}" />
+                    </StackLayout>
+                </Grid>
+                <StackLayout
+                    Margin="0,0,0,30"
+                    BackgroundColor="{DynamicResource Color1}"
+                    HorizontalOptions="Center"
+                    IsVisible="false"
+                    VerticalOptions="EndAndExpand">
+                    <Button
+                        x:Name="CodeScannerButton"
+                        Margin="0,0,10,0"
+                        BackgroundColor="{x:DynamicResource Theme}"
+                        Clicked="CodeScanner_Clicked"
+                        CornerRadius="20"
+                        FontFamily="RobotoBlack"
+                        FontSize="16"
+                        HeightRequest="55"
+                        HorizontalOptions="Center"
+                        Text="{x:Static local:Resources.Dictionary.CodeScanner}"
+                        TextColor="{x:DynamicResource Foreground}"
+                        VerticalOptions="End"
+                        WidthRequest="155" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</local1:BasePage>
