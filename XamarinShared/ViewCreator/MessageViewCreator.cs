@@ -1032,9 +1032,7 @@ namespace XamarinShared.ViewCreator
 
             if (Device.RuntimePlatform == Device.UWP){
 
-                Player.NaturalDurationChanged += (_, events) =>
-                {
-                    Device.BeginInvokeOnMainThread(() =>
+                Player.NaturalDurationChanged += (_, events) => Device.BeginInvokeOnMainThread(() =>
                     {
                         var x = Player.Duration.ToString();
                         durationLabel.Text = Utils.FormatTime((int)Player.Duration);
@@ -1044,8 +1042,6 @@ namespace XamarinShared.ViewCreator
                             slider.Maximum = Player.Duration;
                         }
                     });
-              
-                };
             }
          
             if (!initAudioStream())

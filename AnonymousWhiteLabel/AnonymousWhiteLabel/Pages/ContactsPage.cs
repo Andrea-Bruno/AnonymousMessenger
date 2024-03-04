@@ -83,10 +83,7 @@ namespace AnonymousWhiteLabel.Pages
             };
             if (Device.RuntimePlatform == Device.UWP)
             {
-                _list.SelectionChanged += (object sender, SelectionChangedEventArgs e) =>
-                {
-                    _done.IsEnabled = _list.SelectedItems.Count >= 2;
-                };
+                _list.SelectionChanged += (object sender, SelectionChangedEventArgs e) => _done.IsEnabled = _list.SelectedItems.Count >= 2;
             }
         }
 
@@ -96,7 +93,7 @@ namespace AnonymousWhiteLabel.Pages
             {
                 Text = Dictionary.Add
             };
-            add.Command = new Command(() => { Navigation.PushAsync(new ContactPage()); });
+            add.Command = new Command(() => Navigation.PushAsync(new ContactPage()));
             _done = new ToolbarItem
             {
                 Text = "Done",

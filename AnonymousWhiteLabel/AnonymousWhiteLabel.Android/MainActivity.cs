@@ -50,9 +50,15 @@ namespace AnonymousWhiteLabel.Droid
                 }
                 //========================================================
             };
-            if (FirebaseInstanceId.Instance != null)
-                App.FirebaseToken = FirebaseInstanceId.Instance.Token;
-            FirebaseInstanceId.Instance.GetInstanceId().AddOnSuccessListener(this, this);
+            try
+            {
+                if (FirebaseInstanceId.Instance != null)
+                    App.FirebaseToken = FirebaseInstanceId.Instance.Token;
+                FirebaseInstanceId.Instance.GetInstanceId().AddOnSuccessListener(this, this);
+            }
+            catch (Exception)
+            {
+            }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {

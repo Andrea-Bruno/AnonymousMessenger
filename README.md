@@ -8,16 +8,16 @@ A peculiarity of this software, being the low-level messaging libraries the same
 
 It is a project composed of several layers to create a complete messaging software, which can represent the maximum in security and privacy, for this purpose see the technical documentation and the description of the underlying libraries.
 The project includes several software layers which technically consist of multi-platform libraries (Linux, Android, iOS, and Windows).
-In the lowest state we have the CommunicationClannel Library, a socket-type communication protocol that has sophisticated mechanisms that recover communication even in the case of mobile users where the phone can unexpectedly change the IP and cell to which it is connected, and in the libraries there's also a sophisticated packet spooler and everything needed to re-establish the precarious connection. Technically the CommunicationClannel can be replaced with other compatible ones that instead of the internet connection use the GSM modem network, or serial transmission or other means of communication, in order to use the messaging software with different hardware means of data communication.
+In the lowest state we have the CommunicationChannel Library, a socket-type communication protocol that has sophisticated mechanisms that recover communication even in the case of mobile users where the phone can unexpectedly change the IP and cell to which it is connected, and in the libraries there's also a sophisticated packet spooler and everything needed to re-establish the precarious connection. Technically the CommunicationClannel can be replaced with other compatible ones that instead of the internet connection use the GSM modem network, or serial transmission or other means of communication, in order to use the messaging software with different hardware means of data communication.
 At a slightly higher level we have the EncryptedMessaging, the low-level binary encrypted communication library that deals with the encrypted sending of packets, the management of contacts and everything needed to create a complete and sophisticated security-oriented messaging software information technology, the only thing missing is the graphical interface that will have to be created by the designers in order to customize the user experience according to one's needs. The idea behind this library was to create an encrypted binary messaging platform useful for any need and functioning in any circumstance and on any data transmission medium by replacing the CommunicationClannel which deals with the physical transmission of the packets. The EncryptedMessaging library is so universal that in addition to being used for encrypted communication software, we have also used it as a cloud underlying system for synchronizing data between clients and servers.
 Finally, at the top level we have the multi-platform messaging interface (Android, Linux, iOS, Windows), which in fact is only a graphical interface that allows the user to interact with the software, and developers to create a messaging completely customized in terms of graphics and ergonomics.
 Messaging software also has crypto wallet functions, and other experimental stuff.
 
 [The software is based on an encrypted socket communication engine derived from bitcoin technology, of which you will find the technical specifications of the protocol here:](https://www.fuget.org/packages/SecureStorage/)
 
-**Important:** [Any projects missing from the solution can be found here](https://github.com/Andrea-Bruno?tab=repositories), or you can replace the missing projects with the related nuget package.
+**Important:** [Any projects missing from the solution can be found here](https://github.com/Andrea-Bruno?tab=repositories), or you can replace the missing projects with the related Nuget package.
 
-This project also includes a Bitcoin Wallet, Ethereum, token management on the ethereum network, NFT, integrated with the messaging app, to activate these projects at startup you need to use the DEBUG_RAM startup mode.
+This project also includes a Bitcoin Wallet, Ethereum, token management on the Ethereum network, NFT, integrated with the messaging app, to activate these projects at startup you need to use the DEBUG_RAM startup mode.
 
 The project also includes the foundation for a decentralized social platform (launching as DEBUG_AND).
 
@@ -44,6 +44,6 @@ Friendly projects for which we underline the importance of maintaining computer 
 
 * [The tor project](https://www.torproject.org/): is a Seattle-based 501 nonprofit organization founded by computer scientists Roger Dingledine, Nick Mathewson, and five others. The Tor Project is primarily responsible for maintaining software for the Tor anonymity network. 
 
-* [Kali linux](https://www.kali.org/): is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by Offensive Security.
+* [Kali Linux](https://www.kali.org/): is a Debian-derived Linux distribution designed for digital forensics and penetration testing. It is maintained and funded by Offensive Security.
 
 * [LineageOS](https://lineageos.org/): is an Android-based operating system for smartphones, tablet computers, and set-top boxes, with mostly free and open-source software.

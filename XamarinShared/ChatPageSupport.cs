@@ -337,11 +337,8 @@ namespace XamarinShared
             // add a function to scrool here
 
             Device.BeginInvokeOnMainThread(() =>
-            {
                 //_scrollMessageContainer.ScrollToAsync(lastFrame, ScrollToPosition.MakeVisible, false);
-                _scrollMessageContainer.ScrollToAsync(0, _scrollMessageContainer.ContentSize.Height, false);
-
-            });
+                _scrollMessageContainer.ScrollToAsync(0, _scrollMessageContainer.ContentSize.Height, false));
             timerScroll.Stop();
         }
         private static void NewMessageReceived()

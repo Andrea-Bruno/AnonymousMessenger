@@ -16,10 +16,7 @@ namespace AnonymousWhiteLabel.iOS
         public void Initialize()
         {
             // request the permission to use local notifications
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert, (approved, err) =>
-            {
-                hasNotificationsPermission = approved;
-            });
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert, (approved, err) => hasNotificationsPermission = approved);
         }
 
         public int ScheduleNotification(string title, string message)

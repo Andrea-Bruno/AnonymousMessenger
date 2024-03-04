@@ -57,10 +57,7 @@ namespace AnonymousWhiteLabel.Pages
             {
                 Text = Dictionary.Edit
             };
-            edit.Command = new Command(() =>
-            {
-                Navigation.PushAsync(new ContactPage(App.Context.Messaging.CurrentChatRoom));
-            });
+            edit.Command = new Command(() => Navigation.PushAsync(new ContactPage(App.Context.Messaging.CurrentChatRoom)));
             
             ToolbarItems.Add(edit);
         }

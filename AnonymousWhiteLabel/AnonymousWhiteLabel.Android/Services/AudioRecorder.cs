@@ -22,10 +22,7 @@ namespace AnonymousWhiteLabel.Droid.Services
             _recorder = new MediaRecorder();
             _player = new Android.Media.MediaPlayer();
 
-            _player.Completion += (sender, e) =>
-            {
-                _player.Reset();
-            };
+            _player.Completion += (sender, e) => _player.Reset();
         }
 
         public static void SaveRecording()
@@ -67,10 +64,7 @@ namespace AnonymousWhiteLabel.Droid.Services
             _recorder = new MediaRecorder();
             _player = new Android.Media.MediaPlayer();
 
-            _player.Completion += (sender, e) =>
-            {
-                _player.Reset();
-            };
+            _player.Completion += (sender, e) => _player.Reset();
         }
 
         public async void PlayRecording()

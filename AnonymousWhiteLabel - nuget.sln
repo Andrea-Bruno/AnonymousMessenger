@@ -4,7 +4,8 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0DE039F0-1D27-4A98-B133-A1851F11B7AD}"
 	ProjectSection(SolutionItems) = preProject
-		NuGet NOTE.txt = NuGet NOTE.txt
+		LICENSE.md = LICENSE.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keyboard", "Keyboard\Keyboard.csproj", "{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}"
