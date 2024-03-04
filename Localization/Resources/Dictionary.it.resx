@@ -1515,4 +1515,7 @@
   <data name="Crypto-Messenger" xml:space="preserve">
     <value>Crypto-Messenger</value>
   </data>
+  <data name="WhatIsAnonymous_Duplicate[1]" xml:space="preserve">
+    <value>Cos'è Anonymous?</value>
+  </data>
 </root>
