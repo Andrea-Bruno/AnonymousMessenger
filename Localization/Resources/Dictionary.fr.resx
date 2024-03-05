@@ -871,7 +871,7 @@
     <value>Réponses aux questions les plus fréquemment posées</value>
   </data>
   <data name="WeAreAnonymous" xml:space="preserve">
-    <value>: "Nous sommes anonymes!"</value>
+    <value>Nous sommes anonymes!</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Fini</value>
@@ -1508,5 +1508,68 @@
   </data>
   <data name="WhatIsAnonymous_Duplicate[1]" xml:space="preserve">
     <value>Qu'est-ce que Anonymous ?</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="QRScan" xml:space="preserve">
+    <value>Scan QR</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Vidéo</value>
+  </data>
+  <data name="SelectedImageTypeIsNotSupported" xml:space="preserve">
+    <value>Le type d'image sélectionné n'est pas pris en charge</value>
+  </data>
+  <data name="DoYouWantToRestoreMessages" xml:space="preserve">
+    <value>Voulez-vous restaurer les messages?</value>
+  </data>
+  <data name="VideoAlreadyUploading" xml:space="preserve">
+    <value>Une autre vidéo est déjà téléchargée.</value>
+  </data>
+  <data name="CryptoMessengerDescription" xml:space="preserve">
+    <value>est le premier moteur de messagerie chiffré qui n'a pas de backend, il n'y a pas de serveur avec des comptes, si le serveur n'existe pas, il ne peut pas être piraté! (Un compte est simplement une clé cryptographique gardée côté client, le même principe que Bitcoin).</value>
+  </data>
+  <data name="DuckDuckGo" xml:space="preserve">
+    <value>Duckduckgo</value>
+  </data>
+  <data name="KaliLinux" xml:space="preserve">
+    <value>Kali Linux</value>
+  </data>
+  <data name="LineageOS" xml:space="preserve">
+    <value>LinéageOS</value>
+  </data>
+  <data name="OpenGithub" xml:space="preserve">
+    <value>Ouvrir le github</value>
+  </data>
+  <data name="OpenWebsite" xml:space="preserve">
+    <value>Site Web ouvert</value>
+  </data>
+  <data name="OurMissionIsToMaximizeAnonymityAndSecurity" xml:space="preserve">
+    <value>Notre mission est de maximiser l'anonymat et la sécurité!</value>
+  </data>
+  <data name="SecureStorage" xml:space="preserve">
+    <value>Stockage sécurisé</value>
+  </data>
+  <data name="SuggestedApplicationsForYourPrivacy" xml:space="preserve">
+    <value>Applications suggérées pour votre vie privée:</value>
+  </data>
+  <data name="TorBrowser" xml:space="preserve">
+    <value>Navigateur Tor</value>
+  </data>
+  <data name="WeAreOpenSource" xml:space="preserve">
+    <value>Nous sommes open source:</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="PleaseSelectImageFiles" xml:space="preserve">
+    <value>Veuillez sélectionner les fichiers d'image</value>
+  </data>
+  <data name="SecureStorageDescription" xml:space="preserve">
+    <value>est une bibliothèque qui crypte toutes les données utilisées en interne par l'application les rendant inaccessibles et inviolables.</value>
   </data>
 </root>

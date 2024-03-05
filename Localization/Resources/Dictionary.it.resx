@@ -1069,7 +1069,7 @@
     <value>Risposta alle domande più frequenti</value>
   </data>
   <data name="WeAreAnonymous" xml:space="preserve">
-    <value>: «Siamo anonimi!»</value>
+    <value>Siamo anonimi!</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Fatto</value>
@@ -1517,5 +1517,59 @@
   </data>
   <data name="WhatIsAnonymous_Duplicate[1]" xml:space="preserve">
     <value>Cos'è Anonymous?</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titolo</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pausa</value>
+  </data>
+  <data name="QRScan" xml:space="preserve">
+    <value>QR Scan</value>
+  </data>
+  <data name="VideoAlreadyUploading" xml:space="preserve">
+    <value>Un altro video è già stato caricato.</value>
+  </data>
+  <data name="CryptoMessengerDescription" xml:space="preserve">
+    <value>è il primo motore di messaggistica crittografato che non ha un backend, non esiste un server con account, se il server non esiste, non può essere hackerato! (Un account è semplicemente una chiave crittografica protetta sul lato client, lo stesso principio di Bitcoin).</value>
+  </data>
+  <data name="DuckDuckGo" xml:space="preserve">
+    <value>DuckDuckgo</value>
+  </data>
+  <data name="KaliLinux" xml:space="preserve">
+    <value>Kali Linux</value>
+  </data>
+  <data name="LineageOS" xml:space="preserve">
+    <value>LineageOS</value>
+  </data>
+  <data name="OpenGithub" xml:space="preserve">
+    <value>GitHub aperto</value>
+  </data>
+  <data name="OpenWebsite" xml:space="preserve">
+    <value>Sito Web aperto</value>
+  </data>
+  <data name="OurMissionIsToMaximizeAnonymityAndSecurity" xml:space="preserve">
+    <value>La nostra missione è massimizzare l'anonimato e la sicurezza!</value>
+  </data>
+  <data name="SecureStorage" xml:space="preserve">
+    <value>Archiviazione sicura</value>
+  </data>
+  <data name="SuggestedApplicationsForYourPrivacy" xml:space="preserve">
+    <value>Applicazioni suggerite per la tua privacy:</value>
+  </data>
+  <data name="TorBrowser" xml:space="preserve">
+    <value>Browser tor</value>
+  </data>
+  <data name="WeAreOpenSource" xml:space="preserve">
+    <value>Siamo open source:</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Caricamento</value>
+  </data>
+  <data name="PleaseSelectImageFiles" xml:space="preserve">
+    <value>Seleziona i file di immagine</value>
+  </data>
+  <data name="SecureStorageDescription" xml:space="preserve">
+    <value>è una libreria che crittografa tutti i dati utilizzati internamente dall'applicazione che li rende inaccessibili e inviolabili.</value>
   </data>
 </root>

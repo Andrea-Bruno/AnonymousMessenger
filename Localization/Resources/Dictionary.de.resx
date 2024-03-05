@@ -859,7 +859,7 @@
     <value>Antworten auf die am häufigsten gestellten Fragen</value>
   </data>
   <data name="WeAreAnonymous" xml:space="preserve">
-    <value>: "Wir sind anonym!"</value>
+    <value>Wir sind anonym!</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Erledigt</value>
@@ -1508,5 +1508,68 @@
   </data>
   <data name="WhatIsAnonymous_Duplicate[1]" xml:space="preserve">
     <value>Was ist Anonymous?</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="QRScan" xml:space="preserve">
+    <value>QR Scan</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="SelectedImageTypeIsNotSupported" xml:space="preserve">
+    <value>Ausgewählter Bildtyp wird nicht unterstützt</value>
+  </data>
+  <data name="DoYouWantToRestoreMessages" xml:space="preserve">
+    <value>Möchten Sie die Nachrichten wiederherstellen?</value>
+  </data>
+  <data name="VideoAlreadyUploading" xml:space="preserve">
+    <value>Ein weiteres Video wird bereits hochgeladen.</value>
+  </data>
+  <data name="CryptoMessengerDescription" xml:space="preserve">
+    <value>Ist die erste verschlüsselte Messaging -Engine, die kein Backend hat, es gibt keinen Server mit Konten. Wenn der Server nicht existiert, kann er nicht gehackt werden! (Ein Konto ist einfach ein kundenseitiger kryptografischer Schlüssel, das gleiche Prinzip wie Bitcoin).</value>
+  </data>
+  <data name="DuckDuckGo" xml:space="preserve">
+    <value>Duckduckgo</value>
+  </data>
+  <data name="KaliLinux" xml:space="preserve">
+    <value>Kali Linux</value>
+  </data>
+  <data name="LineageOS" xml:space="preserve">
+    <value>LineageOS</value>
+  </data>
+  <data name="OpenGithub" xml:space="preserve">
+    <value>Github offen</value>
+  </data>
+  <data name="OpenWebsite" xml:space="preserve">
+    <value>Website öffnen</value>
+  </data>
+  <data name="OurMissionIsToMaximizeAnonymityAndSecurity" xml:space="preserve">
+    <value>Unsere Mission ist es, Anonymität und Sicherheit zu maximieren!</value>
+  </data>
+  <data name="SecureStorage" xml:space="preserve">
+    <value>Sicherungspeicher</value>
+  </data>
+  <data name="SuggestedApplicationsForYourPrivacy" xml:space="preserve">
+    <value>Vorgeschlagene Bewerbungen für Ihre Privatsphäre:</value>
+  </data>
+  <data name="TorBrowser" xml:space="preserve">
+    <value>Tor Browser</value>
+  </data>
+  <data name="WeAreOpenSource" xml:space="preserve">
+    <value>Wir sind Open Source:</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Hochladen</value>
+  </data>
+  <data name="PleaseSelectImageFiles" xml:space="preserve">
+    <value>Bitte wählen Sie Bilddateien aus</value>
+  </data>
+  <data name="SecureStorageDescription" xml:space="preserve">
+    <value>ist eine Bibliothek, die alle von der Anwendung intern verwendeten Daten verschlüsselt, wodurch sie unzugänglich und unantastbar werden.</value>
   </data>
 </root>
