@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ts:BaseView
+    x:Class="XamarinShared.ViewCreator.Views.Incoming.BaseIncomingView
+    "
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customviews="clr-namespace:XamarinShared.CustomViews"
+    xmlns:ts="clr-namespace:XamarinShared.ViewCreator"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    <ContentView.Resources>
+        <ts:MessageSelectionMarginConverter x:Key="marginConverter" />
+    </ContentView.Resources>
+    <ContentView.Content>
+        <RelativeLayout
+            Margin="15,3,50,3"
+            Padding="3"
+            BackgroundColor="Transparent"
+            HorizontalOptions="FillAndExpand"
+            MinimumHeightRequest="200">
+,,
+            <customviews:CustomCheckBox
+                x:Name="CheckBox"
+                Margin="0,0,8,-40"
+                x:FieldModifier="Public"
+                BackgroundColor="Transparent"
+                HeightRequest="20"
+                HorizontalOptions="Start"
+                IsChecked="False"
+                IsVisible="{Binding IsMessageSelection}"
+                WidthRequest="20" />
+
+
+            <StackLayout
+                Margin="{Binding IsMessageSelection, Converter={StaticResource marginConverter}}"
+                Orientation="Vertical"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}">
+                <!--  Margin="{Binding Source={x:Reference CheckBox},Path=Height,Converter=}"  -->
+                <yummy:PancakeView
+                    x:Name="PancakeView"
+                    Padding="0"
+                    x:FieldModifier="Public"
+                    CornerRadius="15,15,0,15"
+                    HorizontalOptions="FillAndExpand"
+                    MinimumHeightRequest="200"
+                    VerticalOptions="FillAndExpand">
+                    <yummy:PancakeView.Shadow>
+                        <yummy:DropShadow
+                            x:Name="DropShadow"
+                            BlurRadius="5"
+                            Offset="10,10" />
+                    </yummy:PancakeView.Shadow>
+                </yummy:PancakeView>
+
+            </StackLayout>
+
+        </RelativeLayout>
+    </ContentView.Content>
+</ts:BaseView>

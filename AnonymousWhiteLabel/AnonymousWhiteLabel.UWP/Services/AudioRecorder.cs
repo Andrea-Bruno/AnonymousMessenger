@@ -1,19 +1,29 @@
 ﻿using AnonymousWhiteLabel.UWP.Services;
 using System;
-using Windows.Media.Capture;
-using Windows.Media.MediaProperties;
-using Windows.Storage.Streams;
-using Windows.UI.Xaml.Controls;
-using Xamarin.Forms;
-using XamarinShared.ViewCreator;
+// using XamarinShared.ViewCreator;
+// using Windows.Media.Capture;
+// using Windows.Media.MediaProperties;
+// using Windows.Storage.Streams;
+// using Windows.UI.Xaml.Controls;
 
-[assembly: Dependency(typeof(AudioRecorder))]
+[assembly: Xamarin.Forms.Dependency(typeof(AudioRecorder))]
 namespace AnonymousWhiteLabel.UWP.Services
 {
+    public interface IAudioRecorder
+    {
+        void StartRecording();
+        void StopRecording();
+        void PlayRecording();
+        byte[] GetOutput();
+        void DeleteOutput();
+
+    }
+
     public class AudioRecorder : IAudioRecorder
     {
-        private MediaCapture _mediaCapture;
-        private InMemoryRandomAccessStream _memoryBuffer;
+        
+        private Windows.Media.Capture.MediaCapture _mediaCapture;
+        private Windows.Storage.Streams.InMemoryRandomAccessStream _memoryBuffer;
 
         public bool IsRecording { get; set; }
 
@@ -25,11 +35,11 @@ namespace AnonymousWhiteLabel.UWP.Services
         }
 
         public byte[] GetOutput()
-        {
+        {       
             if (IsRecording)
                 StopRecording();
             var s = _memoryBuffer.CloneStream();
-            var dr = new DataReader(s.GetInputStreamAt(0));
+            var dr = new Windows.Storage.Streams.DataReader(s.GetInputStreamAt(0));
             var bytes = new byte[s.Size];
             _ = dr.LoadAsync((uint)s.Size);
             dr.ReadBytes(bytes);
@@ -37,7 +47,7 @@ namespace AnonymousWhiteLabel.UWP.Services
         }
         public void PlayRecording()
         {
-            var playbackMediaElement = new MediaElement();
+            var playbackMediaElement = new Windows.UI.Xaml.Controls.MediaElement();
             playbackMediaElement.SetSource(_memoryBuffer, "MP3");
             playbackMediaElement.Play();
         }
@@ -47,11 +57,11 @@ namespace AnonymousWhiteLabel.UWP.Services
             {
                 throw new InvalidOperationException("Recording already in progress!");
             }
-            _mediaCapture = new MediaCapture();
+            _mediaCapture = new Windows.Media.Capture.MediaCapture();
 
             try
             {
-                await _mediaCapture.InitializeAsync(new MediaCaptureInitializationSettings { StreamingCaptureMode = StreamingCaptureMode.Audio });
+                await _mediaCapture.InitializeAsync(new Windows.Media.Capture.MediaCaptureInitializationSettings { StreamingCaptureMode = Windows.Media.Capture.StreamingCaptureMode.Audio });
             }
             catch (Exception ex)
             {
@@ -59,10 +69,10 @@ namespace AnonymousWhiteLabel.UWP.Services
 
             }
 
-            var profile = MediaEncodingProfile.CreateMp3(AudioEncodingQuality.Auto);
+            var profile = Windows.Media.MediaProperties.MediaEncodingProfile.CreateMp3(Windows.Media.MediaProperties.AudioEncodingQuality.Auto);
             //profile.Audio = AudioEncodingProperties.CreatePcm(sampleRate, channels, bitsPerSample);
 
-            _memoryBuffer = new InMemoryRandomAccessStream();
+            _memoryBuffer = new Windows.Storage.Streams.InMemoryRandomAccessStream();
             await _mediaCapture.StartRecordToStreamAsync(profile, _memoryBuffer);
 
 

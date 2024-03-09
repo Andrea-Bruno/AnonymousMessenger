@@ -2,13 +2,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0DE039F0-1D27-4A98-B133-A1851F11B7AD}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet NOTE.txt = NuGet NOTE.txt
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keyboard", "Keyboard\Keyboard.csproj", "{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5658DF85-2ED4-4ABE-9CBD-D15540718C47}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -16,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityClient", "CommunityClient\CommunityClient.csproj", "{B0821397-FEE6-4F58-AA9F-5D982A6A6AF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization", "Localization\Localization.csproj", "{FFE493CA-FAC2-485E-A759-E544D673D286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization", "Shared\Localization\Localization.csproj", "{FFE493CA-FAC2-485E-A759-E544D673D286}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousWhiteLabel", "AnonymousWhiteLabel\AnonymousWhiteLabel\AnonymousWhiteLabel.csproj", "{83B3C7B7-3CE0-402C-81D8-C214617EC5FD}"
 EndProject
@@ -28,23 +21,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectrumXClient", "Electrum
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubAppInterface", "SubAppInterface\SubAppInterface.csproj", "{99A51F91-DD7E-4981-9EFA-CEED3BDCCA3D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomViewElements", "CustomViewElements\CustomViewElements.csproj", "{01CD112B-D6F1-4951-9C9E-DBD7B2BE4362}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomViewElements", "Shared\CustomViewElements\CustomViewElements.csproj", "{01CD112B-D6F1-4951-9C9E-DBD7B2BE4362}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatComposer", "ChatComposer\ChatComposer.csproj", "{77D2650E-72CB-48BD-8BFE-2570BE76C02D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatComposer", "Shared\ChatComposer\ChatComposer.csproj", "{77D2650E-72CB-48BD-8BFE-2570BE76C02D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{4F9F566D-E503-4B01-9C26-1F6B61080AD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Shared\Utils\Utils.csproj", "{4F9F566D-E503-4B01-9C26-1F6B61080AD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinShared", "XamarinShared\XamarinShared.csproj", "{36231E7E-729F-492F-9CAD-F0AABD619174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinShared", "Shared\XamarinShared\XamarinShared.csproj", "{36231E7E-729F-492F-9CAD-F0AABD619174}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteLabelDesignComponents", "WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj", "{75185975-D181-472A-9E8B-2CE676BBAF5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiteLabelDesignComponents", "Shared\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj", "{75185975-D181-472A-9E8B-2CE676BBAF5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageCompose", "MessageCompose\MessageCompose.csproj", "{F5A8FB16-EAF8-48D5-92BB-5285C50C3BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageCompose", "Shared\MessageCompose\MessageCompose.csproj", "{F5A8FB16-EAF8-48D5-92BB-5285C50C3BBC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoFileCryptographyLibrary", "VideoFileCryptographyLibrary\VideoFileCryptographyLibrary.csproj", "{5B33F645-C0AC-48EA-9AD4-E084407FF900}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudClient", "CloudClient\CloudClient.csproj", "{C8E07034-ED0C-4C7E-8848-1EDEF5B2D7E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationService", "NotificationService\NotificationService.csproj", "{4B6F4AD6-6227-4BE8-A4ED-698FC6070ABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationService", "Shared\NotificationService\NotificationService.csproj", "{4B6F4AD6-6227-4BE8-A4ED-698FC6070ABD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousWhiteLabel.UWP", "AnonymousWhiteLabel\AnonymousWhiteLabel.UWP\AnonymousWhiteLabel.UWP.csproj", "{2F1740A9-F51A-40E0-AF11-7736AAA573DE}"
 EndProject
@@ -79,48 +72,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|ARM.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|x64.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Debug|x86.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|Any CPU.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|ARM.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|ARM.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|ARM64.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|ARM64.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|iPhone.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|iPhone.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|x64.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|x64.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|x86.ActiveCfg = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.DebugNuget|x86.Build.0 = Debug|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|ARM.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|ARM.Build.0 = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|ARM64.Build.0 = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|iPhone.Build.0 = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|x64.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|x64.Build.0 = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|x86.ActiveCfg = Release|Any CPU
-		{7E7FD838-6832-4F58-BC4F-D6A6F71991CD}.Release|x86.Build.0 = Release|Any CPU
 		{B0821397-FEE6-4F58-AA9F-5D982A6A6AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0821397-FEE6-4F58-AA9F-5D982A6A6AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0821397-FEE6-4F58-AA9F-5D982A6A6AF0}.Debug|ARM.ActiveCfg = Debug|Any CPU

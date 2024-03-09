@@ -27,15 +27,15 @@
   <ItemGroup>
     <!--<ProjectReference Include="..\..\Banking\Banking.csproj" />-->
 
-	  <ProjectReference Include="..\..\MessageCompose\MessageCompose.csproj" />
+	  <ProjectReference Include="..\..\Shared\MessageCompose\MessageCompose.csproj" />
 
-	  <ProjectReference Include="..\..\NotificationService\NotificationService.csproj" />
+	  <ProjectReference Include="..\..\Shared\NotificationService\NotificationService.csproj" />
 
-	  <ProjectReference Include="..\..\Utils\Utils.csproj" />
+	  <ProjectReference Include="..\..\Shared\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj" />
 
-	  <ProjectReference Include="..\..\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj" />
+	  <ProjectReference Include="..\..\Shared\Utils\Utils.csproj" />
 
-	  <ProjectReference Include="..\..\XamarinShared\XamarinShared.csproj" />
+	  <ProjectReference Include="..\..\Shared\XamarinShared\XamarinShared.csproj" />
 	  
   </ItemGroup>
 

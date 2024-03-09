@@ -13,37 +13,37 @@ namespace AnonymousWhiteLabel
         private static NotificationManager _notificationService;
         private static void InitNotificationService()
         {
-            if(_notificationService == null)
-                _notificationService = new NotificationManager();
+            if (_notificationService == null)
+                _notificationService = new NotificationManager(App.Context.My.Id.ToString());
         }
-       public static async Task SendNotification(Contact contact, MessageFormat.MessageType type) 
-       {
-            if (contact== null || contact.ImBlocked) return;
+        public static async Task SendNotification(Contact contact, MessageFormat.MessageType type)
+        {
+            if (contact == null || contact.ImBlocked) return;
             var messageType = MessageTypeConverter.GetNotificationType(type);
             if (messageType == NotificationType.NONE || (!contact.IsGroup &&
                                                          (type == MessageFormat.MessageType.EndCall ||
                                                           type == MessageFormat.MessageType.DeclinedCall))) return;
             SendNotification(contact, messageType);
         }
-        
+
         private static async void SendNotification(Contact contact, NotificationType notificationType)
         {
             if (contact == null || contact.ImBlocked) return;
             InitNotificationService();
 
             var androidRegistrationIds = GetAndroidGroupParticipantsRegistrationIds(contact);
-            if(androidRegistrationIds.Count>0)
-                await _notificationService.SendNotification( contact.ChatId + "", 
-                    true, GetAndroidGroupParticipantsRegistrationIds(contact),
-                     contact.Language).ConfigureAwait(false);
+            if (androidRegistrationIds.Count > 0)
+            {
+                 await _notificationService.SendNotification(contact.ChatId + "", true, GetAndroidGroupParticipantsRegistrationIds(contact), contact.Language).ConfigureAwait(false);
+            }
 
             var iosRegistrationIds = GetIosGroupParticipantsRegistrationIds(contact);
-            if(iosRegistrationIds.Count>0)
-                await _notificationService.SendNotification(contact.ChatId + "", 
-                    false, GetIosGroupParticipantsRegistrationIds(contact),
-                     contact.Language).ConfigureAwait(false);
+            if (iosRegistrationIds.Count > 0)
+            {
+                 await _notificationService.SendNotification(contact.ChatId + "", false, GetIosGroupParticipantsRegistrationIds(contact), contact.Language).ConfigureAwait(false);
+            }
         }
-        
+
         private static List<string> GetAndroidGroupParticipantsRegistrationIds(Contact contact)
         {
 

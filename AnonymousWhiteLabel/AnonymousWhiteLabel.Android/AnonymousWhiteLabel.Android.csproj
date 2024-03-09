@@ -74,12 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Firebase.Iid">
-      <Version>121.1.0.3</Version>
+      <Version>121.1.0.13</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
     <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.Tasks">
-      <Version>117.2.1.3</Version>
+      <Version>118.0.2.6</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -115,11 +115,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CommunityClient\CommunityClient.csproj">
-      <Project>{b0821397-fee6-4f58-aa9f-5d982a6a6af0}</Project>
-      <Name>CommunityClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\XamarinShared\XamarinShared.csproj">
+    <ProjectReference Include="..\..\Shared\XamarinShared\XamarinShared.csproj">
       <Project>{36231E7E-729F-492F-9CAD-F0AABD619174}</Project>
       <Name>XamarinShared</Name>
     </ProjectReference>

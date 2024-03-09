@@ -93,11 +93,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\XamarinShared\XamarinShared.csproj">
+    <ProjectReference Include="..\..\Shared\XamarinShared\XamarinShared.csproj">
       <Project>{36231E7E-729F-492F-9CAD-F0AABD619174}</Project>
       <Name>XamarinShared</Name>
     </ProjectReference>

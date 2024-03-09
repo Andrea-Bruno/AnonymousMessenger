@@ -23,7 +23,7 @@ namespace AnonymousWhiteLabel
     {
         public static Context Context;
         public App()
-        {
+        {           
             InitializeComponent();
             SetStyle();
             //Xamarin.Essentials.Preferences.Clear();
@@ -71,6 +71,7 @@ namespace AnonymousWhiteLabel
             var oem = new OEM(Config.Connection.LicenseOEM);
             Context = XamarinShared.Setup.Initialize(OnMessageArrived, OnNewMessageAddedToView, Config.Connection.EntryPoint, Config.Connection.NetworkName, Config.ChatUI.MultipleChatModes, Config.ChatUI.NewMessageOnTop, ChatPage.MessageContainer, OnInitialized: OnContextInitialized, privateKeyOrPassphrase: passPhrase, oem: oem);
 
+     
             var main = new MainTabsPage(Context);
             //MainPage = main;
             MainPage = new NavigationPage(main);

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local2:BasePopupPage
+    x:Class="MessageCompose.AttachmentPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:local2="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    ios:Page.UseSafeArea="true"
+    CloseWhenBackgroundIsClicked="True">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="200"
+            DurationOut="140"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="0.6"
+            ScaleOut="0.6" />
+    </pages:PopupPage.Animation>
+    <StackLayout
+        Margin="0,0,0,60"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="EndAndExpand">
+        <Frame
+            Padding="10"
+            BackgroundColor="{DynamicResource Color2}"
+            BorderColor="{DynamicResource Color2}"
+            CornerRadius="15"
+            HasShadow="False"
+            HorizontalOptions="FillAndExpand">
+            <Grid
+                x:Name="AttachmentComponents"
+                Margin="20,40,20,40"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout
+                    x:Name="PdfDocumentLayout"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    IsVisible="True"
+                    Orientation="Vertical">
+                    <Image
+                        x:Name="PdfDocument"
+                        HeightRequest="62"
+                        HorizontalOptions="Center"
+                        WidthRequest="62" />
+                    <Label
+                        x:Name="PdfDocumentText"
+                        FontFamily="PoppinsLight"
+                        FontSize="16"
+                        HeightRequest="23"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static local1:Resources.Dictionary.UploadPdf}"
+                        TextColor="{DynamicResource WhiteColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PdfDocument_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="VideoLayout"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    Orientation="Vertical">
+                    <Image
+                        x:Name="Video"
+                        HeightRequest="62"
+                        HorizontalOptions="Center"
+                        WidthRequest="62" />
+                    <Label
+                        x:Name="VideoText"
+                        Margin="0,0,0,0"
+                        FontFamily="PoppinsLight"
+                        FontSize="16"
+                        HeightRequest="23"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static local1:Resources.Dictionary.Video}"
+                        TextColor="{DynamicResource WhiteColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Video_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="ImageLayout"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    Orientation="Vertical">
+                    <Image
+                        x:Name="Image"
+                        HeightRequest="62"
+                        WidthRequest="62" />
+                    <Label
+                        x:Name="ImageText"
+                        Margin="5,0,0,0"
+                        FontFamily="PoppinsLight"
+                        FontSize="16"
+                        HeightRequest="23"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static local1:Resources.Dictionary.UploadImage}"
+                        TextColor="{DynamicResource WhiteColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Image_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="AudioLayout"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    Orientation="Vertical">
+                    <Image
+                        x:Name="AudioImage"
+                        HeightRequest="62"
+                        WidthRequest="62" />
+                    <Label
+                        x:Name="AudioText"
+                        FontFamily="PoppinsLight"
+                        FontSize="16"
+                        HeightRequest="23"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static local1:Resources.Dictionary.UploadAudio}"
+                        TextColor="{DynamicResource WhiteColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Audio_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="PhoneContactLayout"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    Orientation="Vertical">
+                    <StackLayout.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android,iOS" Value="true" />
+                                <On Platform="UWP" Value="false" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </StackLayout.IsVisible>
+                    <Image
+                        x:Name="PhoneContactImage"
+                        HeightRequest="62"
+                        WidthRequest="62" />
+                    <Label
+                        x:Name="PhoneContactText"
+                        FontFamily="PoppinsLight"
+                        FontSize="16"
+                        HeightRequest="23"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static local1:Resources.Dictionary.UploadContact}"
+                        TextColor="{DynamicResource WhiteColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PhoneContact_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    x:Name="LocationLayout"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    Orientation="Vertical">
+                    <StackLayout.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <OnPlatform.Platforms>
+                                <On Platform="Android,iOS" Value="true" />
+                                <On Platform="UWP" Value="false" />
+                            </OnPlatform.Platforms>
+                        </OnPlatform>
+                    </StackLayout.IsVisible>
+                    <Image
+                        x:Name="Location"
+                        HeightRequest="62"
+                        WidthRequest="62" />
+                    <Label
+                        x:Name="LocationText"
+                        Margin="0,0,0,0"
+                        FontFamily="PoppinsLight"
+                        FontSize="16"
+                        HeightRequest="23"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static local1:Resources.Dictionary.Location}"
+                        TextColor="{DynamicResource WhiteColor}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Location_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </StackLayout>
+</local2:BasePopupPage>

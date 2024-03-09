@@ -73,7 +73,7 @@ namespace AnonymousWhiteLabel.UWP.Services
         }
 
         ///<Summary>
-        /// Continously repeats the currently playing sound
+        /// Continuously repeats the currently playing sound
         ///</Summary>
         public bool Loop
         {

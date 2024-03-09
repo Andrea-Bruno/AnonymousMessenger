@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;DEBUG_ALI;Release;DebugNuget</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNuget|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_ALI|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.2.27" />
+    <PackageReference Include="SkiaSharp" Version="2.88.7" />
+    <PackageReference Include="Xamarin.Forms.CircularProgressBar" Version="1.0.8" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="MR.Gestures" Version="2.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Condition="'$(Configuration)' != 'DebugNuget'" Include="..\..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\..\Localization\Localization.csproj" />
+    <ProjectReference Include="..\..\VideoFileCryptographyLibrary\VideoFileCryptographyLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\ic_message_audio_mic_incoming.png" />
+    <None Remove="Images\ic_message_audio_mic_outgoing.png" />
+    <None Remove="Images\ic_message_audio_pause.png" />
+    <None Remove="Images\ic_message_audio_start.png" />
+    <None Remove="Images\ic_message_call_arrow_green_incoming.png" />
+    <None Remove="Images\ic_message_call_arrow_green_outgoing.png" />
+    <None Remove="Images\ic_message_call_arrow_red_incoming.png" />
+    <None Remove="Images\ic_message_call_arrow_red_outgoing.png" />
+    <None Remove="Images\ic_message_call_audio_incoming.png" />
+    <None Remove="Images\ic_message_call_audio_outgoing.png" />
+    <None Remove="Images\ic_message_call_video_incoming.png" />
+    <None Remove="Images\ic_message_call_video_outgoing.png" />
+    <None Remove="Images\ic_message_new_group.png" />
+    <None Remove="Images\ic_message_pdf.png" />
+    <None Remove="Images\ic_message_phonecontact.png" />
+    <None Remove="Images\ic_message_slider_thumb_incoming.png" />
+    <None Remove="Images\ic_message_slider_thumb_outgoing.png" />
+    <None Remove="Images\ic_message_video_download.png" />
+    <None Remove="ViewModels\" />
+    <None Remove="CustomViews\" />
+    <None Remove="MR.Gestures" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\ic_message_call_arrow_green_incoming.png" />
+    <EmbeddedResource Include="Images\ic_message_call_arrow_red_incoming.png" />
+    <EmbeddedResource Include="Images\ic_message_call_arrow_green_outgoing.png" />
+    <EmbeddedResource Include="Images\ic_message_call_arrow_red_outgoing.png" />
+    <EmbeddedResource Include="Images\ic_message_call_audio_incoming.png" />
+    <EmbeddedResource Include="Images\ic_message_call_audio_outgoing.png" />
+    <EmbeddedResource Include="Images\ic_message_call_video_incoming.png" />
+    <EmbeddedResource Include="Images\ic_message_call_video_outgoing.png" />
+    <EmbeddedResource Include="Images\ic_message_new_group.png" />
+    <EmbeddedResource Include="Images\ic_message_phonecontact.png" />
+    <EmbeddedResource Include="Images\ic_message_audio_pause.png" />
+    <EmbeddedResource Include="Images\ic_message_audio_start.png" />
+    <EmbeddedResource Include="Images\ic_message_pdf.png" />
+    <EmbeddedResource Include="Images\ic_message_audio_mic_outgoing.png" />
+    <EmbeddedResource Include="Images\ic_message_audio_mic_incoming.png" />
+    <EmbeddedResource Include="Images\ic_message_slider_thumb_outgoing.png" />
+    <EmbeddedResource Include="Images\ic_message_slider_thumb_incoming.png" />
+    <EmbeddedResource Include="Images\ic_message_video_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="CustomViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ViewCreator\Views\Incoming\IncomingBaseView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="ViewCreator\Views\Outgoing\OutgoingBaseView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

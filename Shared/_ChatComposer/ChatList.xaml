@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<local1:BaseContentView
+    x:Class="ChatComposer.ChatList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:utils="clr-namespace:Utils;assembly=Utils">
+    <local1:BaseContentView.Content>
+        <syncfusion:SfListView
+            x:Name="ItemsListView"
+            x:FieldModifier="public"
+            AllowSwiping="True"
+            BackgroundColor="Transparent"
+            ItemSize="75"
+            ItemTapped="OnItemSelected"
+            SelectionMode="None"
+            SwipeEnded="ItemsListView_SwipeEnded"
+            SwipeStarted="ItemsListView_SwipeStarted"
+            VerticalOptions="FillAndExpand">
+            <syncfusion:SfListView.RightSwipeTemplate>
+                <DataTemplate x:Name="RightSwipeTemplate">
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <StackLayout
+                            Padding="10,0,10,0"
+                            BackgroundColor="{x:DynamicResource WhiteColor}"
+                            HorizontalOptions="FillAndExpand">
+                            <Image
+                                HeightRequest="30"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{utils:ImageResourceExtension ic_new_clear_contact.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="30" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Clear_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout
+                            Padding="10,0,10,0"
+                            BackgroundColor="{x:DynamicResource RedColor}"
+                            HorizontalOptions="FillAndExpand">
+                            <Image
+                                HeightRequest="30"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{utils:ImageResourceExtension ic_new_delete_contact.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="30" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Delete_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </syncfusion:SfListView.RightSwipeTemplate>
+            <syncfusion:SfListView.LeftSwipeTemplate>
+                <DataTemplate x:Name="LeftSwipeTemplate">
+                    <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                        <StackLayout
+                            Margin="-28,0,0,0"
+                            Padding="20,0,20,0"
+                            BackgroundColor="{x:DynamicResource LightColor}"
+                            HorizontalOptions="FillAndExpand">
+                            <Image
+                                HeightRequest="30"
+                                HorizontalOptions="FillAndExpand"
+                                Source="{utils:ImageResourceExtension ic_new_edit_contact.png}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="30" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Edit_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </syncfusion:SfListView.LeftSwipeTemplate>
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            HeightRequest="75"
+                            MinimumHeightRequest="75"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <StackLayout
+                                Margin="12"
+                                HeightRequest="50"
+                                MinimumHeightRequest="50"
+                                Orientation="Horizontal"
+                                Spacing="0"
+                                VerticalOptions="FillAndExpand">
+                                <local1:CustomAvatar
+                                    Contact="{Binding .}"
+                                    CornerRadius="25"
+                                    HeightRequest="50"
+                                    MinimumHeightRequest="50"
+                                    MinimumWidthRequest="50"
+                                    WidthRequest="50" />
+                                <StackLayout
+                                    Margin="16,0,0,0"
+                                    HorizontalOptions="FillAndExpand"
+                                    Spacing="0">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        Spacing="0"
+                                        VerticalOptions="FillAndExpand">
+                                        <local1:CustomLabel
+                                            x:Name="Name"
+                                            FontFamily="PoppinsSemiBold"
+                                            FontSize="18"
+                                            HorizontalOptions="FillAndExpand"
+                                            LineBreakMode="TailTruncation"
+                                            MaxLines="1"
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            Text="{Binding Name}"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            VerticalOptions="Center" />
+                                        <local1:CustomLabel
+                                            x:Name="time"
+                                            Margin="0,0,0,-3"
+                                            FontFamily="PoppinsRegular"
+                                            FontSize="12"
+                                            HorizontalTextAlignment="End"
+                                            MaxLines="2"
+                                            Text="{Binding LastMessageTimeDistance}"
+                                            TextColor="{x:DynamicResource Theme}"
+                                            VerticalOptions="Center">
+                                            <local1:CustomLabel.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding UnreadMessages}"
+                                                    TargetType="local1:CustomLabel"
+                                                    Value="0">
+                                                    <Setter Property="TextColor" Value="{x:DynamicResource BackgroundSecondary}" />
+                                                </DataTrigger>
+                                            </local1:CustomLabel.Triggers>
+                                        </local1:CustomLabel>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                                        <local1:CustomLabel
+                                            x:Name="Message"
+                                            FontFamily="PoppinsRegular"
+                                            FontSize="12"
+                                            HorizontalOptions="FillAndExpand"
+                                            LineBreakMode="NoWrap"
+                                            MaxLines="1"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            Text="{Binding LastMessagePreview}"
+                                            TextColor="{DynamicResource BackgroundSecondary}"
+                                            VerticalOptions="Center" />
+                                        <Frame
+                                            Padding="0"
+                                            CornerRadius="10"
+                                            HasShadow="False"
+                                            HeightRequest="20"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"
+                                            WidthRequest="20">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                    <GradientStop Offset="0.1" Color="{x:DynamicResource Theme}" />
+                                                    <GradientStop Offset="1.0" Color="{x:DynamicResource Theme1}" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <local1:CustomLabel
+                                                x:Name="UnreadedMessages"
+                                                Margin="1,1,0,0"
+                                                FontFamily="PoppinsBold"
+                                                FontSize="12"
+                                                HorizontalOptions="Center"
+                                                LineBreakMode="NoWrap"
+                                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                                Text="{Binding UnreadMessages}"
+                                                TextColor="{DynamicResource WhiteColor}"
+                                                VerticalOptions="Center" />
+                                            <Frame.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding UnreadMessages}"
+                                                    TargetType="Frame"
+                                                    Value="0">
+                                                    <Setter Property="IsVisible" Value="False" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <BoxView
+                                Margin="92,0,0,0"
+                                HeightRequest="1"
+                                VerticalOptions="Fill"
+                                Color="{x:DynamicResource Color3}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </local1:BaseContentView.Content>
+</local1:BaseContentView>

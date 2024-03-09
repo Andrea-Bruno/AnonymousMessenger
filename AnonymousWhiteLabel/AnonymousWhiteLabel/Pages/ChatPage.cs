@@ -48,7 +48,7 @@ namespace AnonymousWhiteLabel.Pages
             _composer = editMessage.Composer;
             Content = stackLayout;
             Player = DependencyService.Get<IAudioPlayer>();
-            InitalizeComposer();
+            InitializeComposer();
         }
 
         private void InitToolbar()
@@ -62,7 +62,7 @@ namespace AnonymousWhiteLabel.Pages
             ToolbarItems.Add(edit);
         }
 
-        private void InitalizeComposer()
+        private void InitializeComposer()
         {
             _composer.Init(onSend: OnSend, onMediaFileSelected: OnMediaFileSelected, videoFileSelectEvent: OnVideoFileSelected);//, (progress =>
             //{
@@ -102,7 +102,7 @@ namespace AnonymousWhiteLabel.Pages
                 return;
             }
 
-            PlayAudio(DependencyService.Get<IAudioRecorder>().GetOutput());
+            PlayAudio(DependencyService.Get<MessageCompose.Services.IAudioRecorder>().GetOutput());
             Player.PlaybackEnded += (s, args) => StopAudio();
         }
 
@@ -123,7 +123,7 @@ namespace AnonymousWhiteLabel.Pages
         private void DeleteRecording()
         {
             Player?.Stop();
-            DependencyService.Get<IAudioRecorder>()?.DeleteOutput();
+            DependencyService.Get<MessageCompose.Services.IAudioRecorder>()?.DeleteOutput();
         }
 
 
@@ -138,8 +138,6 @@ namespace AnonymousWhiteLabel.Pages
             Tuple<double, double> coordinate = null, byte[] pdf = null, byte[] phoneContact = null, byte[] video = null,
             string videoType = null)
         {
-
-
             _composer.RemoveReplyState();
             var currentContact = App.Context.Messaging.CurrentChatRoom;
             if (!string.IsNullOrEmpty(text))
@@ -159,12 +157,13 @@ namespace AnonymousWhiteLabel.Pages
             //        string.Empty, replyToPostId: replyToPostId);
         }
 
-
-        private void OnMediaFileSelected(byte[] image, ulong? replyToPostId)
+        private void OnMediaFileSelected(List< byte[]> images, ulong? replyToPostId)
         {
-
-            OnSend(replyToPostId, image: image);
-           // Navigation.NavigationStack.ElementAt(1);
+            foreach ( var image in images)
+            {
+                OnSend(replyToPostId, image: image);
+            }
+            // Navigation.NavigationStack.ElementAt(1);
             //var editImagePage = new EditImagePage(image);
             //editImagePage.AttachPicture += (data) => OnSend(image: data);
             //Application.Current.MainPage.Navigation.PushAsync(editImagePage, false);

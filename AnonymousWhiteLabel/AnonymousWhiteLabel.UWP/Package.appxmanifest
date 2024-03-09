@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="41836WindowsPhne.MessengerAnonymous"
-    Publisher="CN=2789CF78-AB25-4596-8B9D-4BD54E9A517A"
-    Version="1.0.8.0" />
+    Name="4425be04-1ad3-4185-b5f7-0559e196dfc8"
+    Publisher="CN=f2574483-e6f0-4398-a187-63f64f8bf65b"
+    Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="a398524a-53de-44ea-9efe-cf7953484f2b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Messenger Anonymous</DisplayName>
-    <PublisherDisplayName>Placeholder_5722</PublisherDisplayName>
+    <DisplayName>Telegraph.UWP</DisplayName>
+    <PublisherDisplayName>f2574483-e6f0-4398-a187-63f64f8bf65b</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="AnonymousWhiteLabel.UWP.App">
+      EntryPoint="Telegraph.UWP.App">
       <uap:VisualElements
-        DisplayName="Anonymous White Label"
+        DisplayName="Telegraph.UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="AnonymousWhiteLabel.UWP"
+        Description="Telegraph.UWP"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
@@ -51,8 +51,5 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
-    <uap:Capability Name="contacts"/>
-    <DeviceCapability Name="microphone"/>
-    <DeviceCapability Name="location"/>
   </Capabilities>
 </Package>

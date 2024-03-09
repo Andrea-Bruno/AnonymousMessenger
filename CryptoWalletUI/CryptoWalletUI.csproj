@@ -23,7 +23,6 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElectrumXClient\src\ElectrumXClient\ElectrumXClient.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\SubAppInterface\SubAppInterface.csproj" />
     <ProjectReference Include="..\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj" />
