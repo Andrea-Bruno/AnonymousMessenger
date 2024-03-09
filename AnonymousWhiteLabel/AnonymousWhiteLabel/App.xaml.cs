@@ -23,7 +23,7 @@ namespace AnonymousWhiteLabel
     {
         public static Context Context;
         public App()
-        {           
+        {
             InitializeComponent();
             SetStyle();
             //Xamarin.Essentials.Preferences.Clear();
@@ -69,9 +69,10 @@ namespace AnonymousWhiteLabel
         {
             MessageViewCreator.Instance.Setup(NotificationService.SendNotification, fileDetailsProvider: ProvideFileDetails, composerStateProvider: ProvideComposerState, contactDetailsProvider: ProvideContactDetails);
             var oem = new OEM(Config.Connection.LicenseOEM);
-            Context = XamarinShared.Setup.Initialize(OnMessageArrived, OnNewMessageAddedToView, Config.Connection.EntryPoint, Config.Connection.NetworkName, Config.ChatUI.MultipleChatModes, Config.ChatUI.NewMessageOnTop, ChatPage.MessageContainer, OnInitialized: OnContextInitialized, privateKeyOrPassphrase: passPhrase, oem: oem);
+            // Context = XamarinShared.Setup.Initialize(OnMessageArrived, OnNewMessageAddedToView, Config.Connection.EntryPoint, Config.Connection.NetworkName, Config.ChatUI.MultipleChatModes, Config.ChatUI.NewMessageOnTop, ChatPage.MessageContainer, OnInitialized: OnContextInitialized, privateKeyOrPassphrase: passPhrase, oem: oem);
+            Context = XamarinShared.Setup.Initialize(OnMessageArrived, OnNewMessageAddedToView, Config.Connection.EntryPoint, Config.Connection.NetworkName, Config.ChatUI.MultipleChatModes, Config.ChatUI.NewMessageOnTop, passPhrase, null, OnInitialized: OnContextInitialized, oem: oem);
 
-     
+
             var main = new MainTabsPage(Context);
             //MainPage = main;
             MainPage = new NavigationPage(main);
