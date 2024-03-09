@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Configurations>Debug;Release;DEBUG_RAM;DEBUG_AND;DEBUG_ZUB;DEBUG_FAI;DEBUG_MUS;DEBUG_ALI</Configurations>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
