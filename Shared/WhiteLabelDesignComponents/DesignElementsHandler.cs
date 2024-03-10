@@ -17,9 +17,7 @@ namespace WhiteLabelDesignComponents
         {
             Type currentClassType = typeof(DesignElementsHandler);
             CommonSourceBasePath = currentClassType.Namespace + ".Image.Common.";
-            if (_isDarkTheme == null)
-                _isDarkTheme = !IsDarkTheme;
-            IsDarkTheme = (bool)_isDarkTheme;
+            IsDarkTheme = _isDarkTheme == null ? !IsDarkTheme : (bool)_isDarkTheme;
             if (!IsDarkTheme)
             {
                 SourceBasePath = currentClassType.Namespace + ".Image.LightImage.";

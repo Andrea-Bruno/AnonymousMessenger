@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="24.2.9" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.3.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,7 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Condition="'$(Configuration)' != 'DebugNuget'" Include="..\..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
-    <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.2.27" />
     <ProjectReference Include="..\CustomViewElements\CustomViewElements.csproj" />
     <ProjectReference Include="..\Localization\Localization.csproj" />
     <ProjectReference Include="..\Utils\Utils.csproj" />
