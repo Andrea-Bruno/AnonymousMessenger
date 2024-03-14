@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="24.2.9" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
-    <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.3.10" />
+    <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.3.14" />
   </ItemGroup>
 
   <ItemGroup>
