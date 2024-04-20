@@ -1,0 +1,142 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Configurations>Debug;DEBUG_ALI;Release</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <Deterministic>True</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEBUG_ALI|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <Deterministic>True</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <Deterministic>True</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.67.0.3309" />
+    <PackageReference Include="Google.Cloud.Translation.V2" Version="3.3.0" />
+    <PackageReference Include="Plugin.AudioRecorder" Version="1.1.0" />
+    <PackageReference Include="Plugin.Fingerprint" Version="2.1.4" />
+    <PackageReference Include="Plugin.MediaManager.Forms" Version="1.0.9" />
+    <PackageReference Include="Xam.Plugin.LatestVersion" Version="2.1.0" />
+
+    <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.4.0.49" />
+    <PackageReference Include="Plugin.Sensors" Version="2.5.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="18.4.0.49" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.49" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\EncryptedMessaging\EncryptedMessaging\EncryptedMessaging.csproj" />
+    <ProjectReference Include="..\..\..\Shared\ChatComposer\ChatComposer.csproj" />
+    <ProjectReference Include="..\..\..\Shared\CustomViewElements\CustomViewElements.csproj" />
+    <ProjectReference Include="..\..\..\Shared\MessageCompose\MessageCompose.csproj" />
+    <ProjectReference Include="..\..\..\Shared\NotificationService\NotificationService.csproj" />
+    <ProjectReference Include="..\..\..\Shared\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\RecoverPage.xaml.cs">
+      <DependentUpon>RecoverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="PopupViews\SuccessPopup.xaml.cs">
+      <DependentUpon>SuccessPopup.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Lato-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Lato-BoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Lato-Black.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsBlack.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsLight.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsMedium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsRegular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Black.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Italic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PoppinsSemiBold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Styles\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Backup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Lato-Regular.ttf" />
+    <None Remove="Resources\Fonts\Lato-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Lato-Black.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Black.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Italic.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Light.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
+    <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+    <None Remove="Resources\Fonts\Roboto-Black.ttf" />
+    <None Remove="Resources\Fonts\Roboto-Bold.ttf" />
+    <None Remove="Resources\Fonts\Roboto-Italic.ttf" />
+    <None Remove="Resources\Fonts\Roboto-Light.ttf" />
+    <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
+    <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
+    <None Remove="Syncfusion.Xamarin.SfNumericUpDown" />
+    <None Remove="ZXing.Net.Mobile.Forms" />
+    <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
+    <None Remove="Syncfusion.Xamarin.Buttons" />
+    <None Remove="Helper\" />
+    <None Remove="Xamarin.FFImageLoading.Forms" />
+    <None Remove="Xamarin.FFImageLoading" />
+    <None Remove="Backup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\ChatRoom.xaml" />
+    <None Include="Views\ChatUserProfilePage.xaml" />
+    <None Include="Views\CreatePinPage.xaml" />
+    <None Include="Views\EditImagePage.xaml" />
+    <None Include="Views\EditItemPage.xaml" />
+    <None Include="Views\FAQPage.xaml" />
+    <None Include="Views\GroupCreatePage.xaml" />
+    <None Include="Views\GroupUserSelectPage.xaml" />
+    <None Include="Views\ImagePreviewView.xaml" />
+    <None Include="Views\LanguagePage.xaml" />
+    <None Include="Views\LoginPage.xaml" />
+    <None Include="Views\LogsPage.xaml" />
+    <None Include="Views\MainPage.xaml" />
+    <None Include="Views\MenuPage.xaml" />
+    <None Include="Views\MessageInfoPage.xaml" />
+    <None Include="Views\NavigationTappedPage.xaml" />
+    <None Include="Views\PdfViewPage.xaml" />
+    <None Include="Views\ProfilePage.xaml" />
+    <None Include="Views\QRCodeScanPage.xaml" />
+    <None Include="Views\QRScanAndShowPage.xaml" />
+    <None Include="Views\TermsAndConditionsPage.xaml" />
+    <None Include="Views\AnonymousLoginSignupPage.xaml" />
+    <None Include="Views\CallPage.xaml" />
+    <None Include="Views\MainPage.xaml" />
+    <None Include="Views\QRCodeScanPage.xaml" />
+    <None Include="Views\TextSizePage.xaml" />
+  </ItemGroup>
+</Project>

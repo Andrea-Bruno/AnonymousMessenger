@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Banking.Ehtereum.Views.BalancePage"
+             xmlns:model="clr-namespace:Banking.Ehtereum.Models"
+             xmlns:viewModel="clr-namespace:Banking.Ehtereum.ViewModels"
+             x:DataType="viewModel:EthTxViewModel">
+  <!--<ContentPage.BindingContext>
+        <model:EthTxViewModel />
+    </ContentPage.BindingContext>-->
+  <ContentPage.Content>
+    <StackLayout>
+      <Grid BackgroundColor="{DynamicResource MainBackgroundColor}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout HorizontalOptions="End"
+                     Margin="0,0,20,0"
+                     VerticalOptions="Center"
+                     Grid.Row="0"
+                     Grid.Column="0">
+          <Label Text="Send Ethers ↑"></Label>
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnSendEtherClciked"
+                                  NumberOfTapsRequired="1" />
+          </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+        <Label HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Center"
+               MaxLines="1"
+               Grid.Row="0"
+               Grid.Column="1"
+               Text="Wallet"
+               FontSize="20"
+               TextColor="{x:DynamicResource ToolbarTitleColor}" />
+
+
+        <StackLayout HorizontalOptions="Start"
+                     Margin="20,0,0,0"
+                     VerticalOptions="Center"
+                     Grid.Row="0"
+                     Grid.Column="2">
+          <Label Text="Rceive Ether ↓"></Label>
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnShareAddressClciked"
+                                  NumberOfTapsRequired="1" />
+          </StackLayout.GestureRecognizers>
+        </StackLayout>
+      </Grid>
+
+
+      <StackLayout x:Name="BalanceLayout"
+                   Orientation="Horizontal">
+        <Label Text="Balance: "
+               FontSize="Large" />
+        <Label x:Name="BalanceAmount"
+               FontSize="Large"
+               Text="{Binding Balance.Total,  StringFormat='{0:0.###}'}" />
+        <Label Text="ETH"
+               FontSize="Large" />
+      </StackLayout>
+      <Label Text=" Transactions History"
+             HorizontalOptions="CenterAndExpand"
+             FontSize="Large"
+             FontAttributes="Bold"></Label>
+
+      <ActivityIndicator IsRunning="{Binding IsDataLoading}"
+                         IsVisible="{Binding IsDataLoading}"
+                         Color="#DEAF03" />
+
+      <Label Text=" Transactions not Found. Pull to Refresh"
+             IsVisible="{Binding isDataEmpty}"
+             HorizontalOptions="CenterAndExpand"
+             VerticalOptions="CenterAndExpand"></Label>
+
+      <ListView BackgroundColor="Transparent"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                ItemTapped="ListView_ItemTapped"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                ItemsSource="{Binding Transactions}"
+                RefreshCommand="{Binding RefreshCommand}"
+                RefreshControlColor="OrangeRed"
+                SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+          <DataTemplate x:DataType="model:EthTransaction">
+            <ViewCell>
+              <Grid Padding="10">
+                <Frame CornerRadius="20"
+                       HasShadow="True">
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding  FromOrTo}"
+                           WidthRequest="66"
+                           VerticalOptions="Center"
+                           FontSize="Large" />
+                    <StackLayout VerticalOptions="Center">
+                      <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Value,  StringFormat='{0:0.###}'}"
+                               VerticalOptions="Center"
+                               FontSize="Large" />
+                        <Label Text="ETH"
+                               VerticalOptions="Center"
+                               FontSize="Large" />
+                      </StackLayout>
+                      <Label FontSize="Medium"
+                             Text="{Binding  Address  }"
+                             VerticalOptions="Center" />
+                      <Label x:Name="Address"
+                             FontSize="Medium"
+                             Text="{Binding Time}"
+                             VerticalOptions="Center" />
+                    </StackLayout>
+                  </StackLayout>
+                </Frame>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+
+  </ContentPage.Content>
+</ContentPage>

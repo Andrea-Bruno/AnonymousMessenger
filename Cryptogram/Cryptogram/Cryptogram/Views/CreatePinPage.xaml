@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local1:BasePage
+    x:Class="Anonymous.Views.CreatePinPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout>
+        <local1:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local:Resources.Dictionary.AppLock}" />
+        <ScrollView>
+            <StackLayout
+                Margin="0"
+                Padding="0"
+                VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <Frame
+                        Margin="30,30,30,5"
+                        Padding="0,8,0,8"
+                        BackgroundColor="{DynamicResource Color1}"
+                        CornerRadius="10"
+                        HasShadow="False">
+                        <local1:CustomLabel
+                            x:Name="TopLabel"
+                            Margin="0,0,0,0"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="22"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static local:Resources.Dictionary.PlearEnterYourPinCode}"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="Start" />
+                    </Frame>
+                </StackLayout>
+                <StackLayout
+                    Margin="0,5,0,10"
+                    BackgroundColor="{DynamicResource Color1}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid
+                        x:Name="PinGrid"
+                        Margin="50,0,50,0"
+                        Padding="10"
+                        BackgroundColor="{DynamicResource Color1}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="26" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.20*" />
+                            <ColumnDefinition Width="0.20*" />
+                            <ColumnDefinition Width="0.20*" />
+                            <ColumnDefinition Width="0.20*" />
+                            <ColumnDefinition Width="0.20*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame
+                            x:Name="Pin_1"
+                            Grid.Column="0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color1}"
+                            BorderColor="{DynamicResource Theme}"
+                            CornerRadius="13"
+                            HeightRequest="26"
+                            HorizontalOptions="CenterAndExpand"
+                            IsEnabled="False"
+                            WidthRequest="26" />
+                        <Frame
+                            x:Name="Pin_2"
+                            Grid.Column="1"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color1}"
+                            BorderColor="{DynamicResource Theme}"
+                            CornerRadius="13"
+                            HeightRequest="26"
+                            HorizontalOptions="CenterAndExpand"
+                            IsEnabled="False"
+                            WidthRequest="26" />
+                        <Frame
+                            x:Name="Pin_3"
+                            Grid.Column="2"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color1}"
+                            BorderColor="{DynamicResource Theme}"
+                            CornerRadius="13"
+                            HeightRequest="26"
+                            HorizontalOptions="CenterAndExpand"
+                            IsEnabled="False"
+                            WidthRequest="26" />
+                        <Frame
+                            x:Name="Pin_4"
+                            Grid.Column="3"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color1}"
+                            BorderColor="{DynamicResource Theme}"
+                            CornerRadius="13"
+                            HeightRequest="26"
+                            HorizontalOptions="CenterAndExpand"
+                            IsEnabled="False"
+                            WidthRequest="26" />
+                        <Frame
+                            x:Name="Pin_5"
+                            Grid.Column="4"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color1}"
+                            BorderColor="{DynamicResource Theme}"
+                            CornerRadius="13"
+                            HeightRequest="26"
+                            HorizontalOptions="CenterAndExpand"
+                            IsEnabled="False"
+                            WidthRequest="26" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Margin="0,15,0,10" VerticalOptions="EndAndExpand">
+                    <Grid
+                        x:Name="Numbers"
+                        Margin="0,0,0,20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="EndAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.33*" />
+                            <ColumnDefinition Width="0.33*" />
+                            <ColumnDefinition Width="0.33*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Button
+                            x:Name="One"
+                            Margin="30,0,0,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="StartAndExpand"
+                            Text="1"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Two"
+                            Grid.Column="1"
+                            Margin="0,0,0,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="2"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Three"
+                            Grid.Column="2"
+                            Margin="0,0,30,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="EndAndExpand"
+                            Text="3"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Four"
+                            Grid.Row="1"
+                            Margin="30,10,0,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="StartAndExpand"
+                            Text="4"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Five"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,10,0,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="5"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Six"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,10,30,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="EndAndExpand"
+                            Text="6"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Seven"
+                            Grid.Row="2"
+                            Margin="30,10,0,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="StartAndExpand"
+                            Text="7"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Eight"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,10,0,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="8"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Nine"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="0,10,30,10"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="EndAndExpand"
+                            Text="9"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Zero"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="0,10,0,0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Color1}"
+                            Clicked="Number_Button_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="27"
+                            HeightRequest="80"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="0"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Next_button"
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Margin="0,10,30,0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource Theme}"
+                            BorderWidth="1"
+                            Clicked="Confirm_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="15"
+                            HeightRequest="80"
+                            HorizontalOptions="EndAndExpand"
+                            Text="{x:Static local:Resources.Dictionary.Done}"
+                            TextColor="{DynamicResource Theme}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Button
+                            x:Name="Clean_button"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="30,10,0,0"
+                            Padding="0"
+                            BackgroundColor="{DynamicResource Color2}"
+                            BorderColor="{DynamicResource WhiteColor}"
+                            BorderWidth="1"
+                            Clicked="Clean_Clicked"
+                            CornerRadius="40"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="15"
+                            HeightRequest="80"
+                            HorizontalOptions="StartAndExpand"
+                            Text="{x:Static local:Resources.Dictionary.Clean}"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="80" />
+                        <Image
+                            x:Name="Fingerprint_button"
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Margin="0,10,30,0"
+                            HeightRequest="70"
+                            HorizontalOptions="CenterAndExpand"
+                            IsVisible="false"
+                            Source="{dh:ImageResourceExtension ic_fingerprint.png}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="70">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Fingerprint_Clicked" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</local1:BasePage>

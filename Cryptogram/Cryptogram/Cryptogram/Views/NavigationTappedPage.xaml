@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<res:CustomTabbedPage
+    x:Class="Anonymous.Views.NavigationTappedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local1="clr-namespace:Anonymous.Views"
+    xmlns:res="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    android:TabbedPage.IsSmoothScrollEnabled="False"
+    android:TabbedPage.IsSwipePagingEnabled="False"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    ios:Page.UseSafeArea="true"
+    BarBackgroundColor="{x:DynamicResource Color2}"
+    SelectedTabColor="{x:DynamicResource Theme}"
+    UnselectedTabColor="{x:DynamicResource BackgroundSecondary}">
+
+    <local1:MainPage IconImageSource="ic_tab_message.png" />
+    <local1:CallPage IconImageSource="ic_tab_call.png" />
+    <local1:QRScanAndShowPage IconImageSource="ic_tab_qr.png" />
+    <local1:ProfilePage IconImageSource="ic_tab_contact.png" />
+    <local1:MenuPage IconImageSource="ic_tab_setting.png" />
+</res:CustomTabbedPage>

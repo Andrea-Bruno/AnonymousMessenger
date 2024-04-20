@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<customview:BasePage
+    x:Class="Anonymous.Views.TextSizePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customview="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{DynamicResource Color2}">
+    <StackLayout x:Name="mainlayout" BackgroundColor="{DynamicResource Color1}">
+        <customview:MyCustomToolbar
+            x:Name="Toolbar"
+            Title="{x:Static local:Resources.Dictionary.ChatFontSize}"
+            OnBackBtnClicked="Back_Clicked" />
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout
+                x:Name="DemoLayout"
+                Margin="16,0,16,0"
+                Orientation="Vertical" />
+        </ScrollView>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <StackLayout
+                Margin="16,0,16,0"
+                Orientation="Horizontal"
+                Spacing="0">
+                <Label
+                    Margin="0,0,0,0"
+                    FontFamily="PoppinsBold"
+                    FontSize="14"
+                    HorizontalTextAlignment="End"
+                    Text="A"
+                    TextColor="{DynamicResource WhiteColor}"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Center" />
+                <StackLayout
+                    Margin="8,0,8,0"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    Spacing="0"
+                    VerticalOptions="FillAndExpand">
+                    <Slider
+                        x:Name="slider"
+                        Margin="0"
+                        HorizontalOptions="FillAndExpand"
+                        Maximum="3"
+                        Minimum="0"
+                        MinimumTrackColor="{DynamicResource WhiteColor}"
+                        ThumbColor="Wheat"
+                        ValueChanged="Slider_ValueChanged"
+                        VerticalOptions="FillAndExpand" />
+                    <AbsoluteLayout
+                        x:Name="Steps"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Label
+                            AbsoluteLayout.LayoutBounds="0,0"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            FontFamily="PoppinsLight"
+                            FontSize="14"
+                            Text="S"
+                            TextColor="{DynamicResource WhiteColor}" />
+                        <Label
+                            AbsoluteLayout.LayoutBounds="0.33,0"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            FontFamily="PoppinsLight"
+                            FontSize="14"
+                            Text="M"
+                            TextColor="{DynamicResource WhiteColor}" />
+                        <Label
+                            AbsoluteLayout.LayoutBounds="0.66,0"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            FontFamily="PoppinsLight"
+                            FontSize="14"
+                            Text="L"
+                            TextColor="{DynamicResource WhiteColor}" />
+                        <Label
+                            AbsoluteLayout.LayoutBounds="1,0"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            FontFamily="PoppinsLight"
+                            FontSize="14"
+                            Text="XL"
+                            TextColor="{DynamicResource WhiteColor}" />
+                    </AbsoluteLayout>
+                </StackLayout>
+                <Label
+                    Margin="0,-3,0,0"
+                    FontFamily="PoppinsBold"
+                    FontSize="20"
+                    Text="A"
+                    TextColor="{DynamicResource WhiteColor}"
+                    VerticalOptions="Start" />
+            </StackLayout>
+            <pancakeview:PancakeView
+                x:Name="NextButtonLyt"
+                Margin="0,10,0,0"
+                BackgroundColor="{DynamicResource Color2}"
+                CornerRadius="12,12,0,0"
+                HeightRequest="120"
+                MinimumHeightRequest="120"
+                VerticalOptions="EndAndExpand">
+                <Button
+                    x:Name="SaveButton"
+                    BackgroundColor="{x:DynamicResource Theme}"
+                    Clicked="SaveButton_Clicked"
+                    CornerRadius="28"
+                    FontFamily="PoppinsSemiBold"
+                    FontSize="20"
+                    HeightRequest="52"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static local:Resources.Dictionary.Save}"
+                    TextColor="{DynamicResource BlackColor}"
+                    TextTransform="Uppercase"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="200" />
+            </pancakeview:PancakeView>
+        </StackLayout>
+    </StackLayout>
+</customview:BasePage>

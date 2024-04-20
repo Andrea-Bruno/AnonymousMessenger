@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<local1:BasePage
+    x:Class="Anonymous.Views.CallPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:views1="clr-namespace:Anonymous.Views"
+    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    x:Name="CallPages"
+    ios:Page.UseSafeArea="true">
+    <local1:BasePage.Resources>
+        <views1:MessageCallSmallIconConverter x:Key="messageSmallIconConverter" />
+        <views1:MessageCallIconConverter x:Key="messageCallIconConverter" />
+    </local1:BasePage.Resources>
+    <local1:BasePage.Content>
+        <StackLayout BackgroundColor="{DynamicResource Color1}">
+            <StackLayout HeightRequest="58" Spacing="0">
+                <AbsoluteLayout
+                    x:Name="toolbar"
+                    HeightRequest="58"
+                    IsVisible="true"
+                    MinimumHeightRequest="58">
+                    <StackLayout
+                        AbsoluteLayout.LayoutBounds="0.5,0.5"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        Orientation="Horizontal"
+                        Spacing="0">
+                        <AbsoluteLayout VerticalOptions="Center">
+                            <views:CustomLabel
+                                x:Name="StateAll"
+                                Margin="0"
+                                Padding="0"
+                                CharacterSpacing="0"
+                                FontFamily="PoppinsBold"
+                                FontSize="27"
+                                MaxLines="1"
+                                Text="{x:Static local:Resources.Dictionary.All}"
+                                TextColor="{DynamicResource ToolbarTitleColor}"
+                                VerticalOptions="Center">
+                                <views:CustomLabel.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StateAll_Clicked" />
+                                </views:CustomLabel.GestureRecognizers>
+                            </views:CustomLabel>
+                            <BoxView
+                                x:Name="StateAllUnderline"
+                                Margin="0,-8,0,0"
+                                AbsoluteLayout.LayoutBounds="{OnPlatform Default='0.5,0.85',
+                                                                         iOS='0.5,0.90'}"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                BackgroundColor="{DynamicResource Theme}"
+                                HeightRequest="2"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Start"
+                                WidthRequest="26" />
+                        </AbsoluteLayout>
+                        <BoxView
+                            Margin="8,0"
+                            BackgroundColor="{DynamicResource WhiteColor}"
+                            HeightRequest="26"
+                            VerticalOptions="Center"
+                            WidthRequest="4" />
+                        <AbsoluteLayout VerticalOptions="Center">
+                            <views:CustomLabel
+                                x:Name="StateLost"
+                                Margin="0"
+                                Padding="0"
+                                CharacterSpacing="0"
+                                FontFamily="PoppinsBold"
+                                FontSize="27"
+                                MaxLines="1"
+                                Text="{x:Static local:Resources.Dictionary.Lost}"
+                                TextColor="{DynamicResource ToolbarStateUnselected}"
+                                VerticalOptions="Center">
+                                <views:CustomLabel.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="StateLost_Clicked" />
+                                </views:CustomLabel.GestureRecognizers>
+                            </views:CustomLabel>
+                            <BoxView
+                                x:Name="StateLostUnderline"
+                                AbsoluteLayout.LayoutBounds="{OnPlatform Default='0.5,0.85',
+                                                                         iOS='0.5,0.90'}"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                BackgroundColor="{DynamicResource Theme}"
+                                HeightRequest="2"
+                                HorizontalOptions="Center"
+                                IsVisible="false"
+                                VerticalOptions="Start"
+                                WidthRequest="26" />
+                        </AbsoluteLayout>
+                    </StackLayout>
+                    <ImageButton
+                        Padding="12"
+                        AbsoluteLayout.LayoutBounds="1,0.5"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        BackgroundColor="Transparent"
+                        Clicked="SearchBtn_Clicked"
+                        HeightRequest="48"
+                        Source="{dh:ImageResourceExtension ic_toolbar_search.png}"
+                        WidthRequest="48" />
+                </AbsoluteLayout>
+                <StackLayout
+                    x:Name="ToolbarSearchLayout"
+                    x:FieldModifier="public"
+                    BackgroundColor="#201F24"
+                    HeightRequest="58"
+                    IsVisible="false"
+                    MinimumHeightRequest="58"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Frame
+                        x:Name="SearchBarFrame"
+                        Margin="30,6,0,6"
+                        Padding="12,0,12,0"
+                        BackgroundColor="#14131A"
+                        CornerRadius="24"
+                        HasShadow="False"
+                        HeightRequest="38"
+                        HorizontalOptions="FillAndExpand"
+                        MinimumHeightRequest="38">
+                        <StackLayout Orientation="Horizontal">
+                            <Image
+                                Margin="0,0,0,0"
+                                HeightRequest="24"
+                                HorizontalOptions="Start"
+                                Source="{dh:ImageResourceExtension ic_toolbar_search.png}"
+                                VerticalOptions="Center"
+                                WidthRequest="24" />
+                            <views:CustomEntry
+                                x:Name="SearchEntry"
+                                x:FieldModifier="public"
+                                FontSize="18"
+                                HorizontalOptions="FillAndExpand"
+                                Placeholder="{x:Static local:Resources.Dictionary.Search}"
+                                PlaceholderColor="{x:DynamicResource BackgroundSecondary}"
+                                TextChanged="Search_TextChanged"
+                                TextColor="{x:DynamicResource ToolbarTitleColor}" />
+                        </StackLayout>
+                    </Frame>
+                    <ImageButton
+                        x:Name="toolbarSearchClear"
+                        Padding="16"
+                        x:FieldModifier="public"
+                        BackgroundColor="Transparent"
+                        Clicked="SearchClearButton_Clicked"
+                        HeightRequest="48"
+                        HorizontalOptions="Center"
+                        MinimumHeightRequest="48"
+                        MinimumWidthRequest="48"
+                        Source="{dh:ImageResourceExtension ic_toolbar_search_clear.png}"
+                        VerticalOptions="Center"
+                        WidthRequest="48" />
+                </StackLayout>
+            </StackLayout>
+            <Frame
+                Margin="0"
+                Padding="0"
+                CornerRadius="0"
+                HasShadow="False"
+                VerticalOptions="FillAndExpand">
+                <StackLayout
+                    BackgroundColor="{x:DynamicResource Color1}"
+                    Orientation="Vertical"
+                    VerticalOptions="FillAndExpand">
+                    <syncfusion:SfListView
+                        x:Name="ItemsListView"
+                        AllowSwiping="True"
+                        BackgroundColor="Transparent"
+                        ItemSize="75"
+                        SelectionMode="None"
+                        VerticalOptions="FillAndExpand">
+                        <syncfusion:SfListView.RightSwipeTemplate>
+                            <DataTemplate x:Name="RightSwipeTemplate">
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                    <StackLayout
+                                        Margin="0,0,-28,0"
+                                        Padding="20,0,20,0"
+                                        BackgroundColor="{x:DynamicResource RedColor}"
+                                        HorizontalOptions="FillAndExpand">
+                                        <Image
+                                            HeightRequest="30"
+                                            HorizontalOptions="FillAndExpand"
+                                            Source="{dh:ImageResourceExtension ic_new_delete_contact.png}"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="30" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1"
+                                                Tapped="Delete_Clicked" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </StackLayout>
+                            </DataTemplate>
+                        </syncfusion:SfListView.RightSwipeTemplate>
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                        HeightRequest="75"
+                                        MinimumHeightRequest="75"
+                                        Orientation="Vertical"
+                                        Spacing="0">
+                                        <StackLayout
+                                            Margin="12"
+                                            HeightRequest="50"
+                                            MinimumHeightRequest="50"
+                                            Orientation="Horizontal"
+                                            Spacing="0"
+                                            VerticalOptions="FillAndExpand">
+                                            <views:CustomAvatar
+                                                Contact="{Binding Contact}"
+                                                CornerRadius="25"
+                                                HeightRequest="50"
+                                                MinimumHeightRequest="50"
+                                                MinimumWidthRequest="50"
+                                                WidthRequest="50" />
+                                            <StackLayout
+                                                Margin="16,0,10,0"
+                                                HorizontalOptions="Fill"
+                                                Spacing="0">
+                                                <local1:CustomLabel
+                                                    x:Name="Name"
+                                                    FontFamily="PoppinsSemiBold"
+                                                    FontSize="18"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    LineBreakMode="TailTruncation"
+                                                    MaxLines="1"
+                                                    Style="{DynamicResource ListItemTextStyle}"
+                                                    Text="{Binding Contact.Name}"
+                                                    TextColor="{DynamicResource WhiteColor}"
+                                                    VerticalOptions="Center" />
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image
+                                                        x:Name="CallIconSmall"
+                                                        HorizontalOptions="Start"
+                                                        Source="{Binding MessageType, Converter={StaticResource messageSmallIconConverter}}"
+                                                        WidthRequest="15" />
+                                                    <local1:CustomLabel
+                                                        x:Name="Message"
+                                                        FontFamily="PoppinsRegular"
+                                                        FontSize="14"
+                                                        HorizontalTextAlignment="Start"
+                                                        LineBreakMode="NoWrap"
+                                                        MaxLines="1"
+                                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                                        Text="{Binding CallStatus}"
+                                                        TextColor="{DynamicResource BackgroundSecondary}"
+                                                        VerticalOptions="Center" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                                <local1:CustomLabel
+                                                    x:Name="time"
+                                                    FontFamily="PoppinsRegular"
+                                                    FontSize="12"
+                                                    HorizontalTextAlignment="End"
+                                                    MinimumWidthRequest="40"
+                                                    Text="{Binding Time}"
+                                                    TextColor="{DynamicResource BackgroundSecondary}"
+                                                    VerticalOptions="Center" />
+                                                <ImageButton
+                                                    x:Name="CallIcon"
+                                                    Padding="5"
+                                                    BackgroundColor="Transparent"
+                                                    HeightRequest="30"
+                                                    Source="{Binding MessageType, Converter={StaticResource messageCallIconConverter}}"
+                                                    WidthRequest="30" />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <BoxView
+                                            Margin="92,0,0,0"
+                                            HeightRequest="1"
+                                            VerticalOptions="Fill"
+                                            Color="{DynamicResource Color3}" />
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1"
+                                                Tapped="ListItemClicked" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                    <views:CustomNoResult
+                        x:Name="NoResultPage"
+                        IsVisible="false"
+                        VerticalOptions="FillAndExpand" />
+                    <views:CustomNoItem
+                        x:Name="NoItemPage"
+                        IsVisible="false"
+                        VerticalOptions="FillAndExpand" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </local1:BasePage.Content>
+</local1:BasePage>

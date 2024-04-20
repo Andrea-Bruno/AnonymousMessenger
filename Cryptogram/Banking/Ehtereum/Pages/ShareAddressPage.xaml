@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Banking.Ehtereum.Pages.ShareAddressPage"
+             xmlns:model="clr-namespace:Banking.Ehtereum.ViewModels"
+             xmlns:Helpers="clr-namespace:Banking.Ehtereum.Utilies"
+             x:DataType="model:EthTxViewModel">
+    <!--<ContentPage.BindingContext>
+        <model:EthTxViewModel />
+    </ContentPage.BindingContext>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:NegateBooleanConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+
+        <StackLayout>
+
+            <BoxView HeightRequest="10"></BoxView>
+
+            <StackLayout x:Name="BalanceLayout"
+                         Orientation="Vertical">
+
+                <Label Text="Your Address: "
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+                <BoxView HeightRequest="50"></BoxView>
+                <Label Text="We are updating your wallet, this adress might be already used, please wait"
+                       IsVisible="{Binding IsDataLoading}"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+                <ActivityIndicator IsRunning="{Binding IsDataLoading}"
+                                   IsVisible="{Binding IsDataLoading}"
+                                   Color="#DEAF03" />
+
+                <Label x:Name="ShareAddress"
+                       Text="{Binding ShareAddress}"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="10,0,10,0"
+                       FontSize="Medium" />
+                <BoxView HeightRequest="50"></BoxView>
+
+                <Button BorderRadius="6"
+                        HorizontalOptions="Center"
+                        Text="Get New One"
+                        IsEnabled="{Binding IsDataLoading, Converter={StaticResource  InvertedBoolConverter}}"
+                        Clicked="OnRefreshButtonClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

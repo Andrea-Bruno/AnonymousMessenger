@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    xmlns:local="clr-namespace:Banking"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Banking.Views.PaymentTermsAndConditions">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid
+                BackgroundColor="{DynamicResource MainBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    HorizontalOptions="Start"
+                    Margin="5,-12,0,0"
+                    VerticalOptions="Center"
+                    Padding="16"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                    <Image
+                        WidthRequest="15"
+                        HeightRequest="15"
+                        Source="ic_back_icon"
+                        x:Name="BackButton" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Back_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <local:CustomLabel
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    MaxLines="1"
+                    Margin="0,-12,0,0"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{x:Static local1:Resources.Dictionary.Payments} "
+                    FontFamily="{StaticResource BoldFont}"
+                    FontSize="20"
+                    TextColor="{DynamicResource ToolbarTitleColor}" />
+            </Grid>
+            <Frame
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                Margin="0,-20,0,0"
+                HasShadow="False"
+                CornerRadius="0"
+                Padding="0,0,0,24">
+                <StackLayout
+                    Orientation="Vertical"
+                    VerticalOptions="FillAndExpand"
+                    Margin="0,10,0,0">
+                    <StackLayout
+                        Orientation="Vertical">
+                        <StackLayout
+                            Margin="0,60,0,0">
+                            <Image
+                                x:Name="Transfer_Photo"
+                                Source="ic_transfer"
+                                WidthRequest="90"
+                                HeightRequest="90">
+                            </Image>
+                        </StackLayout>
+                        <StackLayout
+                            Margin="50,30,50,0">
+                            <local:CustomLabel
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center"
+                                Text="{x:Static local1:Resources.Dictionary.SendAndReceiveMoneySecurelyViaTelegraphApplication}"
+                                TextColor="{DynamicResource PaymentTermsLabelColor}"
+                                FontSize="14">
+                            </local:CustomLabel>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout
+                        Margin="50,110,50,0">
+                        <local:CustomLabel
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"
+                            Text="{x:Static local1:Resources.Dictionary.PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptTelegraphPrivacyPolicy}"
+                            TextColor="{DynamicResource PaymentTermsLabelColor}"
+                            FontSize="14">
+
+                        </local:CustomLabel>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Margin="60,10,50,0">
+                        <CheckBox
+                            x:Name="checkBox"
+                            Color="{DynamicResource ToolbarTitleColor}" />
+                        <local:CustomLabel
+                            VerticalOptions="CenterAndExpand"
+                            Text="{x:Static local1:Resources.Dictionary.TermsAndConditions}"
+                            x:Name="TermsAndCondition"
+                            TextColor="{DynamicResource PaymentTermsAndConditionTextColor}"
+                            FontAttributes="Bold">
+                        </local:CustomLabel>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Terms_Clicked"
+                                NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Frame
+                        Margin="0,20,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        CornerRadius="20"
+                        BackgroundColor="{DynamicResource MainBackgroundColor}"
+                        Padding="10"
+                        WidthRequest="160"
+                        HeightRequest="30"
+                        HasShadow="False">
+                        <local:CustomLabel
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            Margin="0,0,0,5"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            TextColor="White"
+                            FontSize="14"
+                            HeightRequest="42"
+                            Text="{x:Static local1:Resources.Dictionary.AcceptAndContiune}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Accept_Clicked"
+                                    NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </local:CustomLabel>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

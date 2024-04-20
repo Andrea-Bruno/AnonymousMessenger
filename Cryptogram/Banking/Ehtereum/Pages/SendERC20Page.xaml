@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Banking.Ehtereum.Pages.SendERC20Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <BoxView HeightRequest="10"></BoxView>
+            <StackLayout Margin="10,0,10,0">
+                <Picker x:Name="myPicker"
+                        Grid.Column="4"
+                        Grid.Row="2" />
+
+                <Label  Text="Amount:" />
+                <Entry  x:Name="Amount"
+                        TextChanged="Amount_TextChanged"
+                        Text="0"
+                        VerticalOptions="Start"
+                        Keyboard="Numeric"
+                        TextColor="DarkSlateGray" />
+                <Label  Text="Address:" />
+                <Editor x:Name="Address"
+                        Placeholder=""
+                        TextChanged="Address_TextChanged"
+                        TextColor="DarkSlateGray" />
+                <Label  Text="Gas Price (in Gwei):" />
+                <Entry x:Name="GasPrice"
+                       TextChanged="GasPrice_TextChanged"
+                       Placeholder="Optional"
+                       VerticalOptions="Start"
+                       Keyboard="Numeric"
+                       TextColor="DarkSlateGray" />
+                <Label  Text="Gas Limit:" />
+                <Entry x:Name="GasLimit"
+                       TextChanged="GasLimit_TextChanged"
+                       Placeholder="Optional"
+                       VerticalOptions="Start"
+                       Keyboard="Numeric"
+                       TextColor="DarkSlateGray" />
+                <StackLayout Orientation="Horizontal">
+                    <Label  Text="Fee:" />
+                    <Label  x:Name="Fee" />
+
+                </StackLayout>
+
+                <BoxView HeightRequest="10"></BoxView>
+
+                <Button x:Name="SendButton"
+                        VerticalOptions="Center"
+                        HeightRequest="55"
+                        WidthRequest="60"
+                        BorderRadius="20"
+                        Margin="30"
+                        Text="Send"
+                        IsEnabled="False"
+                        Clicked="Confirm_Clicked" />
+            </StackLayout>
+
+            <StackLayout Margin="10, 0, 10 ,0">
+                <Label x:Name="activIndicText"
+                       Text="Your transaction is being processed. It can take couple of minutes, please wait."
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+                <ActivityIndicator x:Name="activIndic"
+                                   IsRunning="False"
+                                   IsVisible="False"
+                                   Color="#DEAF03" />
+                <Label x:Name="succTransac"
+                       Text="Transaction is successfully broadcasted, your Transaction ID:"
+                       IsVisible="False"
+                       HorizontalOptions="Center"></Label>
+                <Label x:Name="transacId"
+                       HorizontalOptions="Center"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

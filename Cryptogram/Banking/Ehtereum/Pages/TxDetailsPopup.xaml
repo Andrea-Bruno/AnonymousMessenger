@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                 ios:Page.UseSafeArea="true"
+                 x:Class="Banking.Ehtereum.Pages.TxDetailsPopup"
+                 xmlns:viewModel="clr-namespace:Banking.Ehtereum.ViewModels"
+                 x:DataType="viewModel:EthTxViewModel">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="0.6"
+                                   ScaleOut="0.6"
+                                   DurationIn="200"
+                                   DurationOut="140"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="False" />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <Frame CornerRadius="10"
+               Margin="40,80,40,40"
+               BackgroundColor="#DEAF03"
+               HasShadow="False"
+               VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <Grid>
+                    <Frame CornerRadius="20"
+                           HasShadow="True">
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Hash:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="Hash"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="From:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="From"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="To:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="To"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="Amount:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="Amount"
+                                       HorizontalOptions="Start" />
+
+                                <Label Text="ETH"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Time:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="Time"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Gas:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="Gas"
+                                       HorizontalOptions="Start" />
+                                <Label Text="UNITS"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Gas Price:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="GasPrice"
+                                       HorizontalOptions="Start" />
+                                <Label FontSize="Medium"
+                                       Text="Gwei"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Fee:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="Fee"
+                                       HorizontalOptions="Start" />
+                                <Label FontSize="Medium"
+                                       Text="ETH"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Status:"
+                                       HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold" />
+                                <Label FontSize="Medium"
+                                       x:Name="Status"
+                                       HorizontalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Frame CornerRadius="10"
+                                       OutlineColor="DarkGray"
+                                       BackgroundColor="White"
+                                       WidthRequest="50"
+                                       Padding="12, 3, 12, 3"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HasShadow="False">
+                                    <Label VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           x:Name="BackButton"
+                                           TextColor="Black"
+                                           FontSize="14"
+                                           HeightRequest="35"
+                                           Text="Ok">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Back_Clicked"
+                                                                  NumberOfTapsRequired="1" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </Frame>
+
+                            </StackLayout>
+
+
+
+
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+
+</pages:PopupPage>

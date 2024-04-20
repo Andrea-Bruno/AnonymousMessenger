@@ -1,0 +1,156 @@
+﻿<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="Banking.Bitcoin.Views.CoinSelectionPopup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                 ios:Page.UseSafeArea="true"
+                 BackgroundColor="Transparent"
+                 xmlns:model="clr-namespace:Banking.Models"
+                 xmlns:local11="clr-namespace:Banking"
+                 x:DataType="model:UnspentCoinViewModel">
+
+    <ContentPage.BindingContext>
+        <model:UnspentCoinViewModel />
+    </ContentPage.BindingContext>
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="0.6"
+                                   ScaleOut="0.6"
+                                   DurationIn="200"
+                                   DurationOut="140"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="False" />
+    </pages:PopupPage.Animation>
+
+    <ContentPage.Content>
+
+        <Frame CornerRadius="10"
+               Margin="40,80,40,40"
+               BackgroundColor="#DEAF03"
+               HasShadow="False"
+               VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalOptions="CenterAndExpand"
+                           Text="Unspent Transactions"
+                           FontSize="Large"
+                           FontAttributes="Bold" />
+                </StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsDataLoading}"
+                                   IsVisible="{Binding IsDataLoading}"
+                                   Color="Wheat"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand" />
+                <StackLayout Orientation="Vertical"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text=" UTXO's not Found"
+                           IsVisible="{Binding IfListEmpty}"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+                <CollectionView SelectionMode="Multiple"
+                                SelectionChanged="CollectionView_SelectionChanged"
+                                SelectedItems="{Binding SelectedUnspentCoins}"
+                                BackgroundColor="Transparent"
+                                ItemsSource="{Binding UnspentCoins}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:UnspentCoin">
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                       HasShadow="True">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout  Orientation="Horizontal">
+                                            <Label Text="Amount:"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label Text="{Binding Amount }"
+                                                   FontSize="Medium" />
+                                            <Label Text="BTC"
+                                                   FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout  Orientation="Horizontal">
+
+                                            <Label Text="Confirmations: "
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold" />
+                                            <Label FontSize="Medium"
+                                                   Text="{Binding  Confirmed }" />
+                                        </StackLayout>
+                                        <Label Text="Address: "
+                                               FontSize="Medium"
+                                               FontAttributes="Bold" />
+                                        <Label Text="{Binding Address }"
+                                               FontSize="Small" />
+                                        <Label Text="Transaction Id: "
+                                               FontSize="Medium"
+                                               FontAttributes="Bold" />
+                                        <Label Text="{Binding TransactionId }"
+                                               FontSize="Small" />
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+
+                </CollectionView>
+                <StackLayout Orientation="Horizontal">
+                    <Frame CornerRadius="10"
+                           OutlineColor="DarkGray"
+                           BackgroundColor="White"
+                           Margin="0,20,0,20"
+                           WidthRequest="50"
+                           Padding="12, 3, 12, 3"
+                           VerticalOptions="End"
+                           HorizontalOptions="StartAndExpand"
+                           HasShadow="False">
+                        <local11:CustomLabel VerticalTextAlignment="Center"
+                                             HorizontalTextAlignment="Center"
+                                             Margin="0,0,0,5"
+                                             VerticalOptions="End"
+                                             HorizontalOptions="FillAndExpand"
+                                             x:Name="BackButton"
+                                             TextColor="Black"
+                                             FontSize="14"
+                                             HeightRequest="42"
+                                             Text="Back">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Back_Clicked"
+                                                      NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </local11:CustomLabel>
+                    </Frame>
+                    <Frame CornerRadius="10"
+                           OutlineColor="DarkGray"
+                           BackgroundColor="White"
+                           Margin="0,20,0,20"
+                           WidthRequest="50"
+                           Padding="12, 3, 12, 3"
+                           VerticalOptions="End"
+                           HorizontalOptions="EndAndExpand"
+                           HasShadow="False">
+                        <local11:CustomLabel VerticalTextAlignment="Center"
+                                             HorizontalTextAlignment="Center"
+                                             Margin="0,0,0,5"
+                                             VerticalOptions="End"
+                                             HorizontalOptions="FillAndExpand"
+                                             x:Name="ConfirmButton"
+                                             TextColor="Black"
+                                             FontSize="14"
+                                             HeightRequest="42"
+                                             Text="Confirm">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Confirm_Clicked"
+                                                      NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </local11:CustomLabel>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

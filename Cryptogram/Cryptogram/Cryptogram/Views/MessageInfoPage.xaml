@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    x:Class="Anonymous.Views.MessageInfoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout>
+        <Grid BackgroundColor="{DynamicResource MainBackgroundColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="5,-12,0,0"
+                Padding="16"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+                <Image
+                    x:Name="BackButton"
+                    HeightRequest="15"
+                    Source="{dh:ImageResourceExtension ic_back_icon.png}"
+                    WidthRequest="15" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Clicked" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <local:CustomPageHeaderLabel
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,-12,0,0"
+                FontSize="22"
+                HorizontalOptions="CenterAndExpand"
+                MaxLines="1"
+                Text="{x:Static local1:Resources.Dictionary.MessageInfo}"
+                TextColor="{x:DynamicResource ToolbarTitleColor}"
+                VerticalOptions="Center" />
+        </Grid>
+        <Frame
+            Margin="0"
+            Padding="0,5,0,24"
+            BackgroundColor="{DynamicResource FrameBackgroundColor}"
+            CornerRadius="0"
+            HasShadow="False"
+            VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical">
+                <local:CustomLabel
+                    Margin="16"
+                    FontSize="18"
+                    Text="{x:Static local1:Resources.Dictionary.SeenBy}"
+                    TextColor="#98A4EC" />
+                <ListView
+                    x:Name="ItemsListView"
+                    BackgroundColor="Transparent"
+                    HasUnevenRows="true"
+                    ItemsSource="{Binding Items}"
+                    SelectionMode="None"
+                    SeparatorVisibility="None"
+                    VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame
+                                    Margin="15,0,15,15"
+                                    Padding="0"
+                                    BackgroundColor="White"
+                                    CornerRadius="20"
+                                    HasShadow="False"
+                                    HeightRequest="84">
+                                    <StackLayout Padding="15,0,0,0" Orientation="Horizontal">
+                                        <local:CustomAvatar
+                                            x:Name="User_Photo"
+                                            CornerRadius="25"
+                                            HasShadow="False"
+                                            HeightRequest="50"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"
+                                            WidthRequest="50" />
+                                        <StackLayout Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                                            <local:CustomLabel
+                                                x:Name="Name"
+                                                FontSize="16"
+                                                HorizontalOptions="Start"
+                                                LineBreakMode="NoWrap"
+                                                Style="{DynamicResource ListItemTextStyle}"
+                                                Text="{Binding Name}"
+                                                TextColor="{DynamicResource GroupUserLabelTextColor}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</local:BasePage>

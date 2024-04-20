@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local1:BasePage
+    x:Class="Anonymous.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:chatView="clr-namespace:ChatComposer;assembly=ChatComposer"
+    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true">
+    <local1:BasePage.Content>
+        <StackLayout BackgroundColor="{DynamicResource Color1}">
+            <views:MyCustomToolbar
+                x:Name="Toolbar"
+                Title="{x:Static local:Resources.Dictionary.Chat}"
+                RightBtnCount="2" />
+            <yummy:PancakeView
+                x:Name="PopupView"
+                Margin="10,0,0,0"
+                BackgroundColor="{DynamicResource Color2}"
+                CornerRadius="10,0,10,10"
+                IsVisible="false">
+                <StackLayout
+                    BackgroundColor="{DynamicResource Color2}"
+                    Orientation="Vertical"
+                    Spacing="0">
+                    <StackLayout
+                        BackgroundColor="{DynamicResource Color2}"
+                        Orientation="Horizontal"
+                        Spacing="0">
+                        <Image
+                            Margin="12"
+                            HeightRequest="28"
+                            Source="{dh:ImageResourceExtension ic_start_chat_group.png}"
+                            WidthRequest="36" />
+                        <Label
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="22"
+                            HorizontalOptions="FillAndExpand"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{x:Static local:Resources.Dictionary.NewGroup}"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="Center" />
+                        <Label
+                            Margin="0,0,12,0"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="22"
+                            HorizontalOptions="End"
+                            Text="{x:Static local:Resources.Dictionary.Add}"
+                            TextColor="{DynamicResource Theme}"
+                            VerticalOptions="Center" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddNewGroup_Click" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <BoxView
+                        Margin="60,0,0,0"
+                        HeightRequest="1"
+                        Color="{DynamicResource BoxView}" />
+                    <StackLayout
+                        BackgroundColor="{DynamicResource Color2}"
+                        Orientation="Horizontal"
+                        Spacing="0">
+                        <Image
+                            Margin="12"
+                            HeightRequest="28 "
+                            Source="{dh:ImageResourceExtension ic_start_chat_contact.png}"
+                            WidthRequest="36" />
+                        <Label
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="22"
+                            HorizontalOptions="FillAndExpand"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{x:Static local:Resources.Dictionary.NewContact}"
+                            TextColor="{DynamicResource WhiteColor}"
+                            VerticalOptions="Center" />
+                        <Label
+                            Margin="0,0,12,0"
+                            FontFamily="PoppinsSemiBold"
+                            FontSize="22"
+                            HorizontalOptions="End"
+                            Text="{x:Static local:Resources.Dictionary.Add}"
+                            TextColor="{DynamicResource Theme}"
+                            VerticalOptions="Center" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddNewContact_Click" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+            </yummy:PancakeView>
+            <Frame
+                Margin="0"
+                Padding="0"
+                CornerRadius="0"
+                HasShadow="False">
+                <StackLayout BackgroundColor="{x:DynamicResource Color1}" Orientation="Vertical">
+                    <chatView:ChatList x:Name="ChatList" />
+                    <views:CustomNoResult x:Name="NoResultPage" VerticalOptions="FillAndExpand" />
+                    <views:CustomNoItem x:Name="NoItemPage" VerticalOptions="FillAndExpand" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </local1:BasePage.Content>
+</local1:BasePage>

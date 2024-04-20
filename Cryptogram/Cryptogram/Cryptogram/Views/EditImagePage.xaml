@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local1:BasePage
+    x:Class="Anonymous.Views.EditImagePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout>
+        <local1:MyCustomToolbar
+            x:Name="Toolbar"
+            Title=""
+            OnBackBtnClicked="Back_Clicked"
+            RightBtnCount="2" />
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image x:Name="imageHolder" Aspect="AspectFit" />
+        </Grid>
+        <StackLayout
+            x:Name="ScrollablePane"
+            Margin="0"
+            Padding="0"
+            BackgroundColor="{DynamicResource Color2}"
+            HeightRequest="84"
+            IsVisible="false"
+            MinimumHeightRequest="84">
+            <syncfusion:SfListView
+                x:Name="SelectedImages"
+                AutoFitMode="Height"
+                BackgroundColor="Transparent"
+                ItemTapped="SelectedImages_ItemTapped"
+                Orientation="Horizontal"
+                VerticalOptions="Center"
+                SelectionBackgroundColor="{DynamicResource Theme}">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="2"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            CornerRadius="8">
+                            <Image
+                                x:Uid="{Binding index}"
+                                Aspect="AspectFill"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                BackgroundColor="Transparent"
+                                HeightRequest="80"
+                                Source="{Binding imageSource}"
+                                WidthRequest="80"/>
+                        </Frame>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </StackLayout>
+    </StackLayout>
+</local1:BasePage>

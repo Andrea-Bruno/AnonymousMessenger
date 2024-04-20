@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:local="clr-namespace:Banking"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Banking.Views.PaymentHistory">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <Grid
+                BackgroundColor="{DynamicResource MainBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    HorizontalOptions="Start"
+                    Margin="5,-12,0,0"
+                    VerticalOptions="Center"
+                    Padding="16"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                    <Image
+                        WidthRequest="15"
+                        HeightRequest="15"
+                        Source="ic_back_icon"
+                        x:Name="BackButton" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Back_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <local:CustomLabel
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    MaxLines="1"
+                    Margin="0,-12,0,0"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{x:Static local1:Resources.Dictionary.PaymentHistory} "
+                    FontFamily="{StaticResource BoldFont}"
+                    FontSize="20"
+                    TextColor="{x:DynamicResource ToolbarTitleColor}" />
+                <StackLayout
+                HorizontalOptions="End"
+                Margin="5,-12,0,0"
+                VerticalOptions="Center"
+                Padding="16"
+                Grid.Row="0"
+                Grid.Column="2">
+                <Image
+                    WidthRequest="23"
+                    HeightRequest="23"
+                    Source="ic_save_profile"
+                    x:Name="SaveButton" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="Save_Clicked"
+                        NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            </Grid>
+            <Frame
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                Margin="0,-10,0,0"
+                CornerRadius="0"
+                HasShadow="False"
+                Padding="0,0,0,24">
+                <StackLayout>
+                    <StackLayout>
+                        <ScrollView>
+                        <Frame
+                            Margin="0,-16,0,0"
+                            BackgroundColor="#DEAF03"
+                            HeightRequest="230"
+                            WidthRequest="380"
+                            HasShadow="False"
+                            VerticalOptions="StartAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            CornerRadius="18">
+                            <local:CustomLabel
+                                Margin="0,30,0,0"
+                                MaxLines="1"
+                                TextColor="{DynamicResource PaymentHistoryPagePaymentTextColor}"
+                                Text="{x:Static local1:Resources.Dictionary.PaymentHistory}"
+                                FontSize="40">
+                            </local:CustomLabel>
+                        </Frame>
+                        </ScrollView>
+                    </StackLayout>
+                    <StackLayout
+                        Margin="10,10,0,0">
+                        <Image
+                            HorizontalOptions="Start"
+                            Source="ic_master"
+                            HeightRequest="45"
+                            WidthRequest="45">
+                        </Image>
+                        <local:CustomLabel
+                            FontSize="17"
+                            FontAttributes= "Bold"
+                            Margin="60,-43,0,0"
+                            HorizontalOptions="Start"
+                            Text="**** 0923"
+                            TextColor="{DynamicResource PaymentHistoryPageCardNumberTextColor}">
+                        </local:CustomLabel>
+                        <CheckBox
+                            CheckedChanged="checkBoxMaster_CheckedChanged"
+                            Margin="0,-35,5,0"
+                            HorizontalOptions="End"
+                            x:Name="checkBoxMaster"
+                            Color="{DynamicResource PaymentHistoryPageCheckBoxColor}">
+                        </CheckBox>
+                    </StackLayout>
+                    <StackLayout
+                        Margin="10,10,0,0">
+                        <Image
+                            HorizontalOptions="Start"
+                            Source="ic_visa"
+                            HeightRequest="45"
+                            WidthRequest="45">
+                        </Image>
+                        <local:CustomLabel
+                            FontSize="17"
+                            FontAttributes= "Bold"
+                            Margin="60,-43,0,0"
+                            HorizontalOptions="Start"
+                            Text="**** 5837"
+                            TextColor="{DynamicResource PaymentHistoryPageCardNumberTextColor}">
+                        </local:CustomLabel>
+                        <CheckBox
+                            CheckedChanged="checkBoxVisa_CheckedChanged"
+                            Margin="0,-35,5,0"
+                            HorizontalOptions="End"
+                            x:Name="checkBoxVisa"
+                            Color="{DynamicResource PaymentHistoryPageCheckBoxColor}">
+                        </CheckBox>
+                    </StackLayout>
+                    <Frame
+                        HeightRequest="25"
+                        Margin="5,20,10,10"
+                        CornerRadius="20"
+                        HasShadow="False"
+                        x:Name="AddCard"
+                        BackgroundColor="{DynamicResource PaymentHistoryPageAddNewAccountBackgroundColor}">
+                        <local:CustomLabel
+                            TextColor="{DynamicResource PaymentHistoryPageAddNewAccountTextColor }"
+                            FontSize="19"
+                            Text="{x:Static local1:Resources.Dictionary.AddNewAccount}"
+                            WidthRequest="10"
+                            HeightRequest="20"
+                            Margin="10,0,0,0">
+                        </local:CustomLabel>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="AddNewAccount_Clicked"
+                                NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame
+                        HeightRequest="25"
+                        Margin="5,10,10,10"
+                        CornerRadius="20"
+                        HasShadow="False"
+                        x:Name="Help"
+                        BackgroundColor="{DynamicResource PaymentHistoryPageHelpBackgroundColor }">
+                        <local:CustomLabel
+                            TextColor="{DynamicResource PaymentHistoryPageHelpTextColor}"
+                            FontSize="19"
+                            Text="{x:Static local1:Resources.Dictionary.Help}"
+                            WidthRequest="10"
+                            HeightRequest="20"
+                            Margin="13,0,0,0">
+                        </local:CustomLabel>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Help_Clicked"
+                                NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

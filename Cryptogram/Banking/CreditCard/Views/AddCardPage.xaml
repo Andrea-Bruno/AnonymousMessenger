@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    xmlns:local="clr-namespace:Banking"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Banking.Views.AddCardPage">
+    <ContentPage.Content>
+      <ScrollView>
+        <StackLayout
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <Grid
+                BackgroundColor="{DynamicResource MainBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    HorizontalOptions="Start"
+                    Margin="5,-10,0,0"
+                    VerticalOptions="Center"
+                    Padding="16"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                    <Image
+                        WidthRequest="15"
+                        HeightRequest="15"
+                        Source="ic_back_icon"
+                        x:Name="BackButton" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Back_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <local:CustomLabel
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    MaxLines="1"
+                    Margin="0,-12,0,0"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{x:Static local1:Resources.Dictionary.AddYourCard} "
+                    FontFamily="{StaticResource BoldFont}"
+                    FontSize="20"
+                    TextColor="{x:DynamicResource ToolbarTitleColor}" />
+            </Grid>
+            <Frame
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                HasShadow="False"
+                Margin="0"
+                CornerRadius="0"
+                Padding="0,0,0,24">
+                 
+                <StackLayout
+                    Margin="0,10,0,0"
+                    Orientation = "Vertical">
+                    <StackLayout>
+                        <Grid
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="Auto" />
+                                <ColumnDefinition
+                                    Width="Auto" />
+                                <ColumnDefinition
+                                    Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="Auto" />
+                                <RowDefinition
+                                    Height="Auto" />
+                                <RowDefinition
+                                    Height="Auto" />
+                                <RowDefinition
+                                    Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image
+                                Source="ic_visa"
+                                Grid.Column="0"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                HeightRequest="70"
+                                WidthRequest="100">
+                            </Image>
+                            <Image
+                                Source="ic_master"
+                                Grid.Column="1"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                HeightRequest="70"
+                                WidthRequest="120">
+                            </Image>
+                            <Image
+                                Source="ic_american"
+                                Grid.Column="2"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                HeightRequest="70"
+                                WidthRequest="100">
+                            </Image>
+                        </Grid>
+                        
+                    </StackLayout>
+                    <StackLayout
+                        Margin="50,0,50,50">
+                        <local:CustomLabel
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{x:Static local1:Resources.Dictionary.AddYourCardForASeamlessJourney}"
+                            TextColor="{DynamicResource MenuItemsLabelColor}"
+                            FontSize="14">
+                        </local:CustomLabel>
+                    </StackLayout>
+                        <Frame
+                        VerticalOptions="Start"
+                        Margin="40,0,40,0"
+                        HasShadow="False"
+                        OutlineColor="{DynamicResource FrameOutlineColor}"
+                        BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                        Padding="0"
+                        CornerRadius="25">
+                        <StackLayout
+                            HeightRequest="45"
+                            Orientation="Horizontal">
+                            <Image
+                                x:Name="CardImage"
+                                HeightRequest="26"
+                                WidthRequest="26"
+                                Margin="15,3,3,3"
+                                >
+                            </Image>
+                            <local:CustomEntry
+                                MaxLength="20"
+                                WidthRequest="200"
+                                HeightRequest="45"
+                                x:Name="CardNumber"
+                                HorizontalTextAlignment="Center"
+                                Margin="0,0,25,0"
+                                HorizontalOptions="CenterAndExpand"
+                                FontSize="17"
+                                Placeholder="{x:Static local1:Resources.Dictionary.CardNumber}"
+                                TextColor="{DynamicResource AddCardPageCardNumberTextColor}"
+                                Keyboard="Numeric" />
+                        </StackLayout>
+                    </Frame>
+                        <local:CustomLabel Margin="40,5,0,0" x:Name="CardError" TextColor="Red" FontSize="12" FontFamily="Sans-Serif"/>
+                    <Grid
+                        VerticalOptions="Center"
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="0,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="0.25*" />
+                                <ColumnDefinition
+                                    Width="0.25*" />
+                                <ColumnDefinition
+                                    Width="0.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="Auto" />
+                            </Grid.RowDefinitions>
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="0"
+                            HasShadow="False"
+                            OutlineColor="{DynamicResource FrameOutlineColor}"
+                            BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                            Padding="1"
+                            Margin="40,0,0,0"
+                            CornerRadius="25">
+                                <local:CustomEntry
+                                    MaxLength="2"
+                                    WidthRequest="55"
+                                    HeightRequest="45"
+                                    x:Name="Month"
+                                    HorizontalTextAlignment="Center"
+                                    Margin="10,0,15,0"
+                                    FontSize="14"
+                                    Placeholder="MM"
+                                    TextColor="{DynamicResource AddCardPageMonthTextColor}"
+                                    Keyboard="Numeric"
+                                   />
+                        </Frame>
+                     <Frame
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         VerticalOptions="Center"
+                         HeightRequest="50"
+                            HasShadow="False"
+                            OutlineColor="{DynamicResource FrameOutlineColor}"
+                            BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                            Padding="0"
+                            CornerRadius="25">
+                                <local:CustomEntry
+                                    MaxLength="4"
+                                    HeightRequest="50"
+                                    WidthRequest="42"
+                                    x:Name="Year"
+                                    HorizontalTextAlignment="Center"
+                                    Margin="23,0,20,0"
+                                    FontSize="14"
+                                    Placeholder="YYYY"
+                                    TextColor="{DynamicResource AddCardPageYearTextColor}"
+                                    Keyboard="Numeric"
+                                   />
+                     </Frame>
+                    <Frame
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        VerticalOptions="Center"
+                        HasShadow="False"
+                        OutlineColor="{DynamicResource FrameOutlineColor}"
+                        BackgroundColor="{DynamicResource FrameBackgroundColor}"
+                        Padding="0"
+                        CornerRadius="25"
+                        Margin="0,0,40,0">
+                            <local:CustomEntry
+                                MaxLength="3"
+                                HeightRequest="50"
+                                x:Name="CVV"
+                                HorizontalTextAlignment="Center"
+                                Margin="10,0,0,0"
+                                FontSize="14"
+                                Placeholder="{x:Static local1:Resources.Dictionary.CVV}"
+                                TextColor="{DynamicResource AddCardPageCvvTextColor}"
+                                Keyboard="Numeric"/>
+                    </Frame>
+                        </Grid>
+                    <StackLayout
+                        VerticalOptions="EndAndExpand"
+                        Margin="70,0,70,0">
+                    <Frame
+                        CornerRadius="25"
+                        HasShadow="False"
+                        BackgroundColor="{DynamicResource MainBackgroundColor}"
+                        Padding="10"
+                        WidthRequest="180"
+                        HeightRequest="40">
+                        <local:CustomLabel
+                            x:Name="Confirm"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            Margin="0,0,0,5"
+                            VerticalOptions="Center"
+                            TextColor="{DynamicResource AddCardPageConfirmButtonTextColor}"
+                            FontSize="14"
+                            HeightRequest="40"
+                            Text="{x:Static local1:Resources.Dictionary.Confirm}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Confirm_Clicked"
+                                    NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </local:CustomLabel>
+                    </Frame>
+                   </StackLayout>                        
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+         </ScrollView> 
+
+    </ContentPage.Content>
+</local:BasePage>

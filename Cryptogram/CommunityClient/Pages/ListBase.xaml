@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Localization;assembly=Localization"
+             xmlns:converters="clr-namespace:CommunityClient.Converters"
+             x:Class="CommunityClient.Pages.ListBase">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:BoolToFontAttribute x:Key="boolToFontAttribute" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <StackLayout>
+    <StackLayout Orientation="Vertical">
+      <StackLayout Orientation="Horizontal">
+        <Button x:Name="Share" Text="🔗" IsVisible="false" />
+        <Button x:Name="Refresh" Text="🔄" IsVisible="false" />
+        <Label x:Name="Title" FontSize="Header" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" BackgroundColor="DarkGray" TextColor="White" />
+      </StackLayout>
+      <Label x:Name="ParentText" FontSize="Title" IsVisible="false" />
+      <Label x:Name="ParentDescription" FontSize="Title" IsVisible="false" />
+    </StackLayout>
+
+    <ListView x:Name="MyListView"
+            IsPullToRefreshEnabled="True"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+      <!--Built in Cells-->
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem
+                                                Clicked="Edit_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                Text="{x:Static localization:Resources.Dictionary.Edit}" />
+              <MenuItem
+                                                Clicked="Report_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                IsDestructive="True"
+                                                Text="{x:Static localization:Resources.Dictionary.Report}" />
+              <MenuItem
+                                                Clicked="Delete_Clicked"
+                                                CommandParameter="{Binding .}"
+                                                IsDestructive="True"
+                                                Text="{x:Static localization:Resources.Dictionary.Delete}" />
+            </ViewCell.ContextActions>
+            <Frame BorderColor="#80808080" CornerRadius="10" HasShadow="True" Padding="4" Margin="1">
+              <StackLayout  Orientation="Horizontal">
+                <Label Text="{Binding Emoticon}" FontSize="Large" />
+                <StackLayout>
+                  <Label Text="{Binding TimeLiteral}" FontSize="Small" />
+                  <Label Text="{Binding Text}" FontSize="Medium" />
+                  <Label Text="{Binding Description}" FontSize="Micro" />
+                  <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Like, StringFormat='{0}'}" FontAttributes="{Binding ILike, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="👍" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnLikeTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Dislike, StringFormat='{0}'}" FontAttributes="{Binding IDislike, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="👎" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnDislikeTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Love, StringFormat='{0}'}" FontAttributes="{Binding ILove, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="❤️" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnLoveTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Haha, StringFormat='{0}'}" FontAttributes="{Binding IHaha, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="😂" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnHahaTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Yay, StringFormat='{0}'}" FontAttributes="{Binding IYay, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="😀" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnYayTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Wow, StringFormat='{0}'}" FontAttributes="{Binding IWow, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="😮" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnWowTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Sad, StringFormat='{0}'}" FontAttributes="{Binding ISad, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="😢" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnSadTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                      <Label FontSize="Micro" Text="{Binding Angry, StringFormat='{0}'}" FontAttributes="{Binding IAngry, Converter={StaticResource boolToFontAttribute}}"></Label>
+                      <Button Text="😠" FontSize="Medium" BackgroundColor="Transparent" BorderWidth="0" Clicked="OnAngryTapped" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                  </StackLayout>
+                </StackLayout>
+              </StackLayout>
+            </Frame>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+      <!--Custom View Cells-->
+      <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+    </ListView>
+    <!--<Label Text="{x:Static local:Resources.Dictionary.Subscribe}"></Label>-->
+    <!--<Entry Text="" Completed="Subscribe_OnClick"  ></Entry>-->
+    <!--<Button x:Name="GetTestGroup" Text="Get test group" IsVisible="false"></Button>-->
+    <Editor x:Name="Text" IsVisible="false" HeightRequest="100" x:FieldModifier="public"></Editor>
+    <Button x:Name="NewItem" IsVisible="false"></Button>
+    <!--<Button x:Name="NewPost" IsVisible="false" Text="Create New Post" x:FieldModifier="public" Clicked="NewPost_Clicked"></Button>-->
+  </StackLayout>
+
+
+</ContentPage>

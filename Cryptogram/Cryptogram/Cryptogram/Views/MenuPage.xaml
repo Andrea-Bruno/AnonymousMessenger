@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    x:Class="Anonymous.Views.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    ios:Page.UseSafeArea="true"
+    mc:Ignorable="d">
+    <StackLayout x:Name="Menu_Page">
+        <local:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local1:Resources.Dictionary.Settings}" />
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Frame
+                Margin="0,-10,0,0"
+                Padding="0,0,0,0"
+                BackgroundColor="{DynamicResource Color1}"
+                CornerRadius="0"
+                HasShadow="False"
+                VerticalOptions="FillAndExpand">
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout Margin="0,11,0,0" IsVisible="true">
+                            <StackLayout
+                                Margin="10,0,0,0"
+                                IsVisible="true"
+                                Orientation="Horizontal">
+                                <local:CustomLabel
+                                    Margin="15,0,0,0"
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.ChangeLanguage}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Language_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Margin="0,11,0,0">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    Margin="15,0,0,0"
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.FAQ}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FAQ_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Margin="0,11,0,0">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    Margin="15,0,0,0"
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.PrivacyPolicy}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PrivacyPolicy_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout
+                            x:Name="Passphrase"
+                            Margin="0,11,0,0"
+                            IsVisible="true">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    x:Name="PrivateKey"
+                                    Margin="15,0,0,0"
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.VerifyPrivateKey}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="VerifyPrivateKey_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout
+                            x:Name="ChatFontSizeLyt"
+                            Margin="0,11,0,0"
+                            IsVisible="true">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    x:Name="ChatFontSize"
+                                    Margin="15,0,0,0"
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.FontSize}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChatFontSize_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout
+                            x:Name="Share_PublicKey"
+                            Margin="0,11,0,0"
+                            IsVisible="false">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.SharePublicKey}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Share_PublicKey_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout
+                            x:Name="TestLogs"
+                            Margin="0,11,0,0"
+                            IsVisible="false">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    Margin="15,0,0,0"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="Test logs"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <StackLayout
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand"
+                                IsVisible="True" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TestLogs_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Logout" Margin="0,11,0,0">
+                            <StackLayout Margin="10,0,0,0" Orientation="Horizontal">
+                                <local:CustomLabel
+                                    Margin="15,0,0,0"
+                                    FontFamily="PoppinsMedium"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{x:Static local1:Resources.Dictionary.Logout}"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand" />
+                                <Image
+                                    Margin="0,0,25,8"
+                                    HeightRequest="12"
+                                    HorizontalOptions="EndAndExpand"
+                                    Source="{dh:ImageResourceExtension ic_menu_next.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="12" />
+                            </StackLayout>
+                            <BoxView
+                                Margin="24,15,24,0"
+                                BackgroundColor="{DynamicResource Gray}"
+                                HeightRequest="1"
+                                HorizontalOptions="FillAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Logout_Clicked" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <Frame
+                            Margin="10,10,10,10"
+                            Padding="0,0,0,24"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            VerticalOptions="FillAndExpand">
+                            <Frame.Background>
+                                <LinearGradientBrush EndPoint="0,1">
+                                    <GradientStop Offset="0.1" Color="{DynamicResource Color2}" />
+                                    <GradientStop Offset="1.0" Color="{DynamicResource Color1}" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout>
+                                <StackLayout Margin="20,20,0,0" Orientation="Horizontal">
+                                    <local:CustomLabel
+                                        x:Name="AppLock_Text"
+                                        FontFamily="PoppinsMedium"
+                                        FontSize="18"
+                                        HorizontalOptions="Start"
+                                        Text="{x:Static local1:Resources.Dictionary.AppLock}"
+                                        TextColor="{DynamicResource WhiteColor}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="310" />
+                                    <syncfusion:SfSwitch
+                                        x:Name="AppLock1"
+                                        Margin="0,0,10,0"
+                                        HorizontalOptions="End"
+                                        IsOn="False"
+                                        StateChanged="SfSwitch_AppLockStateChanged"
+                                        VerticalOptions="Center"
+                                        VisualType="Custom">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="On">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="SwitchSettings">
+                                                            <Setter.Value>
+                                                                <syncfusion:CupertinoSwitchSettings
+                                                                    x:TypeArguments="syncfusion:OnState"
+                                                                    ThumbColor="{DynamicResource WhiteColor}"
+                                                                    TrackBorderColor="{DynamicResource Color2}"
+                                                                    TrackColor="{DynamicResource Theme}" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                                <VisualState x:Name="Off">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="SwitchSettings">
+                                                            <Setter.Value>
+                                                                <syncfusion:CupertinoSwitchSettings
+                                                                    x:TypeArguments="syncfusion:OffState"
+                                                                    ThumbColor="{DynamicResource WhiteColor}"
+                                                                    TrackBorderColor="{DynamicResource Color2}"
+                                                                    TrackColor="{DynamicResource Gray}" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </syncfusion:SfSwitch>
+                                </StackLayout>
+                                <BoxView
+                                    Margin="14,15,14,0"
+                                    BackgroundColor="{DynamicResource Gray}"
+                                    HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" />
+                                <StackLayout Margin="20,20,0,0" Orientation="Horizontal">
+                                    <local:CustomLabel
+                                        x:Name="Backup_Text"
+                                        FontFamily="PoppinsMedium"
+                                        FontSize="18"
+                                        HorizontalOptions="Start"
+                                        Text="Automatically Backup on Startup"
+                                        TextColor="{DynamicResource WhiteColor}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="310" />
+                                    <syncfusion:SfSwitch
+                                        x:Name="Backup"
+                                        Margin="0,0,10,0"
+                                        HorizontalOptions="End"
+                                        IsOn="False"
+                                        StateChanged="SfSwitch_BackupStateChanged"
+                                        VerticalOptions="Center"
+                                        VisualType="Custom">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="On">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="SwitchSettings">
+                                                            <Setter.Value>
+                                                                <syncfusion:CupertinoSwitchSettings
+                                                                    x:TypeArguments="syncfusion:OnState"
+                                                                    ThumbColor="{DynamicResource WhiteColor}"
+                                                                    TrackBorderColor="{DynamicResource Color2}"
+                                                                    TrackColor="{DynamicResource Theme}" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                                <VisualState x:Name="Off">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="SwitchSettings">
+                                                            <Setter.Value>
+                                                                <syncfusion:CupertinoSwitchSettings
+                                                                    x:TypeArguments="syncfusion:OffState"
+                                                                    ThumbColor="{DynamicResource WhiteColor}"
+                                                                    TrackBorderColor="{DynamicResource Color2}"
+                                                                    TrackColor="{DynamicResource Gray}" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </syncfusion:SfSwitch>
+                                </StackLayout>
+                                <BoxView
+                                    Margin="14,15,14,0"
+                                    BackgroundColor="{DynamicResource Gray}"
+                                    HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" />
+                                <StackLayout Margin="20,20,10,20" Orientation="Horizontal">
+                                    <StackLayout
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="100">
+                                        <Label
+                                            x:Name="NumberOfMessageLabel"
+                                            FontFamily="PoppinsMedium"
+                                            FontSize="18"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{x:Static local1:Resources.Dictionary.MessageLimits}"
+                                            TextColor="{DynamicResource WhiteColor}" />
+                                    </StackLayout>
+                                    <Grid
+                                        Margin="0,0,0,0"
+                                        HorizontalOptions="EndAndExpand"
+                                        VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="36" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.25*" />
+                                            <ColumnDefinition Width="0.25*" />
+                                            <ColumnDefinition Width="0.25*" />
+                                            <ColumnDefinition Width="0.25*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Button
+                                            x:Name="MessageLimits_Zero"
+                                            Grid.Column="0"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="Transparent"
+                                            BorderWidth="1"
+                                            Clicked="MessageLimits_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            Text="0"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                        <Button
+                                            x:Name="MessageLimits_Ten"
+                                            Grid.Column="1"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="Transparent"
+                                            BorderWidth="1"
+                                            Clicked="MessageLimits_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            Text="10"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                        <Button
+                                            x:Name="MessageLimits_Twenty"
+                                            Grid.Column="2"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="Transparent"
+                                            BorderWidth="1"
+                                            Clicked="MessageLimits_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            Text="20"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                        <Button
+                                            x:Name="MessageLimits_Thirty"
+                                            Grid.Column="3"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="{DynamicResource Theme}"
+                                            BorderWidth="1"
+                                            Clicked="MessageLimits_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            HorizontalOptions="EndAndExpand"
+                                            Text="∞"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                    </Grid>
+                                </StackLayout>
+                                <BoxView
+                                    Margin="14,5,14,0"
+                                    BackgroundColor="{DynamicResource Gray}"
+                                    HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" />
+                                <StackLayout Margin="19,20,10,20" Orientation="Horizontal">
+                                    <StackLayout
+                                        HorizontalOptions="StartAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="100">
+                                        <Label
+                                            x:Name="ValidityOfMessageLabel"
+                                            FontFamily="PoppinsMedium"
+                                            FontSize="18"
+                                            HorizontalOptions="StartAndExpand"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{x:Static local1:Resources.Dictionary.DurationOfMessages}"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            VerticalOptions="FillAndExpand" />
+                                    </StackLayout>
+                                    <Grid
+                                        Margin="0,0,0,0"
+                                        HorizontalOptions="EndAndExpand"
+                                        VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="36" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.25*" />
+                                            <ColumnDefinition Width="0.25*" />
+                                            <ColumnDefinition Width="0.25*" />
+                                            <ColumnDefinition Width="0.25*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Button
+                                            x:Name="MessageDuration_Zero"
+                                            Grid.Column="0"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="Transparent"
+                                            BorderWidth="1"
+                                            Clicked="MessageDuration_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            Text="0"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                        <Button
+                                            x:Name="MessageDuration_Ten"
+                                            Grid.Column="1"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="Transparent"
+                                            BorderWidth="1"
+                                            Clicked="MessageDuration_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            Text="10"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                        <Button
+                                            x:Name="MessageDuration_Twenty"
+                                            Grid.Column="2"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="Transparent"
+                                            BorderWidth="1"
+                                            Clicked="MessageDuration_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            Text="20"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                        <Button
+                                            x:Name="MessageDuration_Thirty"
+                                            Grid.Column="3"
+                                            Margin="0,0,10,0"
+                                            Padding="0"
+                                            BackgroundColor="{DynamicResource Color1}"
+                                            BorderColor="{DynamicResource Theme}"
+                                            BorderWidth="1"
+                                            Clicked="MessageDuration_Clicked"
+                                            CornerRadius="18"
+                                            FontFamily="PoppinsBold"
+                                            FontSize="14"
+                                            HeightRequest="36"
+                                            HorizontalOptions="EndAndExpand"
+                                            Text="∞"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            WidthRequest="35" />
+                                    </Grid>
+                                </StackLayout>
+                                <BoxView
+                                    Margin="14,5,14,0"
+                                    BackgroundColor="{DynamicResource Gray}"
+                                    HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+</local:BasePage>

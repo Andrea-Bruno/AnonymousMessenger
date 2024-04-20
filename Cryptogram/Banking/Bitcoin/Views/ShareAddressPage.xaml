@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns:local="clr-namespace:Banking"
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"
+                xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                ios:Page.UseSafeArea="true"
+                xmlns:model="clr-namespace:Banking.Models"
+                x:DataType="model:BitcoinTransactionViewModel"
+                x:Class="Banking.Bitcoin.Views.ShareAddressPage">
+    <ContentPage.BindingContext>
+        <model:BitcoinTransactionViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <Grid BackgroundColor="{DynamicResource MainBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout HorizontalOptions="Start"
+                             Margin="5,-10,0,0"
+                             VerticalOptions="Center"
+                             Padding="16"
+                             Grid.Row="0"
+                             Grid.Column="0">
+                    <Image WidthRequest="15"
+                           HeightRequest="15"
+                           Source="ic_back_icon"
+                           x:Name="BackButton" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back_Clicked"
+                                              NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <local:CustomLabel HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="Center"
+                                   MaxLines="1"
+                                   Margin="0,-12,0,0"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="Bitcoin Wallet"
+                                   FontFamily="{StaticResource BoldFont}"
+                                   FontSize="20"
+                                   TextColor="{x:DynamicResource ToolbarTitleColor}" />
+
+            </Grid>
+            <BoxView HeightRequest="10"></BoxView>
+            <StackLayout x:Name="BalanceLayout"
+                         Orientation="Vertical">
+                <Label Text="Your Address: "
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="ChangeAddress"
+                       FontSize="Medium"
+                       Margin="10,0,10,0" />
+                <BoxView HeightRequest="50"></BoxView>
+                <Button BorderRadius="20"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#DEAF03"
+                        Text="Get New One"
+                        TextColor="White"
+                        Clicked="OnRefreshButtonClicked" />
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</local:BasePage>

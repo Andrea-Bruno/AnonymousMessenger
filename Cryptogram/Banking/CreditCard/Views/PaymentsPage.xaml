@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+ xmlns:local="clr-namespace:Banking"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Banking.Views.PaymentsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid
+                BackgroundColor="{DynamicResource MainBackgroundColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    HorizontalOptions="Start"
+                    Margin="5,-12,0,0"
+                    VerticalOptions="Center"
+                    Padding="16"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                    <Image
+                        WidthRequest="15"
+                        HeightRequest="15"
+                        Source="ic_back_icon"
+                        x:Name="BackButton" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Back_Clicked"
+                            NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <local:CustomLabel
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    MaxLines="1"
+                    Margin="0,-12,0,0"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="{x:Static local1:Resources.Dictionary.Payments} "
+                    FontFamily="{StaticResource BoldFont}"
+                    FontSize="20"
+                    TextColor="{x:DynamicResource ToolbarTitleColor}" />
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</local:BasePage>

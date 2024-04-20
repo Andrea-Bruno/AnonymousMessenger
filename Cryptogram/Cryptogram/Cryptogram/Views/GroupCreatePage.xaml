@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage
+    x:Class="Anonymous.Views.GroupCreatePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local1="clr-namespace:Localization;assembly=Localization"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    ios:Page.UseSafeArea="true"
+    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    mc:Ignorable="d">
+    <RelativeLayout >
+
+        <StackLayout  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}" 
+                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}" Margin="0,0,0,0" BackgroundColor="{DynamicResource Color1}">
+            <local:MyCustomToolbar x:Name="Toolbar" OnBackBtnClicked="Back_Clicked" />
+            <!--  Profile Picture  -->
+            <StackLayout>
+                <Frame
+                    Margin="15,60,15,0"
+                    BackgroundColor="{DynamicResource Color2}"
+                    CornerRadius="15"
+                    HeightRequest="257"
+                    HorizontalOptions="FillAndExpand"
+                    MinimumHeightRequest="257"
+                    WidthRequest="369">
+                    <StackLayout>
+                        <StackLayout Margin="8,80,8,8" IsVisible="True">
+                            <local:CustomLabel
+                                Margin="8,12,8,0"
+                                FontFamily="PoppinsSemiBold"
+                                FontSize="18"
+                                HeightRequest="50"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="{x:Static local1:Resources.Dictionary.GroupName}"
+                                TextColor="{DynamicResource WhiteColor}"
+                                VerticalTextAlignment="Center" />
+                            <Frame
+                                Padding="0"
+                                BackgroundColor="{DynamicResource Color1}"
+                                CornerRadius="25"
+                                HasShadow="False"
+                                HeightRequest="50">
+                                <local:CustomEntry
+                                    x:Name="Group_Name"
+                                    Margin="6,0,6,0"
+                                    BackgroundColor="{DynamicResource Color1}"
+                                    CharacterSpacing="0"
+                                    FontFamily="PoppinsLight"
+                                    FontSize="18"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    MaxLength="18"
+                                    Placeholder="{x:Static local1:Resources.Dictionary.NameOfGroup}"
+                                    PlaceholderColor="{DynamicResource BackgroundSecondary}"
+                                    TextChanged="Entry_TextChanged"
+                                    TextColor="{DynamicResource WhiteColor}"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center" />
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame
+                    Margin="0,-365,0,250"
+                    Padding="0"
+                    CornerRadius="64"
+                    HeightRequest="128"
+                    BackgroundColor="Transparent"
+                    MinimumHeightRequest="128"
+                    MinimumWidthRequest="128"
+                    HorizontalOptions="Center"
+                    WidthRequest="128"
+                    HasShadow="False">
+                    <Image
+                        x:Name="UserProfilePhoto"
+                        Aspect="AspectFill"
+                        HeightRequest="128"
+                        HorizontalOptions="Center"
+                        Source="{dh:ImageResourceExtension ic_new_addGroup_contact.png}"
+                        VerticalOptions="Center"
+                        WidthRequest="128" />
+                </Frame>
+            </StackLayout>
+            <Frame
+                Margin="0"
+                Padding="0"
+                CornerRadius="0"
+                HasShadow="False"
+                VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="{DynamicResource Color1}" Orientation="Vertical">
+                    <syncfusion:SfListView
+                        x:Name="ItemsListView"
+                        AllowSwiping="True"
+                        BackgroundColor="Transparent"
+                        ItemSize="75"
+                        SelectionMode="None"
+                        VerticalOptions="FillAndExpand">
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                        HeightRequest="75"
+                                        MinimumHeightRequest="75"
+                                        Orientation="Vertical"
+                                        Spacing="0">
+                                        <StackLayout
+                                            Margin="12"
+                                            HeightRequest="50"
+                                            MinimumHeightRequest="50"
+                                            Orientation="Horizontal"
+                                            Spacing="0"
+                                            VerticalOptions="FillAndExpand">
+                                            <views:CustomAvatar
+                                                Contact="{Binding contact}"
+                                                CornerRadius="25"
+                                                HeightRequest="50"
+                                                WidthRequest="50" />
+                                            <local:CustomLabel
+                                                x:Name="Name"
+                                                Margin="16,0,0,0"
+                                                FontFamily="PoppinsSemiBold"
+                                                FontSize="18"
+                                                HorizontalOptions="FillAndExpand"
+                                                MaxLines="1"
+                                                Style="{DynamicResource ListItemTextStyle}"
+                                                Text="{Binding contact.Name}"
+                                                TextColor="{DynamicResource WhiteColor}"
+                                                VerticalOptions="Center" />
+                                        </StackLayout>
+                                        <BoxView
+                                            Margin="75,0,0,0"
+                                            HeightRequest="1"
+                                            VerticalOptions="Fill"
+                                            Color="{DynamicResource Color3}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                </StackLayout>
+            </Frame>
+       
+        </StackLayout>
+
+        <StackLayout
+            x:Name="NextButton"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-80}" 
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Constant=-80}"
+            HorizontalOptions="End"
+            VerticalOptions="End">
+            <Image
+                x:Name="Next"
+                HeightRequest="64"
+                Source="{dh:ImageResourceExtension ic_next_disabled.png}"
+                WidthRequest="64" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Save_Clicked" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </RelativeLayout>
+
+</local:BasePage>

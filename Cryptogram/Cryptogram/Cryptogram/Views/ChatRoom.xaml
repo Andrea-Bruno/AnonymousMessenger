@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<local1:BasePage
+    x:Class="Anonymous.Views.ChatRoom"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:local2="clr-namespace:MessageCompose;assembly=MessageCompose"
+    xmlns:local3="clr-namespace:Localization;assembly=Localization"
+    xmlns:utils="clr-namespace:Utils;assembly=Utils"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{DynamicResource Color1}">
+    <local1:KeyboardView
+        x:Name="Root"
+        Margin="0,0,0,0"
+        BackgroundColor="{DynamicResource Color1}"
+        VerticalOptions="FillAndExpand">
+        <StackLayout
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                   Property=Height,
+                                                                   Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=1}"
+            Spacing="0"
+            VerticalOptions="FillAndExpand">
+            <StackLayout
+                x:Name="MainToolbar"
+                BackgroundColor="{DynamicResource Color2}"
+                HeightRequest="65"
+                IsVisible="{Binding IsMessageSelection, Converter={utils:InverseBoolConverter}}"
+                MinimumHeightRequest="65"
+                Orientation="Horizontal"
+                VerticalOptions="Start">
+                <StackLayout Padding="10,4,10,6">
+                    <Image
+                        Margin="5,15,0,10"
+                        HeightRequest="23"
+                        HorizontalOptions="Start"
+                        Source="{utils:ImageResourceExtension ic_new_back_icon.png}"
+                        WidthRequest="18" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout>
+                    <local1:CustomAvatar
+                        x:Name="User_Photo"
+                        Margin="3,8,0,14"
+                        CornerRadius="20"
+                        HeightRequest="40"
+                        HorizontalOptions="Start"
+                        WidthRequest="40" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Photo_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    VerticalOptions="CenterAndExpand">
+                    <local1:CustomLabel
+                        x:Name="Username"
+                        Margin="0,0,0,0"
+                        Padding="0"
+                        FontAttributes="Bold"
+                        FontFamily="PoppinsSemiBold"
+                        FontSize="22"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        Text=""
+                        TextColor="{x:DynamicResource WhiteColor}" />
+                    <local1:CustomLabel
+                        x:Name="LastSeen"
+                        Margin="0,-12,0,0"
+                        Padding="0"
+                        FontFamily="PoppinsRegular"
+                        FontSize="13"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        TextColor="{x:DynamicResource Audio}" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Username_Clicked" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout
+                    Margin="0,0,10,0"
+                    HorizontalOptions="EndAndExpand"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout
+                        x:Name="VideoButton"
+                        Margin="0,4,0,0"
+                        Padding="10">
+                        <Image
+                            x:Name="VideoIcon"
+                            Margin="0,0,10,0"
+                            HeightRequest="21"
+                            Source="{utils:ImageResourceExtension ic_new_video_call.png}"
+                            WidthRequest="22" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="VideoCall_Clicked" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <StackLayout
+                        x:Name="AudioButton"
+                        Margin="0,3,0,0"
+                        Padding="10">
+                        <Image
+                            x:Name="PhoneIcon"
+                            Margin="0,0,4,0"
+                            HeightRequest="22"
+                            Source="{utils:ImageResourceExtension ic_new_phone_call.png}"
+                            WidthRequest="21" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AudioCall_Clicked" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout
+                x:Name="MFToolbar"
+                BackgroundColor="{DynamicResource Color2}"
+                HeightRequest="65"
+                IsVisible="{Binding IsMessageSelection}"
+                MinimumHeightRequest="65"
+                Orientation="Horizontal"
+                Spacing="0"
+                VerticalOptions="Start">
+                <ImageButton
+                    x:Name="MFCancel"
+                    Padding="16"
+                    BackgroundColor="Transparent"
+                    Clicked="MFCancel_Clicked"
+                    HeightRequest="48"
+                    HorizontalOptions="Start"
+                    Source="{utils:ImageResourceExtension ic_multiforward_cancel.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="48" />
+                <Label
+                    x:Name="MFCount"
+                    FontFamily="PoppinsSemiBold"
+                    FontSize="22"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Start"
+                    Text="0"
+                    TextColor="{DynamicResource WhiteColor}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Start" />
+                <ImageButton
+                    x:Name="MFForward"
+                    Padding="12"
+                    BackgroundColor="Transparent"
+                    Clicked="MFForward_Clicked"
+                    HeightRequest="48"
+                    HorizontalOptions="End"
+                    Source="{utils:ImageResourceExtension ic_multiforward_forward.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="48" />
+
+                <ImageButton
+                    x:Name="MFCopy"
+                    Padding="12"
+                    BackgroundColor="Transparent"
+                    Clicked="MFCopy_Clicked"
+                    HeightRequest="48"
+                    HorizontalOptions="End"
+                    Source="{utils:ImageResourceExtension ic_multiforward_copy.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="48" />
+                <ImageButton
+                    x:Name="MFDelete"
+                    Padding="12"
+                    BackgroundColor="Transparent"
+                    Clicked="MFDelete_Clicked"
+                    HeightRequest="48"
+                    HorizontalOptions="End"
+                    Source="{utils:ImageResourceExtension ic_multiforward_delete.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="48" />
+                <ImageButton
+                    x:Name="MFTranslate"
+                    Padding="12"
+                    BackgroundColor="Transparent"
+                    Clicked="MFTranslate_Clicked"
+                    HeightRequest="48"
+                    HorizontalOptions="End"
+                    Source="{utils:ImageResourceExtension ic_multiforward_translate.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="48" />
+            </StackLayout>
+            <local1:CustomLabel
+                Padding="0"
+                BackgroundColor="{DynamicResource Theme}"
+                FontFamily="PoppinsSemiBold"
+                FontSize="18"
+                HeightRequest="38"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding IsCallGoingOn}"
+                MinimumHeightRequest="38"
+                Text="{x:Static local3:Resources.Dictionary.CallisGoingOnTapToJoin}"
+                TextColor="{DynamicResource Color1}"
+                TextTransform="Uppercase"
+                VerticalOptions="Start"
+                VerticalTextAlignment="Center">
+                <local1:CustomLabel.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="JoinGroupCall_Clicked" />
+                </local1:CustomLabel.GestureRecognizers>
+            </local1:CustomLabel>
+            <StackLayout
+                x:Name="VideoProgress_Lyt"
+                Padding="0"
+                BackgroundColor="{DynamicResource Theme}"
+                HeightRequest="38"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                Orientation="Horizontal"
+                VerticalOptions="Start">
+                <ImageButton
+                    x:Name="VideoCancel_Btn"
+                    Margin="16,0,0,0"
+                    Padding="0"
+                    Clicked="OnVideoCancel_Btn_Clicked"
+                    HeightRequest="24"
+                    Source="{utils:ImageResourceExtension ic_unmark.png}"
+                    VerticalOptions="Center"
+                    WidthRequest="24" />
+                <Label
+                    x:Name="VideoProgress"
+                    Margin="16,0,0,0"
+                    Padding="0"
+                    HorizontalOptions="EndAndExpand"
+                    TextColor="{DynamicResource Color1}"
+                    VerticalOptions="Center" />
+
+            </StackLayout>
+
+            <CollectionView
+                x:Name="MessagesLyt"
+                Margin="0"
+                ItemSizingStrategy="MeasureAllItems"
+                BackgroundColor="Red"
+                VerticalOptions="EndAndExpand"/>
+            
+            <Frame
+                x:Name="BlockUserTxt"
+                Margin="0,0,0,10"
+                Padding="50,10,50,10"
+                BackgroundColor="{DynamicResource Theme}"
+                CornerRadius="5"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                VerticalOptions="End">
+                <local1:CustomLabel Text="{x:Static local3:Resources.Dictionary.YouHaveBlockedUsers}"
+                                    TextColor="{DynamicResource WhiteColor}" />
+            </Frame>
+
+            <local2:Composer
+                x:Name="ComposerPlaceHolder"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End" />
+        </StackLayout>
+
+        <Image
+            x:Name="DownScroll"
+            BackgroundColor="Transparent"
+            HeightRequest="58"
+            IsVisible="False"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                              Property=Width,
+                                                              Factor=1,
+                                                              Constant=-75}"
+            WidthRequest="58">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DownScroll_Clicked" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Button
+            x:Name="NewMessageScrollInfo"
+            Padding="0"
+            BackgroundColor="{DynamicResource Theme}"
+            CornerRadius="14"
+            FontFamily="PoppinsBold"
+            FontSize="12"
+            HeightRequest="26"
+            IsVisible="false"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                                              ElementName=DownScroll,
+                                                              Factor=1,
+                                                              Property=X,
+                                                              Constant=32}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                                              ElementName=DownScroll,
+                                                              Factor=1,
+                                                              Property=Y,
+                                                              Constant=-6}"
+            TextColor="{DynamicResource WhiteColor}"
+            WidthRequest="26" />
+    </local1:KeyboardView>
+</local1:BasePage>

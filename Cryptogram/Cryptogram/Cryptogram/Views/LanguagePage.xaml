@@ -1,0 +1,110 @@
+﻿<local1:BasePage
+    x:Class="Anonymous.Views.LanguagePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:Localization;assembly=Localization"
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{DynamicResource Color1}">
+    <StackLayout>
+        <local1:MyCustomToolbar
+            x:Name="Toolbar"
+            Title="{x:Static local:Resources.Dictionary.Language}"
+            OnBackBtnClicked="Back_Clicked" />
+        <Frame
+            Margin="0,-10,0,0"
+            Padding="0,0,0,24"
+            BackgroundColor="{DynamicResource Color1}"
+            CornerRadius="0"
+            HasShadow="False"
+            VerticalOptions="FillAndExpand">
+            <ListView
+                x:Name="Language"
+                BackgroundColor="{DynamicResource Color1}"
+                HasUnevenRows="true"
+                ItemTapped="OnItemSelected"
+                SelectionMode="Single"
+                SeparatorVisibility="None"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="0,10,0,0" BackgroundColor="{DynamicResource Color1}">
+                                <StackLayout
+                                    x:Name="LanguageFrame"
+                                    Margin="20,20,0,0"
+                                    BackgroundColor="{DynamicResource Color1}"
+                                    HeightRequest="25">
+                                    <Grid BackgroundColor="{DynamicResource Color1}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="22" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            x:Name="CountryFlag"
+                                            Grid.Column="0"
+                                            HeightRequest="22"
+                                            Source="{Binding CountryFlag}"
+                                            VerticalOptions="Start" />
+                                        <local1:CustomLabel
+                                            x:Name="Language"
+                                            Grid.Column="1"
+                                            Margin="5,0,0,0"
+                                            FontFamily="PoppinsMedium"
+                                            FontSize="18"
+                                            HorizontalOptions="FillAndExpand"
+                                            Text="{Binding LanguageName}"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            VerticalOptions="Start" />
+                                        <Image
+                                            x:Name="Done"
+                                            Grid.Column="2"
+                                            Margin="0,0,20,0"
+                                            HeightRequest="20"
+                                            HorizontalOptions="EndAndExpand"
+                                            IsVisible="{Binding IsSelected}"
+                                            Source="{dh:ImageResourceExtension ic_language_done.png}"
+                                            WidthRequest="19" />
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout
+                                    Margin="24,10,24,0"
+                                    BackgroundColor="{DynamicResource Gray}"
+                                    HeightRequest="1"
+                                    HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+        <pancakeview:PancakeView
+            x:Name="SaveButtonLyt"
+            BackgroundColor="{DynamicResource Color2}"
+            CornerRadius="12,12,0,0"
+            HeightRequest="120"
+            VerticalOptions="EndAndExpand">
+            <Button
+                x:Name="SaveButton"
+                BackgroundColor="{DynamicResource Theme}"
+                Clicked="Save_Clicked"
+                CornerRadius="28"
+                FontFamily="PoppinsSemiBold"
+                FontSize="20"
+                HeightRequest="52"
+                HorizontalOptions="CenterAndExpand"
+                Text="{x:Static local:Resources.Dictionary.Save}"
+                TextColor="{DynamicResource BlackColor}"
+                TextTransform="Uppercase"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="200" />
+        </pancakeview:PancakeView>
+    </StackLayout>
+</local1:BasePage>
