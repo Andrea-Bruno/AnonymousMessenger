@@ -13,6 +13,9 @@ At a slightly higher level we have the EncryptedMessaging, the low-level binary 
 Finally, at the top level we have the multi-platform messaging interface (Android, Linux, iOS, Windows), which in fact is only a graphical interface that allows the user to interact with the software, and developers to create a messaging completely customized in terms of graphics and ergonomics.
 Messaging software also has crypto wallet functions, and other experimental stuff.
 
+## NOTE:
+Inside this repository there is also [Cryptogram](https://github.com/Andrea-Bruno/AnonymousMessenger/tree/master/Cryptogram), it is another messaging software that shares the encrypted messaging libraries and some components with this one. Cryptogram is a derivative of this 'white label' which is more complex than this version which aims to be minimalist.
+
 [The software is based on an encrypted socket communication engine derived from bitcoin technology, of which you will find the technical specifications of the protocol here:](https://www.fuget.org/packages/SecureStorage/)
 
 **Important:** [Any projects missing from the solution can be found here](https://github.com/Andrea-Bruno?tab=repositories), or you can replace the missing projects with the related Nuget package.
@@ -28,6 +31,8 @@ This project has three open source dependencies for security and functionality. 
 * [Encrypted messaging](https://github.com/Andrea-Bruno/EncryptedMessaging) it is a powerful low-level cryptographic protocol, of the Trustless type, which manages communication, groups and contacts (this software will never access your address book, this library is the heart of the application).
 
 * [Communication channel](https://github.com/Andrea-Bruno/EncryptedMessaging/tree/master/CommunicationChannel) is the low-level socket communication protocol underlying encrypted communication.
+
+# 
 
 The reasons that led to this project with dontnet is that it is an open source development environment, and effective security is achieved only by being able to inspect all parts of the code, including the development framework.
 * [.NET is open source](https://dotnet.microsoft.com/en-us/platform/open-source)
