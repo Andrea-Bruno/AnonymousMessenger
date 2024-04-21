@@ -37,8 +37,6 @@ This project has three open source dependencies for security and functionality. 
 
 * [Communication channel](https://github.com/Andrea-Bruno/EncryptedMessaging/tree/master/CommunicationChannel) is the low-level socket communication protocol underlying encrypted communication.
 
-# 
-
 The reasons that led to this project with dontnet is that it is an open source development environment, and effective security is achieved only by being able to inspect all parts of the code, including the development framework.
 * [.NET is open source](https://dotnet.microsoft.com/en-us/platform/open-source)
 
