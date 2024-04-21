@@ -16,7 +16,7 @@ Messaging software also has crypto wallet functions, and other experimental stuf
 ## ATTENTION!
 This repository is a sub-repository of a group of projects that includes all the open source parts on which the application depends.
 Use the complete repository to also have the sources of all the dependencies, otherwise you have to add the dependencies manually either as nuget packages or as libraries that you have to download separately and compile.
-[[Secure storage](https://github.com/Andrea-Bruno/Anonymous)
+[Secure storage](https://github.com/Andrea-Bruno/Anonymous)
 
 ## NOTE:
 Inside this repository there is also [Cryptogram](https://github.com/Andrea-Bruno/AnonymousMessenger/tree/master/Cryptogram), it is another messaging software that shares the encrypted messaging libraries and some components with this one. Cryptogram is a derivative of this 'white label' which is more complex than this version which aims to be minimalist.
