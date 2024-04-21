@@ -13,6 +13,11 @@ At a slightly higher level we have the EncryptedMessaging, the low-level binary 
 Finally, at the top level we have the multi-platform messaging interface (Android, Linux, iOS, Windows), which in fact is only a graphical interface that allows the user to interact with the software, and developers to create a messaging completely customized in terms of graphics and ergonomics.
 Messaging software also has crypto wallet functions, and other experimental stuff.
 
+## ATTENTION!
+This repository is a sub-repository of a group of projects that includes all the open source parts on which the application depends.
+Use the complete repository to also have the sources of all the dependencies, otherwise you have to add the dependencies manually either as nuget packages or as libraries that you have to download separately and compile.
+[[Secure storage](https://github.com/Andrea-Bruno/Anonymous)
+
 ## NOTE:
 Inside this repository there is also [Cryptogram](https://github.com/Andrea-Bruno/AnonymousMessenger/tree/master/Cryptogram), it is another messaging software that shares the encrypted messaging libraries and some components with this one. Cryptogram is a derivative of this 'white label' which is more complex than this version which aims to be minimalist.
 
@@ -37,7 +42,7 @@ This project has three open source dependencies for security and functionality. 
 The reasons that led to this project with dontnet is that it is an open source development environment, and effective security is achieved only by being able to inspect all parts of the code, including the development framework.
 * [.NET is open source](https://dotnet.microsoft.com/en-us/platform/open-source)
 
-Our target is very linux oriented, and the partnership between Microsoft and Canonical ensure the highest standard of security and reliability.
+Our target is very Linux oriented, and the partnership between Microsoft and Canonical ensure the highest standard of security and reliability.
 
 * [Microsoft and Canonical: partnering for security](https://ubuntu.com/blog/install-dotnet-on-ubuntu)
 
