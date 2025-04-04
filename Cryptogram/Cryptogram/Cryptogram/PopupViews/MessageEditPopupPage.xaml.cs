@@ -10,12 +10,12 @@ using System.Globalization;
 using System.Threading.Tasks;
 using CustomViewElements;
 using static XamarinShared.ViewCreator.MessageViewCreator;
-using Anonymous.Services.GoogleTranslationService;
-using Anonymous.Views;
+using Cryptogram.Services.GoogleTranslationService;
+using Cryptogram.Views;
 using Xamarin.CommunityToolkit.Extensions;
 using Utils;
 
-namespace Anonymous.PopupViews
+namespace Cryptogram.PopupViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessageEditPopupPage : BasePopupPage

@@ -1,14 +1,14 @@
 ﻿using CustomViewElements;
 using System;
-using Anonymous.DesignHandler;
-using Anonymous.Services;
+using Cryptogram.DesignHandler;
+using Cryptogram.Services;
 using EncryptedMessaging;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.CommunityToolkit.Extensions;
 using Utils;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditItemPage : BasePage

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anonymous.Services.GoogleTranslationService
+namespace Cryptogram.Services.GoogleTranslationService
 {
     class GoogleTranslateApiKey
     {
@@ -18,7 +18,7 @@ namespace Anonymous.Services.GoogleTranslationService
         {
             get
             {
-                return "Anonymous-translation";
+                return "Cryptogram-translation";
             }
         }
         public string private_key_id
@@ -39,7 +39,7 @@ namespace Anonymous.Services.GoogleTranslationService
         {
             get
             {
-                return "Anonymous-translation-sa@Anonymous-translation.iam.gserviceaccount.com";
+                return "Cryptogram-translation-sa@Cryptogram-translation.iam.gserviceaccount.com";
             }
         }
         public string client_id
@@ -74,7 +74,7 @@ namespace Anonymous.Services.GoogleTranslationService
         {
             get
             {
-                return "https://www.googleapis.com/robot/v1/metadata/x509/Anonymous-translation-sa%40Anonymous-translation.iam.gserviceaccount.com";
+                return "https://www.googleapis.com/robot/v1/metadata/x509/Cryptogram-translation-sa%40Cryptogram-translation.iam.gserviceaccount.com";
             }
         }
     }

@@ -1,13 +1,13 @@
 ﻿using System;
 using Foundation;
-using Anonymous.iOS.Services;
-using Anonymous.Services;
+using Cryptogram.iOS.Services;
+using Cryptogram.Services;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: Dependency(typeof(StatusBarColorRenderer))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class StatusBarColorRenderer : IStatusBarColor
     {

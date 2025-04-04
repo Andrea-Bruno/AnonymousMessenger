@@ -2,7 +2,7 @@
 using Android.Graphics;
 using Android.Graphics.Drawables;
 
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     public class CircleDrawable : Drawable
     {

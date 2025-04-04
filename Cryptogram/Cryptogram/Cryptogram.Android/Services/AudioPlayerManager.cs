@@ -3,14 +3,14 @@ using System;
 using System.IO;
 using Uri = Android.Net.Uri;
 using Xamarin.Forms;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Android.OS;
 using AndroidApp = Android.App.Application;
 using Android.Media;
 using XamarinShared.ViewCreator;
 
 [assembly: Dependency(typeof(AudioPlayerManager))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class AudioPlayerManager : IAudioPlayer
     { 

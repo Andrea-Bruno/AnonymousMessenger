@@ -4,9 +4,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ResolutionGroupName("XamarinDocs")]
-[assembly: ExportEffect(typeof(Anonymous.iOS.TouchEffect), "TouchEffect")]
+[assembly: ExportEffect(typeof(Cryptogram.iOS.TouchEffect), "TouchEffect")]
 
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
 	public class TouchEffect : PlatformEffect
 	{

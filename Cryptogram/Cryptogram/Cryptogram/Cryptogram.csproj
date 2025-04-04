@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <Configurations>Debug;DEBUG_ALI;Release</Configurations>
   </PropertyGroup>
@@ -33,12 +33,14 @@
     <PackageReference Include="Plugin.AudioRecorder" Version="1.1.0" />
     <PackageReference Include="Plugin.Fingerprint" Version="2.1.4" />
     <PackageReference Include="Plugin.MediaManager.Forms" Version="1.0.9" />
+    <PackageReference Include="Plugin.Sensors" Version="2.4.2" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="Xam.Plugin.LatestVersion" Version="2.1.0" />
 
     <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.4.0.49" />
-    <PackageReference Include="Plugin.Sensors" Version="2.5.0" />
     <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="18.4.0.49" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.43-beta" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.49" />
   </ItemGroup>
@@ -49,6 +51,7 @@
     <ProjectReference Include="..\..\..\Shared\CustomViewElements\CustomViewElements.csproj" />
     <ProjectReference Include="..\..\..\Shared\MessageCompose\MessageCompose.csproj" />
     <ProjectReference Include="..\..\..\Shared\NotificationService\NotificationService.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Utils\Utils.csproj" />
     <ProjectReference Include="..\..\..\Shared\WhiteLabelDesignComponents\WhiteLabelDesignComponents.csproj" />
   </ItemGroup>
 
@@ -133,7 +136,7 @@
     <None Include="Views\QRCodeScanPage.xaml" />
     <None Include="Views\QRScanAndShowPage.xaml" />
     <None Include="Views\TermsAndConditionsPage.xaml" />
-    <None Include="Views\AnonymousLoginSignupPage.xaml" />
+    <None Include="Views\CryptogramLoginSignupPage.xaml" />
     <None Include="Views\CallPage.xaml" />
     <None Include="Views\MainPage.xaml" />
     <None Include="Views\QRCodeScanPage.xaml" />

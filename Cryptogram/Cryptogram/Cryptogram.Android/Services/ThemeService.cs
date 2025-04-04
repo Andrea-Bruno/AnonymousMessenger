@@ -1,8 +1,8 @@
-﻿using Anonymous.Services;
+﻿using Cryptogram.Services;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(Anonymous.Droid.Services.ThemeService))]
-namespace Anonymous.Droid.Services
+[assembly: Dependency(typeof(Cryptogram.Droid.Services.ThemeService))]
+namespace Cryptogram.Droid.Services
 {
     public class ThemeService : IThemeService
     {

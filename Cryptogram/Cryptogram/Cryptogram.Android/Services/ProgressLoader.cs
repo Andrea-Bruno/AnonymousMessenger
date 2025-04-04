@@ -1,11 +1,11 @@
 ﻿using System;
 using AndroidHUD;
 using CustomViewElements.Services;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ProgressLoader))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
 	public class ProgressLoader : IProgressInterface
 	{

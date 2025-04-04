@@ -1,10 +1,10 @@
 ﻿using System;
 using Foundation;
-using Anonymous.iOS.Services;
-using Anonymous.Services;
+using Cryptogram.iOS.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 [assembly: Dependency(typeof(PathService))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class PathService : IPathService
     {

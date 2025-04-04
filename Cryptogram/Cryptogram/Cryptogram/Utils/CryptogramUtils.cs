@@ -3,15 +3,15 @@ using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using EncryptedMessaging;
-using Anonymous.Services.GoogleTranslationService;
+using Cryptogram.Services.GoogleTranslationService;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinShared;
 
-namespace Anonymous
+namespace Cryptogram
 {
-    public static class AnonymousUtils
+    public static class CryptogramUtils
     {
         public static void Translate(this Message message, Action onTranslationSuccess, bool withToast = false)
         {

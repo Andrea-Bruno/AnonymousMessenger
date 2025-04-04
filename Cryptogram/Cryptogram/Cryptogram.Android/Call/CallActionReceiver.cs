@@ -1,11 +1,11 @@
 ﻿using Android.Content;
-using Anonymous.CallHandler;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.Droid.Services;
-using Anonymous.Services;
+using Cryptogram.CallHandler;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.Droid.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 
-namespace Anonymous.Droid.Call
+namespace Cryptogram.Droid.Call
 {
     [BroadcastReceiver(Enabled = true)]
     public class CallActionReceiver : BroadcastReceiver

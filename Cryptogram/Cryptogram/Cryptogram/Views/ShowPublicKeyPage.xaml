@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <local1:BasePage
-    x:Class="Anonymous.Views.ShowPublicKeyPage"
+    x:Class="Cryptogram.Views.ShowPublicKeyPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -8,7 +8,7 @@
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:view="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     ios:Page.UseSafeArea="true">
     <StackLayout BackgroundColor="{DynamicResource Color1}">
         <view:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local:Resources.Dictionary.Passphrase}" />

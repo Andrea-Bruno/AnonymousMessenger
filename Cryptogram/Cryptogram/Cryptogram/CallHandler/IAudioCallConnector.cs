@@ -1,4 +1,4 @@
-﻿namespace Anonymous.CallHandler
+﻿namespace Cryptogram.CallHandler
 {
     public interface IAudioCallConnector
     {

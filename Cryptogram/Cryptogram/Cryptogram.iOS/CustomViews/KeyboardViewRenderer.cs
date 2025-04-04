@@ -5,11 +5,11 @@ using Foundation;
 using CoreGraphics;
 using CustomViewElements;
 using CustomViewElements.Services;
-using Anonymous.iOS.CustomViews;
+using Cryptogram.iOS.CustomViews;
 
 [assembly: Dependency(typeof(KeyboardViewRenderer))]
 [assembly: ExportRenderer(typeof(KeyboardView), typeof(KeyboardViewRenderer))]
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     public class KeyboardViewRenderer : ViewRenderer, IKeyboardRegistrationService
     {

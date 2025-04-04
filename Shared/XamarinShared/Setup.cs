@@ -39,9 +39,9 @@ namespace XamarinShared
                 Context.OnMessageDelivered += MessageReadStatus.OnMessageDelivered;
                 Context.OnNotification += onNotification;
                 // Bind the event to change the connection when the connectivity changes
-                Xamarin.Essentials.Connectivity.ConnectivityChanged += (o, c) => Context.OnConnectivityChange(c.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet);
+                Xamarin.Essentials.Connectivity.ConnectivityChanged += (o, c) => Context.OnConnectivityChange(c.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
                 // Set the current connection status
-                Context.OnConnectivityChange(Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet);
+                Context.OnConnectivityChange(Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
             }
             Settings.Load();
             Calls.GetInstance().SetMyId(Context.My.GetId());

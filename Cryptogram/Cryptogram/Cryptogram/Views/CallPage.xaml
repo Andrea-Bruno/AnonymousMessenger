@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <local1:BasePage
-    x:Class="Anonymous.Views.CallPage"
+    x:Class="Cryptogram.Views.CallPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -8,8 +8,8 @@
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:views1="clr-namespace:Anonymous.Views"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:views1="clr-namespace:Cryptogram.Views"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     x:Name="CallPages"
     ios:Page.UseSafeArea="true">
     <local1:BasePage.Resources>

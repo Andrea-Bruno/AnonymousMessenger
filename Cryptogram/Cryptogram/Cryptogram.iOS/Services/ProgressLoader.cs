@@ -1,12 +1,12 @@
 ﻿using System;
 using CustomViewElements.Services;
-using Anonymous.iOS.CustomViews;
-using Anonymous.iOS.Services;
+using Cryptogram.iOS.CustomViews;
+using Cryptogram.iOS.Services;
 using UIKit;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ProgressLoader))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
 	class ProgressLoader : IProgressInterface
 	{

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using CustomViewElements;
 using Rg.Plugins.Popup.Services;
-using Anonymous.DesignHandler;
-using Anonymous.PopupViews;
+using Cryptogram.DesignHandler;
+using Cryptogram.PopupViews;
 using Utils;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class VerifyPassphrase : BasePage
     {

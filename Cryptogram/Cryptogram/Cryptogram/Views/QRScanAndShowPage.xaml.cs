@@ -2,15 +2,15 @@ using CustomViewElements;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Anonymous.DesignHandler;
-using Anonymous.Services;
+using Cryptogram.DesignHandler;
+using Cryptogram.Services;
 using Utils;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using ZXing;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class QRScanAndShowPage : BasePage
     {

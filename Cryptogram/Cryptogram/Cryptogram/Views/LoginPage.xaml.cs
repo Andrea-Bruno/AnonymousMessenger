@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 using System;
-using Anonymous.Services;
+using Cryptogram.Services;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using CustomViewElements;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Xamarin.CommunityToolkit.Extensions;
 using Utils;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : BasePage
@@ -77,8 +77,8 @@ namespace Anonymous.Views
 		private void Terms_Clicked(object sender, EventArgs e)
 		{
 			sender.HandleButtonSingleClick();
-			Browser.OpenAsync("https://Anonymoussocial.tech/tos.html", BrowserLaunchMode.SystemPreferred);
-			//Navigation.PushAsync(new TermsAndConditionsPage("https://Anonymoussocial.tech/tos.html"), false);
+			Browser.OpenAsync("https://Cryptogramsocial.tech/tos.html", BrowserLaunchMode.SystemPreferred);
+			//Navigation.PushAsync(new TermsAndConditionsPage("https://Cryptogramsocial.tech/tos.html"), false);
 			checkBox.IsChecked = true;
 		}
 

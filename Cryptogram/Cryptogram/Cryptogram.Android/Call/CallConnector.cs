@@ -1,13 +1,13 @@
 ﻿using Android.Content;
 using DT.Xamarin.Agora;
-using Anonymous.CallHandler;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.Droid.Call;
+using Cryptogram.CallHandler;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.Droid.Call;
 using Xamarin.Forms;
 using AndroidApp = Android.App.Application;
 
 [assembly: Dependency(typeof(CallConnector))]
-namespace Anonymous.Droid.Call
+namespace Cryptogram.Droid.Call
 {
     public class CallConnector : IAudioCallConnector
     {

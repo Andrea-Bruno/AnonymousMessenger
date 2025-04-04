@@ -3,12 +3,12 @@ using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Views;
 using CustomViewElements;
-using Anonymous.Droid.CustomViews;
+using Cryptogram.Droid.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(GradientButton), typeof(GradientButtonRenderer))]
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     public class GradientButtonRenderer : ButtonRenderer
     {

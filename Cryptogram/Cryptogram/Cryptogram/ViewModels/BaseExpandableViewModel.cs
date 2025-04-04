@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
 	public class BaseExpandableViewModel : BaseViewModel
     {

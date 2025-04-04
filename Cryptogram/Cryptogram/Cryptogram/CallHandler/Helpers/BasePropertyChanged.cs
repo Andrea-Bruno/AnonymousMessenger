@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Anonymous.CallHandler.Helpers
+namespace Cryptogram.CallHandler.Helpers
 {
    public class BasePropertyChanged : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Anonymous.Styles
+namespace Cryptogram.Styles
 {
     public partial class DarkTheme : ResourceDictionary
     {

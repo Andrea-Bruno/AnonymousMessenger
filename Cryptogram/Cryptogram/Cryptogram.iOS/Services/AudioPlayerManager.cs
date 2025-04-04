@@ -2,11 +2,11 @@
 using System.IO;
 using AVFoundation;
 using Foundation;
-using Anonymous.iOS.Services;
+using Cryptogram.iOS.Services;
 using XamarinShared.ViewCreator;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AudioPlayerManager))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class AudioPlayerManager : IAudioPlayer
     {

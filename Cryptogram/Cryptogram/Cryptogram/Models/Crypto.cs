@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 
-namespace Anonymous.Models
+namespace Cryptogram.Models
 {
 	internal static class Crypto
 	{

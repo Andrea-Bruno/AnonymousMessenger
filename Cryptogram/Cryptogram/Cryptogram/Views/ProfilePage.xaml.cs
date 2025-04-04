@@ -1,18 +1,18 @@
 ﻿
 using System;
 using System.IO;
-using Anonymous.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rg.Plugins.Popup.Services;
 using System.Threading.Tasks;
 using CustomViewElements;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Utils;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : BasePage

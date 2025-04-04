@@ -7,10 +7,10 @@ using System.Globalization;
 using static EncryptedMessaging.MessageFormat;
 using System.Collections.Specialized;
 using XamarinShared.ViewModels;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Utils;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CallPage : BasePage

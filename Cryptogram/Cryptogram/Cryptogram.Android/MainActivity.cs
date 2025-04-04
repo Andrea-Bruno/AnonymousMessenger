@@ -6,7 +6,7 @@ using Android.OS;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Android.Content;
 using Xamarin.Forms;
-using Anonymous.Services;
+using Cryptogram.Services;
 using Rg.Plugins.Popup.Services;
 using System.IO;
 using Firebase.Iid;
@@ -16,12 +16,12 @@ using Android.Gms.Tasks;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Xamarin.Forms.Platform.Android;
 using Android.Content.Res;
-using Anonymous.Droid;
+using Cryptogram.Droid;
 using NotificationService;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Android.Widget;
 using Plugin.Fingerprint;
 using Plugin.CurrentActivity;
@@ -29,10 +29,10 @@ using System.Threading;
 using Android.Provider;
 
 [assembly: Dependency(typeof(MainActivity))]
-namespace Anonymous.Droid
+namespace Cryptogram.Droid
 {
 	[Activity(Theme = "@style/Theme.Splash", Icon = "@drawable/Company_logo",
-		Label = "Anonymous", MainLauncher = true, LaunchMode = LaunchMode.SingleTask,
+		Label = "Cryptogram", MainLauncher = true, LaunchMode = LaunchMode.SingleTask,
 		NoHistory = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		ScreenOrientation = ScreenOrientation.Portrait)] [IntentFilter(new[] { Intent.ActionSend },
 		Categories = new[] { Intent.CategoryDefault, Intent.CategoryLeanbackLauncher },
@@ -47,7 +47,7 @@ namespace Anonymous.Droid
 		{
 			lock (this)
 			{
-				SetTheme(Resource.Style.MainTheme);
+				SetTheme(Xamarin.Forms.Platform.Resource.Style.MainTheme);
 				base.OnCreate(bundle);
 				if (Context == null)
 				{

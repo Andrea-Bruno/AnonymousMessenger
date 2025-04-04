@@ -2,7 +2,7 @@
 using EncryptedMessaging;
 using Xamarin.Forms;
 
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
     public class CallListViewModel : BaseViewModel
     {

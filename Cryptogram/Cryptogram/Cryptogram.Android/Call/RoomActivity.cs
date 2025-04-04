@@ -18,19 +18,19 @@ using Android.Views;
 using Android.Widget;
 using DT.Xamarin.Agora;
 using DT.Xamarin.Agora.Video;
-using Anonymous.CallHandler;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.Droid.Call;
-using Anonymous.Droid.CustomViews;
-using Anonymous.Droid.Services;
-using Anonymous.Services;
-using Xamarin.Essentials;
+using Cryptogram.CallHandler;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.Droid.Call;
+using Cryptogram.Droid.CustomViews;
+using Cryptogram.Droid.Services;
+using Cryptogram.Services;
+//using Xamarin.Essentials;
 using static Android.Animation.ValueAnimator;
 
 [assembly: Xamarin.Forms.Dependency(typeof(RoomActivity))]
-namespace Anonymous.Droid.Call
+namespace Cryptogram.Droid.Call
 {
-    [Activity(Label = "Anonymous", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/DT.Theme.Room", LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "Cryptogram", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@style/DT.Theme.Room", LaunchMode = LaunchMode.SingleTop)]
     public class RoomActivity : Activity, IAudioPlayerSpeakerService
     {
         protected RtcEngine AgoraEngine;
@@ -673,7 +673,7 @@ namespace Anonymous.Droid.Call
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Instance.durationInSecond++;
-            MainThread.BeginInvokeOnMainThread(() =>
+            Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
             {
                 if (Instance != null)
                     ChangeStateLabelText(Utils.Utils.FormatTime(Instance.durationInSecond));

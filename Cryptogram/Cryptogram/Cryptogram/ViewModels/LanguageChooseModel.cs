@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
 	public class LanguageChooseModel : BaseViewModel
 	{

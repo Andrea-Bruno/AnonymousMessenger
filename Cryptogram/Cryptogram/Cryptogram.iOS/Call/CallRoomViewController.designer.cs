@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
 	[Register ("CallRoomViewController")]
 	partial class CallRoomViewController

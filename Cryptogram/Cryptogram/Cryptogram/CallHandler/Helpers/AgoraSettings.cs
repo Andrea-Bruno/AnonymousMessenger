@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-namespace Anonymous.CallHandler.Helpers
+namespace Cryptogram.CallHandler.Helpers
 {
     public class AgoraSettings : BasePropertyChanged
     {

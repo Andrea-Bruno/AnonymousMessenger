@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Anonymous.iOS.Services;
+using Cryptogram.iOS.Services;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public static class ImageSourceExtensions
     {

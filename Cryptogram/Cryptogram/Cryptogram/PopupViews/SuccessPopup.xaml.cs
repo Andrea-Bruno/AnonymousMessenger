@@ -2,7 +2,7 @@
 using Rg.Plugins.Popup.Services;
 using Utils;
 
-namespace Anonymous.PopupViews
+namespace Cryptogram.PopupViews
 {
     public partial class SuccessPopup : CustomViewElements.BasePopupPage
     {

@@ -1,6 +1,6 @@
 ﻿using System;
-using Anonymous.Services;
-using Anonymous.Views;
+using Cryptogram.Services;
+using Cryptogram.Views;
 using EncryptedMessaging;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -8,22 +8,22 @@ using XamarinShared;
 using System.Threading.Tasks;
 using Plugin.Sensors;
 using static EncryptedMessaging.MessageFormat;
-using Anonymous.CallHandler;
+using Cryptogram.CallHandler;
 using NotificationService;
 using NotificationService.Services;
-using Anonymous.Helper;
+using Cryptogram.Helper;
 using System.Globalization;
 using XamarinShared.ViewCreator;
 using static XamarinShared.ViewCreator.MessageViewCreator;
 using MessageCompose;
-using Anonymous.Services.GoogleTranslationService;
+using Cryptogram.Services.GoogleTranslationService;
 using MessageCompose.Model;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 using System.Threading;
-using Anonymous.Backup;
-using Anonymous.Models;
-using static Anonymous.AnonymousUtils;
+using Cryptogram.Backup;
+using Cryptogram.Models;
+using static Cryptogram.CryptogramUtils;
 using System.Diagnostics;
 
 [assembly: ExportFont("Lato-Regular.ttf", Alias = "LatoRegular")]
@@ -45,7 +45,7 @@ using System.Diagnostics;
 [assembly: ExportFont("Roboto-Medium.ttf", Alias = "RobotoMedium")]
 [assembly: ExportFont("Roboto-Regular.ttf", Alias = "RobotoRegular")]
 
-namespace Anonymous
+namespace Cryptogram
 {
 	public partial class App : Application
 	{
@@ -153,7 +153,7 @@ namespace Anonymous
         {
             IsLogged = Xamarin.Essentials.Preferences.Get("IsLogged", false);
             if (!IsLogged)
-               MainPage = new NavigationPage(new AnonymousLoginSignupPage()); // first startup
+               MainPage = new NavigationPage(new CryptogramLoginSignupPage()); // first startup
             else if (Setup.GetSecureValue("LockPin") != null)
                 MainPage = new NavigationPage(new CreatePinPage()); // run with lock screen
             else
@@ -305,10 +305,10 @@ namespace Anonymous
 			return DesignResourceManager.GetImageSource(key);
         }
 
-		public static void ShareData(byte[] sharedData = null, SharedMessageType _sharedMessageType = Anonymous.SharedMessageType.IMAGE, string fileName = null)
+		public static void ShareData(byte[] sharedData = null, SharedMessageType _sharedMessageType = Cryptogram.SharedMessageType.IMAGE, string fileName = null)
 		{
 			SharedData = sharedData;
-			if (_sharedMessageType == Anonymous.SharedMessageType.PDF)
+			if (_sharedMessageType == Cryptogram.SharedMessageType.PDF)
 				sharedData = Utils.Utils.ObjectToByteArray(new SerializableFileData(sharedData, fileName));
 			SharedMessageType = ConvertSharedMessageTypeToMessageType(_sharedMessageType);
 			((App)Current).GetRootPage()?.ShowRequiredView(sharedData);
@@ -318,13 +318,13 @@ namespace Anonymous
         {
 			switch(sharedMessageType)
             {
-				case Anonymous.SharedMessageType.IMAGE:
+				case Cryptogram.SharedMessageType.IMAGE:
 					return MessageType.Image;
-				case Anonymous.SharedMessageType.AUDIO:
+				case Cryptogram.SharedMessageType.AUDIO:
 					return MessageType.Audio;
-				case Anonymous.SharedMessageType.PDF:
+				case Cryptogram.SharedMessageType.PDF:
 					return MessageType.PdfDocument;
-				case Anonymous.SharedMessageType.VIDEO:
+				case Cryptogram.SharedMessageType.VIDEO:
 					return MessageType.ShareEncryptedContent;
 				default: return MessageType.Image;
 			}

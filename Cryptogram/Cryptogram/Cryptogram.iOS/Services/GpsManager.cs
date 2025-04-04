@@ -1,12 +1,12 @@
 ﻿using CoreLocation;
 using Foundation;
 using MessageCompose.Services;
-using Anonymous.iOS.Services;
+using Cryptogram.iOS.Services;
 using UIKit;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(GpsManager))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class GpsManager : IGpsService
     {

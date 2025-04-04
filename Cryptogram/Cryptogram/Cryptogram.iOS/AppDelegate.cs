@@ -12,18 +12,18 @@ using Plugin.AudioRecorder;
 using Plugin.FirebasePushNotification;
 using PushKit;
 using Syncfusion.ListView.XForms.iOS;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.DesignHandler;
-using Anonymous.iOS;
-using Anonymous.iOS.Call;
-using Anonymous.Services;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.DesignHandler;
+using Cryptogram.iOS;
+using Cryptogram.iOS.Call;
+using Cryptogram.Services;
 using UIKit;
 using UserNotifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: Dependency(typeof(AppDelegate))]
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
     [Register("AppDelegate")]
     public partial class AppDelegate : FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate, IPKPushRegistryDelegate, IEndCall

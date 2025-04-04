@@ -2,7 +2,7 @@
 using NotificationService;
 using static EncryptedMessaging.MessageFormat;
 
-namespace Anonymous.Helper
+namespace Cryptogram.Helper
 {
     /// <summary>
     /// This is for converting message type to notification type. 

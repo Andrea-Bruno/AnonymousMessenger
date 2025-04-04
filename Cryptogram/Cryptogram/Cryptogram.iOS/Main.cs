@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {           
     public class Application
     {

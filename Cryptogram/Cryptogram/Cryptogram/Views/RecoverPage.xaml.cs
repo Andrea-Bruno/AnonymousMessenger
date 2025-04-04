@@ -1,12 +1,12 @@
 ﻿using System;
 using Xamarin.Forms;
 using CustomViewElements;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 using Utils;
 using System.Collections.Generic;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class RecoverPage : BasePage
     {

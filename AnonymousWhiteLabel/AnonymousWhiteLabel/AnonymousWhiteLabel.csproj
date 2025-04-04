@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <Configurations>Debug;Release</Configurations>
     <UserSecretsId>02dbd2df-0492-4f76-a4ca-b31679e77684</UserSecretsId>

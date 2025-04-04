@@ -5,12 +5,12 @@ using System;
 using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
-using Anonymous.Services.GoogleTranslationService;
+using Cryptogram.Services.GoogleTranslationService;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 
-namespace Anonymous.PopupViews
+namespace Cryptogram.PopupViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessageTranslationPopup : BasePopupPage

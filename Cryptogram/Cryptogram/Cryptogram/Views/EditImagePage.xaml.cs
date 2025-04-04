@@ -4,19 +4,19 @@ using System.Diagnostics;
 using System.IO;
 using CustomViewElements;
 using Syncfusion.SfImageEditor.XForms;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Utils;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Linq;
-using static Anonymous.Views.ChatRoom;
+using static Cryptogram.Views.ChatRoom;
 using System.Threading;
 using NativeMedia;
-using Anonymous.Services;
+using Cryptogram.Services;
 using System.Threading.Tasks;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditImagePage : BasePage

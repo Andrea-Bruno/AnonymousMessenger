@@ -4,12 +4,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections.Generic;
 using EncryptedMessaging;
-using Anonymous.Services;
+using Cryptogram.Services;
 using CustomViewElements;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatUserProfilePage : BasePage

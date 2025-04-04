@@ -2,7 +2,7 @@
 using System.Net;
 using Xamarin.Forms;
 
-namespace Anonymous.Config
+namespace Cryptogram.Config
 {
 	internal struct Connection
 	{
@@ -27,7 +27,7 @@ namespace Anonymous.Config
 			//try
 			//{
 			//	var client = new WebClient();
-			//	Stream stream = client.OpenRead("http://88.196.53.119/Anonymous/entrypoint.txt");
+			//	Stream stream = client.OpenRead("http://88.196.53.119/Cryptogram/entrypoint.txt");
 			//	var reader = new StreamReader(stream);
 			//	entryPoint = reader.ReadToEnd();
 			//}
@@ -40,7 +40,7 @@ namespace Anonymous.Config
 			catch (System.Exception) { }
 			if (host == null)
 				//entryPoint = "http://46.22.209.146/"; //Server a Tallinn
-				entryPoint = "http://88.196.53.119/Anonymous/"; // Computer in office
+				entryPoint = "http://88.196.53.119/Cryptogram/"; // Computer in office
 																//#endif
 			return entryPoint;
 		}

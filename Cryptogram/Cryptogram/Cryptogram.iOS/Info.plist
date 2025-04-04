@@ -21,9 +21,9 @@
 	<key>MinimumOSVersion</key>
 	<string>14.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Anonymous</string>
+	<string>Cryptogram</string>
 	<key>CFBundleName</key>
-	<string>Anonymous</string>
+	<string>Cryptogram</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -39,7 +39,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.Cryptogram.Anonymous.AnonymousTest</string>
+	<string>com.Cryptogram.Cryptogram.CryptogramTest</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>

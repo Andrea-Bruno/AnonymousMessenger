@@ -1,11 +1,11 @@
 ﻿using Foundation;
-using Anonymous.CallHandler;
-using Anonymous.CallHandler.Helpers;
+using Cryptogram.CallHandler;
+using Cryptogram.CallHandler.Helpers;
 using UIKit;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(Anonymous.iOS.Call.CallConnector))]
-namespace Anonymous.iOS.Call
+[assembly: Dependency(typeof(Cryptogram.iOS.Call.CallConnector))]
+namespace Cryptogram.iOS.Call
 {
     public class CallConnector : IAudioCallConnector
     {

@@ -1,9 +1,9 @@
-﻿using Anonymous.Droid.Services;
-using Anonymous.Services;
+﻿using Cryptogram.Droid.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SecureFlagManager))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class SecureFlagManager : ISecurityFlag
     {

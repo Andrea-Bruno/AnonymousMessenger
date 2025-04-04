@@ -2,11 +2,11 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(TaskKilledService))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     [Service(Enabled = true, Exported = false)]
     public class TaskKilledService : IntentService

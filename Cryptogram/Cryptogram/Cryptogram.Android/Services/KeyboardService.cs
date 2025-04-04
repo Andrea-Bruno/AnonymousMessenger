@@ -3,11 +3,11 @@ using Android.App;
 using Android.Content;
 using Android.Views.InputMethods;
 using CustomViewElements.Services;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(KeyboardService))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class KeyboardService : IKeyboardService
     {

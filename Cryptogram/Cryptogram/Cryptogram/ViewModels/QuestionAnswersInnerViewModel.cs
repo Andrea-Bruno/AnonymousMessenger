@@ -1,4 +1,4 @@
-﻿namespace Anonymous.ViewModels
+﻿namespace Cryptogram.ViewModels
 {
     using Xamarin.Forms;
 

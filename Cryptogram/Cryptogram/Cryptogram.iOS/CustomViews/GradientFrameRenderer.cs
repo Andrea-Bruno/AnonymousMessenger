@@ -1,13 +1,13 @@
 ﻿using CoreAnimation;
 using CoreGraphics;
-using Anonymous;
-using Anonymous.iOS.CustomViews;
+using Cryptogram;
+using Cryptogram.iOS.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using System.ComponentModel;
 
 [assembly: ExportRenderer(typeof(CustomViewElements.GradientFrame), typeof(GradientFrameRenderer))]
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     public class GradientFrameRenderer : VisualElementRenderer<Frame>
     {

@@ -1,22 +1,22 @@
 using Rg.Plugins.Popup.Services;
 using System;
-using Anonymous.Services;
+using Cryptogram.Services;
 using System.Collections.Generic;
 using EncryptedMessaging;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text;
 using XamarinShared;
-using Anonymous.Views;
+using Cryptogram.Views;
 using System.Threading.Tasks;
 using CustomViewElements.Services;
 using CustomViewElements;
 using System.Collections.ObjectModel;
 using System.Threading;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using System.IO;
 using MessageCompose.Services;
-using Anonymous.PopupViews;
+using Cryptogram.PopupViews;
 using Xamarin.CommunityToolkit.Extensions;
 using System.Linq;
 using Utils;
@@ -27,7 +27,7 @@ using XamarinShared.ViewCreator.Views;
 
 [assembly: Dependency(typeof(ChatRoom))]
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatRoom : BasePage, IKeyboardHeightChange

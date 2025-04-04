@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string
-      name="app_name">Anonymous</string>
+      name="app_name">Cryptogram</string>
     <string
       name="splash_greetings">Brought to you by</string>
     <string
@@ -56,8 +56,8 @@
         <item>960x720 15fps</item>
         <item>960x720 30fps</item>
     </string-array>
-    <string name="service_id">com.Cryptogram.Anonymous.service</string>
-    <string name="default_notification_channel_id">com.Cryptogram.Anonymous.service</string>
+    <string name="service_id">com.Cryptogram.Cryptogram.service</string>
+    <string name="default_notification_channel_id">com.Cryptogram.Cryptogram.service</string>
 
     
 </resources>

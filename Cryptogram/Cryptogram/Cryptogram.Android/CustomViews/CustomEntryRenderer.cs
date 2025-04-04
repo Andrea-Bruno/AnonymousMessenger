@@ -5,12 +5,12 @@ using Android.Runtime;
 using Android.Widget;
 using CustomViewElements;
 using System;
-using Anonymous.Droid.CustomViews;
+using Cryptogram.Droid.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     public class CustomEntryRenderer : EntryRenderer
     {
@@ -36,8 +36,8 @@ namespace Anonymous.Droid.CustomViews
                         IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
                         JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, 0);
                     }
-                    else
-                        Control.SetTextCursorDrawable(Resource.Drawable.custom_cursor);
+                    //else
+                    //    Control.SetTextCursorDrawable(Resource.Drawable.custom_cursor);
                 }
                 catch (Exception)
                 {

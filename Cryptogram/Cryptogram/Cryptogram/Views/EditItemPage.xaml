@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <local:BasePage
-    x:Class="Anonymous.Views.EditItemPage"
+    x:Class="Cryptogram.Views.EditItemPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -8,7 +8,7 @@
     xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     ios:Page.UseSafeArea="true"
     mc:Ignorable="d">
     <StackLayout Orientation="Vertical">

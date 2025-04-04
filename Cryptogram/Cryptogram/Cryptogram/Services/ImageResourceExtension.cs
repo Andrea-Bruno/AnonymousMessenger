@@ -1,9 +1,9 @@
 ﻿using System;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Anonymous
+namespace Cryptogram
 {
     [ContentProperty(nameof(Source))]
     public class ImageResourceExtension : IMarkupExtension

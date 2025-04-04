@@ -9,9 +9,9 @@ using Android.Views;
 using TouchTracking;
 
 [assembly: ResolutionGroupName("XamarinDocs")]
-[assembly: ExportEffect(typeof(Anonymous.Droid.TouchEffect), "TouchEffect")]
+[assembly: ExportEffect(typeof(Cryptogram.Droid.TouchEffect), "TouchEffect")]
 
-namespace Anonymous.Droid
+namespace Cryptogram.Droid
 {
     public class TouchEffect : PlatformEffect
     {

@@ -7,8 +7,8 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Telegraph.Droid</RootNamespace>
-    <AssemblyName>Telegraph.Android</AssemblyName>
+    <RootNamespace>Cryptogram.Droid</RootNamespace>
+    <AssemblyName>Cryptogram.Android</AssemblyName>
     <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -39,6 +39,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>
@@ -114,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-      <Version>4.0.11</Version>
+      <Version>4.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter">
       <Version>5.0.3</Version>
@@ -134,6 +135,18 @@
     <PackageReference Include="Xamarin.Android.Support.Annotations">
       <Version>28.0.0.3</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Interpolator">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
+      <Version>1.0.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
+      <Version>2.5.0</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.MediaRouter">
       <Version>1.1.0.1</Version>
     </PackageReference>
@@ -149,15 +162,9 @@
       <Version>5.0.0.2622</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.MediaGallery">
-      <Version>2.1.1</Version>
+      <Version>2.2.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Plugin.FilePicker">
-      <Version>2.1.43-beta</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.1.0.1" />
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0.1" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.4.0.4" />
-    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.1" />
     <PackageReference Include="Xamarin.Agora.Full.Android">
       <Version>3.5.0.1</Version>
     </PackageReference>
@@ -191,9 +198,6 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>4.0.0</Version>
     </PackageReference>
-    <PackageReference Include="Plugin.Sensors">
-      <Version>2.5.0</Version>
-    </PackageReference>
     <PackageReference Include="AndHUD">
       <Version>1.4.2</Version>
     </PackageReference>
@@ -221,6 +225,7 @@
     <Compile Include="Call\AgoraRtcHandler.cs" />
     <Compile Include="CustomViews\CustomLinkLabelRenderer.cs" />
     <Compile Include="CustomViews\CustomTabbedPageRenderer.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\AndroidNotificationManager.cs" />
     <Compile Include="CustomViews\CustomEditorRenderer.cs" />
     <Compile Include="CustomViews\CustomEntryRenderer.cs" />
@@ -241,7 +246,6 @@
     <Compile Include="CustomViews\CustomPickerRenderer.cs" />
     <Compile Include="Call\CallReceiveActivity.cs" />
     <Compile Include="Services\SharedPrefernceHandler.cs" />
-    <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Call\RoomActivity.cs" />
     <Compile Include="TouchEffect.cs" />
     <Compile Include="CustomViews\SoftkeyboardDisabledEntryRenderer.cs" />
@@ -452,6 +456,30 @@
     <AndroidAsset Include="Assets\ic_message.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\CustomViewElements\CustomViewElements.csproj">
+      <Project>{4260afe6-94d0-4552-a0c3-e36fdc8e1617}</Project>
+      <Name>CustomViewElements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\Localization\Localization.csproj">
+      <Project>{cdbf013b-2f72-4967-b8ed-30bfcb6b623f}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\MessageCompose\MessageCompose.csproj">
+      <Project>{26e771a1-6384-4252-8dee-f2d8fd46f85a}</Project>
+      <Name>MessageCompose</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\NotificationService\NotificationService.csproj">
+      <Project>{6a1dfa3d-4bb4-4c26-a2c1-0db2a783b6ad}</Project>
+      <Name>NotificationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\Utils\Utils.csproj">
+      <Project>{77a894a3-a6ab-455d-a5e7-9847c19ae742}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\XamarinShared\XamarinShared.csproj">
+      <Project>{532b5872-6756-4d75-af7d-5f7c1dcbc763}</Project>
+      <Name>XamarinShared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cryptogram\Cryptogram.csproj">
       <Project>{F4EBE979-42BE-488D-BB1E-D2CD7DDB6217}</Project>
       <Name>Cryptogram</Name>
@@ -507,7 +535,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionTelegraphAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionTelegraphAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionTelegraphAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionTelegraphAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

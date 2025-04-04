@@ -7,7 +7,7 @@ using TouchTracking;
 using UIKit;
 using Xamarin.Forms;
 
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
 	internal class TouchRecognizer : UIGestureRecognizer
 	{

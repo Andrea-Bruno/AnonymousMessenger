@@ -5,7 +5,7 @@ using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class ShowPublicKeyPage : BasePage
     {

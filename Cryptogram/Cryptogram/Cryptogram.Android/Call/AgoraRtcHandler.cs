@@ -1,7 +1,7 @@
 ﻿using DT.Xamarin.Agora;
 using System.Diagnostics;
 
-namespace Anonymous.Droid.Call
+namespace Cryptogram.Droid.Call
 {
     public class AgoraRtcHandler : IRtcEngineEventHandler
     {

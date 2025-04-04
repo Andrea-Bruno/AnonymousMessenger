@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace Anonymous.Styles
+namespace Cryptogram.Styles
 {
     public partial class LightTheme : ResourceDictionary
     {

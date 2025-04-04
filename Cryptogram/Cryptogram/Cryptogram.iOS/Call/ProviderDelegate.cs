@@ -3,11 +3,11 @@ using Foundation;
 using CallKit;
 using UIKit;
 using Xamarin.Forms;
-using Anonymous.CallHandler;
-using Anonymous.Services;
-using Anonymous.CallHandler.Helpers;
+using Cryptogram.CallHandler;
+using Cryptogram.Services;
+using Cryptogram.CallHandler.Helpers;
 
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public class ProviderDelegate : CXProviderDelegate
     {

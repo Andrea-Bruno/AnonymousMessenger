@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <res:CustomTabbedPage
-    x:Class="Anonymous.Views.NavigationTappedPage"
+    x:Class="Cryptogram.Views.NavigationTappedPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:local1="clr-namespace:Anonymous.Views"
+    xmlns:local1="clr-namespace:Cryptogram.Views"
     xmlns:res="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     android:TabbedPage.IsSmoothScrollEnabled="False"
     android:TabbedPage.IsSwipePagingEnabled="False"

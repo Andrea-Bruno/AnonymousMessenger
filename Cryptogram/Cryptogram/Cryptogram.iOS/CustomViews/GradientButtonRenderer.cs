@@ -1,12 +1,12 @@
 ﻿using CoreAnimation;
 using CoreGraphics;
 using CustomViewElements;
-using Anonymous.iOS.CustomViews;
+using Cryptogram.iOS.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(GradientButton), typeof(GradientButtonRenderer))]
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     public class GradientButtonRenderer : ButtonRenderer
     {

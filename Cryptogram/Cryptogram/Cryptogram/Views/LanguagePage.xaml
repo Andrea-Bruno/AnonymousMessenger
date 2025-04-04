@@ -1,12 +1,12 @@
 ﻿<local1:BasePage
-    x:Class="Anonymous.Views.LanguagePage"
+    x:Class="Cryptogram.Views.LanguagePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     ios:Page.UseSafeArea="true"
     BackgroundColor="{DynamicResource Color1}">
     <StackLayout>

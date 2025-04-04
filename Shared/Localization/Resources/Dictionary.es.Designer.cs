@@ -1294,11 +1294,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¡Hola, bienvenido a Anonymous!.
+        ///   Looks up a localized string similar to ¡Hola, bienvenido a Cryptogram!.
         /// </summary>
-        public static string HelloWellcomeToAnonymous {
+        public static string HelloWellcomeToCryptogram {
             get {
-                return ResourceManager.GetString("HelloWellcomeToAnonymous", resourceCulture);
+                return ResourceManager.GetString("HelloWellcomeToCryptogram", resourceCulture);
             }
         }
         
@@ -1438,20 +1438,20 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Cómo actualizar Anonymous?.
+        ///   Looks up a localized string similar to ¿Cómo actualizar Cryptogram?.
         /// </summary>
-        public static string HowToUpdateAnonymous {
+        public static string HowToUpdateCryptogram {
             get {
-                return ResourceManager.GetString("HowToUpdateAnonymous", resourceCulture);
+                return ResourceManager.GetString("HowToUpdateCryptogram", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El usuario debe usar Play / Apple stor para actualizar la aplicación Anonymous..
+        ///   Looks up a localized string similar to El usuario debe usar Play / Apple stor para actualizar la aplicación Cryptogram..
         /// </summary>
-        public static string HowToUpdateAnonymousAnswer {
+        public static string HowToUpdateCryptogramAnswer {
             get {
-                return ResourceManager.GetString("HowToUpdateAnonymousAnswer", resourceCulture);
+                return ResourceManager.GetString("HowToUpdateCryptogramAnswer", resourceCulture);
             }
         }
         
@@ -2455,11 +2455,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verifique &apos;Términos y condiciones&apos; y toque &apos;Aceptar y continuar&apos; para aceptar la política de privacidad de Anonymous.
+        ///   Looks up a localized string similar to Verifique &apos;Términos y condiciones&apos; y toque &apos;Aceptar y continuar&apos; para aceptar la política de privacidad de Cryptogram.
         /// </summary>
-        public static string PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolicy {
+        public static string PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptCryptogramPrivacyPolicy {
             get {
-                return ResourceManager.GetString("PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolic" +
+                return ResourceManager.GetString("PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptCryptogramPrivacyPolic" +
                         "y", resourceCulture);
             }
         }
@@ -3059,11 +3059,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Envíe y reciba dinero de forma segura a través de la aplicación Anonymous.
+        ///   Looks up a localized string similar to Envíe y reciba dinero de forma segura a través de la aplicación Cryptogram.
         /// </summary>
-        public static string SendAndReceiveMoneySecurelyViaAnonymousApplication {
+        public static string SendAndReceiveMoneySecurelyViaCryptogramApplication {
             get {
-                return ResourceManager.GetString("SendAndReceiveMoneySecurelyViaAnonymousApplication", resourceCulture);
+                return ResourceManager.GetString("SendAndReceiveMoneySecurelyViaCryptogramApplication", resourceCulture);
             }
         }
         
@@ -3689,11 +3689,11 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anonymous es la aplicación más segura y sus mensajes estarán altamente encriptados..
+        ///   Looks up a localized string similar to Cryptogram es la aplicación más segura y sus mensajes estarán altamente encriptados..
         /// </summary>
-        public static string AnonymousApplicationIsTheMostSecure {
+        public static string CryptogramApplicationIsTheMostSecure {
             get {
-                return ResourceManager.GetString("AnonymousApplicationIsTheMostSecure", resourceCulture);
+                return ResourceManager.GetString("CryptogramApplicationIsTheMostSecure", resourceCulture);
             }
         }
         
@@ -3799,45 +3799,45 @@ namespace Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to : &quot;¡Somos anónimos!&quot;.
         /// </summary>
-        public static string WeAreAnonymous {
+        public static string WeAreCryptogram {
             get {
-                return ResourceManager.GetString("WeAreAnonymous", resourceCulture);
+                return ResourceManager.GetString("WeAreCryptogram", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Cuál es el estado de seguridad de Anonymous?.
+        ///   Looks up a localized string similar to ¿Cuál es el estado de seguridad de Cryptogram?.
         /// </summary>
-        public static string WhatIsSecurityStatusForAnonymous {
+        public static string WhatIsSecurityStatusForCryptogram {
             get {
-                return ResourceManager.GetString("WhatIsSecurityStatusForAnonymous", resourceCulture);
+                return ResourceManager.GetString("WhatIsSecurityStatusForCryptogram", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Si comparamos Anonymous con otras aplicaciones de chat como Messenger, Whatsapp y Telegram. Definitivamente podemos decir que la aplicación Anonymous es más segura..
+        ///   Looks up a localized string similar to Si comparamos Cryptogram con otras aplicaciones de chat como Messenger, Whatsapp y Telegram. Definitivamente podemos decir que la aplicación Cryptogram es más segura..
         /// </summary>
-        public static string WhatIsSecurityStatusForAnonymousAnswer {
+        public static string WhatIsSecurityStatusForCryptogramAnswer {
             get {
-                return ResourceManager.GetString("WhatIsSecurityStatusForAnonymousAnswer", resourceCulture);
+                return ResourceManager.GetString("WhatIsSecurityStatusForCryptogramAnswer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Qué es Anonymous?.
+        ///   Looks up a localized string similar to ¿Qué es Cryptogram?.
         /// </summary>
-        public static string WhatIsAnonymous {
+        public static string WhatIsCryptogram {
             get {
-                return ResourceManager.GetString("WhatIsAnonymous", resourceCulture);
+                return ResourceManager.GetString("WhatIsCryptogram", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anonymous es la aplicación de mensajería que se centra principalmente en la confiabilidad. El usuario que descargue la aplicación Anonymous de PlayStore / Apple store puede tener acceso para usarla para enviar mensajes, fotos, videos, etc..
+        ///   Looks up a localized string similar to Cryptogram es la aplicación de mensajería que se centra principalmente en la confiabilidad. El usuario que descargue la aplicación Cryptogram de PlayStore / Apple store puede tener acceso para usarla para enviar mensajes, fotos, videos, etc..
         /// </summary>
-        public static string WhatIsAnonymousAnswer {
+        public static string WhatIsCryptogramAnswer {
             get {
-                return ResourceManager.GetString("WhatIsAnonymousAnswer", resourceCulture);
+                return ResourceManager.GetString("WhatIsCryptogramAnswer", resourceCulture);
             }
         }
         
@@ -3860,20 +3860,20 @@ namespace Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Para quién es Anonymous?.
+        ///   Looks up a localized string similar to ¿Para quién es Cryptogram?.
         /// </summary>
-        public static string WhoIsAnonymousFor {
+        public static string WhoIsCryptogramFor {
             get {
-                return ResourceManager.GetString("WhoIsAnonymousFor", resourceCulture);
+                return ResourceManager.GetString("WhoIsCryptogramFor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anonymous es para todos los que quieren rápido y confiable. A los usuarios empresariales y a los equipos pequeños les pueden gustar los grupos grandes y las poderosas opciones de intercambio de archivos..
+        ///   Looks up a localized string similar to Cryptogram es para todos los que quieren rápido y confiable. A los usuarios empresariales y a los equipos pequeños les pueden gustar los grupos grandes y las poderosas opciones de intercambio de archivos..
         /// </summary>
-        public static string WhoIsAnonymousForAnswer {
+        public static string WhoIsCryptogramForAnswer {
             get {
-                return ResourceManager.GetString("WhoIsAnonymousForAnswer", resourceCulture);
+                return ResourceManager.GetString("WhoIsCryptogramForAnswer", resourceCulture);
             }
         }
         

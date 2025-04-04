@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Anonymous.ViewModels;
+using Cryptogram.ViewModels;
 using Xamarin.Forms.Xaml;
 using EncryptedMessaging;
 using System.Collections.ObjectModel;
@@ -10,11 +10,11 @@ using static EncryptedMessaging.MessageFormat;
 using System.Text;
 using CustomViewElements;
 using Utils;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 using MessageCompose.Model;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GroupUserSelectPage : BasePage

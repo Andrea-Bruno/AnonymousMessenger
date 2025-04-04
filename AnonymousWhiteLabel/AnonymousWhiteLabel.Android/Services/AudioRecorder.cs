@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AnonymousWhiteLabel.Droid.Services;
 using System.IO;
 using XamarinShared.ViewCreator;
+using JavaX.Inject;
+using MessageCompose.Services;
 
 [assembly: Dependency(typeof(AudioRecorder))]
 namespace AnonymousWhiteLabel.Droid.Services

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Anonymous.Services
+namespace Cryptogram.Services
 {
     public interface IEndCall
     {

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials;
 
-namespace Anonymous.Services.GoogleTranslationService
+namespace Cryptogram.Services.GoogleTranslationService
 {
     static class GoogleTranslateService
     {

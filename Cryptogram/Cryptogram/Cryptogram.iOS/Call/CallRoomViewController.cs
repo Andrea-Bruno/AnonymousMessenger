@@ -1,22 +1,22 @@
 using System;
 using DT.Xamarin.Agora;
-using Anonymous.CallHandler;
+using Cryptogram.CallHandler;
 using UIKit;
 using Foundation;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.iOS.Services;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.iOS.Services;
 using Xamarin.Forms;
-using Anonymous.Services;
+using Cryptogram.Services;
 using AVFoundation;
-using Anonymous.iOS.Call;
+using Cryptogram.iOS.Call;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using System.Drawing;
 using System.Collections.Generic;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 
 [assembly: Dependency(typeof(CallRoomViewController))]
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public partial class CallRoomViewController : UIViewController, IAudioPlayerSpeakerService
     {

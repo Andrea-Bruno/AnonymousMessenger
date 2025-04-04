@@ -2,12 +2,12 @@
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using System;
-using Anonymous.ViewModels;
+using Cryptogram.ViewModels;
 using EncryptedMessaging;
 using Xamarin.Forms.Xaml;
 using Utils;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditGroupUserPopup : BasePopupPage

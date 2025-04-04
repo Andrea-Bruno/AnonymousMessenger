@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
-using Anonymous.CallHandler;
-using Anonymous.Models;
-using Anonymous.Services;
-using Anonymous.Views;
+using Cryptogram.CallHandler;
+using Cryptogram.Models;
+using Cryptogram.Services;
+using Cryptogram.Views;
 using EncryptedMessaging;
 using Xamarin.Forms;
 using Xamarin.CommunityToolkit.Extensions;
 
 [assembly: Dependency(typeof(CallManager))]
-namespace Anonymous.CallHandler
+namespace Cryptogram.CallHandler
 {
     public class CallManager : ICallNotificationService
     {

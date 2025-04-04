@@ -1,4 +1,4 @@
-﻿using Anonymous.iOS.CustomViews;
+﻿using Cryptogram.iOS.CustomViews;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -7,7 +7,7 @@ using Foundation;
 using CustomViewElements;
 
 [assembly: ExportRenderer(typeof(SoftkeyboardDisabledEntry), typeof(SoftkeyboardDisabledEntryRenderer))]
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     public class SoftkeyboardDisabledEntryRenderer : EntryRenderer
     {

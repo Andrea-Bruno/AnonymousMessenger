@@ -1,16 +1,16 @@
 ﻿using CustomViewElements;
 using Syncfusion.XForms.Buttons;
 using System;
-using Anonymous.Backup;
-using Anonymous.DesignHandler;
-using Anonymous.PopupViews;
-using Anonymous.Services;
+using Cryptogram.Backup;
+using Cryptogram.DesignHandler;
+using Cryptogram.PopupViews;
+using Cryptogram.Services;
 using Utils;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : BasePage
@@ -55,7 +55,7 @@ namespace Anonymous.Views
         private async void PrivacyPolicy_Clicked(object sender, System.EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            Uri uri = new Uri("https://Anonymoussocial.tech/pp.html");
+            Uri uri = new Uri("https://Cryptogramsocial.tech/pp.html");
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }      
 

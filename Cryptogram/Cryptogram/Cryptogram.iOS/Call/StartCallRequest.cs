@@ -1,6 +1,6 @@
 ﻿using Foundation;
 using Intents;
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public static class StartCallRequest
     {

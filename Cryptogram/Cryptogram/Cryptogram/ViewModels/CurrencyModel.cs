@@ -1,5 +1,5 @@
 ﻿
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
     public class CurrencyModel : BaseViewModel
     {

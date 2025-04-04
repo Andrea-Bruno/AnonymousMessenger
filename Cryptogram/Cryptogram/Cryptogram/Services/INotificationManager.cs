@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NotificationService;
 
-namespace Anonymous.Services
+namespace Cryptogram.Services
 {
     public interface INotificationManager
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using CoreFoundation;
 using Foundation;
-using Anonymous.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public class ActiveCall
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using Android.App;
-using Anonymous.Droid.Services;
-using Anonymous.Services;
+using Cryptogram.Droid.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(CloseApplicationManager))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class CloseApplicationManager: ICloseApplication
     {

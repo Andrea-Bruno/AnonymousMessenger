@@ -1,13 +1,13 @@
 ﻿using Android.Content;
 using Android.Content.Res;
 using Android.Text.Method;
-using Anonymous.Droid.CustomViews;
+using Cryptogram.Droid.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using XamarinShared;
 
 [assembly: ExportRenderer(typeof(CustomLinkLabel), typeof(CustomLinkLabelRenderer))]
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     internal class CustomLinkLabelRenderer : LabelRenderer
     {

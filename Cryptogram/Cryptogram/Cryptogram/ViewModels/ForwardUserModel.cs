@@ -1,4 +1,4 @@
-﻿namespace Anonymous.ViewModels
+﻿namespace Cryptogram.ViewModels
 {
 	public class ForwardUserModel : BaseViewModel
 	{

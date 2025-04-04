@@ -7,7 +7,7 @@ using Xamarin.Forms;
 using Xamarin.CommunityToolkit.Extensions;
 using Utils;
 
-namespace Anonymous.PopupViews
+namespace Cryptogram.PopupViews
 {
     public partial class DeleteMessagePopupPage : BasePopupPage
     {

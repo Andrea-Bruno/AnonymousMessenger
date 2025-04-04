@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <local11:BasePopupPage
-    x:Class="Anonymous.PopupViews.SuccessPopup"
+    x:Class="Cryptogram.PopupViews.SuccessPopup"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
@@ -8,7 +8,7 @@
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
     xmlns:local11="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     ios:Page.UseSafeArea="true">
     <local11:BasePopupPage.Animation>
         <animations:ScaleAnimation

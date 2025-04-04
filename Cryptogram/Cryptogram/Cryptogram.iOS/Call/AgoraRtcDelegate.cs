@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using DT.Xamarin.Agora;
 
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public class AgoraRtcDelegate : AgoraRtcEngineDelegate
     {

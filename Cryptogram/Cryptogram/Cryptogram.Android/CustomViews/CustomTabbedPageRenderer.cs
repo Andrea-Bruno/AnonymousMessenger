@@ -3,7 +3,7 @@ using System.Linq;
 using Android.Content;
 using Android.Views;
 using Google.Android.Material.BottomNavigation;
-using Anonymous.Droid.CustomViews;
+using Cryptogram.Droid.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
@@ -11,7 +11,7 @@ using static Google.Android.Material.BottomNavigation.BottomNavigationView;
 using View = Android.Views.View;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(CustomTabbedPageRenderer))]
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     public class CustomTabbedPageRenderer : TabbedPageRenderer
     {

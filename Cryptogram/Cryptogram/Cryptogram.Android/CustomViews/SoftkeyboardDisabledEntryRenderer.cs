@@ -1,14 +1,14 @@
 ﻿using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Views.InputMethods;
-using Anonymous.Droid.CustomViews;
+using Cryptogram.Droid.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Android.Views;
 using CustomViewElements;
 
 [assembly: ExportRenderer(typeof(SoftkeyboardDisabledEntry), typeof(SoftkeyboardDisabledEntryRenderer))]
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     public class SoftkeyboardDisabledEntryRenderer : EntryRenderer
     {

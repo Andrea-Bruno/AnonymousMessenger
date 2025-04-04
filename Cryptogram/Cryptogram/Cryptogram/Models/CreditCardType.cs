@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Anonymous.Models
+namespace Cryptogram.Models
 {
 
     /// <summary>

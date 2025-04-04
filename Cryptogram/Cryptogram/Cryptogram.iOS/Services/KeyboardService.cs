@@ -1,10 +1,10 @@
 ﻿using System;
-using Anonymous.iOS.Services;
-using Anonymous.Services;
+using Cryptogram.iOS.Services;
+using Cryptogram.Services;
 using UIKit;
 
 [assembly: Xamarin.Forms.Dependency(typeof(KeyboardService))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class KeyboardService : IKeyboardService
     {

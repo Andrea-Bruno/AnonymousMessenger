@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading;
-using Anonymous.iOS.Services;
-using Anonymous.Services;
+using Cryptogram.iOS.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(CloseApplicationManager))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class CloseApplicationManager : ICloseApplication
     {

@@ -8,13 +8,13 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
-using Anonymous.CallHandler;
-using Anonymous.Droid.Services;
-using Anonymous.Services;
+using Cryptogram.CallHandler;
+using Cryptogram.Droid.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
-namespace Anonymous.Droid.Call
+namespace Cryptogram.Droid.Call
 {
-    [Activity(Label = "Anonymous",
+    [Activity(Label = "Cryptogram",
      Theme = "@style/Theme.CallReceive", NoHistory = false , ShowForAllUsers = true, ShowWhenLocked = true, ExcludeFromRecents =false, LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]
     public class CallReceiveActivity : Activity
     {

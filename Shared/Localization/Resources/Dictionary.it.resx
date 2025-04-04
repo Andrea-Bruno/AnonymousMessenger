@@ -198,8 +198,8 @@
   <data name="DeletePicture" xml:space="preserve">
     <value>Elimina immagine</value>
   </data>
-  <data name="WhatIsAnonymous" xml:space="preserve">
-    <value>Cos'è Anonymous?</value>
+  <data name="WhatIsCryptogram" xml:space="preserve">
+    <value>Cos'è Cryptogram?</value>
   </data>
   <data name="WhoCanIMessageAnswer" xml:space="preserve">
     <value>L'utente dovrebbe ora la chiave pubblica di un altro utente per inviare un messaggio.</value>
@@ -246,8 +246,8 @@
   <data name="YouHaveReceivedNewMessageFrom" xml:space="preserve">
     <value>Nuovo messaggio da </value>
   </data>
-  <data name="WhatIsSecurityStatusForAnonymousAnswer" xml:space="preserve">
-    <value>Se confrontiamo Anonymous con altre applicazioni di chat come Messenger, Whatsapp e Telegram. Possiamo sicuramente dire che l'applicazione Anonymous è più sicura.</value>
+  <data name="WhatIsSecurityStatusForCryptogramAnswer" xml:space="preserve">
+    <value>Se confrontiamo Cryptogram con altre applicazioni di chat come Messenger, Whatsapp e Telegram. Possiamo sicuramente dire che l'applicazione Cryptogram è più sicura.</value>
   </data>
   <data name="Incoming" xml:space="preserve">
     <value>In arrivo</value>
@@ -288,8 +288,8 @@
   <data name="NotificationProblems" xml:space="preserve">
     <value>Problemi di notifica</value>
   </data>
-  <data name="WhatIsSecurityStatusForAnonymous" xml:space="preserve">
-    <value>Qual è lo stato di sicurezza di Anonymous?</value>
+  <data name="WhatIsSecurityStatusForCryptogram" xml:space="preserve">
+    <value>Qual è lo stato di sicurezza di Cryptogram?</value>
   </data>
   <data name="HowCanIChangeDurationOfMessageAnswer" xml:space="preserve">
     <value>1. Clicca sull'icona del menu che si trova nell'angolo destro della barra di navigazione inferiore. 2. Entrare nella pagina Display. 3. L'utente può cambiare la durata del messaggio dalla pagina di visualizzazione.</value>
@@ -426,8 +426,8 @@
   <data name="File" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="HelloWellcomeToAnonymous" xml:space="preserve">
-    <value>Ciao, benvenuti alla Anonymous!</value>
+  <data name="HelloWellcomeToCryptogram" xml:space="preserve">
+    <value>Ciao, benvenuti alla Cryptogram!</value>
   </data>
   <data name="ChangeLanguage" xml:space="preserve">
     <value>Cambia lingua</value>
@@ -510,8 +510,8 @@
   <data name="CardNumber" xml:space="preserve">
     <value>Numero di carta</value>
   </data>
-  <data name="HowToUpdateAnonymous" xml:space="preserve">
-    <value>Come aggiornare Anonymous?</value>
+  <data name="HowToUpdateCryptogram" xml:space="preserve">
+    <value>Come aggiornare Cryptogram?</value>
   </data>
   <data name="Me" xml:space="preserve">
     <value>Me</value>
@@ -750,8 +750,8 @@
   <data name="LocationPermissionDidNotGranted" xml:space="preserve">
     <value>È necessaria l'autorizzazione alla posizione</value>
   </data>
-  <data name="SendAndReceiveMoneySecurelyViaAnonymousApplication" xml:space="preserve">
-    <value>Invia e ricevi denaro in modo sicuro tramite l'applicazione Anonymous</value>
+  <data name="SendAndReceiveMoneySecurelyViaCryptogramApplication" xml:space="preserve">
+    <value>Invia e ricevi denaro in modo sicuro tramite l'applicazione Cryptogram</value>
   </data>
   <data name="HowCanIChangeDurationOfMessage" xml:space="preserve">
     <value>Come posso cambiare la durata del messaggio?</value>
@@ -855,8 +855,8 @@
   <data name="DownloadAndInstallation" xml:space="preserve">
     <value>Download e installazione</value>
   </data>
-  <data name="AnonymousApplicationIsTheMostSecure" xml:space="preserve">
-    <value>Anonymous è l'applicazione più sicura ei tuoi messaggi saranno altamente crittografati.</value>
+  <data name="CryptogramApplicationIsTheMostSecure" xml:space="preserve">
+    <value>Cryptogram è l'applicazione più sicura ei tuoi messaggi saranno altamente crittografati.</value>
   </data>
   <data name="DeleteAccount" xml:space="preserve">
     <value>Eliminare l'account</value>
@@ -991,7 +991,7 @@
     <value>Aggiunto con successo</value>
   </data>
   <data name="StoragePermissionIsNeeded" xml:space="preserve">
-    <value>Anonymous non ha accesso a foto, file multimediali e file</value>
+    <value>Cryptogram non ha accesso a foto, file multimediali e file</value>
   </data>
   <data name="CreateNewPost" xml:space="preserve">
     <value>Crea un nuovo post</value>
@@ -1068,7 +1068,7 @@
   <data name="AnswerOfFrequentlyAskedQuestions" xml:space="preserve">
     <value>Risposta alle domande più frequenti</value>
   </data>
-  <data name="WeAreAnonymous" xml:space="preserve">
+  <data name="WeAreCryptogram" xml:space="preserve">
     <value>Siamo anonimi!</value>
   </data>
   <data name="Done" xml:space="preserve">
@@ -1086,8 +1086,8 @@
   <data name="ErrorSendingFile" xml:space="preserve">
     <value>Errore durante l'invio del file</value>
   </data>
-  <data name="HowToUpdateAnonymousAnswer" xml:space="preserve">
-    <value>L'utente dovrebbe usare Play/Apple stor per aggiornare l'applicazione Anonymous.</value>
+  <data name="HowToUpdateCryptogramAnswer" xml:space="preserve">
+    <value>L'utente dovrebbe usare Play/Apple stor per aggiornare l'applicazione Cryptogram.</value>
   </data>
   <data name="AddUsingQRCode" xml:space="preserve">
     <value>Aggiungi usando il codice QR</value>
@@ -1098,8 +1098,8 @@
   <data name="PleaseStopAnotherVoiceRecordBeforePlayingThisRecord" xml:space="preserve">
     <value>Interrompere un altro record vocale prima di riprodurre questo record</value>
   </data>
-  <data name="WhoIsAnonymousFor" xml:space="preserve">
-    <value>Per chi è Anonymous?</value>
+  <data name="WhoIsCryptogramFor" xml:space="preserve">
+    <value>Per chi è Cryptogram?</value>
   </data>
   <data name="Troubleshooting" xml:space="preserve">
     <value>Risoluzione dei problemi</value>
@@ -1110,8 +1110,8 @@
   <data name="TokenSharing" xml:space="preserve">
     <value>Condivisione Token</value>
   </data>
-  <data name="WhoIsAnonymousForAnswer" xml:space="preserve">
-    <value>Anonymous è per tutti coloro che vogliono essere veloci e affidabili. Gli utenti aziendali e i piccoli team possono apprezzare i grandi gruppi e le potenti opzioni di sharin dei file.</value>
+  <data name="WhoIsCryptogramForAnswer" xml:space="preserve">
+    <value>Cryptogram è per tutti coloro che vogliono essere veloci e affidabili. Gli utenti aziendali e i piccoli team possono apprezzare i grandi gruppi e le potenti opzioni di sharin dei file.</value>
   </data>
   <data name="AppLock" xml:space="preserve">
     <value>Serratura app</value>
@@ -1245,8 +1245,8 @@
   <data name="SixDigitPinIsRequired" xml:space="preserve">
     <value>È richiesto un pin di almeno 6 cifre</value>
   </data>
-  <data name="WhatIsAnonymousAnswer" xml:space="preserve">
-    <value>Anonymous è l'applicazione di messaggistica che si concentra principalmente sull'affidabilità. L'utente che scarica l'applicazione Anonymous da PlayStore/Apple store può avere un accesso per usarla per inviare messaggi, foto, video ed ecc.</value>
+  <data name="WhatIsCryptogramAnswer" xml:space="preserve">
+    <value>Cryptogram è l'applicazione di messaggistica che si concentra principalmente sull'affidabilità. L'utente che scarica l'applicazione Cryptogram da PlayStore/Apple store può avere un accesso per usarla per inviare messaggi, foto, video ed ecc.</value>
   </data>
   <data name="NewContact" xml:space="preserve">
     <value>Nuovo contatto</value>
@@ -1458,8 +1458,8 @@
   <data name="YouHaveReceivedNewContactFrom" xml:space="preserve">
     <value>Hai ricevuto un nuovo contatto da</value>
   </data>
-  <data name="PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptAnonymousPrivacyPolicy" xml:space="preserve">
-    <value>Controlla 'Termini e Condizioni' e tocca 'Accetta e continua' Per accettare l'informativa sulla privacy di Anonymous</value>
+  <data name="PleaseCheckTermsAndConditionsAndTapAcceptAndContinueToAcceptCryptogramPrivacyPolicy" xml:space="preserve">
+    <value>Controlla 'Termini e Condizioni' e tocca 'Accetta e continua' Per accettare l'informativa sulla privacy di Cryptogram</value>
   </data>
   <data name="EditProfile" xml:space="preserve">
     <value>Modifica Profilo</value>
@@ -1509,14 +1509,14 @@
   <data name="DoYouWantToRestoreMessages" xml:space="preserve">
     <value>Vuoi ripristinare i messaggi?</value>
   </data>
-  <data name="Anonymous" xml:space="preserve">
-    <value>Anonymous</value>
+  <data name="Cryptogram" xml:space="preserve">
+    <value>Cryptogram</value>
   </data>
   <data name="Crypto-Messenger" xml:space="preserve">
     <value>Crypto-Messenger</value>
   </data>
-  <data name="WhatIsAnonymous_Duplicate[1]" xml:space="preserve">
-    <value>Cos'è Anonymous?</value>
+  <data name="WhatIsCryptogram_Duplicate[1]" xml:space="preserve">
+    <value>Cos'è Cryptogram?</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Titolo</value>

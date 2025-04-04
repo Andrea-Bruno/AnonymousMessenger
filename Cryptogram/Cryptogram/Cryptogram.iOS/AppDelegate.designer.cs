@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
 	partial class AppDelegate
 	{

@@ -1,5 +1,5 @@
 ﻿<local1:BasePage
-    x:Class="Anonymous.Views.FAQPage"
+    x:Class="Cryptogram.Views.FAQPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -8,7 +8,7 @@
     xmlns:syncfusion1="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:xtc="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
     xmlns:customViewElements="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     x:Name="FAQ"
     ios:Page.UseSafeArea="true">
     <StackLayout>

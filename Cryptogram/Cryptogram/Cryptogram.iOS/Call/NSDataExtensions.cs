@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public static class NSDataExtensions
     {

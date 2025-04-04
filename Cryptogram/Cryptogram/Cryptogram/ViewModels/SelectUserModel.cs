@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
 	public class SelectUserModel : INotifyPropertyChanged
 	{

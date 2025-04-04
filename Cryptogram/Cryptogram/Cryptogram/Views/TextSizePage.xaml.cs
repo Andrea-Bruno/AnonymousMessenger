@@ -5,10 +5,10 @@ using Xamarin.Forms.Xaml;
 using Utils;
 using CustomViewElements;
 using Xamarin.Essentials;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using FontSizeConverter = XamarinShared.ViewCreator.FontSizeConverter;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TextSizePage : BasePage
@@ -33,7 +33,7 @@ namespace Anonymous.Views
             _textSize = FindFontRationIndex(); 
             _fontSizeConverter = new FontSizeConverter();
             slider.Value = _textSize;
-            DemoLayout.Children.Add(OnViewMessage(false, Localization.Resources.Dictionary.HelloWellcomeToAnonymous)); 
+            DemoLayout.Children.Add(OnViewMessage(false, Localization.Resources.Dictionary.HelloWellcomeToCryptogram)); 
             DemoLayout.Children.Add(OnViewMessage(true, Localization.Resources.Dictionary.HeyHowAreYouDoing)); 
             DemoLayout.Children.Add(OnViewMessage(true, Localization.Resources.Dictionary.IAmDoingGoodHowAboutYou)); 
             DemoLayout.Children.Add(OnViewMessage(false, Localization.Resources.Dictionary.YeahEverythingIsFine)); 

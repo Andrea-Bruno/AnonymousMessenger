@@ -8,23 +8,23 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Widget;
 using NotificationService;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.Droid.Call;
-using Anonymous.Services;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.Droid.Call;
+using Cryptogram.Services;
 using Xamarin.Forms;
 using AndroidApp = Android.App.Application;
 
-[assembly: Dependency(typeof(Anonymous.Droid.Services.AndroidNotificationManager))]
-namespace Anonymous.Droid.Services
+[assembly: Dependency(typeof(Cryptogram.Droid.Services.AndroidNotificationManager))]
+namespace Cryptogram.Droid.Services
 {
     public class AndroidNotificationManager : INotificationManager
     {
         private static AndroidNotificationManager Instance;
 
-        private const string MessageChannelId = "AnonymousMessageChannelId";
-        private const string CallChannelId = "AnonymousCallChannelId";
-        private const string MessageChannelName = "AnonymousMessageChannelName";
-        private const string ChatChannelName = "AnonymousMessageChannelName";
+        private const string MessageChannelId = "CryptogramMessageChannelId";
+        private const string CallChannelId = "CryptogramCallChannelId";
+        private const string MessageChannelName = "CryptogramMessageChannelName";
+        private const string ChatChannelName = "CryptogramMessageChannelName";
         private const string _channelDescription = "The default channel for notifications.";
         private const int _pendingIntentId = 0;
 

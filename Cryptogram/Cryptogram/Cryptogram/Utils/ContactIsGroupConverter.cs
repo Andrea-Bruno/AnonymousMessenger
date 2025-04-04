@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace Anonymous
+namespace Cryptogram
 {
     public class ContactIsGroupConverter : IValueConverter
     {

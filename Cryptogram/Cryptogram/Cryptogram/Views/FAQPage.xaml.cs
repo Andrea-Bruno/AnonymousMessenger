@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CustomViewElements;
-using Anonymous.DesignHandler;
-using Anonymous.ViewModels;
+using Cryptogram.DesignHandler;
+using Cryptogram.ViewModels;
 using Xamarin.Forms.Xaml;
 using Utils;
 using static EncryptedMessaging.Contacts;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public class Grouping<K, T> : Observable<T>
     {
@@ -44,8 +44,8 @@ namespace Anonymous.Views
                 Title = Localization.Resources.Dictionary.General,
                 isExpanded = false,
                 QuestionList = new ObservableCollection<QuestionAnswersInnerViewModel>{
-                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhatIsAnonymousAnswer, Title = Localization.Resources.Dictionary.WhatIsAnonymous, isExpanded = false },
-                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhoIsAnonymousForAnswer, Title = Localization.Resources.Dictionary.WhoIsAnonymousFor, isExpanded = false },
+                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhatIsCryptogramAnswer, Title = Localization.Resources.Dictionary.WhatIsCryptogram, isExpanded = false },
+                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhoIsCryptogramForAnswer, Title = Localization.Resources.Dictionary.WhoIsCryptogramFor, isExpanded = false },
                     new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhoCanIMessageAnswer, Title = Localization.Resources.Dictionary.WhoCanIMessage, isExpanded = false }
                 }
             });
@@ -55,7 +55,7 @@ namespace Anonymous.Views
                 Title = Localization.Resources.Dictionary.DownloadAndInstallation,
                 isExpanded = false,
                 QuestionList = new ObservableCollection<QuestionAnswersInnerViewModel>{
-                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.HowToUpdateAnonymousAnswer, Title = Localization.Resources.Dictionary.HowToUpdateAnonymous, isExpanded = false },
+                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.HowToUpdateCryptogramAnswer, Title = Localization.Resources.Dictionary.HowToUpdateCryptogram, isExpanded = false },
                 }
             });
 
@@ -75,7 +75,7 @@ namespace Anonymous.Views
                 Title = Localization.Resources.Dictionary.Security,
                 isExpanded = false,
                 QuestionList = new ObservableCollection<QuestionAnswersInnerViewModel>{
-                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhatIsSecurityStatusForAnonymousAnswer, Title = Localization.Resources.Dictionary.WhatIsSecurityStatusForAnonymous, isExpanded = false },
+                    new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.WhatIsSecurityStatusForCryptogramAnswer, Title = Localization.Resources.Dictionary.WhatIsSecurityStatusForCryptogram, isExpanded = false },
                     new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.HowCanISetLimitVisibilityOfNumberOfMessageAnswer, Title = Localization.Resources.Dictionary.HowCanISetLimitVisibilityOfNumberOfMessage, isExpanded = false },
                     new QuestionAnswersInnerViewModel { Description = Localization.Resources.Dictionary.HowCanIChangeDurationOfMessageAnswer, Title = Localization.Resources.Dictionary.HowCanIChangeDurationOfMessage, isExpanded = false }
                 }

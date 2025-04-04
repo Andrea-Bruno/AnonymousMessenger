@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Anonymous
+namespace Cryptogram
 {
     class IntToBoolConverter : IValueConverter
     {

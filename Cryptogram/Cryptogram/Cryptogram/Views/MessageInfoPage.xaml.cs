@@ -4,7 +4,7 @@ using CustomViewElements;
 using EncryptedMessaging;
 using Xamarin.Forms.Xaml;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessageInfoPage : BasePage

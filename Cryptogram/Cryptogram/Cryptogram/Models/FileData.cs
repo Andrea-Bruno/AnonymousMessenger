@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Anonymous.Models
+namespace Cryptogram.Models
 {
     public class FileData
     {

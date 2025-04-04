@@ -4,16 +4,16 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinShared;
-using Anonymous.Services;
+using Cryptogram.Services;
 using static Utils.Utils;
 using Utils;
 using CustomViewElements;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreatePinPage : BasePage

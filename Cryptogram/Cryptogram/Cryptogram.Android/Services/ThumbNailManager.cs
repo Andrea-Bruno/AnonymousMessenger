@@ -5,11 +5,11 @@ using Android.Graphics;
 using Android.Media;
 using Android.Provider;
 using MessageCompose.Services;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ThumbNailManager))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class ThumbNailManager : IThumbnailService
     {

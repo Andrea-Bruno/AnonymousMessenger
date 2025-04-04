@@ -4,12 +4,12 @@ using CoreGraphics;
 using CoreMedia;
 using Foundation;
 using MessageCompose.Services;
-using Anonymous.iOS.Services;
+using Cryptogram.iOS.Services;
 using UIKit;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ThumbNailManager))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class ThumbNailManager : IThumbnailService
     {

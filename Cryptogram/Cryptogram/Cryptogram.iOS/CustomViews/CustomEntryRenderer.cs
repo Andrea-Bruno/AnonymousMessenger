@@ -1,11 +1,11 @@
 ﻿using CustomViewElements;
-using Anonymous.iOS;
+using Cryptogram.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
 	internal class CustomEntryRenderer : EntryRenderer
 	{

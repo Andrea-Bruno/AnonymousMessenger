@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Utils;
 
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
 	public class QuestionAnswerViewModel : BaseExpandableViewModel
 	{

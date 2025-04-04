@@ -5,7 +5,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using static Xamarin.Essentials.Permissions;
 
-namespace Anonymous.Services
+namespace Cryptogram.Services
 {
     public class PermissionManager
     {

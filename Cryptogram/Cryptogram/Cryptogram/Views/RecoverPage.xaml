@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Anonymous:BasePage
-    x:Class="Anonymous.Views.RecoverPage"
+<Cryptogram:BasePage
+    x:Class="Cryptogram.Views.RecoverPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -8,13 +8,13 @@
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:dh="clr-namespace:Anonymous.DesignHandler"
-    xmlns:Anonymous="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
+    xmlns:Cryptogram="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:view="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     ios:Page.UseSafeArea="true"
     BackgroundColor="{x:DynamicResource Color1}"
     mc:Ignorable="d">
-    <Anonymous:BasePage.Resources>
+    <Cryptogram:BasePage.Resources>
         <Style x:Name="btn" TargetType="Button">
             <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
@@ -35,8 +35,8 @@
                 </VisualStateGroupList>
             </Setter>
         </Style>
-    </Anonymous:BasePage.Resources>
-    <Anonymous:BasePage.Content>
+    </Cryptogram:BasePage.Resources>
+    <Cryptogram:BasePage.Content>
         <StackLayout Orientation="Vertical" Spacing="0">
             <view:MyCustomToolbar
                 x:Name="Toolbar"
@@ -149,5 +149,5 @@
                     WidthRequest="200" />
             </pancakeview:PancakeView>
         </StackLayout>
-    </Anonymous:BasePage.Content>
-</Anonymous:BasePage>
+    </Cryptogram:BasePage.Content>
+</Cryptogram:BasePage>

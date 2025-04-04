@@ -1,13 +1,13 @@
 ﻿using System;
 using CustomViewElements;
-using Anonymous.DesignHandler;
-using Anonymous.iOS.CustomViews;
+using Cryptogram.DesignHandler;
+using Cryptogram.iOS.CustomViews;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(CustomTabbedPage), typeof(CustomTabbedPageRenderer))]
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     public class CustomTabbedPageRenderer : TabbedRenderer
     {

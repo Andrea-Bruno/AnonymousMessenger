@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Globalization;
 using CustomViewElements;
-using Anonymous.DesignHandler;
-using Anonymous.Services;
-using Anonymous.ViewModels;
+using Cryptogram.DesignHandler;
+using Cryptogram.Services;
+using Cryptogram.ViewModels;
 using Utils;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LanguagePage : BasePage

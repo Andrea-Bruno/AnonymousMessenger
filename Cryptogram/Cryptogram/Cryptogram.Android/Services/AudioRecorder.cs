@@ -2,12 +2,12 @@
 using System;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using System.IO;
 using MessageCompose.Services;
 
 [assembly: Dependency(typeof(AudioRecorder))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class AudioRecorder : IAudioRecorder
     {

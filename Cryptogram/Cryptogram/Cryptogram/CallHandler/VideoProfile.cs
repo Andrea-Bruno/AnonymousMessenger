@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anonymous.CallHandler
+namespace Cryptogram.CallHandler
 {
     public class VideoProfile
     {

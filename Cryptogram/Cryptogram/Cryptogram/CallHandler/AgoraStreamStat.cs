@@ -1,5 +1,5 @@
 ﻿
-namespace Anonymous.CallHandler
+namespace Cryptogram.CallHandler
 {
     public class AgoraStreamStat
     {

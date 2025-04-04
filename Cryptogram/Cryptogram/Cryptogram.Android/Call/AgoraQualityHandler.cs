@@ -1,6 +1,6 @@
 ﻿using DT.Xamarin.Agora;
 
-namespace Anonymous.Droid.Call
+namespace Cryptogram.Droid.Call
 {
     public class AgoraQualityHandler : IRtcEngineEventHandler
     {

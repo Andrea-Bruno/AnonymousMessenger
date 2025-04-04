@@ -2,7 +2,7 @@
 using WhiteLabelDesignComponents.Styles;
 using Xamarin.Forms;
 
-namespace Anonymous.DesignHandler
+namespace Cryptogram.DesignHandler
 {
     public class DesignResourceManager
     {

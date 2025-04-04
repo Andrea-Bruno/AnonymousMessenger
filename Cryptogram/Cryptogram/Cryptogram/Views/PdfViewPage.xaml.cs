@@ -4,7 +4,7 @@ using CustomViewElements;
 using Utils;
 using Xamarin.Forms;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class PdfViewPage : BasePage
     {

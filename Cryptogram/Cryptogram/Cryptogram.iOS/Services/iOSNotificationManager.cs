@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using NotificationService;
-using Anonymous.Services;
+using Cryptogram.Services;
 using UIKit;
 using UserNotifications;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(Anonymous.iOS.IOSNotificationManager))]
-namespace Anonymous.iOS
+[assembly: Dependency(typeof(Cryptogram.iOS.IOSNotificationManager))]
+namespace Cryptogram.iOS
 {
 	public class IOSNotificationManager : INotificationManager
 	{

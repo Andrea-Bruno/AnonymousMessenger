@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Anonymous.ViewModels
+namespace Cryptogram.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{

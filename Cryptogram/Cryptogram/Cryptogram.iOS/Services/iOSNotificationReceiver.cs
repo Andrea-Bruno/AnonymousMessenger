@@ -1,11 +1,11 @@
 ﻿using System;
 using NotificationService;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.iOS.Call;
-using Anonymous.Models;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.iOS.Call;
+using Cryptogram.Models;
 using UserNotifications;
 
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
 	public class iOSNotificationReceiver : UNUserNotificationCenterDelegate
 	{

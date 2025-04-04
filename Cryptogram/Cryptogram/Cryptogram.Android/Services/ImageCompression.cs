@@ -2,14 +2,14 @@
 using System.IO;
 using Android.Media;
 using Java.IO;
-using Anonymous.Droid.Services;
-using Anonymous.Services;
+using Cryptogram.Droid.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 using Stream = System.IO.Stream;
 
 [assembly: Dependency(typeof(ImageCompression))]
 
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class ImageCompression : IImageCompressionService
     {

@@ -1,5 +1,5 @@
-﻿using Anonymous.Services;
-namespace Anonymous.iOS.Services
+﻿using Cryptogram.Services;
+namespace Cryptogram.iOS.Services
 {
     public class SecurityFlagManager : ISecurityFlag
     {

@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 using MessageCompose;
 using Utils;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePreviewView : BasePage

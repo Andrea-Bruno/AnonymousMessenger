@@ -2,7 +2,7 @@
 using CoreGraphics;
 using Xamarin.Forms;
 
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public static class CommonExtensions
     {

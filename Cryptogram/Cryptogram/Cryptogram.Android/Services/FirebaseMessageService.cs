@@ -5,14 +5,14 @@ using Firebase.Messaging;
 using NotificationService;
 using NotificationService.Enums;
 using NotificationService.helper;
-using Anonymous.CallHandler.Helpers;
-using Anonymous.Droid.Call;
-using Anonymous.Droid.Services;
-using Anonymous.Services;
+using Cryptogram.CallHandler.Helpers;
+using Cryptogram.Droid.Call;
+using Cryptogram.Droid.Services;
+using Cryptogram.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(FirebaseMessageService))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
 
 	[Service(Exported = true)]

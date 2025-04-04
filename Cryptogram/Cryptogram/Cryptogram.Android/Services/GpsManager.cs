@@ -1,11 +1,11 @@
-﻿using Anonymous.Droid.Services;
+﻿using Cryptogram.Droid.Services;
 using Xamarin.Forms;
 using Android.Content;
 using Android.Locations;
 using MessageCompose.Services;
 
 [assembly: Dependency(typeof(GpsManager))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class GpsManager : IGpsService
     {

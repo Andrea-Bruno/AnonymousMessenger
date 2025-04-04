@@ -2,12 +2,12 @@
 using Android.Content;
 using Android.Graphics.Drawables;
 using CustomViewElements;
-using Anonymous.Droid.CustomViews;
+using Cryptogram.Droid.CustomViews;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(GradientFrame), typeof(GradientFrameRenderer))]
-namespace Anonymous.Droid.CustomViews
+namespace Cryptogram.Droid.CustomViews
 {
     public class GradientFrameRenderer : VisualElementRenderer<Frame>
     {

@@ -4,16 +4,16 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using XamarinShared;
-using static Anonymous.App;
+using static Cryptogram.App;
 using CustomViewElements;
 using System.Threading;
 using FontSizeConverter = XamarinShared.ViewCreator.FontSizeConverter;
-using Anonymous.Services;
+using Cryptogram.Services;
 using Plugin.LatestVersion;
-using Anonymous.Backup;
-using Anonymous.Config;
+using Cryptogram.Backup;
+using Cryptogram.Config;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NavigationTappedPage : CustomTabbedPage

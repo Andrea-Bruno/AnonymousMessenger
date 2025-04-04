@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using Anonymous.iOS.CustomViews;
+using Cryptogram.iOS.CustomViews;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -8,7 +8,7 @@ using XamarinShared;
 
 [assembly: ExportRenderer(typeof(CustomLinkLabel), typeof(CustomLinkLabelRenderer))]
 
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     internal class CustomLinkLabelRenderer : ViewRenderer<CustomLinkLabel, UITextView>
     {

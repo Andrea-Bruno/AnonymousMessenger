@@ -4,6 +4,8 @@ using System;
 using System.IO;
 using AnonymousWhiteLabel.iOS.Services;
 using XamarinShared.ViewCreator;
+using MessageCompose.Services;
+
 
 [assembly: Xamarin.Forms.Dependency(typeof(AudioRecorder))]
 namespace AnonymousWhiteLabel.iOS.Services

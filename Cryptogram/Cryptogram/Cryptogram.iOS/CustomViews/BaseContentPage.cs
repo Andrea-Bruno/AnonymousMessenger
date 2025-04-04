@@ -1,12 +1,12 @@
 ﻿using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using Anonymous.iOS.CustomViews;
-using Anonymous.Styles;
+using Cryptogram.iOS.CustomViews;
+using Cryptogram.Styles;
 using CustomViewElements;
 
 [assembly: ExportRenderer(typeof(BasePage), typeof(BaseContentPage))]
-namespace Anonymous.iOS.CustomViews
+namespace Cryptogram.iOS.CustomViews
 {
     public class BaseContentPage : PageRenderer
     {

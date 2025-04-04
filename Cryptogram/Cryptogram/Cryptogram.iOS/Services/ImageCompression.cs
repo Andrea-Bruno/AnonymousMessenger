@@ -2,14 +2,14 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
-using Anonymous.iOS.Services;
-using Anonymous.Services;
+using Cryptogram.iOS.Services;
+using Cryptogram.Services;
 using UIKit;
 using Xamarin.Forms;
 
 
 [assembly: Dependency(typeof(ImageCompression))]
-namespace Anonymous.iOS.Services
+namespace Cryptogram.iOS.Services
 {
     public class ImageCompression : IImageCompressionService
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public interface IPhotoPickerService
     {

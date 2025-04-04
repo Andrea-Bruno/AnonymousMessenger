@@ -2,7 +2,7 @@
 using CommunicationChannel;
 using CustomViewElements;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class LogsPage : BasePage
     {
@@ -27,7 +27,7 @@ namespace Anonymous.Views
             ClientExists.Text = "ClientExists: " + NavigationTappedPage.Context.Channel.ClientExists;
             ClientConnected.Text = "ClientConnected: " + NavigationTappedPage.Context.Channel.ClientConnected;
             Logged.Text = "Logged: " + NavigationTappedPage.Context.Channel.Logged;
-            QueeCount.Text = "QueeCount: " + NavigationTappedPage.Context.Channel.QueeCount;
+            QueeCount.Text = "QueeCount: " + NavigationTappedPage.Context.Channel.QueueCount;
             LastMessageParts.Text = "LastMessageParts: " + NavigationTappedPage.Context.Channel.LastPostParts;
             PostCounter.Text = "PostCounter: " + NavigationTappedPage.Context.Channel.PostCounter;
             Error.Text = "Error: " + NavigationTappedPage.Context.Channel.ErrorLog;

@@ -3,7 +3,7 @@ using CustomViewElements;
 using Utils;
 using Xamarin.Forms.Xaml;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TermsAndConditionsPage : BasePage

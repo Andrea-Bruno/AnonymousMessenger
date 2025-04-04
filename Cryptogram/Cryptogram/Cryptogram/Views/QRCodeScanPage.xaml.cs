@@ -4,7 +4,7 @@ using Utils;
 using Xamarin.Forms;
 using ZXing;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     public partial class QRCodeScanPage : BasePage
     {

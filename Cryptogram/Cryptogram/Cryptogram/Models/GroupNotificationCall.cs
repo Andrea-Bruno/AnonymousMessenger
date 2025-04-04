@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Anonymous.Models
+namespace Cryptogram.Models
 {
     public class GroupNotificationCall
     {

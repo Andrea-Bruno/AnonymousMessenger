@@ -6,11 +6,11 @@ using Android.Media;
 using Java.Lang;
 using Java.Nio;
 using MessageCompose.Services;
-using Anonymous.Droid.Services;
+using Cryptogram.Droid.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(VideoTrimmingService))]
-namespace Anonymous.Droid.Services
+namespace Cryptogram.Droid.Services
 {
     public class VideoTrimmingService : IVideoTrimmingService
     {

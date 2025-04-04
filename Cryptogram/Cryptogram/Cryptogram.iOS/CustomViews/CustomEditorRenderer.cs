@@ -1,4 +1,4 @@
-﻿using Anonymous.iOS;
+﻿using Cryptogram.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -7,7 +7,7 @@ using Foundation;
 using CustomViewElements;
 
 [assembly: ExportRenderer(typeof(CustomEditor), typeof(CustomEditorRenderer))]
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
     public class CustomEditorRenderer : EditorRenderer
     {

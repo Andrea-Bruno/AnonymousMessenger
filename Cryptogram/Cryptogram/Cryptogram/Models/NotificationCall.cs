@@ -1,4 +1,4 @@
-﻿namespace Anonymous.Models
+﻿namespace Cryptogram.Models
 {
     public class IOSNotificationCall
     {

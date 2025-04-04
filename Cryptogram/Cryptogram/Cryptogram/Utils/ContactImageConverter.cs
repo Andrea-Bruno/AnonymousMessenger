@@ -1,11 +1,11 @@
 using System;
 using System.Globalization;
 using System.IO;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using EncryptedMessaging;
 using Xamarin.Forms;
 
-namespace Anonymous
+namespace Cryptogram
 {
 	public class ContactImageConverter : IValueConverter
 	{

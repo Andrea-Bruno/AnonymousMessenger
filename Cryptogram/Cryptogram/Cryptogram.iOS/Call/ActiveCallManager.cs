@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Foundation;
 using CallKit;
 
-namespace Anonymous.iOS.Call
+namespace Cryptogram.iOS.Call
 {
     public class ActiveCallManager
     {

@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Anonymous.Services
+namespace Cryptogram.Services
 {
     public interface IStatusBarColor
     {

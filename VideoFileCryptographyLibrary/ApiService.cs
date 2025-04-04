@@ -16,9 +16,9 @@ namespace VideoFileCryptographyLibrary
         //#if DEBUG
         //        private static readonly string Url = @"http://90.191.43.19:8081/api/VideoFile/";
         //#else
-        //        private static readonly string Url = @"https://anonymousvideoappservice.azurewebsites.net/api/VideoFile/";
+        //        private static readonly string Url = @"https://Cryptogramvideoappservice.azurewebsites.net/api/VideoFile/";
         //#endif
-        private static readonly string Url = @"https://anonymousvideoappservice.azurewebsites.net/api/VideoFile/";
+        private static readonly string Url = @"https://Cryptogramvideoappservice.azurewebsites.net/api/VideoFile/";
 
         public static async Task<bool> UploadFileAsync(Stream sourceStream, string fileName)
         {

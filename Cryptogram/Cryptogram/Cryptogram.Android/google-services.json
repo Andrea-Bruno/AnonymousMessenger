@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "418506772713",
-    "firebase_url": "https://Anonymous-eacb6.firebaseio.com",
-    "project_id": "Anonymous-eacb6",
-    "storage_bucket": "Anonymous-eacb6.appspot.com"
+    "firebase_url": "https://Cryptogram-eacb6.firebaseio.com",
+    "project_id": "Cryptogram-eacb6",
+    "storage_bucket": "Cryptogram-eacb6.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:418506772713:android:bcd5d7167173fcb9fca078",
         "android_client_info": {
-          "package_name": "com.Cryptogram.Anonymous"
+          "package_name": "com.Cryptogram.Cryptogram"
         }
       },
       "oauth_client": [

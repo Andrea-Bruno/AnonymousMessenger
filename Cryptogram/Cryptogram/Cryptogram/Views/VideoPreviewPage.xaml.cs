@@ -1,7 +1,7 @@
 ﻿using CustomViewElements;
 using System;
 using System.Threading.Tasks;
-using Anonymous.DesignHandler;
+using Cryptogram.DesignHandler;
 using Utils;
 using Xamarin.CommunityToolkit.Core;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -10,7 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static MessageCompose.AttachmentPopupPage;
 
-namespace Anonymous.Views
+namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoPreviewPage : BasePage

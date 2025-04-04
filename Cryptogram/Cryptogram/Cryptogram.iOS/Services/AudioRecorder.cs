@@ -1,4 +1,4 @@
-﻿using Anonymous.iOS;
+﻿using Cryptogram.iOS;
 using AVFoundation;
 using Foundation;
 using System;
@@ -6,7 +6,7 @@ using System.IO;
 using MessageCompose.Services;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AudioRecorder))]
-namespace Anonymous.iOS
+namespace Cryptogram.iOS
 {
     public class AudioRecorder : IAudioRecorder
     {
