@@ -25,7 +25,6 @@ using Cryptogram.DesignHandler;
 using Android.Widget;
 using Plugin.Fingerprint;
 using Plugin.CurrentActivity;
-using System.Threading;
 using Android.Provider;
 
 [assembly: Dependency(typeof(MainActivity))]
@@ -51,12 +50,10 @@ namespace Cryptogram.Droid
 				base.OnCreate(bundle);
 				if (Context == null)
 				{
-
 					Rg.Plugins.Popup.Popup.Init(this);
-					Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mzc3MTg3QDMxMzgyZTM0MmUzMFk0TkIzd1YwUUEvNkJjcDNzd2dMYk9pU1ZFWVk2NEx1aUhyUytSZWl6Q3M9");
 					if(!Forms.IsInitialized)
 						Forms.Init(this, bundle);
-					Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
+					CrossCurrentActivity.Current.Init(this, bundle);
 					_currentWindow = Window;
 					NativeMedia.Platform.Init(this, bundle);
 					Xamarin.Essentials.Platform.Init(this, bundle);
@@ -74,16 +71,6 @@ namespace Cryptogram.Droid
 								 typeof(Analytics), typeof(Crashes));
 					DisableStandby();
 					Context = this;
-					string root;
-					if (Android.OS.Environment.IsExternalStorageEmulated)
-					{
-
-						root = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, Android.OS.Environment.DirectoryDownloads);
-
-					}
-					else
-						root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-					Console.WriteLine("Root path: " + root);
 				}
 				else
 				{
@@ -123,8 +110,8 @@ namespace Cryptogram.Droid
 
 		private async void CreateNotificationFromIntent(Intent intent)
 		{
-			try
-			{
+			//try
+			//{
 				LoadApplication(((App)Xamarin.Forms.Application.Current) ?? new App());
 				if (intent.Action == Intent.ActionSend && intent.Extras.ContainsKey(Intent.ExtraStream))
 				{
@@ -151,10 +138,10 @@ namespace Cryptogram.Droid
 						App.GoToChat(Convert.ToUInt64(intent.GetStringExtra(AndroidNotificationManager.ChatId)), type);
 					}
 				}
-			}catch(Exception e)
-            {
-				Console.WriteLine("Error: " + e.Message);
-            }
+			//}catch(Exception e)
+   //         {
+			//	Console.WriteLine("Error: " + e.Message);
+   //         }
 		}
 
 		public override void OnBackPressed()

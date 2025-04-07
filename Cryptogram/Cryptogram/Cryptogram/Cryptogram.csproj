@@ -38,11 +38,8 @@
     <PackageReference Include="Xam.Plugin.LatestVersion" Version="2.1.0" />
 
     <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.4.0.49" />
-    <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="18.4.0.49" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.43-beta" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.49" />
   </ItemGroup>
 
   <ItemGroup>

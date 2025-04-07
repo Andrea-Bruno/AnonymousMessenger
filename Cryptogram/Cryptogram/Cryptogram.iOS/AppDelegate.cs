@@ -11,7 +11,6 @@ using Microsoft.AppCenter.Crashes;
 using Plugin.AudioRecorder;
 using Plugin.FirebasePushNotification;
 using PushKit;
-using Syncfusion.ListView.XForms.iOS;
 using Cryptogram.CallHandler.Helpers;
 using Cryptogram.DesignHandler;
 using Cryptogram.iOS;
@@ -45,7 +44,6 @@ namespace Cryptogram.iOS
             Forms.Init();
             //CachedImageRenderer.Init();
             //CachedImageRenderer.InitImageSourceHandler();
-            InitSycnfusion();
             UNUserNotificationCenter.Current.Delegate = new iOSNotificationReceiver();
             ZXing.Net.Mobile.Forms.iOS.Platform.Init(); // qr code scanner
             InitAudioManager();
@@ -94,16 +92,6 @@ namespace Cryptogram.iOS
             };
         }
 
-        private void InitSycnfusion()
-        {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mzc3MTg3QDMxMzgyZTM0MmUzMFk0TkIzd1YwUUEvNkJjcDNzd2dMYk9pU1ZFWVk2NEx1aUhyUytSZWl6Q3M9");
-            Syncfusion.XForms.iOS.Buttons.SfSwitchRenderer.Init();
-            Syncfusion.SfImageEditor.XForms.iOS.SfImageEditorRenderer.Init();
-            Syncfusion.SfPdfViewer.XForms.iOS.SfPdfDocumentViewRenderer.Init();
-            Syncfusion.SfRangeSlider.XForms.iOS.SfRangeSliderRenderer.Init();
-            SfListViewRenderer.Init();
-        }
-
         private void SetNavigationBarColors()
         {
             UIColor tintColor = DesignResourceManager.GetColorFromStyle("Color1").ToUIColor();
@@ -121,9 +109,9 @@ namespace Cryptogram.iOS
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            System.Diagnostics.Debug.WriteLine($" FCM device Token: { deviceToken } ");
+            System.Diagnostics.Debug.WriteLine($" FCM device Token: {deviceToken} ");
             //App.NewDeviceToken = SplitDeviceToken(deviceToken);
-             FirebasePushNotificationManager.DidRegisterRemoteNotifications(deviceToken);
+            FirebasePushNotificationManager.DidRegisterRemoteNotifications(deviceToken);
         }
 
         //for notification
@@ -145,7 +133,7 @@ namespace Cryptogram.iOS
         [Export("messaging:didReceiveRegistrationToken:")]
         public void DidReceiveRegistrationToken(Messaging messaging, string token)
         {
-            System.Diagnostics.Debug.WriteLine($" FCM Token: { token } ");
+            System.Diagnostics.Debug.WriteLine($" FCM Token: {token} ");
             App.UpdateFirebaseToken(token);
         }
 
@@ -254,7 +242,7 @@ namespace Cryptogram.iOS
             return splittedToken;
         }
 
-        public void FinishCall( string chatId, string remoteName = "", bool isVideoCall = false)
+        public void FinishCall(string chatId, string remoteName = "", bool isVideoCall = false)
         {
             if (AgoraSettings.Current?.RoomName == chatId
                 && CallRoomViewController.Instance != null
@@ -263,7 +251,8 @@ namespace Cryptogram.iOS
                 CallRoomViewController.Instance?.FinishCall(false, false);
                 return;
             }
-            foreach (ActiveCall activeCall in Instance.CallManager?.Calls) { //  during another call receive call and then receive end call event
+            foreach (ActiveCall activeCall in Instance.CallManager?.Calls)
+            { //  during another call receive call and then receive end call event
                 if (activeCall.ChatId == chatId)
                 {
                     Instance?.CallManager?.EndCall(activeCall);

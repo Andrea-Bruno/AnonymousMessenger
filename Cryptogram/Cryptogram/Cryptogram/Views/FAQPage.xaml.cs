@@ -7,6 +7,8 @@ using Cryptogram.ViewModels;
 using Xamarin.Forms.Xaml;
 using Utils;
 using static EncryptedMessaging.Contacts;
+using Xamarin.Forms;
+using System.Linq;
 
 namespace Cryptogram.Views
 {
@@ -102,10 +104,10 @@ namespace Cryptogram.Views
             _questionAnswers.AddRange(topics);
             Questions.ItemsSource = _questionAnswers;
         }
-      
-        void Questions_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+
+        void Questions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _clickedItem = e.ItemData as QuestionAnswerViewModel;
+            _clickedItem = e.CurrentSelection.FirstOrDefault() as QuestionAnswerViewModel;
         }
 
         private void Back_Clicked(object sender, EventArgs e)

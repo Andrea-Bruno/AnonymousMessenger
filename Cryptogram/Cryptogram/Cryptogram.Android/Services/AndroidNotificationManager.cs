@@ -73,7 +73,7 @@ namespace Cryptogram.Droid.Services
                     .SetPriority(NotificationCompat.PriorityHigh)
                     .SetDefaults(NotificationCompat.DefaultSound | NotificationCompat.DefaultVibrate)
                     .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.Company_logo))
-                    .SetNumber(FirebaseMessageService.NumberOfUnreadedMessages)
+                    .SetNumber(FirebaseMessageService.NumberOfUnreadMessages)
                     .SetSmallIcon(Resource.Drawable.Company_logo).Build();
             Manager.Notify(_messageId, notification);
             return _messageId;
@@ -122,7 +122,7 @@ namespace Cryptogram.Droid.Services
                     .AddAction(Resource.Drawable.Company_logo, "Cancel call", cancelPendingIntent)
                     .SetAutoCancel(false)
                     .AddExtras(bundle)
-                    .SetNumber(FirebaseMessageService.NumberOfUnreadedMessages)
+                    .SetNumber(FirebaseMessageService.NumberOfUnreadMessages)
                     .SetOngoing(true)
                     .SetFullScreenIntent(pageIntent, true);
 
@@ -155,7 +155,7 @@ namespace Cryptogram.Droid.Services
                     .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.Company_logo))
                     .SetSmallIcon(Resource.Drawable.Company_logo)
                     .AddAction(Resource.Drawable.Company_logo, "End call", cancelPendingIntent)
-                    .SetNumber(FirebaseMessageService.NumberOfUnreadedMessages)
+                    .SetNumber(FirebaseMessageService.NumberOfUnreadMessages)
                     .SetOngoing(true);
 
 
@@ -221,7 +221,7 @@ namespace Cryptogram.Droid.Services
         public void CancelNotification()
         {
             Manager.Cancel(1);
-            FirebaseMessageService.NumberOfUnreadedMessages = 0;
+            FirebaseMessageService.NumberOfUnreadMessages = 0;
             Manager.GetNotificationChannel("_channelId")?.SetShowBadge(false);
         }
 

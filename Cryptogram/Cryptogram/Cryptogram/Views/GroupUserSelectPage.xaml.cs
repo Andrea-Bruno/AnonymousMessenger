@@ -13,6 +13,7 @@ using Utils;
 using Cryptogram.DesignHandler;
 using Xamarin.CommunityToolkit.Extensions;
 using MessageCompose.Model;
+using Xamarin.Forms;
 
 namespace Cryptogram.Views
 {
@@ -69,9 +70,9 @@ namespace Cryptogram.Views
             GetSelectedUserList();
         }
 
-        private void OnItemSelected(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs args)
+        private void OnItemSelected(object sender, SelectionChangedEventArgs args)
         {
-            _lastItemSelected = args.ItemData as SelectUserModel;
+            _lastItemSelected = args.CurrentSelection.FirstOrDefault() as SelectUserModel;
             if (_lastItemSelected != null)
             {
                 foreach (SelectUserModel selectUserModel in _selectedUsersModel)
@@ -94,20 +95,21 @@ namespace Cryptogram.Views
             SelectedItemsListView.ItemsSource = _selectedUsersModelList;
             if (_selectedUsersModelList.Count > 0)
             {
-               if (!Next.GetTag().Equals("ic_next_new.png"))
+                if (!Next.GetTag().Equals("ic_next_new.png"))
                 {
                     SelectedItemPane.IsVisible = true;
                     Next.Source = DesignResourceManager.GetImageSource("ic_next_new.png");
                     Next.SetTag("ic_next_new.png");
-                }                    
+                }
             }
-            else if(_selectedUsersModelList.Count == 0) 
+            else if (_selectedUsersModelList.Count == 0)
             {
-                    if (!Next.GetTag().Equals("ic_next_disabled.png")) {
-                        SelectedItemPane.IsVisible = false;
-                        Next.Source = DesignResourceManager.GetImageSource("ic_next_disabled.png");
-                        Next.SetTag("ic_next_disabled.png");
-                    }
+                if (!Next.GetTag().Equals("ic_next_disabled.png"))
+                {
+                    SelectedItemPane.IsVisible = false;
+                    Next.Source = DesignResourceManager.GetImageSource("ic_next_disabled.png");
+                    Next.SetTag("ic_next_disabled.png");
+                }
             }
             else
             {
@@ -125,9 +127,9 @@ namespace Cryptogram.Views
             sender.HandleButtonSingleClick();
             if (_selectedUsers.Count() > 1 && !IsMessageForwarding)
                 await Navigation.PushAsync(new GroupCreatePage(_selectedUsers), false);
-            else if (_selectedUsers.Count() > 0 && IsMessageForwarding && _sharedData ==null)
+            else if (_selectedUsers.Count() > 0 && IsMessageForwarding && _sharedData == null)
                 ForwardMessages();
-            else if (_selectedUsers.Count() > 0 && IsMessageForwarding && _sharedData !=null)
+            else if (_selectedUsers.Count() > 0 && IsMessageForwarding && _sharedData != null)
                 ForwardData();
             else if (_selectedUsers.Count() == 0 && IsMessageForwarding) { }
             else
@@ -137,21 +139,19 @@ namespace Cryptogram.Views
         private void Search_TextChanged(object sender, EventArgs e)
         {
             var find = ((CustomEntry)sender).Text;
-            if (ItemsListView.DataSource != null)
+            if (ItemsListView.ItemsSource != null)
             {
-                ItemsListView.DataSource.Filter = FilterContacts;
-                ItemsListView.DataSource.RefreshFilter();
-                var filteredDataCount = ItemsListView.DataSource.Items.Count;
-                IsPlaceholderVisible = filteredDataCount == 0;
+                var filteredData = _selectedUsersModel.Where(FilterContacts).ToList();
+                ItemsListView.ItemsSource = filteredData;
+                IsPlaceholderVisible = filteredData.Count == 0;
             }
         }
 
-        private bool FilterContacts(object obj)
+        private bool FilterContacts(SelectUserModel selectUser)
         {
             if (SearchBar == null || SearchBar.Text == null)
                 return true;
 
-            var selectUser = obj as SelectUserModel;
             if (selectUser.contact.Name.ToLower().Contains(SearchBar.Text.ToLower()))
                 return true;
             else
@@ -193,8 +193,8 @@ namespace Cryptogram.Views
         {
             foreach (Contact contact in _selectedUsers)
             {
-                if(_sharedMessageType == MessageType.PdfDocument)
-                SendMessage(contact, _sharedData, _sharedMessageType);
+                if (_sharedMessageType == MessageType.PdfDocument)
+                    SendMessage(contact, _sharedData, _sharedMessageType);
             }
 
             if (_selectedUsers.Count == 1)
@@ -212,7 +212,7 @@ namespace Cryptogram.Views
         {
             foreach (Message message in Messages)
             {
-                if(!CheckMessageDeleted(message))
+                if (!CheckMessageDeleted(message))
                     foreach (Contact contact in _selectedUsers)
                     {
                         SendMessage(contact, message.GetData(), message.Type, message);
@@ -256,7 +256,7 @@ namespace Cryptogram.Views
                         break;
                     case MessageType.ShareEncryptedContent:
                         message.GetShareEncryptedContentData(out var contentType, out var privateKey, out var description, out var serverUrl);
-                        NavigationTappedPage.Context.Messaging.ShareEncryptedContent(contact,contentType, privateKey, description,serverUrl);
+                        NavigationTappedPage.Context.Messaging.ShareEncryptedContent(contact, contentType, privateKey, description, serverUrl);
                         break;
                 }
             }

@@ -1,5 +1,4 @@
 ﻿using CustomViewElements;
-using Syncfusion.XForms.Buttons;
 using System;
 using Cryptogram.Backup;
 using Cryptogram.DesignHandler;
@@ -57,7 +56,7 @@ namespace Cryptogram.Views
             sender.HandleButtonSingleClick();
             Uri uri = new Uri("https://Cryptogramsocial.tech/pp.html");
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
-        }      
+        }
 
         private void MenuText_Clicked(object sender, EventArgs e)
         {
@@ -83,17 +82,17 @@ namespace Cryptogram.Views
         }
         private void CheckSwitchCase()
         {
-            AppLock1.IsOn = XamarinShared.Setup.GetSecureValue("LockPin") != null;
-            Backup.IsOn = XamarinShared.Setup.GetSecureValue("Backup") != null;
+            AppLock1.IsToggled = XamarinShared.Setup.GetSecureValue("LockPin") != null;
+            Backup.IsToggled = XamarinShared.Setup.GetSecureValue("Backup") != null;
         }
 
-        private async void SfSwitch_AppLockStateChanged(object sender, SwitchStateChangedEventArgs e)
+        private async void AppLock_Toggled(object sender, ToggledEventArgs e)
         {
-            if (AppLock1.IsOn == true && XamarinShared.Setup.GetSecureValue("LockPin") ==null)
+            if (AppLock1.IsToggled && XamarinShared.Setup.GetSecureValue("LockPin") == null)
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new CreatePinPage(), false);
             }
-            else if (AppLock1.IsOn == false && XamarinShared.Setup.GetSecureValue("LockPin")!=null)
+            else if (!AppLock1.IsToggled && XamarinShared.Setup.GetSecureValue("LockPin") != null)
             {
                 XamarinShared.Setup.RemoveSecureValue("LockPin");
                 XamarinShared.Setup.RemoveSecureValue("LastAttemptTime");
@@ -104,7 +103,7 @@ namespace Cryptogram.Views
         private void MessageLimits_Clicked(object sender, EventArgs _)
         {
             sender.HandleButtonSingleClick();
-            var clicked_Button =  sender as Button;
+            var clicked_Button = sender as Button;
             MessageLimits_Zero.BorderColor = MessageLimits_Ten.BorderColor = MessageLimits_Twenty.BorderColor = MessageLimits_Thirty.BorderColor = Color.Transparent;
             try
             {
@@ -121,12 +120,12 @@ namespace Cryptogram.Views
         {
             sender.HandleButtonSingleClick();
             var clicked_Button = sender as Button;
-            MessageDuration_Zero.BorderColor =  MessageDuration_Ten.BorderColor = MessageDuration_Twenty.BorderColor = MessageDuration_Thirty.BorderColor = Color.Transparent;
+            MessageDuration_Zero.BorderColor = MessageDuration_Ten.BorderColor = MessageDuration_Twenty.BorderColor = MessageDuration_Thirty.BorderColor = Color.Transparent;
             try
             {
                 NavigationTappedPage.Context.Setting.PostPersistenceDays = Convert.ToInt32(clicked_Button.Text);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 NavigationTappedPage.Context.Setting.PostPersistenceDays = 100000;
             }
@@ -157,10 +156,9 @@ namespace Cryptogram.Views
             Application.Current.MainPage.Navigation.PushAsync(new TextSizePage(), false);
         }
 
-        private void SfSwitch_BackupStateChanged(object sender, SwitchStateChangedEventArgs e)
+        private void Backup_Toggled(object sender, ToggledEventArgs e)
         {
-
-            if ((bool)Backup.IsOn)
+            if (Backup.IsToggled)
             {
                 XamarinShared.Setup.SetSecureValue("Backup", "true");
                 if (App.DriveService == null)
@@ -210,3 +208,4 @@ namespace Cryptogram.Views
         }
     }
 }
+

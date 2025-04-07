@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using CustomViewElements;
 using EncryptedMessaging;
 using Utils;
+using Xamarin.Forms;
 using static EncryptedMessaging.Contacts;
 
 namespace ChatComposer
@@ -12,34 +15,39 @@ namespace ChatComposer
         public delegate void PlaceHolderVisibility(bool isVisible);
         private ItemClickEvent _onChatItemClicked;
         private PlaceHolderVisibility _placeHolderVisibility;
-        private Observable<Contact> _contacts;
+        private ObservableCollection<Contact> _contacts;
         private bool isPlaceholderVisible
         {
             set
             {
-                if (_placeHolderVisibility != null)
-                    _placeHolderVisibility(value);
-
+                _placeHolderVisibility?.Invoke(value);
             }
         }
 
-
         private Contact _lastItemSelected;
         private string _searchQuery;
+        private SwipeView _currentSwipeView;
+
+        public Command<Contact> ClearCommand { get; }
+        public Command<Contact> DeleteCommand { get; }
+        public Command<Contact> EditCommand { get; }
 
         public ChatList()
         {
             try
             {
                 InitializeComponent();
+                ClearCommand = new Command<Contact>(Clear_Clicked);
+                DeleteCommand = new Command<Contact>(Delete_Clicked);
+                EditCommand = new Command<Contact>(Edit_Clicked);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 InitializeComponent(); // Some bugs on xamarin forms load view
             }
         }
 
-        public void Init(ItemClickEvent onChatItemClicked, Observable<Contact> contacts)
+        public void Init(ItemClickEvent onChatItemClicked, ObservableCollection<Contact> contacts)
         {
             lock (contacts)
             {
@@ -48,23 +56,21 @@ namespace ChatComposer
                 ItemsListView.ItemsSource = contacts;
                 isPlaceholderVisible = contacts.Count == 0;
                 _lastItemSelected = null;
-                ItemsListView.QueryItemSize += ItemsListView_QueryItemSize;
                 contacts.CollectionChanged += Contacts_CollectionChanged;
             }
         }
+
         private void Contacts_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            if (ItemsListView?.DataSource != null && !string.IsNullOrWhiteSpace(_searchQuery))
-                isPlaceholderVisible = ItemsListView.DataSource.Items.Count == 0;
+            if (!string.IsNullOrWhiteSpace(_searchQuery))
+                isPlaceholderVisible = _contacts.Count == 0;
             else
                 isPlaceholderVisible = _contacts.Count == 0;
         }
 
-        private void Clear_Clicked(object sender, EventArgs e)
+        private void Clear_Clicked(Contact contact)
         {
-            sender.HandleButtonSingleClick();
-            if (_lastItemSelected != null)
-                _onChatItemClicked(_lastItemSelected, ChatItemClickType.CLEAR);
+            _onChatItemClicked?.Invoke(contact, ChatItemClickType.CLEAR);
         }
 
         public void SetPlaceHolderVisibility(PlaceHolderVisibility placeHolderVisibility)
@@ -72,63 +78,32 @@ namespace ChatComposer
             _placeHolderVisibility = placeHolderVisibility;
         }
 
-        private void Delete_Clicked(object sender, EventArgs e)
+        private void Delete_Clicked(Contact contact)
         {
-            sender.HandleButtonSingleClick();
-            if (_lastItemSelected != null)
-                _onChatItemClicked(_lastItemSelected, ChatItemClickType.DELETE);
+            _onChatItemClicked?.Invoke(contact, ChatItemClickType.DELETE);
         }
 
-        private void Edit_Clicked(object sender, EventArgs e)
+        private void Edit_Clicked(Contact contact)
         {
-            sender.HandleButtonSingleClick();
-            if (_lastItemSelected != null)
-                _onChatItemClicked(_lastItemSelected, ChatItemClickType.EDIT);
+            _onChatItemClicked?.Invoke(contact, ChatItemClickType.EDIT);
         }
 
-        private void OnItemSelected(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs args)
+        private void OnItemSelected(object sender, SelectionChangedEventArgs args)
         {
-            _lastItemSelected = args.ItemData as Contact;
+            _lastItemSelected = args.CurrentSelection.FirstOrDefault() as Contact;
             if (_lastItemSelected != null)
-                _onChatItemClicked(_lastItemSelected, ChatItemClickType.TAP);
+                _onChatItemClicked?.Invoke(_lastItemSelected, ChatItemClickType.TAP);
             _lastItemSelected = null; // remove highlight on back click
-
-        }
-
-        private void ItemsListView_SwipeStarted(object sender, Syncfusion.ListView.XForms.SwipeStartedEventArgs e)
-        {
-            _lastItemSelected = null;
-        }
-
-        private void ItemsListView_SwipeEnded(object sender, Syncfusion.ListView.XForms.SwipeEndedEventArgs e)
-        {
-            _lastItemSelected = e.ItemData as Contact;
         }
 
         public void FilterContacts(string query)
         {
             _searchQuery = query;
-            if (ItemsListView.DataSource != null)
-            {
-                ItemsListView.DataSource.Filter = FilterContacts;
-                ItemsListView.DataSource.RefreshFilter();
-                isPlaceholderVisible = ItemsListView.DataSource.Items.Count == 0;
-            }      
+            var filteredContacts = _contacts.Where(c => c.Name.ToLower().Contains(_searchQuery.ToLower())).ToList();
+            ItemsListView.ItemsSource = new ObservableCollection<Contact>(filteredContacts);
+            isPlaceholderVisible = filteredContacts.Count == 0;
         }
 
-        private void ItemsListView_QueryItemSize(object sender, Syncfusion.ListView.XForms.QueryItemSizeEventArgs e)
-        {
-            var size = e.ItemSize;
-        }
-
-        private bool FilterContacts(object obj)
-        {
-            var contacts = obj as Contact;
-            if (contacts.Name.ToLower().Contains(_searchQuery.ToLower()))
-                return true;
-            else
-                return false;
-        }
         public void ClearState()
         {
             _lastItemSelected = null;
@@ -137,7 +112,7 @@ namespace ChatComposer
 
         public void ResetSwipe()
         {
-            ItemsListView.ResetSwipe();
+            _currentSwipeView?.Close();
         }
 
         public override void OnAppearing()

@@ -9,6 +9,7 @@ using System.Collections.Specialized;
 using XamarinShared.ViewModels;
 using Cryptogram.DesignHandler;
 using Utils;
+using System.Linq;
 
 namespace Cryptogram.Views
 {
@@ -76,8 +77,8 @@ namespace Cryptogram.Views
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                if (ItemsListView?.DataSource != null && !string.IsNullOrWhiteSpace(_searchQuery))
-                    isPlaceholderVisible = ItemsListView.DataSource.Items.Count == 0;
+                if (ItemsListView?.ItemsSource != null && !string.IsNullOrWhiteSpace(_searchQuery))
+                    isPlaceholderVisible = ((System.Collections.IList)ItemsListView.ItemsSource).Count == 0;
                 else
                     isPlaceholderVisible = Calls.GetInstance().AllCalls.Count == 0;
             });
@@ -105,12 +106,11 @@ namespace Cryptogram.Views
         private void FilterContacts(string query)
         {
             _searchQuery = query;
-            if (ItemsListView.DataSource != null)
+            if (ItemsListView.ItemsSource != null)
             {
-                ItemsListView.DataSource.Filter = FilterContacts;
-                ItemsListView.DataSource.RefreshFilter();
-                var filteredDataCount = ItemsListView.DataSource.Items.Count;
-                isPlaceholderVisible = filteredDataCount == 0;
+                var filteredData = Calls.GetInstance().AllCalls.Where(call => FilterContacts(call)).ToList();
+                ItemsListView.ItemsSource = filteredData;
+                isPlaceholderVisible = filteredData.Count == 0;
             }
         }
 
@@ -145,7 +145,7 @@ namespace Cryptogram.Views
                 View v = sender as View;
                 CallViewModel callViewModel = (v.GestureRecognizers[0] as TapGestureRecognizer).CommandParameter as CallViewModel;
                 if (callViewModel != null)
-                    ((App)Application.Current)?.CallManager.StartCall(callViewModel.Contact, callViewModel.MessageType == MessageType.VideoCall || callViewModel.MessageType == MessageType.StartVideoGroupCall );
+                    ((App)Application.Current)?.CallManager.StartCall(callViewModel.Contact, callViewModel.MessageType == MessageType.VideoCall || callViewModel.MessageType == MessageType.StartVideoGroupCall);
             }
             catch (FormatException) { }
         }
@@ -155,7 +155,7 @@ namespace Cryptogram.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((value as MessageType?) == MessageType.VideoCall || (value as MessageType?) == MessageType.StartVideoGroupCall ) ? CallPage.VideoCallIcon : CallPage.AudioCallIcon;
+            return ((value as MessageType?) == MessageType.VideoCall || (value as MessageType?) == MessageType.StartVideoGroupCall) ? CallPage.VideoCallIcon : CallPage.AudioCallIcon;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

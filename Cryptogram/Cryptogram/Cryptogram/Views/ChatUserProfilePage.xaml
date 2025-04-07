@@ -9,8 +9,6 @@
     xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-    xmlns:syncfusion1="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     ios:Page.UseSafeArea="true"
     mc:Ignorable="d">
     <StackLayout>
@@ -239,47 +237,15 @@
                                 TextColor="{DynamicResource WhiteColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="310" />
-                            <syncfusion:SfSwitch
+                            <Switch
                                 x:Name="MessageConfirmationButton"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 Margin="0,0,10,0"
                                 HorizontalOptions="End"
-                                IsOn="False"
-                                StateChanged="MessageConfirmationButton_StateChanged"
-                                VerticalOptions="Center"
-                                VisualType="Custom">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates1">
-                                        <VisualState x:Name="On">
-                                            <VisualState.Setters>
-                                                <Setter Property="SwitchSettings">
-                                                    <Setter.Value>
-                                                        <syncfusion:CupertinoSwitchSettings
-                                                            x:TypeArguments="syncfusion:OnState"
-                                                            ThumbColor="{DynamicResource WhiteColor}"
-                                                            TrackBorderColor="{DynamicResource Color2}"
-                                                            TrackColor="{DynamicResource Theme}" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Off">
-                                            <VisualState.Setters>
-                                                <Setter Property="SwitchSettings">
-                                                    <Setter.Value>
-                                                        <syncfusion:CupertinoSwitchSettings
-                                                            x:TypeArguments="syncfusion:OffState"
-                                                            ThumbColor="{DynamicResource WhiteColor}"
-                                                            TrackBorderColor="{DynamicResource Color2}"
-                                                            TrackColor="{DynamicResource Gray}" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                            </syncfusion:SfSwitch>
+                                IsToggled="False"
+                                Toggled="MessageConfirmationButton_StateChanged"
+                                VerticalOptions="Center" />
                         </Grid>
                     </StackLayout>
                     <StackLayout
@@ -320,47 +286,15 @@
                                 TextColor="{DynamicResource WhiteColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="310" />
-                            <syncfusion:SfSwitch
+                            <Switch
                                 x:Name="MessageAutoTranslation"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 Margin="0,0,10,0"
                                 HorizontalOptions="End"
-                                IsOn="False"
-                                StateChanged="MessageAutoTranslation_StateChanged"
-                                VerticalOptions="Center"
-                                VisualType="Custom">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="On">
-                                            <VisualState.Setters>
-                                                <Setter Property="SwitchSettings">
-                                                    <Setter.Value>
-                                                        <syncfusion:CupertinoSwitchSettings
-                                                            x:TypeArguments="syncfusion:OnState"
-                                                            ThumbColor="{DynamicResource WhiteColor}"
-                                                            TrackBorderColor="{DynamicResource Color2}"
-                                                            TrackColor="{DynamicResource Theme}" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Off">
-                                            <VisualState.Setters>
-                                                <Setter Property="SwitchSettings">
-                                                    <Setter.Value>
-                                                        <syncfusion:CupertinoSwitchSettings
-                                                            x:TypeArguments="syncfusion:OffState"
-                                                            ThumbColor="{DynamicResource WhiteColor}"
-                                                            TrackBorderColor="{DynamicResource Color2}"
-                                                            TrackColor="{DynamicResource Gray}" />
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                            </syncfusion:SfSwitch>
+                                IsToggled="False"
+                                Toggled="MessageAutoTranslation_StateChanged"
+                                VerticalOptions="Center" />
                         </Grid>
                     </StackLayout>
                     <StackLayout
@@ -418,18 +352,17 @@
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Block_Clicked" />
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
-                    <syncfusion1:SfListView
+                    <CollectionView
                         x:Name="ItemsListView"
                         BackgroundColor="Transparent"
-                        IsScrollingEnabled="False"
                         IsVisible="False"
-                        ItemSize="75"
+                        ItemsLayout="VerticalList"
                         ItemsSource="{Binding Items}"
                         SelectionMode="None"
                         VerticalOptions="End">
-                        <syncfusion1:SfListView.ItemTemplate>
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
+                                <Grid>
                                     <StackLayout
                                         HeightRequest="75"
                                         MinimumHeightRequest="75"
@@ -461,10 +394,10 @@
                                             VerticalOptions="Fill"
                                             Color="{x:DynamicResource Color3}" />
                                     </StackLayout>
-                                </ViewCell>
+                                </Grid>
                             </DataTemplate>
-                        </syncfusion1:SfListView.ItemTemplate>
-                    </syncfusion1:SfListView>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

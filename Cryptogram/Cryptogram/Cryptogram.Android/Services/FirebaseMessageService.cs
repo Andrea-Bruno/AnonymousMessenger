@@ -19,7 +19,7 @@ namespace Cryptogram.Droid.Services
 	[IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
 	public class FirebaseMessageService : FirebaseMessagingService, IEndCall
 	{
-		public static int NumberOfUnreadedMessages = 0;
+		public static int NumberOfUnreadMessages = 0;
 		private readonly AndroidNotificationManager notificationManager = AndroidNotificationManager.GetInstance();
 		public override void OnMessageReceived(RemoteMessage message)
 		{
@@ -119,7 +119,7 @@ namespace Cryptogram.Droid.Services
 		private void UpdateBadge(GeneralNotificationType generalNotificationType)
         {
 			if ((((App)Xamarin.Forms.Application.Current) == null || App.IsAppInSleepMode) && generalNotificationType != GeneralNotificationType.P2P_CALL)
-				NumberOfUnreadedMessages++;
+				NumberOfUnreadMessages++;
 		}
 
 		private void OpenCallReceiveActivity(string chatId, bool isVideoCall, string username)

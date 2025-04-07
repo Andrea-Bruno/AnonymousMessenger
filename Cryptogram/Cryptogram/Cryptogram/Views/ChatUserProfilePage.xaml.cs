@@ -53,8 +53,8 @@ namespace Cryptogram.Views
                 Edit.Opacity = 0.5;
                 Edit.IsEnabled = false;
             }
-            MessageAutoTranslation.IsOn = _contact.TranslationOfMessages;
-            MessageConfirmationButton.IsOn = !_contact.SendConfirmationOfReading;
+            MessageAutoTranslation.IsToggled = _contact.TranslationOfMessages;
+            MessageConfirmationButton.IsToggled = !_contact.SendConfirmationOfReading;
         }
 
         protected override void OnAppearing() => base.OnAppearing();
@@ -170,44 +170,23 @@ namespace Cryptogram.Views
             NameEntryLyt.IsVisible = !isEditEnabled;
         }
 
-        private void MessageAutoTranslation_StateChanged(object sender, Syncfusion.XForms.Buttons.SwitchStateChangedEventArgs e)
+        private void MessageAutoTranslation_StateChanged(object sender, ToggledEventArgs e)
         {
+            if (_contact.IsGroup)
             {
-                if (_contact.IsGroup)
+                foreach (var c in _contacts)
                 {
-                    if (MessageAutoTranslation.IsOn == true)
-                    {
-                        foreach (var c in _contacts)
-                        {
-                            c.TranslationOfMessages = true;
-                            c.Save();
-                        }
-                    }
-                    else
-                    {
-                        foreach (var c in _contacts)
-                        {
-                            c.TranslationOfMessages = false;
-                            c.Save();
-                        }
-                    }
-                }
-                if (MessageAutoTranslation.IsOn == true)
-                {
-                    _contact.TranslationOfMessages = true;
-                    _contact.Save();
-                }
-                else
-                {
-                    _contact.TranslationOfMessages = false;
-                    _contact.Save();
+                    c.TranslationOfMessages = e.Value;
+                    c.Save();
                 }
             }
+            _contact.TranslationOfMessages = e.Value;
+            _contact.Save();
         }
 
-        private void MessageConfirmationButton_StateChanged(object sender, Syncfusion.XForms.Buttons.SwitchStateChangedEventArgs e)
+        private void MessageConfirmationButton_StateChanged(object sender, ToggledEventArgs e)
         {
-            _contact.SendConfirmationOfReading = !(bool)MessageConfirmationButton.IsOn;
+            _contact.SendConfirmationOfReading = !e.Value;
             _contact.Save();
         }
 

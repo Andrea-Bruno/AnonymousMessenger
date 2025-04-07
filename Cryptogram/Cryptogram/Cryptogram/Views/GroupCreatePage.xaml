@@ -8,8 +8,7 @@
     xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-    xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
+    xmlns:view="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     ios:Page.UseSafeArea="true"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     mc:Ignorable="d">
@@ -93,55 +92,52 @@
                 HasShadow="False"
                 VerticalOptions="FillAndExpand">
                 <StackLayout BackgroundColor="{DynamicResource Color1}" Orientation="Vertical">
-                    <syncfusion:SfListView
+                    <CollectionView
                         x:Name="ItemsListView"
-                        AllowSwiping="True"
+                        ItemsLayout="VerticalList"
                         BackgroundColor="Transparent"
-                        ItemSize="75"
                         SelectionMode="None"
                         VerticalOptions="FillAndExpand">
-                        <syncfusion:SfListView.ItemTemplate>
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
+                                <StackLayout
+                                    HeightRequest="75"
+                                    MinimumHeightRequest="75"
+                                    Orientation="Vertical"
+                                    Spacing="0">
                                     <StackLayout
-                                        HeightRequest="75"
-                                        MinimumHeightRequest="75"
-                                        Orientation="Vertical"
-                                        Spacing="0">
-                                        <StackLayout
-                                            Margin="12"
+                                        Margin="12"
+                                        HeightRequest="50"
+                                        MinimumHeightRequest="50"
+                                        Orientation="Horizontal"
+                                        Spacing="0"
+                                        VerticalOptions="FillAndExpand">
+                                        <view:CustomAvatar
+                                            Contact="{Binding contact}"
+                                            CornerRadius="25"
                                             HeightRequest="50"
-                                            MinimumHeightRequest="50"
-                                            Orientation="Horizontal"
-                                            Spacing="0"
-                                            VerticalOptions="FillAndExpand">
-                                            <views:CustomAvatar
-                                                Contact="{Binding contact}"
-                                                CornerRadius="25"
-                                                HeightRequest="50"
-                                                WidthRequest="50" />
-                                            <local:CustomLabel
-                                                x:Name="Name"
-                                                Margin="16,0,0,0"
-                                                FontFamily="PoppinsSemiBold"
-                                                FontSize="18"
-                                                HorizontalOptions="FillAndExpand"
-                                                MaxLines="1"
-                                                Style="{DynamicResource ListItemTextStyle}"
-                                                Text="{Binding contact.Name}"
-                                                TextColor="{DynamicResource WhiteColor}"
-                                                VerticalOptions="Center" />
-                                        </StackLayout>
-                                        <BoxView
-                                            Margin="75,0,0,0"
-                                            HeightRequest="1"
-                                            VerticalOptions="Fill"
-                                            Color="{DynamicResource Color3}" />
+                                            WidthRequest="50" />
+                                        <local:CustomLabel
+                                            x:Name="Name"
+                                            Margin="16,0,0,0"
+                                            FontFamily="PoppinsSemiBold"
+                                            FontSize="18"
+                                            HorizontalOptions="FillAndExpand"
+                                            MaxLines="1"
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            Text="{Binding contact.Name}"
+                                            TextColor="{DynamicResource WhiteColor}"
+                                            VerticalOptions="Center" />
                                     </StackLayout>
-                                </ViewCell>
+                                    <BoxView
+                                        Margin="75,0,0,0"
+                                        HeightRequest="1"
+                                        VerticalOptions="Fill"
+                                        Color="{DynamicResource Color3}" />
+                                </StackLayout>
                             </DataTemplate>
-                        </syncfusion:SfListView.ItemTemplate>
-                    </syncfusion:SfListView>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </Frame>
        

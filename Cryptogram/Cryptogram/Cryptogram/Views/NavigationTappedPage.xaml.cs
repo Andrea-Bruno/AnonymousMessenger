@@ -11,7 +11,6 @@ using FontSizeConverter = XamarinShared.ViewCreator.FontSizeConverter;
 using Cryptogram.Services;
 using Plugin.LatestVersion;
 using Cryptogram.Backup;
-using Cryptogram.Config;
 
 namespace Cryptogram.Views
 {

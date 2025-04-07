@@ -422,7 +422,7 @@ namespace Cryptogram
 			if (iMSureThereIsConnection == false)
 				iMSureThereIsConnection = Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet
 					|| Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet;
-			if (_isAppFullyLoaded) Context.ReEstablishConnection(iMSureThereIsConnection);
+			if (_isAppFullyLoaded) Context.ReEstablishInternetConnection(iMSureThereIsConnection);
 		}
 
 		public static void UpdateDeviceToken(string token = null)

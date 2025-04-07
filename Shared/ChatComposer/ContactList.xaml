@@ -3,20 +3,15 @@
     x:Class="ChatComposer.ContactList"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+    xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements">
     <local1:BaseContentView.Content>
-        <!-- SwipeEnded="ItemsListView_SwipeEnded" -->
-        <!-- SwipeStarted="ItemsListView_SwipeStarted" -->
-        <syncfusion:SfListView
+        <CollectionView
             x:Name="ItemsListView"
-            AllowSwiping="True"
+            ItemsLayout="VerticalList"
             BackgroundColor="Transparent"
-            ItemSize="100"
-            ItemTapped="OnItemSelected"
             SelectionMode="None"
             VerticalOptions="FillAndExpand">
-            <syncfusion:SfListView.ItemTemplate>
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout
@@ -56,7 +51,7 @@
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
-            </syncfusion:SfListView.ItemTemplate>
-        </syncfusion:SfListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </local1:BaseContentView.Content>
 </local1:BaseContentView>

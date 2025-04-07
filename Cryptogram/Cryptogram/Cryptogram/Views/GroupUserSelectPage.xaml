@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
-    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     ios:Page.UseSafeArea="true">
@@ -138,14 +137,13 @@
                     HeightRequest="1"
                     VerticalOptions="Fill"
                     Color="{DynamicResource Gray}" />
-                <syncfusion:SfListView
+                <CollectionView
                     x:Name="SelectedItemsListView"
-                    AutoFitMode="Height"
+                    ItemsLayout="HorizontalList"
                     BackgroundColor="Transparent"
-                    ItemTapped="OnItemSelected"
-                    Orientation="Horizontal"
-                    VerticalOptions="FillAndExpand">
-                    <syncfusion:SfListView.ItemTemplate>
+                    SelectionMode="Single"
+                    SelectionChanged="OnItemSelected">
+                    <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid
                                 Margin="0"
@@ -198,8 +196,8 @@
                                     VerticalTextAlignment="Center" />
                             </Grid>
                         </DataTemplate>
-                    </syncfusion:SfListView.ItemTemplate>
-                </syncfusion:SfListView>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
             <Frame
                 Margin="0"
@@ -208,15 +206,13 @@
                 HasShadow="False"
                 VerticalOptions="FillAndExpand">
                 <StackLayout BackgroundColor="{DynamicResource Color1}" Orientation="Vertical">
-                    <syncfusion:SfListView
+                    <CollectionView
                         x:Name="ItemsListView"
-                        AllowSwiping="True"
+                        ItemsLayout="VerticalList"
                         BackgroundColor="Transparent"
-                        ItemSize="75"
-                        ItemTapped="OnItemSelected"
-                        SelectionMode="None"
-                        VerticalOptions="FillAndExpand">
-                        <syncfusion:SfListView.ItemTemplate>
+                        SelectionMode="Single"
+                        SelectionChanged="OnItemSelected">
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout
@@ -265,8 +261,8 @@
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
-                        </syncfusion:SfListView.ItemTemplate>
-                    </syncfusion:SfListView>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                     <views:CustomNoResult
                         x:Name="NoResultPage"
                         IsVisible="false"

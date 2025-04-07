@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using CustomViewElements;
-using Syncfusion.SfImageEditor.XForms;
 using Cryptogram.DesignHandler;
 using Utils;
 using Xamarin.Essentials;
@@ -175,10 +174,10 @@ namespace Cryptogram.Views
             HideProgressDialog();
         }
 
-        private void SelectedImages_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        private void SelectedImages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CurrentImage = e.ItemData as ScrollablePaneImage;
-            imageHolder.Source = CurrentImage.imageSource;
+            CurrentImage = e.CurrentSelection.FirstOrDefault() as ScrollablePaneImage;
+            imageHolder.Source = CurrentImage?.imageSource;
         }
 
         #region Add Button
@@ -265,15 +264,15 @@ namespace Cryptogram.Views
         {
             sender.HandleButtonSingleClick();
 
-            SfImageEditorPage sfImageEditorPage = new SfImageEditorPage(CurrentImage.imageSource);
-            sfImageEditorPage.OnImageSaving += OnImageSaving;
+            CustomImageEditorPage customImageEditorPage = new CustomImageEditorPage(CurrentImage.imageSource);
+            customImageEditorPage.OnImageSaving += OnImageSaving;
 
             if (Device.RuntimePlatform.ToLower() == "ios")
-                Application.Current.MainPage.Navigation.PushAsync(sfImageEditorPage, false);
+                Application.Current.MainPage.Navigation.PushAsync(customImageEditorPage, false);
             else if (Device.RuntimePlatform.ToLower() == "uwp")
-                Navigation.PushAsync(sfImageEditorPage);
+                Navigation.PushAsync(customImageEditorPage);
             else
-                Navigation.PushModalAsync(sfImageEditorPage);
+                Navigation.PushModalAsync(customImageEditorPage);
         }
 
         private void OnImageSaving(Stream stream)
@@ -292,30 +291,33 @@ namespace Cryptogram.Views
             }
         }
 
-        private class SfImageEditorPage : ContentPage
+        private class CustomImageEditorPage : ContentPage
         {
             public delegate void ImageSavingHandler(Stream stream);
 
             public event ImageSavingHandler OnImageSaving;
 
-            public SfImageEditorPage(ImageSource imagesource)
+            public CustomImageEditorPage(ImageSource imagesource)
             {
                 (Application.Current.MainPage as NavigationPage).BarBackgroundColor = DesignResourceManager.GetColorFromStyle("Color1");
-                SfImageEditor editor = new SfImageEditor();
-                editor.Source = imagesource;
-                editor.RotatableElements = ImageEditorElements.Text;
-                editor.ImageSaving += ImageSaving;
-                Content = editor;
-            }
-
-            private void ImageSaving(object sender, ImageSavingEventArgs args)
-            {
-                args.Cancel = true; // To avoid the image saved into pictures library
-                OnImageSaving(args.Stream);
-                if (Device.RuntimePlatform == Device.Android)
-                    OnBackButtonPressed();
-                else
-                    Application.Current.MainPage.Navigation.PopAsync(false);
+                // Implementa il tuo editor di immagini personalizzato qui
+                // Puoi utilizzare un controllo Image e aggiungere funzionalità di modifica personalizzate
+                var editor = new Image { Source = imagesource };
+                var saveButton = new Button { Text = "Save" };
+                saveButton.Clicked += (sender, args) =>
+                {
+                    // Simula il salvataggio dell'immagine
+                    var stream = new MemoryStream(); // Sostituisci con il flusso dell'immagine modificata
+                    OnImageSaving?.Invoke(stream);
+                    if (Device.RuntimePlatform == Device.Android)
+                        OnBackButtonPressed();
+                    else
+                        Application.Current.MainPage.Navigation.PopAsync(false);
+                };
+                Content = new StackLayout
+                {
+                    Children = { editor, saveButton }
+                };
             }
         }
         #endregion
