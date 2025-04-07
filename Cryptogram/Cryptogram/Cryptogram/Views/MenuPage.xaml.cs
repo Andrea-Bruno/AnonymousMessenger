@@ -19,7 +19,8 @@ namespace Cryptogram.Views
             InitializeComponent();
             Passphrase.IsVisible = NavigationTappedPage.Context.My.GetPassphrase().Split(' ').Length == 12;
             var tapGestureRecognizer = new TapGestureRecognizer() { NumberOfTapsRequired = 2 };
-            tapGestureRecognizer.Tapped += (s, e) => {
+            tapGestureRecognizer.Tapped += (s, e) =>
+            {
                 MenuText_Clicked(s, e);
             };
             Toolbar.TitleLabel.GestureRecognizers.Add(tapGestureRecognizer);
@@ -54,7 +55,7 @@ namespace Cryptogram.Views
         private async void PrivacyPolicy_Clicked(object sender, System.EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            Uri uri = new Uri("https://Cryptogramsocial.tech/pp.html");
+            Uri uri = new Uri("https://github.com/Andrea-Bruno/AnonymousMessenger/blob/master/SECURITY.md");
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
@@ -138,10 +139,12 @@ namespace Cryptogram.Views
             Application.Current.MainPage.Navigation.PushAsync(new LanguagePage(), false);
         }
 
-        private void FAQ_Clicked(object sender, EventArgs e)
+        private async void FAQ_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            Application.Current.MainPage.Navigation.PushAsync(new FAQPage(), false);
+            Uri uri = new Uri("https://github.com/Andrea-Bruno/AnonymousMessenger/discussions");
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            //            Application.Current.MainPage.Navigation.PushAsync(new FAQPage(), false);
         }
 
         private void TestLogs_Clicked(object sender, EventArgs e)

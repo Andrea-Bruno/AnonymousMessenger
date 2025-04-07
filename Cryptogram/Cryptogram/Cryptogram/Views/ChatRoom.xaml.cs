@@ -445,19 +445,19 @@ namespace Cryptogram.Views
         private void JoinGroupCall_Clicked(object sender, EventArgs e_)
         {
             sender.HandleButtonSingleClick();
-            ((App) Application.Current)?.CallManager.StartCall(_contact, _contactViewItems.IsVideoCall, true);
+            ((App)Application.Current)?.CallManager.StartCall(_contact, _contactViewItems.IsVideoCall, true);
         }
 
         private void AudioCall_Clicked(object sender, EventArgs e_)
         {
             sender.HandleButtonSingleClick();
-            ((App) Application.Current)?.CallManager.StartCall(_contact, false, _contactViewItems.IsCallGoingOn);
+            ((App)Application.Current)?.CallManager.StartCall(_contact, false, _contactViewItems.IsCallGoingOn);
         }
 
         private void VideoCall_Clicked(object sender, EventArgs e_)
         {
             sender.HandleButtonSingleClick();
-            ((App) Application.Current)?.CallManager.StartCall(_contact, true, _contactViewItems.IsCallGoingOn);
+            ((App)Application.Current)?.CallManager.StartCall(_contact, true, _contactViewItems.IsCallGoingOn);
         }
 
         private async void Username_Clicked(object sender, EventArgs e)
@@ -789,9 +789,7 @@ namespace Cryptogram.Views
 
             var tag = XamarinShared.ViewCreator.Utils.GetTag(textLabel);
             if (!tag.Equals("translated"))
-                message.Translate(
-                    () => { XamarinShared.ViewCreator.MessageViewCreator.UpdateDisplayedText(message, textLabel); },
-                    true);
+                message.Translate(() => XamarinShared.ViewCreator.MessageViewCreator.UpdateDisplayedText(message, textLabel), true);
             else
             {
                 //todo need to add localization

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using Xamarin.Forms;
 
 namespace XamarinShared.ViewCreator
@@ -86,10 +84,7 @@ namespace XamarinShared.ViewCreator
         public static void SetSource(this Image image, byte[] data)
         {
             if (data == null || image == null) return;
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                image.Source = ImageSource.FromStream(() => new MemoryStream(data));
-            });
+            Device.BeginInvokeOnMainThread(() => image.Source = ImageSource.FromStream(() => new MemoryStream(data)));
         }
 
         public static int GetTotalDays(this DateTime dateTime)
