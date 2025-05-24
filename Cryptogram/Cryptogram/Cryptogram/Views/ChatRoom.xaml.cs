@@ -24,6 +24,7 @@ using Xamarin.Essentials;
 using Contact = EncryptedMessaging.Contact;
 using VideoFileCryptographyLibrary;
 using XamarinShared.ViewCreator.Views;
+using static EncryptedMessaging.Contacts;
 
 [assembly: Dependency(typeof(ChatRoom))]
 
@@ -32,6 +33,7 @@ namespace Cryptogram.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatRoom : BasePage, IKeyboardHeightChange
     {
+        private static readonly Dictionary<Contact, Observable<object>> CacheObservable = new Dictionary<Contact, Observable<object>>();
         private int _downIconUnreadedMessagecount = 0;
         private Contact _contact;
         public static bool IsAudioRecordCancelled = true;
@@ -55,6 +57,12 @@ namespace Cryptogram.Views
         private Frame dateFrame;
         private CancellationTokenSource _stickyHeaderToken;
         private CancellationTokenSource _videoUploadTokenSource;
+        private static readonly DataTemplate MessageItemTemplate = new DataTemplate(() =>
+        {
+            var contentPresenter = new ContentView();
+            contentPresenter.SetBinding(ContentView.ContentProperty, ".");
+            return contentPresenter;
+        });
 
         public ChatRoom()
         {
@@ -207,8 +215,13 @@ namespace Cryptogram.Views
             DependencyService.Get<IStatusBarColor>()
                 .SetStatusbarColor(DesignResourceManager.GetColorFromStyle("Color2"));
 
-            MessagesLyt.ItemsSource = (EncryptedMessaging.Contacts.Observable<object>)_contact.MessageContainerUI;
-            // MessagesLyt.ItemTemplate = new RowTemplateSelector(Setup.MessageReadStatus, App.SendNotification);
+            //fix "for messages arent showning" problem
+            if (!CacheObservable.TryGetValue(_contact, out var messageContainer))
+            {
+                messageContainer = ChatPageSupport.GetMessageContainerOfContact(_contact);
+                CacheObservable.Add(_contact, messageContainer);
+            }
+            MessagesLyt.ItemsSource = messageContainer;
 
             // MessagesLyt.ItemTemplate = new DataTemplate(() =>
             // {

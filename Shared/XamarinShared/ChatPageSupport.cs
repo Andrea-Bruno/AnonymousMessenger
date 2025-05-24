@@ -224,11 +224,9 @@ namespace XamarinShared
                             //         isNewMessageLabelAdded = true;
                             //     }
                             // }
-                            var tr = new TextRow
-                            {
-                                message = message
-                            };
-                            messageContainer.Insert(addInTop ? 1 : messageContainer.Count, tr);
+
+                            //fix "for messages arent showning" problem
+                            messageContainer.Insert(addInTop ? 1 : messageContainer.Count, frame);
                             
                             contactViewItems.MessageIdList.Add(message.PostId);
 
