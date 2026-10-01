@@ -100,7 +100,7 @@ namespace Cryptogram.Views
                     Calls.GetInstance().Remove(callViewModel.MessageId);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
         private void FilterContacts(string query)

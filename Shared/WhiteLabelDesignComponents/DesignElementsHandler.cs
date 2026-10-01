@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using WhiteLabelDesignComponents.Styles;
 using Xamarin.Forms;
 
@@ -39,7 +39,7 @@ namespace WhiteLabelDesignComponents
                 {
                     return (Color)Application.Current.Resources[color];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return Color.FromHex("#14131A");
                 }

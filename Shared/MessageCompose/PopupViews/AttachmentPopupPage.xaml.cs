@@ -1,4 +1,4 @@
-﻿using Rg.Plugins.Popup.Services;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Threading.Tasks;
 using MessageCompose.Services;
@@ -216,7 +216,7 @@ namespace MessageCompose
 
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // The user canceled or something went wrong
             }
@@ -270,7 +270,7 @@ namespace MessageCompose
 
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // The user canceled or something went wrong
             }
@@ -291,7 +291,7 @@ namespace MessageCompose
                     return;
                 AttachPhoneContact(Utils.Utils.ObjectToByteArray(ConvertToContactDetails(contact)));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

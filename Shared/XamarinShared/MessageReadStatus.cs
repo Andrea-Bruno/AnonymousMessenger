@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EncryptedMessaging;
@@ -42,7 +42,7 @@ namespace XamarinShared
 							{
 								SendNotificationToChannel?.Invoke(contact, message.Type);
 							}
-							catch (Exception e)
+							catch (Exception)
 							{
 
 							}

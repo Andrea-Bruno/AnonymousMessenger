@@ -652,7 +652,7 @@ namespace XamarinShared.ViewCreator
                     pdfData = fileDetails.Item1;
                     pdfName += fileDetails.Item2;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     pdfData = message.GetData();
                 }

@@ -141,7 +141,7 @@ namespace Cryptogram.Views
             }
             else
             {
-                this.DisplayToastAsync(Localization.Resources.Dictionary.PublicKeyIsNotValid);
+                _ = this.DisplayToastAsync(Localization.Resources.Dictionary.PublicKeyIsNotValid);
             }
             HideProgressDialog();
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Cryptogram.Services;
 using Cryptogram.Views;
 using EncryptedMessaging;
@@ -176,7 +176,8 @@ namespace Cryptogram
 				{
 					DependencyService.Get<IEndCall>().FinishCall(message.ChatId + "");
 				});
-			}catch(Exception e)
+			}
+			catch (Exception)
             {
 
             }
@@ -289,7 +290,7 @@ namespace Cryptogram
 		public static void InitNotificationService()
         {
 			if(_notificationService == null)
-				_notificationService = new NotificationManager(NavigationTappedPage.Context?.My.GetId() + "");
+				_notificationService = new NotificationManager(NavigationTappedPage.Context?.My.Id + "");
 		}
 		private void SetStyle()
         {
@@ -331,7 +332,6 @@ namespace Cryptogram
         }
 
 		internal static ulong? ChatIdRequired;
-        internal static object Instance;
 
         public static void GoToChat(ulong chatId, NotificationType notificationType = NotificationType.NONE)
 		{
@@ -524,7 +524,7 @@ namespace Cryptogram
 
 			void DoRestore()
 			{
-				string parentFolderId = DriveService.CreateFolder(NavigationTappedPage.Context.My.GetId() + "", null);
+				string parentFolderId = DriveService.CreateFolder(NavigationTappedPage.Context.My.Id + "", null);
 				NavigationTappedPage.Context.Contacts.ForEachContact(contact =>
 				{
 					string folderId = Device.RuntimePlatform == Device.iOS ? contact.ChatId + "" : DriveService.CreateFolder(contact.ChatId + "", parentFolderId);
@@ -559,7 +559,7 @@ namespace Cryptogram
 				{
 					try
 					{
-						string parentFolderId = DriveService.CreateFolder(NavigationTappedPage.Context.My.GetId() + "", null);
+						string parentFolderId = DriveService.CreateFolder(NavigationTappedPage.Context.My.Id + "", null);
 						NavigationTappedPage.Context.Contacts.ForEachContact(contact =>
 						{
 							string folderId = Device.RuntimePlatform == Device.iOS ? contact.ChatId + "" : DriveService.CreateFolder(contact.ChatId + "", parentFolderId);
@@ -580,7 +580,7 @@ namespace Cryptogram
 							contact.GetPosts((post, receptionDate) => { DriveService.CreateOrUpdateFile(folderId, receptionDate.Ticks + "", post); }, excludedTimes, DateTime.Now);
 						});
 					}
-					catch(Exception e)
+					catch (Exception)
                     {
 
                     }

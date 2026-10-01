@@ -5,7 +5,7 @@
 
     public class QuestionAnswersInnerViewModel : BaseExpandableViewModel
 	{
-		public string Title { get; set; }
+		public new string Title { get; set; }
 		public string Description { get; set; }
 
 

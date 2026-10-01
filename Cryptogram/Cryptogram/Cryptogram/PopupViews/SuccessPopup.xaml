@@ -31,7 +31,7 @@
             HasShadow="False">
             <StackLayout Margin="0,56,0,0" Padding="0">
                 <Label
-                    x:Name="Title"
+                    x:Name="TitleLabel"
                     Margin="0,20,0,0"
                     FontFamily="PoppinsSemiBold"
                     FontSize="25"

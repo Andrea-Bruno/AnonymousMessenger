@@ -1,5 +1,4 @@
-﻿using System;
-using CommunicationChannel;
+using System;
 using CustomViewElements;
 
 namespace Cryptogram.Views
@@ -19,20 +18,23 @@ namespace Cryptogram.Views
 
         private void UpdateValues()
         {
+            var ctx = NavigationTappedPage.Context;
             DeviceToken.Text = "Device token: " + App.DeviceToken;
             CloudPubKey.Text = "CloudPubKey: ";  // + EncryptedMessaging.Contacts.CloudPubKey;
-         //   CloudUserId.Text = "CloudUserId: " + TelegrahLibrary.Contacts.CloudUserId;
-            ID.Text = "My ID: " + NavigationTappedPage.Context.My.GetId();
-            Internet.Text = "Internet: " + Channel.InternetAccess;
-            ClientExists.Text = "ClientExists: " + NavigationTappedPage.Context.Channel.ClientExists;
-            ClientConnected.Text = "ClientConnected: " + NavigationTappedPage.Context.Channel.ClientConnected;
-            Logged.Text = "Logged: " + NavigationTappedPage.Context.Channel.Logged;
-            QueeCount.Text = "QueeCount: " + NavigationTappedPage.Context.Channel.QueueCount;
-            LastMessageParts.Text = "LastMessageParts: " + NavigationTappedPage.Context.Channel.LastPostParts;
-            PostCounter.Text = "PostCounter: " + NavigationTappedPage.Context.Channel.PostCounter;
-            Error.Text = "Error: " + NavigationTappedPage.Context.Channel.ErrorLog;
-            ServerUrl.Text = "ServerUrl: " + NavigationTappedPage.Context.Channel.ServerUri.Host;
-            Port.Text = "Port: " + NavigationTappedPage.Context.Channel.ServerUri.Port;
+            ID.Text = "My ID: " + ctx.My.Id;
+            Internet.Text = "Internet: " + ctx.HasConnectivity;
+            ClientConnected.Text = "ClientConnected: " + ctx.IsConnected;
+            Logged.Text = "Logged: " + ctx.IsConnected;
+            ServerUrl.Text = "ServerUrl: " + (ctx.EntryPoint != null ? ctx.EntryPoint.Host : "n/a");
+            Port.Text = "Port: " + (ctx.EntryPoint != null ? ctx.EntryPoint.Port.ToString() : "n/a");
+            // ClientExists, QueueCount, LastPostParts, PostCounter and ErrorLog are
+            // internal to EncryptedMessaging (Context.Channel is not public), so they
+            // are shown as unavailable until a public accessor is added upstream.
+            ClientExists.Text = "ClientExists: n/a";
+            QueeCount.Text = "QueeCount: n/a";
+            LastMessageParts.Text = "LastMessageParts: n/a";
+            PostCounter.Text = "PostCounter: n/a";
+            Error.Text = "Error: n/a";
         }
 
         private void Back_Clicked(object sender, EventArgs e) => OnBackButtonPressed();

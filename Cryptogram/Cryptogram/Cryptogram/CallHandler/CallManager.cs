@@ -47,7 +47,7 @@ namespace Cryptogram.CallHandler
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 Debugger.Break();
             }
@@ -69,7 +69,8 @@ namespace Cryptogram.CallHandler
                     SendDeclinedCallMessage(chatId);
                 else
                     SendEndCallMessage(chatId);
-            }catch(Exception e)
+            }
+            catch (Exception)
             {
                 Debugger.Break();
             }
@@ -89,7 +90,7 @@ namespace Cryptogram.CallHandler
             {
                 try
                 {
-                    DependencyService.Get<IAudioCallConnector>().Start(_contact.ChatId.ToString(), _contact.Name, isVideoCall, true, _contact.IsGroup, _contact.Avatar); // maybe it is needed to register
+                    DependencyService.Get<ISipCallConnector>().Start(_contact.ChatId.ToString(), _contact.Name, isVideoCall, true, _contact.IsGroup, _contact.Avatar); // SIP connector (placeholder — see SIP_CALL_TODO.md)
                     if (joinCall) return;
                     if (_contact.IsGroup)
                     {
@@ -127,7 +128,7 @@ namespace Cryptogram.CallHandler
                 }
                 App.SendNotification(NavigationTappedPage.Context.Contacts.GetContact(Convert.ToUInt64(chatId)), NotificationService.NotificationType.RINGING);
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 Debugger.Break();
             }

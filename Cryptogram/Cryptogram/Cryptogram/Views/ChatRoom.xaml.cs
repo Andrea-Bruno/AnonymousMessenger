@@ -32,7 +32,6 @@ namespace Cryptogram.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatRoom : BasePage, IKeyboardHeightChange
     {
-        private int _downIconUnreadedMessagecount = 0;
         private Contact _contact;
         public static bool IsAudioRecordCancelled = true;
         public static bool IsAudioSendCancelled = true;
@@ -41,16 +40,11 @@ namespace Cryptogram.Views
         public static ContentView KeyboardView;
         private bool isUnreadedMessagesViewRemoved = true;
         public static ChatRoom Instance;
-        private double lastScrollY = -10;
-        private static readonly int DISABLE_SCROLLING_DIFF = 50;
 
         public delegate void AttachPictureHandler(List<byte[]> image);
 
         private ObservableCollection<Tuple<Message, Label>> selectedMessages;
         private XamarinShared.ViewCreator.IAudioPlayer _audioPlayer;
-        private bool isMessageSent;
-        private double previousScrollYState;
-        private bool canReadPosts = true;
         private ContactViewItems _contactViewItems;
         private Frame dateFrame;
         private CancellationTokenSource _stickyHeaderToken;
@@ -110,7 +104,7 @@ namespace Cryptogram.Views
         {
             _stickyHeaderToken?.Cancel();
             _stickyHeaderToken = new CancellationTokenSource();
-            HideStickyDateHeader(_stickyHeaderToken);
+            _ = HideStickyDateHeader(_stickyHeaderToken);
         }
 
         private async Task HideStickyDateHeader(CancellationTokenSource tokenSource)
@@ -309,7 +303,6 @@ namespace Cryptogram.Views
                 NavigationTappedPage.Context.Messaging.SendPhoneContact(phoneContact, currentContact, replyToPostId);
             if (video != null && videoType != null)
                 NavigationTappedPage.Context.Messaging.ShareEncryptedContent(currentContact, videoType, video, string.Empty);
-            isMessageSent = true;
         }
 
 
@@ -490,9 +483,6 @@ namespace Cryptogram.Views
 
         private void DownScroll_Clicked(object sender, EventArgs e) => ScrollToEnd();
 
-        private double scrollContentSize;
-        private View lastLoadedElement;
-
         // private void OnContentScrollViewScrolled(object sender, ScrolledEventArgs e)
         // {
         //     if (e.ScrollY < 60 && previousScrollYState > e.ScrollY && !_contactViewItems.IsAllMessagesLoaded &&
@@ -613,20 +603,6 @@ namespace Cryptogram.Views
             // lastLoadedElement = null;
             // scrollContentSize = 0;
             // }
-
-            if (scrollContentSize != 0 && lastLoadedElement != null)
-            {
-                // MessageContainer.ScrollToAsync(lastLoadedElement, ScrollToPosition.Start, false);
-
-                //  Device.BeginInvokeOnMainThread(() =>
-                // MessageContainer.ScrollToAsync(0, MessageContainer.ContentSize.Height - scrollContentSize, false));
-                //new Timer((obj) =>
-                //{
-                //Device.BeginInvokeOnMainThread(() =>
-                //{ MessageContainer.ScrollToAsync(0, MessageContainer.ContentSize.Height - scrollContentSize, false); });
-
-                //null, 100, Timeout.Infinite);  // wait for to add the new message.
-            }
             // else if (MessageContainer.Content != null && ((isMessageSent && MessageContainer.ScrollY == 0) ||
             //                                               (MessageContainer.ScrollY +
             //                                                Application.Current.MainPage.Height + 350 >
@@ -635,18 +611,6 @@ namespace Cryptogram.Views
             //     new Timer((obj) => { ScrollToEnd(false); }, null, 100,
             //         Timeout.Infinite); // wait for to add the new message.
             // }
-
-            else
-            {
-                // if (DownScroll.IsVisible && index > 1)
-                // {
-                //     NewMessageScrollInfo.IsVisible = true;
-                //     _downIconUnreadedMessagecount++;
-                //     NewMessageScrollInfo.Text = _downIconUnreadedMessagecount.ToString();
-                // }
-            }
-
-            isMessageSent = false;
         }
 
         public void ScrollToEnd(bool animate = false)
@@ -738,7 +702,7 @@ namespace Cryptogram.Views
         private void MFCopy_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick(500);
-            var myId = NavigationTappedPage.Context.My.GetId();
+            var myId = NavigationTappedPage.Context.My.Id;
             StringBuilder sb = new StringBuilder();
             List<Message> selectedMessages = GetSelectedMessages();
 
@@ -771,7 +735,7 @@ namespace Cryptogram.Views
             sender.HandleButtonSingleClick();
             List<Message> messages = GetSelectedMessages();
             var isContainsOppenentMessage =
-                messages.Find(m => NavigationTappedPage.Context.My.GetId() != m.AuthorId) != null;
+                messages.Find(m => NavigationTappedPage.Context.My.Id != m.AuthorId) != null;
             PopupNavigation.Instance.PushAsync(new DeleteMessagePopupPage(messages, !isContainsOppenentMessage), true);
             ClearMFToolbarState();
         }

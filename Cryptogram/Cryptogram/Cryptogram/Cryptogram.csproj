@@ -103,6 +103,7 @@
     <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
     <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
     <None Remove="Syncfusion.Xamarin.SfNumericUpDown" />
+    <None Remove="Views\ProfilePage.xaml.cs_" />
     <None Remove="ZXing.Net.Mobile.Forms" />
     <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
     <None Remove="Syncfusion.Xamarin.Buttons" />

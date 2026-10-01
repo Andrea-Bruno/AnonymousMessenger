@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using NBitcoin;
@@ -179,7 +179,7 @@ namespace CommunityClient
         /// <param name="replyTo"></param>
         public void CreateNewPost(EditableProperties editableProperties, Post replyTo = null)
         {
-            var post = new Post(this, Social.Context.My.GetId(), editableProperties, replyTo);
+            var post = new Post(this, Social.Context.My.Id, editableProperties, replyTo);
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace CommunityClient
                 Text = text,
                 Description = description
             };
-            Root = new Post(this, Social.Context.My.GetId(), properties) { Id = 0 };
+            Root = new Post(this, Social.Context.My.Id, properties) { Id = 0 };
             Root.Data = properties.Data;
             Modality = modality;
         }
@@ -313,7 +313,7 @@ namespace CommunityClient
         }
         public uint TotalUsers { get; set; }
         [XmlIgnore]
-        static public ulong MyId => Social.Context.My.GetId();
+        static public ulong MyId => Social.Context.My.Id;
         public Role MyRole;
         public enum Role
         {

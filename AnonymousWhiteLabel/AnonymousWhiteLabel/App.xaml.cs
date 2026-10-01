@@ -222,9 +222,8 @@ namespace AnonymousWhiteLabel
         public static void ReEstablishConnection(bool iMSureThereIsConnection = false)
         {
             if (iMSureThereIsConnection == false)
-                iMSureThereIsConnection = Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet
-                    || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet;
-            Context.ReEstablishConnection(iMSureThereIsConnection);
+                iMSureThereIsConnection = Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet                    || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet;
+            Context.ReEstablishInternetConnection(iMSureThereIsConnection);
         }
 
         public static string FirebaseToken;

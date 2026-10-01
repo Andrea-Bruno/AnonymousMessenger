@@ -12,8 +12,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-
-
 namespace AnonymousWhiteLabel.Droid
 {
     [Activity(Label = "AnonymousWhiteLabel", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -36,18 +34,18 @@ namespace AnonymousWhiteLabel.Droid
             {
                 //============= Ignore Battery Optimizations =============
                 //https://stackoverflow.com/questions/32627342/how-to-whitelist-app-in-doze-mode-android-6-0
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
-                {
-                    using var intent = new Intent();
-                    var packageName = Firebase.BuildConfig.ApplicationId;
-                    var pm = (PowerManager)GetSystemService(PowerService);
-                    if (!pm.IsIgnoringBatteryOptimizations(packageName))
-                    {
-                        intent.SetAction(Settings.ActionRequestIgnoreBatteryOptimizations);
-                        intent.SetData(Android.Net.Uri.Parse("package:" + packageName));
-                        StartActivity(intent);
-                    }
-                }
+                //if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+                //{
+                //    using var intent = new Intent();
+                //    var packageName = Firebase.BuildConfig.ApplicationId;
+                //    var pm = (PowerManager)GetSystemService(PowerService);
+                //    if (!pm.IsIgnoringBatteryOptimizations(packageName))
+                //    {
+                //        intent.SetAction(Settings.ActionRequestIgnoreBatteryOptimizations);
+                //        intent.SetData(Android.Net.Uri.Parse("package:" + packageName));
+                //        StartActivity(intent);
+                //    }
+                //}
                 //========================================================
             };
             try

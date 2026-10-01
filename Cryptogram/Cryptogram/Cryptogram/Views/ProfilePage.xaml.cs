@@ -162,7 +162,7 @@ namespace Cryptogram.Views
             _profilePicFileResult = null;
             Name.Unfocus();
             ChangeViewState(false);
-            if(isBackClicked)
+            if (isBackClicked)
                 _ = ImageDisplayAsync();
         }
 

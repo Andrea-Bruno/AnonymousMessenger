@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -111,7 +111,7 @@ namespace Utils
 
                     var timer = new System.Threading.Timer((object obj) => Device.BeginInvokeOnMainThread(() => ((View)sender).IsEnabled = true), null, duration, System.Threading.Timeout.Infinite);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
                 }

@@ -16,7 +16,6 @@ namespace Cryptogram.Views
         private TapGestureRecognizer removeTapGestureRecognizer;
         private StackLayout[] filledGaps = new StackLayout[12];
         public Action CloseEventHandler;
-        private string[] parts;
         private readonly Dictionary<string, Frame> words = new Dictionary<string, Frame>();
 
         public VerifyPassphrase()

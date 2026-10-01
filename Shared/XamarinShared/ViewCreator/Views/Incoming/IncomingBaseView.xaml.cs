@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using EncryptedMessaging;
 using static EncryptedMessaging.MessageFormat;
@@ -14,7 +14,7 @@ namespace XamarinShared.ViewCreator.Views.Incoming
             {
                 InitializeComponent();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 InitializeComponent(); // Some bugs on xamarin forms load view
             }

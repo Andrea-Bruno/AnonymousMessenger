@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 namespace CustomViewElements
@@ -15,7 +15,7 @@ namespace CustomViewElements
             {
                 NavigationPage.SetHasNavigationBar(this, false);
                 BackgroundColor = Palette.CommonBackgroundColor;
-            }catch(Exception e)
+            }catch (Exception)
             {
 
             }

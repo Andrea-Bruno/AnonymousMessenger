@@ -1,6 +1,7 @@
 ﻿using CustomViewElements;
 using EncryptedMessaging;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using Xamarin.Forms;
 using static EncryptedMessaging.Contacts;

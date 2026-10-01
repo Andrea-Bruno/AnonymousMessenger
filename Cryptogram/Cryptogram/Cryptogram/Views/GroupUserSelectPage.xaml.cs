@@ -133,7 +133,7 @@ namespace Cryptogram.Views
                 ForwardData();
             else if (_selectedUsers.Count() == 0 && IsMessageForwarding) { }
             else
-                this.DisplayToastAsync(Localization.Resources.Dictionary.YouNeedToSelectAtLeastTwoUser);
+                _ = this.DisplayToastAsync(Localization.Resources.Dictionary.YouNeedToSelectAtLeastTwoUser);
         }
 
         private void Search_TextChanged(object sender, EventArgs e)

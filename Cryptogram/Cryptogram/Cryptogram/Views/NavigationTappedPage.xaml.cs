@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -108,7 +108,7 @@ namespace Cryptogram.Views
             UpdateDeviceToken(DeviceToken);
             UpdateFirebaseToken(FirebaseToken);
 
-            Preferences.Set("AppId", Context.My.GetId() + "");
+            Preferences.Set("AppId", Context.My.Id + "");
             Thread t = new Thread(StartViewLoadThread);
             t.Start();
         }

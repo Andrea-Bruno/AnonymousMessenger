@@ -8,7 +8,7 @@ namespace Cryptogram.ViewModels
 	public class QuestionAnswerViewModel : BaseExpandableViewModel
 	{
 		
-		public string Title { get; set; }
+		public new string Title { get; set; }
 
 		public ObservableCollection<QuestionAnswersInnerViewModel> QuestionList { get; set; }
 		

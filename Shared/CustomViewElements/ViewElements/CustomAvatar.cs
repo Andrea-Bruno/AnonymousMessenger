@@ -10,7 +10,7 @@ namespace CustomViewElements
 {
     public class CustomAvatar : Frame
     {
-        public static readonly BindableProperty ContactProperty = BindableProperty.Create<CustomAvatar, Contact>(w => w.Contact, null);
+        public static readonly BindableProperty ContactProperty = BindableProperty.Create(nameof(Contact), typeof(Contact), typeof(CustomAvatar), null);
         public static ImageSource GroupImageSource = Utils.Icons.IconProvider?.Invoke("ic_new_addGroup_contact");
         private bool isViewRendered;
         private bool isContactPropertySet;

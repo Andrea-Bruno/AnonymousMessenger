@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using EncryptedMessaging;
 using Xamarin.Forms;
@@ -44,7 +44,7 @@ namespace XamarinShared
                 Context.OnConnectivityChange(Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
             }
             Settings.Load();
-            Calls.GetInstance().SetMyId(Context.My.GetId());
+            Calls.GetInstance().SetMyId(Context.My.Id);
 
             //Context.Contacts.ForEachContact(x => x.Save(true));
             //TelegrahLibrary.Cloud.SendCloudCommands.GetAllObject(Context, "Contact");

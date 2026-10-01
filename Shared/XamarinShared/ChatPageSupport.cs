@@ -156,7 +156,7 @@ namespace XamarinShared
             {
                 MessageViewCreator.Instance.OnViewMessage(message, isMyMessage, out frame);
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 frame = null;
             }

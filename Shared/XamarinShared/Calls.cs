@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -82,7 +82,7 @@ namespace XamarinShared
                     Add(newMessage);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debugger.Break();
             }

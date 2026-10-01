@@ -12,7 +12,7 @@ namespace XamarinShared.ViewCreator
     {
         private static string[] colors = { "#E51C23", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#5677FC", "#03A9F4", "#00BCD4", "#009688", "#259B24", "#8BC34A", "#AFB42B", "#FF9800", "#FF5722", "#795548", "#607D8B" };
         internal static readonly string MAPBOX_BASE_URL = "https://api.mapbox.com/";
-        internal static readonly string MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoibXVzYWJpciIsImEiOiJjazNubTZvYWswY3FmM3BxZXkxYmprdWdwIn0.h1LVVpfASIINFh3vtWp9Mg";
+        internal static readonly string MAPBOX_ACCESS_TOKEN = "";
         internal static readonly string ZOOM_LEVEL = "14.2";
         private static FontSizeConverter fontSizeConverter = new FontSizeConverter();
         public static string StringToColour(int index)

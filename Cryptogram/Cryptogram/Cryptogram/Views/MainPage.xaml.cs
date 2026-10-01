@@ -5,7 +5,7 @@ using EncryptedMessaging;
 using XamarinShared;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Diagnostics;
 namespace Cryptogram.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,7 +18,7 @@ namespace Cryptogram.Views
             {
                 InitializeComponent();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 InitializeComponent();
             }
@@ -45,15 +45,9 @@ namespace Cryptogram.Views
             PopupView.IsVisible = false;
         }
 
-        private void AddNewChat_Click(object sender, EventArgs e)
-        {
-            PopupView.IsVisible = !PopupView.IsVisible;
-        }
+        private void AddNewChat_Click(object sender, EventArgs e) => PopupView.IsVisible = !PopupView.IsVisible;
 
-        private void AddNewGroup_Click(object sender, EventArgs e)
-        {
-            Application.Current.MainPage.Navigation.PushAsync(new GroupUserSelectPage(), false).ConfigureAwait(true);
-        }
+        private void AddNewGroup_Click(object sender, EventArgs e) => Application.Current.MainPage.Navigation.PushAsync(new GroupUserSelectPage(), false).ConfigureAwait(true);
 
         private void AddNewContact_Click(object sender, EventArgs e)
         {
@@ -117,7 +111,6 @@ namespace Cryptogram.Views
                 ChatList.ResetSwipe();
             }
         }
-
         private void Search_TextChanged(object sender, EventArgs e)
         {
             query = ((CustomEntry)sender).Text;

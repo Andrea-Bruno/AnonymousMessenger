@@ -11,7 +11,7 @@
             x:FieldModifier="public"
             ItemsLayout="VerticalList"
             BackgroundColor="Transparent"
-            SelectionMode="None"
+            SelectionMode="Single"
             VerticalOptions="FillAndExpand"
             SelectionChanged="OnItemSelected">
             <CollectionView.ItemTemplate>
@@ -19,25 +19,49 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem
-                                    BackgroundColor="{x:DynamicResource WhiteColor}"
-                                    Command="{Binding Source={x:Reference ItemsListView}, Path=BindingContext.ClearCommand}"
+                                <SwipeItemView
+                                    BackgroundColor="{x:DynamicResource DarkColor}"
+                                    Command="{Binding Path=BindingContext.ClearCommand, Source={x:Reference Name=ChatList}}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="ic_new_clear_contact.png" />
-                                <SwipeItem
-                                    BackgroundColor="{x:DynamicResource RedColor}"
-                                    Command="{Binding Source={x:Reference ItemsListView}, Path=BindingContext.DeleteCommand}"
+                                    WidthRequest="80">
+                                    <Label
+                                        Text="❌"
+                                        FontSize="24"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextColor="{x:DynamicResource WhiteColor}"
+                                        InputTransparent="True" />
+                                </SwipeItemView>
+                                <SwipeItemView
+                                    BackgroundColor="{x:DynamicResource DarkColor}"
+                                    Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=ChatList}}"
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="ic_new_delete_contact.png" />
+                                    WidthRequest="80">
+                                    <Label
+                                        Text="🗑️"
+                                        FontSize="24"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        TextColor="{x:DynamicResource WhiteColor}"
+                                        InputTransparent="True" />
+                                </SwipeItemView>
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <SwipeView.LeftItems>
                             <SwipeItems>
-                                <SwipeItem
-                                    BackgroundColor="{x:DynamicResource LightColor}"
-                                    Command="{Binding Source={x:Reference ItemsListView}, Path=BindingContext.EditCommand}"
+                                <SwipeItemView
+                                    BackgroundColor="{x:DynamicResource DarkColor}"
+                                    Command="{Binding Path=BindingContext.EditCommand, Source={x:Reference Name=ChatList}}"                                    
                                     CommandParameter="{Binding .}"
-                                    IconImageSource="ic_new_edit_contact.png" />
+                                    WidthRequest="80">
+                                    <Label
+                                    Text="✏️"
+                                    FontSize="24"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    TextColor="{x:DynamicResource WhiteColor}"
+                                    InputTransparent="True" />
+                                </SwipeItemView>
                             </SwipeItems>
                         </SwipeView.LeftItems>
                         <Grid>

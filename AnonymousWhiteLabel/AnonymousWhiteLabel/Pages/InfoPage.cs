@@ -109,8 +109,8 @@ namespace AnonymousWhiteLabel.Pages
 
 
             var formattedString = new FormattedString();
-            formattedString.Spans.Add(new Span { Text = Dict.WhatIsAnonymous, FontAttributes = FontAttributes.Bold | FontAttributes.Italic, FontSize = 16 });
-            formattedString.Spans.Add(new Span { Text = " " + Dict.Anonymous + "\n", FontSize = 16 });
+            formattedString.Spans.Add(new Span { Text = Dict.WhatIsCryptogram, FontAttributes = FontAttributes.Bold | FontAttributes.Italic, FontSize = 16 });
+            formattedString.Spans.Add(new Span { Text = " " + Dict.Cryptogram + "\n", FontSize = 16 });
             formattedString.Spans.Add(new Span { Text = Dict.OurMissionIsToMaximizeAnonymityAndSecurity, FontSize = 16 });
             formattedString.Spans.Add(new Span { Text = " " + Dict.WeAreOpenSource + "\n\n", FontAttributes = FontAttributes.Bold | FontAttributes.Italic, FontSize = 16 });
             formattedString.Spans.Add(new Span { Text = Dict.SecureStorage + " ", FontAttributes = FontAttributes.Bold | FontAttributes.Italic, FontSize = 16 });

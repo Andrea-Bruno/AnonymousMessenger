@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using NBitcoin;
@@ -180,7 +180,7 @@ namespace CommunityClient
         /// <param name="replyTo"></param>
         public void CreateNewPost(EditableProperties editableProperties, Post replyTo = null)
         {
-            var post = new Post(this, Social.Context.My.GetId(), editableProperties, replyTo);
+            var post = new Post(this, Social.Context.My.Id, editableProperties, replyTo);
         }
 
         /// <summary>
