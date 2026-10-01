@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using Xamarin.Forms;
+using System.Text.Json;
+using Microsoft.Maui.Controls;
 
 namespace Utils
 {
@@ -60,31 +60,25 @@ namespace Utils
             return min + ":" + sec;
         }
 
-        public static byte[] ObjectToByteArray(object obj)
+        private static readonly JsonSerializerOptions _jsonOpts = new JsonSerializerOptions { IncludeFields = true };
+
+        public static byte[] ObjectToByteArray<T>(T obj)
         {
 
             if (obj == null)
                 return null;
-            var bf = new BinaryFormatter();
-            var ms = new MemoryStream();
-            bf.Serialize(ms, obj);
-
-            return ms.ToArray();
+            return JsonSerializer.SerializeToUtf8Bytes(obj, _jsonOpts);
         }
 
         public static void AddRange<T>(this ObservableCollection<T> collection, IEnumerable<T> items)
         {
             items.ToList().ForEach(collection.Add);
         }
-        public static object ByteArrayToObject(byte[] arrBytes)
+        public static T ByteArrayToObject<T>(byte[] arrBytes)
         {
-            var memStream = new MemoryStream();
-            var binForm = new BinaryFormatter();
-            memStream.Write(arrBytes, 0, arrBytes.Length);
-            memStream.Seek(0, SeekOrigin.Begin);
-            var obj = (object)binForm.Deserialize(memStream);
-
-            return obj;
+            if (arrBytes == null || arrBytes.Length == 0)
+                return default;
+            return JsonSerializer.Deserialize<T>(arrBytes, _jsonOpts);
         }
         public static string GetTag(this View view)
         {

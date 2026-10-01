@@ -185,13 +185,13 @@ namespace Cryptogram
 
 		private Tuple<string,string> ContactProvider(byte[] data)
 		{
-			ContactDetails details = Utils.Utils.ByteArrayToObject(data) as ContactDetails;
+			ContactDetails details = Utils.Utils.ByteArrayToObject<ContactDetails>(data);
 			return Tuple.Create(details.Name, details.PhoneNumber);
 		}
 
 		private Tuple<byte[], string> FileProvider(byte[] data)
 		{
-			SerializableFileData details = Utils.Utils.ByteArrayToObject(data) as SerializableFileData;
+			SerializableFileData details = Utils.Utils.ByteArrayToObject<SerializableFileData>(data);
 			return Tuple.Create(details.Data, details.FileName);
 		}
 
