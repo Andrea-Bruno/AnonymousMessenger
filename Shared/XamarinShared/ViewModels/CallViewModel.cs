@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using EncryptedMessaging;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using static EncryptedMessaging.MessageFormat;
 
 namespace XamarinShared.ViewModels

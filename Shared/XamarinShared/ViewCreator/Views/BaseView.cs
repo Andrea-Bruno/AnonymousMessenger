@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EncryptedMessaging;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using Xamarin.Forms.PancakeView;
 using XamarinShared.CustomViews;
 using XamarinShared.ViewCreator.Views;

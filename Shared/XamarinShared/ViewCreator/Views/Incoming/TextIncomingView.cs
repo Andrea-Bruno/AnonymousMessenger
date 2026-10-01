@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EncryptedMessaging;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using XamarinShared.ViewCreator.ViewHolder;
 
 namespace XamarinShared.ViewCreator.Views.Incoming

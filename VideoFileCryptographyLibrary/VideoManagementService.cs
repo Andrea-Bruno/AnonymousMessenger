@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using VideoFileCryptographyLibrary.Models;
-using Xamarin.Essentials;
 
 namespace VideoFileCryptographyLibrary
 {
@@ -16,12 +15,15 @@ namespace VideoFileCryptographyLibrary
 
         public delegate void UploadStatus(double percentage);
 
+        // Injected by the host app (MAUI) to avoid a Xamarin.Essentials dependency.
+        public static string AppDataDirectory { get; set; } = Path.Combine(Path.GetTempPath(), "cryptogram");
+        public static Func<bool> IsInternetAvailable { get; set; } = () => true;
+
         public static async Task<string> DownloadVideo(byte[] _privateKey, DownloadStatus downloadStatus)
         {
             Debug.WriteLine("[Downloading Video]: File download started");
             // Check internet connectivity
-            var current = Connectivity.NetworkAccess;
-            if (current != NetworkAccess.Internet)
+            if (!IsInternetAvailable())
             {
                 Debug.WriteLine("[Downloading Video]: Error - No internet connection available");
                 return string.Empty;
@@ -41,7 +43,7 @@ namespace VideoFileCryptographyLibrary
             {
                 var _fileNameWithType = fileList[0].Split('-').LastOrDefault();
                 //Saving video file in phone storage
-                var folder = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "downloads");
+                var folder = Path.Combine(AppDataDirectory, "downloads");
                 if (!Directory.Exists(folder))
                     Directory.CreateDirectory(folder);
                 var videoFile = Path.Combine(folder, _fileNameWithType);
@@ -67,8 +69,7 @@ namespace VideoFileCryptographyLibrary
                     for (; chunk < fileList.Count; chunk++)
                     {
                         // Check internet connectivity
-                        current = Connectivity.NetworkAccess;
-                        if (current != NetworkAccess.Internet)
+                        if (!IsInternetAvailable())
                         {
                             Debug.WriteLine("[Downloading Video]: Error - No internet connection available");
                             return string.Empty;
@@ -100,12 +101,11 @@ namespace VideoFileCryptographyLibrary
             }
         }
 
-        public static async Task<byte[]> UploadVideo(FileResult selectedFile, UploadStatus uploadStatus, byte[] thumbnail, CancellationToken token)
+        public static async Task<byte[]> UploadVideo(Stream videoStream, string fileName, UploadStatus uploadStatus, byte[] thumbnail, CancellationToken token)
         {
             Debug.WriteLine("[Uploading Video]: File upload started");
-            var current = Connectivity.NetworkAccess;
             // Check internet connectivity
-            if (current != NetworkAccess.Internet)
+            if (!IsInternetAvailable())
             {
                 Debug.WriteLine("[Uploading Video]: Error - No internet connection available");
                 return null;
@@ -121,14 +121,14 @@ namespace VideoFileCryptographyLibrary
                 // PREPARING VIDEO FILE
                 // ---------------------
 
-                using (var fileStream = await selectedFile.OpenReadAsync().ConfigureAwait(false))
+                using (var fileStream = videoStream)
                 {
                     // Get file information
-                    fileInfo = FileService.GetFileInfo(fileStream, selectedFile.FileName.Split('.').LastOrDefault());
+                    fileInfo = FileService.GetFileInfo(fileStream, fileName.Split('.').LastOrDefault());
                     // Copy selected video file in local phone directory
                     try
                     {
-                        var folder = Path.Combine(FileSystem.AppDataDirectory, "uploads");
+                        var folder = Path.Combine(AppDataDirectory, "uploads");
                         if (!Directory.Exists(folder))
                         {
                             Directory.CreateDirectory(folder);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EncryptedMessaging;
 using XamarinShared.ViewCreator.Views.Incoming;
 using XamarinShared.ViewCreator.Views.Outgoing;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using static EncryptedMessaging.MessageFormat;
 using static XamarinShared.ViewCreator.FontSizeConverter;
 using System.ComponentModel;
