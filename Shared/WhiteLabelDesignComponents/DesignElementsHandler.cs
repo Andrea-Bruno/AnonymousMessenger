@@ -1,6 +1,7 @@
 using System;
 using WhiteLabelDesignComponents.Styles;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace WhiteLabelDesignComponents
 {

@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
     <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
 
@@ -96,9 +98,6 @@
     <EmbeddedResource Include="Image\DarkImage\ic_pick_video.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
-  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Image\DarkImage\Company_logo.png" />
     <EmbeddedResource Include="Image\DarkImage\ic_accept_call.png" />
