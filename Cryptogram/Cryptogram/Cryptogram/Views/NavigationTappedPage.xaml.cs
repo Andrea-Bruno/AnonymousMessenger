@@ -14,9 +14,10 @@ using CustomViewElements;
 using System.Threading;
 using FontSizeConverter = XamarinShared.ViewCreator.FontSizeConverter;
 using Cryptogram.Services;
-using Plugin.LatestVersion;
 using Cryptogram.Backup;
 using Microsoft.Maui.Graphics;
+using System.Threading.Tasks;
+using MainThread = Microsoft.Maui.ApplicationModel.MainThread;
 
 namespace Cryptogram.Views
 {
@@ -76,8 +77,8 @@ namespace Cryptogram.Views
             InitContextStarted = true;
             var palette = new PaletteSetting()
             {
-                ForegroundColor = Color.White,
-                MainBackgroundColor = Color.Black,
+                ForegroundColor = Colors.White,
+                MainBackgroundColor = Colors.Black,
                 SecondaryBackgroundColor = Color.FromHex("#8D8D8D"),
                 BackgroundColor = Color.FromHex("#201F24"),
                 CommonBackgroundColor = Color.FromHex("#E5E5E5"),
@@ -232,20 +233,13 @@ namespace Cryptogram.Views
 
         private async System.Threading.Tasks.Task CheckAppLastVersionAsync()
         {
-            isLatestVersion = await CrossLatestVersion.Current.IsUsingLatestVersion();
-
-            if (!isLatestVersion)
-            {
-                var update = await DisplayAlert(Localization.Resources.Dictionary.NewVersion, Localization.Resources.Dictionary.UpdateApplication, null, Localization.Resources.Dictionary.Yes);
-                if (!update)
-                {
-                    await CrossLatestVersion.Current.OpenAppInStore();
-                }
-            }
+            // Plugin.LatestVersion has no .NET MAUI equivalent; version check disabled for now.
+            isLatestVersion = true;
+            await Task.CompletedTask;
         }
-        protected override void OnTabIndexPropertyChanged(int oldValue, int newValue)
+        protected override void OnCurrentPageChanged()
         {
-            base.OnTabIndexPropertyChanged(oldValue, newValue);
+            base.OnCurrentPageChanged();
             ReEstablishConnection();
         }
     }

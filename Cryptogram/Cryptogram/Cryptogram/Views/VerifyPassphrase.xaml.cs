@@ -199,7 +199,7 @@ namespace Cryptogram.Views
                 Margin = new Thickness(6, 3, 6, 3),
                 MinimumWidthRequest = 50,
                 LineBreakMode = LineBreakMode.NoWrap,
-                TextColor = Color.White,
+                TextColor = Colors.White,
             };
 
             return new Frame()

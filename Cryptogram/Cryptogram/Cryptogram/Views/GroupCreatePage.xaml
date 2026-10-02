@@ -12,10 +12,9 @@
     ios:Page.UseSafeArea="true"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     mc:Ignorable="d">
-    <RelativeLayout >
+    <Grid>
 
-        <StackLayout  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}" 
-                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}" Margin="0,0,0,0" BackgroundColor="{DynamicResource Color1}">
+        <StackLayout Margin="0,0,0,0" BackgroundColor="{DynamicResource Color1}">
             <local:MyCustomToolbar x:Name="Toolbar" OnBackBtnClicked="Back_Clicked" />
             <!--  Profile Picture  -->
             <StackLayout>
@@ -145,8 +144,7 @@
 
         <StackLayout
             x:Name="NextButton"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-80}" 
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Constant=-80}"
+            Margin="0,0,16,16"
             HorizontalOptions="End"
             VerticalOptions="End">
             <Image
@@ -158,6 +156,6 @@
                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Save_Clicked" />
             </StackLayout.GestureRecognizers>
         </StackLayout>
-    </RelativeLayout>
+    </Grid>
 
 </local:BasePage>

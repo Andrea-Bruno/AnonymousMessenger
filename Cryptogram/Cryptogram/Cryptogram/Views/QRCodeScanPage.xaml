@@ -5,21 +5,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
-    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
     ios:Page.UseSafeArea="true">
     <StackLayout>
         <Grid
             Margin="0,-15,0,0"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand">
-            <zxing:ZXingScannerView
+            <zxing:CameraBarcodeReaderView
                 x:Name="qrScanner"
-                IsScanning="True"
-                OnScanResult="Handle_OnScanResult" />
-            <zxing:ZXingDefaultOverlay
-                x:Name="Overlay"
-                Opacity="0.5"
-                ShowFlashButton="False" />
+                IsDetecting="True"
+                BarcodesDetected="Handle_OnScanResult" />
         </Grid>
         <Frame
             Margin="0,-120,0,30"

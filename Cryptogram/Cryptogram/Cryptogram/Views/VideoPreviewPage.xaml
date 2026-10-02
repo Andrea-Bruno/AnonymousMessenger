@@ -8,7 +8,6 @@
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:local2="clr-namespace:Localization;assembly=Localization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
     ios:Page.UseSafeArea="true"
     mc:Ignorable="d">
     <StackLayout x:Name="VideoLayout">

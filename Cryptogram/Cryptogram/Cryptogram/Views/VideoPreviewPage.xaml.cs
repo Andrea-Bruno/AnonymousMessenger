@@ -3,8 +3,8 @@ using System;
 using System.Threading.Tasks;
 using Cryptogram.DesignHandler;
 using Utils;
-using Xamarin.CommunityToolkit.Core;
-using Xamarin.CommunityToolkit.UI.Views;
+using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Storage;
 using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Devices.Sensors;
@@ -51,18 +51,12 @@ namespace Cryptogram.Views
         {
             if (!string.IsNullOrWhiteSpace(selectedFilePath))
             {
-                VideoPlayer.Source = new FileMediaSource
-                {
-                    File = selectedFilePath
-                };
+                VideoPlayer.Source = MediaSource.FromFile(selectedFilePath);
             }
             else if (selectedFile != null)
             {
                 Toolbar.AddRightButton(0, DesignResourceManager.GetImageSource("ic_send_image.png"), SendVideo_Clicked);
-                VideoPlayer.Source = new FileMediaSource
-                {
-                    File = selectedFile.FullPath
-                };
+                VideoPlayer.Source = MediaSource.FromFile(selectedFile.FullPath);
             }
         }
 
@@ -90,10 +84,10 @@ namespace Cryptogram.Views
         {
             VideoPlayer = new MediaElement()
             {
-                ShowsPlaybackControls = true,
+                ShouldShowPlaybackControls = true,
                 BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
-                AutoPlay = false,
-                KeepScreenOn = true,
+                ShouldAutoPlay = false,
+                ShouldKeepScreenOn = true,
                 Aspect = Aspect.AspectFit,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand

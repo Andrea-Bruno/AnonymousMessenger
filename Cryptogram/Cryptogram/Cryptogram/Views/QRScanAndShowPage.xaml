@@ -6,9 +6,7 @@
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
-    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
     ios:Page.UseSafeArea="true">
     <StackLayout>
         <local1:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local:Resources.Dictionary.QRCode}" />
@@ -41,18 +39,14 @@
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
                             WidthRequest="197">
-                            <zxing:ZXingBarcodeImageView
+                            <zxing:BarcodeGeneratorView
                                 x:Name="QRcode"
                                 BackgroundColor="{DynamicResource WhiteColor}"
-                                BarcodeValue="-1"
-                                WidthRequest="227">
-                                <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                                    <zxcm:EncodingOptions
-                                        Width="227"
-                                        Height="227"
-                                        PureBarcode="True" />
-                                </zxing:ZXingBarcodeImageView.BarcodeOptions>
-                            </zxing:ZXingBarcodeImageView>
+                                BarColor="Black"
+                                Format="QRCode"
+                                Value="-1"
+                                WidthRequest="227"
+                                HeightRequest="227" />
                         </Border>
                     </StackLayout>
                 </Border>

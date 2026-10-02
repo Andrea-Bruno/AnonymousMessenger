@@ -70,7 +70,7 @@
                             CornerRadius="25"
                             HasShadow="False"
                             HeightRequest="50"
-                            OutlineColor="{DynamicResource Color1}">
+                            BorderColor="{DynamicResource Color1}">
                             <StackLayout Orientation="Horizontal">
                                 <local:CustomEntry
                                     x:Name="PublicKey"

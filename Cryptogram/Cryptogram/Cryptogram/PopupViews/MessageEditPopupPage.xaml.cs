@@ -176,7 +176,7 @@ namespace Cryptogram.PopupViews
             sender.HandleButtonSingleClick();
             CheckMessageDeleted();
             if (_message != null && _message.GetData() != null)
-                Xamarin.Essentials.Clipboard.SetTextAsync(Encoding.Unicode.GetString(_message.GetData()));
+                Microsoft.Maui.ApplicationModel.DataTransfer.Clipboard.SetTextAsync(Encoding.Unicode.GetString(_message.GetData()));
             this.DisplayToastAsync(Localization.Resources.Dictionary.CopiedToClipboard);
             MopupService.Instance.PopAsync(false);
         }

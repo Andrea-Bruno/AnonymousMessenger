@@ -17,12 +17,6 @@
         BackgroundColor="{DynamicResource Color1}"
         VerticalOptions="FillAndExpand">
         <StackLayout
-            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                   Property=Height,
-                                                                   Factor=1}"
-            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                  Property=Width,
-                                                                  Factor=1}"
             Spacing="0"
             VerticalOptions="FillAndExpand">
             <StackLayout
@@ -270,10 +264,8 @@
             BackgroundColor="Transparent"
             HeightRequest="58"
             IsVisible="False"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                              Property=Width,
-                                                              Factor=1,
-                                                              Constant=-75}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
             WidthRequest="58">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="DownScroll_Clicked" />
@@ -288,16 +280,8 @@
             FontSize="12"
             HeightRequest="26"
             IsVisible="false"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
-                                                              ElementName=DownScroll,
-                                                              Factor=1,
-                                                              Property=X,
-                                                              Constant=32}"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
-                                                              ElementName=DownScroll,
-                                                              Factor=1,
-                                                              Property=Y,
-                                                              Constant=-6}"
+            HorizontalOptions="End"
+            VerticalOptions="End"
             TextColor="{DynamicResource WhiteColor}"
             WidthRequest="26" />
     </local1:KeyboardView>

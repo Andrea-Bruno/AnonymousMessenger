@@ -8,10 +8,9 @@
     xmlns:views="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
     ios:Page.UseSafeArea="true">
-    <RelativeLayout>
+    <Grid>
 
-        <StackLayout Spacing="0" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}" 
-                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}">
+        <StackLayout Spacing="0">
             <StackLayout
                 x:Name="ToolbarSelectUserLayout"
                 BackgroundColor="{DynamicResource Color2}"
@@ -274,8 +273,7 @@
 
         <StackLayout
             x:Name="NextButton"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-80}" 
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Constant=-80}"
+            Margin="0,0,16,16"
             HorizontalOptions="End"
             VerticalOptions="End">
             <Image
@@ -287,6 +285,6 @@
                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
             </StackLayout.GestureRecognizers>
         </StackLayout>
-    </RelativeLayout>
+    </Grid>
 
 </views:BasePage>

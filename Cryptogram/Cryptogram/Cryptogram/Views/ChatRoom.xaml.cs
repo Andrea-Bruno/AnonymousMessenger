@@ -31,6 +31,8 @@ using VideoFileCryptographyLibrary;
 using XamarinShared.ViewCreator.Views;
 using Microsoft.Maui;
 using Microsoft.Maui.Graphics;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using MainThread = Microsoft.Maui.ApplicationModel.MainThread;
 
 [assembly: Dependency(typeof(ChatRoom))]
 
@@ -95,14 +97,10 @@ namespace Cryptogram.Views
             header.Padding = 0;
             header.IsVisible = false;
             header.BackgroundColor = Root.BackgroundColor;
-            header.SizeChanged += (sender, e) =>
-            {
-                var xConstraint = Constraint.RelativeToParent(parent => parent.Width / 2 - header.Width / 2);
-                RelativeLayout.SetXConstraint(header, xConstraint);
-            };
-            Root.Children.Add(header,
-                Constraint.RelativeToParent(parent => parent.Width / 2 - header.Width / 2),
-                Constraint.RelativeToParent(parent => 70));
+            header.HorizontalOptions = LayoutOptions.Center;
+            header.VerticalOptions = LayoutOptions.Start;
+            header.Margin = new Thickness(0, 70, 0, 0);
+            Root.Children.Add(header);
             dateFrame = header;
         }
 
@@ -282,11 +280,9 @@ namespace Cryptogram.Views
 
         private void ComposerPlaceHolder_SizeChanged(object sender, EventArgs e)
         {
-            Constraint yconstraint = Constraint.RelativeToParent((parent) =>
-            {
-                return parent.Height - ComposerPlaceHolder.Height - 16 - DownScroll.Height;
-            });
-            RelativeLayout.SetYConstraint(DownScroll, yconstraint);
+            DownScroll.HorizontalOptions = LayoutOptions.End;
+            DownScroll.VerticalOptions = LayoutOptions.End;
+            DownScroll.Margin = new Thickness(0, 0, 17, ComposerPlaceHolder.Height + 16);
         }
 
         private void OnSend(ulong? replyToPostId = null, string text = null, byte[] image = null, byte[] audio = null,
@@ -349,8 +345,9 @@ namespace Cryptogram.Views
                 OnUpdateVideoProgress(0.0);
                 byte[] thumbnail = DependencyService.Get<IThumbnailService>()
                     .GenerateThumbImage(selectedVideo.FullPath, 1);
+                using var videoStream = await selectedVideo.OpenReadAsync().ConfigureAwait(false);
                 var privateKey = await VideoManagementService
-                    .UploadVideo(selectedVideo, OnUpdateVideoProgress, thumbnail, cancellationToken)
+                    .UploadVideo(videoStream, selectedVideo.FileName, OnUpdateVideoProgress, thumbnail, cancellationToken)
                     .ConfigureAwait(false);
                 if (privateKey != null)
                 {

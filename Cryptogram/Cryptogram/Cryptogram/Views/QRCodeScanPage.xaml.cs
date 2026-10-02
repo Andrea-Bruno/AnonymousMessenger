@@ -2,7 +2,8 @@ using System;
 using CustomViewElements;
 using Utils;
 using Microsoft.Maui.Controls;
-using ZXing;
+using Microsoft.Maui.ApplicationModel;
+using ZXing.Net.Maui;
 
 namespace Cryptogram.Views
 {
@@ -12,12 +13,15 @@ namespace Cryptogram.Views
         public event AttachPublicKeyHandler PublicKey;
         public QRCodeScanPage() => InitializeComponent();
 
-        public void Handle_OnScanResult(Result result)
+        public void Handle_OnScanResult(object sender, BarcodeDetectionEventArgs e)
         {
+            if (e.Results == null || e.Results.Length == 0)
+                return;
+            string text = e.Results[0].Value;
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                PublicKey(result.Text);
-                qrScanner.IsScanning = false;
+                PublicKey(text);
+                qrScanner.IsDetecting = false;
                 Navigation.RemovePage(this);
             });
         }
@@ -25,7 +29,7 @@ namespace Cryptogram.Views
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            qrScanner.IsScanning = false;
+            qrScanner.IsDetecting = false;
         }
 
         protected override void OnAppearing() => base.OnAppearing();

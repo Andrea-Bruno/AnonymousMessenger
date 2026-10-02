@@ -7,6 +7,7 @@ using Cryptogram.Services;
 using Cryptogram.ViewModels;
 using EncryptedMessaging;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls.Xaml;
 using CommunityToolkit.Maui;
 using Utils;

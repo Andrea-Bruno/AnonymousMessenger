@@ -13,6 +13,7 @@ using Microsoft.Maui.Networking;
 using Microsoft.Maui.ApplicationModel.Communication;
 using Microsoft.Maui.Controls;
 using XamarinShared;
+using MainThread = Microsoft.Maui.ApplicationModel.MainThread;
 
 namespace Cryptogram
 {

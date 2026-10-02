@@ -85,19 +85,19 @@ namespace Cryptogram.Views
             };
 
             layout.Children.Add(frame);
-            var box = new MR.Gestures.StackLayout() { Padding = new Thickness(paddingLeft, 0, paddingRight, 0) };                    
+            var box = new StackLayout() { Padding = new Thickness(paddingLeft, 0, paddingRight, 0) };                    
             frame.Content = box;
 
             var label = new CustomLabel
             {
                 FontFamily = "PoppinsSemiBold",
                 TextType = TextType.Text,
-                TextColor = isMyMessage ? Color.Black : Color.White,
+                TextColor = isMyMessage ? Colors.Black : Colors.White,
                 Padding = new Thickness(0, 5, isMyMessage ? 0 : 10, 0),
 
             };
             label.SetBinding(Label.FontSizeProperty, new Binding("TextSize", converter: _fontSizeConverter, converterParameter: 14));
-            var timeLabel = new Label() { FontFamily = "PoppinsRegular", TextColor = isMyMessage ? Color.Black : Color.White };
+            var timeLabel = new Label() { FontFamily = "PoppinsRegular", TextColor = isMyMessage ? Colors.Black : Colors.White };
             timeLabel.Text = "10:10";
             timeLabel.SetBinding(Label.FontSizeProperty, new Binding("TextSize", converter: _fontSizeConverter, converterParameter: 12));
             var flagAndTime = new StackLayout() { Orientation = StackOrientation.Horizontal, HorizontalOptions =LayoutOptions.EndAndExpand};
@@ -107,7 +107,7 @@ namespace Cryptogram.Views
             if (isMyMessage)
             {
                 Label StatusLabel = new Label() { Padding = 0 };
-                StatusLabel.Text = "✓✓"; StatusLabel.TextColor = Color.Green;
+                StatusLabel.Text = "✓✓"; StatusLabel.TextColor = Colors.Green;
                 StatusLabel.SetBinding(Label.FontSizeProperty, new Binding("TextSize", converter: _fontSizeConverter, converterParameter: 12));
                 flagAndTime.Children.Add(StatusLabel);
             }

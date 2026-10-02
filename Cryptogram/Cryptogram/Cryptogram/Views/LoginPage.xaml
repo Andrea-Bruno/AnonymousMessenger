@@ -63,16 +63,13 @@
                     </FormattedString>
                 </res:CustomLabel.FormattedText>
             </res:CustomLabel>
-            <RelativeLayout Margin="24,36,24,0" HorizontalOptions="FillAndExpand">
+            <Grid Margin="24,36,24,0" HorizontalOptions="FillAndExpand">
                 <Frame
                     Margin="0,50,0,0"
                     Padding="0,50,0,0"
                     BackgroundColor="{DynamicResource Color2}"
                     CornerRadius="15"
-                    HasShadow="False"
-                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                          Property=Width,
-                                                                          Factor=1}">
+                    HasShadow="False">
                     <StackLayout Spacing="0">
                         <Frame
                             Margin="16,32,16,0"
@@ -132,10 +129,8 @@
                     HeightRequest="100"
                     MinimumHeightRequest="100"
                     MinimumWidthRequest="100"
-                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=0.5,
-                                                                      Constant=-50}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
                     WidthRequest="100">
                     <Image
                         x:Name="UserProfilePhoto"
@@ -151,7 +146,7 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SelectImage_Clicked" />
                     </Frame.GestureRecognizers>
                 </Frame>
-            </RelativeLayout>
+            </Grid>
             <StackLayout
                 HorizontalOptions="Center"
                 Orientation="Horizontal"

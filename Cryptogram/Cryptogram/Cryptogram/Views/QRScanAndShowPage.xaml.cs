@@ -8,12 +8,12 @@ using Utils;
 using CommunityToolkit.Maui;
 using Microsoft.Maui.Storage;
 using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
 using Microsoft.Maui.Devices.Sensors;
 using Microsoft.Maui.Media;
 using Microsoft.Maui.Networking;
 using Microsoft.Maui.ApplicationModel.Communication;
 using Microsoft.Maui.Controls;
-using ZXing;
 
 namespace Cryptogram.Views
 {
@@ -48,15 +48,7 @@ namespace Cryptogram.Views
     
         private void SetQRcode()
         {
-            QRcode.BarcodeValue = EncryptedMessaging.ContactMessage.GetMyQrCode(NavigationTappedPage.Context);
-        }
-
-        public void Handle_OnScanResult(Result result)
-        {
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                await Application.Current.MainPage.Navigation.PushAsync(new EditItemPage(result.Text));
-            });
+            QRcode.Value = EncryptedMessaging.ContactMessage.GetMyQrCode(NavigationTappedPage.Context);
         }
 
         private async void CodeScanner_Clicked(object sender, EventArgs e)

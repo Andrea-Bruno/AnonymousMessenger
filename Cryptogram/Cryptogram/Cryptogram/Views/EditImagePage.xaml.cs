@@ -16,7 +16,6 @@ using Microsoft.Maui.Controls.Xaml;
 using System.Linq;
 using static Cryptogram.Views.ChatRoom;
 using System.Threading;
-using NativeMedia;
 using Cryptogram.Services;
 using System.Threading.Tasks;
 
@@ -193,31 +192,19 @@ namespace Cryptogram.Views
                 return;
 
             ShowProgressDialog();
-            var cts = new CancellationTokenSource();
             try
             {
-                IMediaFile[] newImages = null;
-                var request = new MediaPickRequest(30 - selectedImageManagement.ImageCount(), MediaFileType.Image)
-                {
-                    PresentationSourceBounds = System.Drawing.Rectangle.Empty,
-                    UseCreateChooser = true,
-                    Title = "Select"
-                };
-                cts.CancelAfter(TimeSpan.FromMinutes(5));
-                var results = await MediaGallery.PickAsync(request, cts.Token);
-                newImages = results?.Files?.ToArray();
-                if (newImages.Count() > 0)
+                var request = new MediaPickerOptions { Title = "Select" };
+                var newImages = await MediaPicker.PickPhotosAsync(request);
+                if (newImages != null && newImages.Count > 0)
                 {
                     foreach (var image in newImages)
                     {
-                        if (image.Type == MediaFileType.Image)
+                        using (var stream = await image.OpenReadAsync())
                         {
-                            using (var stream = await image.OpenReadAsync())
-                            {
-                                var imageBytes = Utils.Utils.StreamToByteArray(stream);
-                                if (!selectedImageManagement.Contains(imageBytes))
-                                    selectedImageManagement.AddImage(imageBytes);
-                            }
+                            var imageBytes = Utils.Utils.StreamToByteArray(stream);
+                            if (!selectedImageManagement.Contains(imageBytes))
+                                selectedImageManagement.AddImage(imageBytes);
                         }
                     }
                     var selectedimages = selectedImageManagement.GetSelectedImageSources();
@@ -236,7 +223,6 @@ namespace Cryptogram.Views
             finally
             {
                 HideProgressDialog();
-                cts.Dispose();
             }
         }
         #endregion

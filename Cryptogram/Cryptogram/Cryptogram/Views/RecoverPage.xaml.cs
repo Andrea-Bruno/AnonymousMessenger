@@ -7,6 +7,7 @@ using Utils;
 using System.Collections.Generic;
 using Microsoft.Maui;
 using Microsoft.Maui.Graphics;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Cryptogram.Views
 {
@@ -110,7 +111,7 @@ namespace Cryptogram.Views
                 Text = word,
                 Margin = new Thickness(6, 3, 6, 3),
                 MinimumWidthRequest = 50,
-                TextColor = Color.White,
+                TextColor = Colors.White,
             };
             frame.Content = label;
             return frame;

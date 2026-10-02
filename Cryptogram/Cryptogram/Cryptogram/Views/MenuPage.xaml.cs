@@ -7,6 +7,7 @@ using Cryptogram.Services;
 using Utils;
 using Microsoft.Maui.Storage;
 using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
 using Microsoft.Maui.Devices.Sensors;
 using Microsoft.Maui.Media;
 using Microsoft.Maui.Networking;

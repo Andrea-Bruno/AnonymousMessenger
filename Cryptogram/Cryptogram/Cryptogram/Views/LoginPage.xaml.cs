@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 using System;
 using Cryptogram.Services;
 using Microsoft.Maui.Controls.Xaml;
@@ -47,7 +48,7 @@ namespace Cryptogram.Views
 					var stream = await _mediaFile.OpenReadAsync();
 
 					UserProfilePhoto.Source = ImageSource.FromStream(() => stream);
-					UserProfilePhotoBg.BorderColor = Color.Yellow;
+					UserProfilePhotoBg.BorderColor = Colors.Yellow;
 				}
 				else
 				{
