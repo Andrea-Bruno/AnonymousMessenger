@@ -48,6 +48,7 @@ namespace Cryptogram
             DependencyService.RegisterSingleton<IAudioPlayerSpeakerService>(new AudioPlayerSpeakerStub());
             DependencyService.RegisterSingleton<IProgressInterface>(new ProgressStub());
             DependencyService.RegisterSingleton<ISecurityFlag>(new SecurityFlagStub());
+            DependencyService.RegisterSingleton<CustomViewElements.Services.IProgressInterface>(new CustomViewProgressStub());
         }
     }
 }
