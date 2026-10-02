@@ -1,9 +1,9 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using EncryptedMessaging;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using static EncryptedMessaging.Contacts;
 
 namespace ChatComposer

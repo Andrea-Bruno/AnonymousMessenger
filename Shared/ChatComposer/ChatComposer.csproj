@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
     <Configurations>Debug;Release;DebugNuget</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
     <PackageReference Condition="'$(Configuration)' == 'DebugNuget'" Include="EncryptedMessaging" Version="1.24.3.14" />
   </ItemGroup>
 
