@@ -1,7 +1,7 @@
-﻿using Rg.Plugins.Popup.Pages;
+using Mopups.Pages;
 using CustomViewElements.Services;
-using Xamarin.Forms;
-using Rg.Plugins.Popup.Services;
+using Microsoft.Maui.Controls;
+using Mopups.Services;
 
 namespace CustomViewElements
 {
@@ -14,7 +14,7 @@ namespace CustomViewElements
 
         protected override bool OnBackButtonPressed()
         {
-            PopupNavigation.Instance.PopAsync(true);
+            MopupService.Instance.PopAsync(true);
             return true;
         }
 

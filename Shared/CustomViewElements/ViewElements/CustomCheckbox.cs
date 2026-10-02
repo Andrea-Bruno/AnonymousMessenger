@@ -1,6 +1,8 @@
-﻿//using System;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
+//using System;
 //using System.Collections.Generic;
-//using Xamarin.Forms;
+//using Microsoft.Maui.Controls;
 //using SkiaSharp.Views.Forms;
 //using SkiaSharp;
 //using System.ComponentModel;

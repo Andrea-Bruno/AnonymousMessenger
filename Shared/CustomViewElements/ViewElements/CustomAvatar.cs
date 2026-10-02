@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Runtime.CompilerServices;
 using EncryptedMessaging;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using XamarinShared;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace CustomViewElements
 {
@@ -30,7 +32,7 @@ namespace CustomViewElements
             Padding = 0;
             Margin = 0;
             HasShadow = false;
-            BorderColor = Color.Transparent;
+            BorderColor = Microsoft.Maui.Graphics.Colors.Transparent;
             IsClippedToBounds = true;
         }
 
@@ -74,7 +76,7 @@ namespace CustomViewElements
 
         private void UpdateView()
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 Content = GetAvatar(Contact, HeightRequest / 2);
                 BackgroundColor = Color.FromHex(Contact.LightColorAsHex);

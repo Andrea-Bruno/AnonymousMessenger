@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using Utils;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace CustomViewElements
 {
@@ -61,7 +63,9 @@ namespace CustomViewElements
         {
             var btn = CreateImageButton(imageSource);
             btn.Clicked += click;
-            RightButtonsLayout.Children.Add(btn, pos, 0);
+            Grid.SetColumn(btn, pos);
+            Grid.SetRow(btn, 0);
+            RightButtonsLayout.Children.Add(btn);
         }
 
         public void AddLeftButton(ImageSource imageSource, EventHandler click)
@@ -78,8 +82,8 @@ namespace CustomViewElements
             AddRightButton(1, Utils.Icons.IconProvider?.Invoke("ic_add_new_chat"), (sender, args) =>
             {
                 pancake.IsVisible = !pancake.IsVisible;
-                RightButtonsLayout.Children[1].IsVisible = !pancake.IsVisible;
-                RightButtonsLayout.Children[1].IsVisible = !pancake.IsVisible;
+                ((View)RightButtonsLayout.Children[1]).IsVisible = !pancake.IsVisible;
+                ((View)RightButtonsLayout.Children[1]).IsVisible = !pancake.IsVisible;
                 click?.Invoke(sender, args);
             });
         }
@@ -103,7 +107,7 @@ namespace CustomViewElements
                 Padding = new Thickness(12),
                 HeightRequest = 48,
                 WidthRequest = 48,
-                BackgroundColor = Color.Transparent };
+                BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent };
         }
 
         private void SearchClearButton_Clicked(object sender, EventArgs e)
@@ -115,7 +119,7 @@ namespace CustomViewElements
         public void ClearViewState()
         {
             pancake.IsVisible = false;
-            RightButtonsLayout.Children[1].IsVisible = true;
+            ((View)RightButtonsLayout.Children[1]).IsVisible = true;
             InitToolbar();
         }
     }

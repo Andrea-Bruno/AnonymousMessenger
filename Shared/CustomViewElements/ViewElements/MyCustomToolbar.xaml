@@ -1,11 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
     x:Class="CustomViewElements.MyCustomToolbar"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
-    xmlns:views="clr-namespace:CustomViewElements"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    xmlns:views="clr-namespace:CustomViewElements">
     <ContentView.Content>
         <StackLayout HeightRequest="58" Spacing="0">
             <AbsoluteLayout
@@ -34,11 +33,11 @@
                     HeightRequest="58"
                     WidthRequest="55">
 
-                    <yummy:PancakeView
+                    <Border
                         x:Name="pancake"
                         x:FieldModifier="public"
                         BackgroundColor="{DynamicResource Color2}"
-                        CornerRadius="10,10,0,0"
+                        StrokeShape="RoundRectangle 10,10,0,0"
                         HeightRequest="58"
                         IsVisible="false"
                         WidthRequest="50" />
@@ -88,8 +87,8 @@
                             FontSize="18"
                             HorizontalOptions="FillAndExpand"
                             Placeholder="{x:Static local:Resources.Dictionary.Search}"
-                            PlaceholderColor="{x:DynamicResource BackgroundSecondary}"
-                            TextColor="{x:DynamicResource ToolbarTitleColor}" />
+                            PlaceholderColor="{DynamicResource BackgroundSecondary}"
+                            TextColor="{DynamicResource ToolbarTitleColor}" />
                     </StackLayout>
                 </Frame>
                 <ImageButton

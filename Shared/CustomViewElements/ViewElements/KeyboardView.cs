@@ -1,8 +1,8 @@
-﻿using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 
 namespace CustomViewElements
 {
-    public class KeyboardView : RelativeLayout
+    public class KeyboardView : Grid
     {
     }
 }

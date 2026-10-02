@@ -241,3 +241,50 @@ running the APK and smoke-testing each view requires the user's device/emulator.
 Recommended incremental order: retarget leaf UI libs one at a time (build-verify
 each), then the app head, then per-view XAML + handlers, testing on device as each
 view lands.
+
+## 13. XamarinShared DONE + MAUI 10 gotchas (2026-10-02, commit 8fa163e)
+
+`Shared/XamarinShared` retargeted to `net10.0-android` + `UseMaui=true` +
+`SingleProject=true` → **0 errors**. Commit `8fa163e` on `maui-migration`.
+
+**Critical MAUI 10.0.20 gotchas (verified against the actual ref dlls — do NOT
+re-discover):**
+- **XAML xmlns MUST change**: `http://xamarin.com/schemas/2014/forms` →
+  `http://schemas.microsoft.com/dotnet/2021/maui` (and `.../markup` →
+  `.../maui/runtime`). Until this is done, `Border`/`Shadow`/etc. do NOT resolve
+  and the XAML source-gen aborts, hiding the real C# error surface.
+- **`RelativeLayout` / `ConstraintExpression` are REMOVED** in MAUI 10 (404 in
+  docs, type not XAML-resolvable). Replace `RelativeLayout`→`Grid`; a
+  `WidthConstraint=RelativeToParent Width Factor=1` becomes `HorizontalOptions="Fill"`.
+- **`LongPressGestureRecognizer` does NOT exist** in MAUI 10 (added in 11).
+  For long-press use `PointerGestureRecognizer` + a `System.Timers.Timer`
+  (see `Utils.AddLongPress`).
+- **`MainThread` is NOT `Microsoft.Maui.MainThread`** (does not exist). Use a
+  custom `XamarinShared.MainThread` helper backed by `Application.Current.Dispatcher`
+  (`Dispatch` for void, `TaskCompletionSource` for `Func<Task>` — `IDispatcher`
+  has no `DispatchAsync` accepting the bare interface here).
+- **`Color.<Named>` statics are GONE** (no `Color.Black/White/Green/Orange/DeepSkyBlue`).
+  Use `Microsoft.Maui.Graphics.Colors.<Named>`. `Color.Default` → `Colors.Black`.
+  Beware a local field named `Colors` (e.g. `Palette.Colors`) shadowing the class —
+  fully-qualify `Microsoft.Maui.Graphics.Colors.X` there.
+- **`Frame` still exists** (deprecated) with `CornerRadius`/`HasShadow` — OK to keep.
+- **`Border` has no `CornerRadius`** → `StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle { CornerRadius = ... }`.
+  Do NOT add `using Microsoft.Maui.Controls.Shapes;` to files that also use
+  `System.IO.Path` — `Path` becomes ambiguous (Shapes.Path vs IO.Path). Fully-qualify RoundRectangle instead.
+- **`PhoneDialer`** = `Microsoft.Maui.ApplicationModel.Communication.PhoneDialer.Open(string)` (static).
+  **`FeatureNotSupportedException`** = `Microsoft.Maui.ApplicationModel.FeatureNotSupportedException`.
+- **`Xamarin.Essentials.*` mapping**: `Connectivity`→`Microsoft.Maui.Networking.Connectivity`;
+  `SecureStorage`/`FileSystem`→`Microsoft.Maui.Storage.*`; `MainThread`→custom helper.
+- **`GetTag`/`SetTag`** extension: `Children` is `IList<IView>` in MAUI (was
+  `IList<View>`). Changed the extension receiver to `object` + cast to `BindableObject`
+  internally to avoid IView/BindableObject ambiguity.
+- **`BinaryFormatter` obsolete (SYSLIB0011)** → `System.Text.Json` with
+  `JsonSerializerOptions { IncludeFields = true }`.
+- **Build verification**: `dotnet build "<csproj>" -c Debug -v m > "%TEMP%\x.log" 2>&1`
+  then count `': error '` AND `'XamlC error'`/`'Cannot resolve'` (XAML errors use a
+  different format than `: error CS`). A clean build produces `.sg.cs` files in obj.
+
+**Remaining UI libs to retarget (netstandard2.1 → net10.0-android+UseMaui):**
+`CustomViewElements` (uses Rg.Plugins.Popup→CommunityToolkit.Maui, Xamarin.Essentials),
+`ChatComposer`, `MessageCompose`, `NotificationService`, `WhiteLabelDesignComponents`.
+`Localization` stays netstandard2.1 (resx only). Then the `Cryptogram` app head.

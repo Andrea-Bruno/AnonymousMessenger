@@ -37,5 +37,9 @@ namespace XamarinShared
             });
             return tcs.Task;
         }
+
+        public static void InvokeOnMainThread(Action action) => BeginInvokeOnMainThread(action);
+
+        public static Task InvokeOnMainThreadAsync(Func<Task> func) => BeginInvokeOnMainThread(func);
     }
 }

@@ -1,6 +1,6 @@
 using System;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using XamarinShared;
+using Microsoft.Maui.Controls;
 namespace CustomViewElements
 {
 
@@ -25,7 +25,7 @@ namespace CustomViewElements
         {
             MainThread.InvokeOnMainThreadAsync(async () =>
             {
-                return await Navigation.PopAsync(true);
+                await Navigation.PopAsync(true);
             });
             return true;
         }
