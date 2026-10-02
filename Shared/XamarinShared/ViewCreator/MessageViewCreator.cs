@@ -15,7 +15,8 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using VideoFileCryptographyLibrary;
 using System.Linq;
-using Xamarin.Forms.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator
 {
@@ -284,7 +285,7 @@ namespace XamarinShared.ViewCreator
                     baseView.MessageFrame.HorizontalOptions = isMyMessage ? LayoutOptions.End : LayoutOptions.Start;
                     baseView.MessageFrameContent.Padding = new Thickness(0);
 
-                    Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
                         // Get message content
                         string contentType = string.Empty;
@@ -324,24 +325,24 @@ namespace XamarinShared.ViewCreator
                                     {
                                         // Set Thumbnail
                                         XamarinShared.Setup.Context.SecureStorage.DataStorage.SaveData(thumbNail, thumbNailName);
-                                        Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() => { thumbnailImage.SetSource(thumbNail); });
+                                        MainThread.BeginInvokeOnMainThread(() => { thumbnailImage.SetSource(thumbNail); });
                                     }
                                     else
                                     {
                                         // Exception
-                                        thumbnailImage.BackgroundColor = Color.Black;
+                                        thumbnailImage.BackgroundColor = Colors.Black;
                                     }
                                 }
                                 else
                                 {
                                     // Set Thumbnail
-                                    Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() => { thumbnailImage.SetSource(thumbNail); });
+                                    MainThread.BeginInvokeOnMainThread(() => { thumbnailImage.SetSource(thumbNail); });
                                 }
                             }
                             else
                             {
                                 // Exception
-                                thumbnailImage.BackgroundColor = Color.Black;
+                                thumbnailImage.BackgroundColor = Colors.Black;
                             }
                         });
 
@@ -352,7 +353,7 @@ namespace XamarinShared.ViewCreator
                             // ---------------------
 
                             // Local file processing
-                            var folder = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "uploads");
+                            var folder = Path.Combine(Microsoft.Maui.Storage.FileSystem.AppDataDirectory, "uploads");
                             if (!Directory.Exists(folder))
                             {
                                 Directory.CreateDirectory(folder);
@@ -412,7 +413,7 @@ namespace XamarinShared.ViewCreator
                             {
                                 if (videoLayout.Item2 == null)
                                     return;
-                                Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                                MainThread.BeginInvokeOnMainThread(() =>
                                 {
                                     if (percentage == 100.0)
                                     {
@@ -537,16 +538,16 @@ namespace XamarinShared.ViewCreator
                     BackgroundColor = Palette.PhoneContactBottomDividerColor
                 });
                 baseView.MessageFrameContent.Children.Add(bottomLabel);
-                baseView.MessageFrameContent.Tapped += ((s, e) => PlacePhoneCall(contactDetails.Item2));
+                baseView.MessageFrameContent.AddTap((s, e) => PlacePhoneCall(contactDetails.Item2));
 
 
                 void PlacePhoneCall(string number)
                 {
                     try
                     {
-                        Xamarin.Essentials.PhoneDialer.Open(number);
+                        Microsoft.Maui.ApplicationModel.Communication.PhoneDialer.Open(number);
                     }
-                    catch (Xamarin.Essentials.FeatureNotSupportedException)
+                    catch (Microsoft.Maui.ApplicationModel.FeatureNotSupportedException)
                     {
                         _showToast?.Invoke(Localization.Resources.Dictionary.FeatureNotSupported);
                     }
@@ -611,7 +612,7 @@ namespace XamarinShared.ViewCreator
                 stackLayout.Children.Add(newGroupCreate);
                 stackLayout.Children.Add(newGroupCreateBy);
                 baseView.MessageFrameContent.Children.Add(stackLayoutProfile);
-                baseView.MessageFrame.CornerRadius = new CornerRadius(15, 15, 15, 15);
+                baseView.MessageFrame.StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle { CornerRadius = new CornerRadius(15, 15, 15, 15) };
                 baseView.MessageFrameContent.Padding = new Thickness(0, 10, 0, 10);
                 baseView.MessageFrame.HorizontalOptions = LayoutOptions.FillAndExpand;
                 baseView.MessageFrame.Margin = isMyMessage ? new Thickness(0, 0, 35, 0) : new Thickness(35, 0, 0, 0);
@@ -633,7 +634,7 @@ namespace XamarinShared.ViewCreator
                 //newContactLabel.BindingContext = this;
                 //newContactLabel.SetBinding(Label.FontSizeProperty, new Binding(nameof(TextSize), converter: _fontSizeConverter, converterParameter: 16));
                 baseView.MessageFrameContent.Children.Add(newContactLabel);
-                baseView.MessageFrame.CornerRadius = new CornerRadius(15, 15, 15, 15);
+                baseView.MessageFrame.StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle { CornerRadius = new CornerRadius(15, 15, 15, 15) };
                 baseView.MessageFrameContent.Padding = new Thickness(0, 10, 0, 10);
                 baseView.MessageFrame.HorizontalOptions = LayoutOptions.FillAndExpand;
                 baseView.MessageFrame.Margin = isMyMessage ? new Thickness(0, 0, 35, 0) : new Thickness(35, 0, 0, 0);
@@ -693,7 +694,7 @@ namespace XamarinShared.ViewCreator
                 label.SetFontSizeBinding(14);
                 //label.BindingContext = this;
                 //label.SetBinding(Label.FontSizeProperty, new Binding(nameof(TextSize), converter: _fontSizeConverter, converterParameter: 14));
-                baseView.MessageFrameContent.Tapped += ((s, e) => _onPdfMessageClicked?.Invoke(pdfData));
+                baseView.MessageFrameContent.AddTap((s, e) => _onPdfMessageClicked?.Invoke(pdfData));
             }
 
             void addCallView(bool isVideoCall)
@@ -858,20 +859,20 @@ namespace XamarinShared.ViewCreator
             }
 
             content = baseView;
-            baseView.MessageFrameContent.LongPressing += (s, e) =>
+            baseView.MessageFrameContent.AddLongPress((s, e) =>
             {
                 if (contact.IsBlocked) return;
                 contactViewItems.IsMessageSelection = true;
                 if (!baseView.SelectionCheckBox.IsChecked)
                     baseView.SelectionCheckBox.IsChecked = true;
-            };
-            baseView.MessageFrameContent.Tapped += (s1, e1) =>
+            });
+            baseView.MessageFrameContent.AddTap((s1, e1) =>
             {
                 if (contactViewItems.IsMessageSelection)
                 {
                     baseView.SelectionCheckBox.IsChecked = !baseView.SelectionCheckBox.IsChecked;
                 }
-            };
+            });
 
 
             if (message.Type != MessageType.PhoneContact)
@@ -1244,7 +1245,7 @@ namespace XamarinShared.ViewCreator
             {
                 Text = labelText,
                 FontFamily = "PoppinsSemiBold",
-                TextColor = Color.DeepSkyBlue,
+                TextColor = Colors.DeepSkyBlue,
                 TextDecorations = TextDecorations.Underline,
                 HorizontalTextAlignment = TextAlignment.End
             };
@@ -1466,7 +1467,7 @@ namespace XamarinShared.ViewCreator
         //    {
         //        Text = Localization.Resources.Dictionary.ReadMore,
         //        FontFamily = "RobotoLight",
-        //        TextColor = Color.DeepSkyBlue,
+        //        TextColor = Colors.DeepSkyBlue,
         //        TextDecorations = TextDecorations.Underline,
         //        HorizontalTextAlignment = TextAlignment.End
         //    };
@@ -1534,7 +1535,6 @@ namespace XamarinShared.ViewCreator
             CircularProgressBar progressBar = new CircularProgressBar()
             {
                 Margin = new Thickness(0, -150, 0, 0),
-                Padding = 0,
                 Easing = true,
                 HeightRequest = 36,
                 WidthRequest = 36,

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using EncryptedMessaging;
 using Microsoft.Maui.Controls;
 using XamarinShared.ViewCreator.ViewHolder;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator.Views.Incoming
 {
@@ -141,7 +143,7 @@ namespace XamarinShared.ViewCreator.Views.Incoming
             {
                 Text = labelText,
                 FontFamily = "PoppinsSemiBold",
-                TextColor = Color.DeepSkyBlue,
+                TextColor = Colors.DeepSkyBlue,
                 TextDecorations = TextDecorations.Underline,
                 HorizontalTextAlignment = TextAlignment.End
             };

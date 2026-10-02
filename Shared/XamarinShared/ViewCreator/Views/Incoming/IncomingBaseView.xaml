@@ -1,16 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <ts:BaseView
     x:Class="XamarinShared.ViewCreator.Views.Incoming.IncomingBaseView"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:customviews="clr-namespace:XamarinShared.CustomViews"
-    xmlns:ts="clr-namespace:XamarinShared.ViewCreator"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    xmlns:ts="clr-namespace:XamarinShared.ViewCreator">
     <ContentView.Resources>
         <ts:MessageSelectionMarginConverter x:Key="marginConverter" />
     </ContentView.Resources>
     <ContentView.Content>
-        <RelativeLayout
+        <Grid
             Margin="15,3,50,3"
             Padding="3"
             BackgroundColor="Transparent"
@@ -32,28 +31,27 @@
             <StackLayout
                 Margin="{Binding IsMessageSelection, Converter={StaticResource marginConverter}}"
                 Orientation="Vertical"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Width,
-                                                                      Factor=1}">
+                HorizontalOptions="Fill">
                 <!--  Margin="{Binding Source={x:Reference CheckBox},Path=Height,Converter=}"  -->
-                <yummy:PancakeView
+                <Border
                     x:Name="PancakeView"
                     Padding="0"
                     x:FieldModifier="Public"
-                    CornerRadius="15,15,0,15"
+                    StrokeShape="RoundRectangle 15,15,0,15"
                     HorizontalOptions="FillAndExpand"
                     MinimumHeightRequest="200"
                     VerticalOptions="FillAndExpand">
-                    <yummy:PancakeView.Shadow>
-                        <yummy:DropShadow
+                    <Border.Shadow>
+                        <Shadow
                             x:Name="DropShadow"
-                            BlurRadius="5"
-                            Offset="10,10" />
-                    </yummy:PancakeView.Shadow>
-                </yummy:PancakeView>
+                            Radius="5"
+                            Offset="10,10"
+                            Brush="Black" />
+                    </Border.Shadow>
+                </Border>
 
             </StackLayout>
 
-        </RelativeLayout>
+        </Grid>
     </ContentView.Content>
 </ts:BaseView>

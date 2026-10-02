@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using EncryptedMessaging;
 using Microsoft.Maui.Controls;
 using static EncryptedMessaging.MessageFormat;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared
 {
@@ -15,7 +17,7 @@ namespace XamarinShared
 			MessageStatus messageStatus = null;
 
 
-			var timeLabel = new Label() { FontSize = 13, FontFamily = "PoppinsRegular", TextColor= isMyMessage ? Color.Black : Color.White  };
+			var timeLabel = new Label() { FontSize = 13, FontFamily = "PoppinsRegular", TextColor= isMyMessage ? Colors.Black : Colors.White  };
 			//var differentDay = Time.CurrentTimeGMT.ToLocalTime().DayOfYear == message.Creation.ToLocalTime().DayOfYear;
 			timeLabel.Text = message.Creation.ToLocalTime().ToShortTimeString();
 				
@@ -103,7 +105,7 @@ namespace XamarinShared
 								messageStatus.ExecuteOnMessageDelivered = null;
 								//if (!isLoading)
 								//	Thread.Sleep(3000);
-								Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() => messageStatus.Status = Status.Delivered);
+								MainThread.BeginInvokeOnMainThread(() => messageStatus.Status = Status.Delivered);
 							}
 						}
 			}
@@ -130,11 +132,11 @@ namespace XamarinShared
 				{
 					_status = value;
 					if (value == Status.Pending)
-					{ StatusLabel.Text = "🕑"; StatusLabel.TextColor = Color.Black; }
+					{ StatusLabel.Text = "🕑"; StatusLabel.TextColor = Colors.Black; }
 					else if (value == Status.Delivered)
-					{ StatusLabel.Text = "✓"; StatusLabel.TextColor = Color.Black; }
+					{ StatusLabel.Text = "✓"; StatusLabel.TextColor = Colors.Black; }
 					else if (value == Status.Readed)
-					{ StatusLabel.Text = "✓✓"; StatusLabel.TextColor = Color.Green; }
+					{ StatusLabel.Text = "✓✓"; StatusLabel.TextColor = Colors.Green; }
 				}
 			}
 		};

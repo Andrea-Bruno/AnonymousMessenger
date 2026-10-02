@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 namespace XamarinShared.ViewCreator.Views
 {
     public class ReplySwipeLayout : SwipeView
@@ -24,11 +25,11 @@ namespace XamarinShared.ViewCreator.Views
 
         protected ReplySwipeLayout()
         {
-            BackgroundColor = Color.Transparent;
+            BackgroundColor = Colors.Transparent;
 
             LeftItems.Add(new SwipeItem()
             {
-                BackgroundColor = Color.Transparent
+                BackgroundColor = Colors.Transparent
             });
 
             SwipeEnded += (s, e) =>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.CustomViews
 {
@@ -52,7 +53,7 @@ namespace XamarinShared.CustomViews
             }
             else
             {
-                BgRectangle.Fill = new SolidColorBrush(Color.Transparent);
+                BgRectangle.Fill = new SolidColorBrush(Colors.Transparent);
                 BgRectangle.Stroke = new SolidColorBrush(Color);
             }
         }

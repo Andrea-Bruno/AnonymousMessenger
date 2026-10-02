@@ -3,6 +3,7 @@ using System.Diagnostics;
 using EncryptedMessaging;
 using Microsoft.Maui.Controls;
 using XamarinShared.ViewCreator;
+using Microsoft.Maui.Graphics;
           
 namespace XamarinShared
 {
@@ -29,19 +30,19 @@ namespace XamarinShared
                 MessageViewCreator.Instance.SetReadStatus(MessageReadStatus);
                 ChatPageSupport.Initialize(multipleChatModes, newMessageOnTop, onNewMessageAddedToView);
                 // ChatPageSupport.Initialize(multipleChatModes, newMessageOnTop, messageScrollView, onNewMessageAddedToView);
-                var currentInternetAccess = Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet;
+                var currentInternetAccess = Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.Internet || Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.ConstrainedInternet;
                 Context.OnContextIsInitialized += OnInitialized;
 
-                Context = new Context(entryPoint, networkName, multipleChatModes, privateKeyOrPassphrase, Modality.Client, currentInternetAccess, Device.BeginInvokeOnMainThread, GetSecureValue, SetSecureValue, getFirebaseToken, getAppleDeviceToken, null, oem);
+                Context = new Context(entryPoint, networkName, multipleChatModes, privateKeyOrPassphrase, Modality.Client, currentInternetAccess, MainThread.BeginInvokeOnMainThread, GetSecureValue, SetSecureValue, getFirebaseToken, getAppleDeviceToken, null, oem);
                 Context.ViewMessage += ChatPageSupport.ViewMessage;
                 Context.OnContactEvent +=ChatPageSupport.OnContactEvent;
                 Context.OnLastReadedTimeChange += MessageReadStatus.OnLastReadedTimeChange;
                 Context.OnMessageDelivered += MessageReadStatus.OnMessageDelivered;
                 Context.OnNotification += onNotification;
                 // Bind the event to change the connection when the connectivity changes
-                Xamarin.Essentials.Connectivity.ConnectivityChanged += (o, c) => Context.OnConnectivityChange(c.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
+                Microsoft.Maui.Networking.Connectivity.ConnectivityChanged += (o, c) => Context.OnConnectivityChange(c.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.Internet || Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
                 // Set the current connection status
-                Context.OnConnectivityChange(Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet || Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
+                Context.OnConnectivityChange(Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.Internet || Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.ConstrainedInternet, CommunicationChannel.Channel.ConnectivityType.Internet);
             }
             Settings.Load();
             Calls.GetInstance().SetMyId(Context.My.Id);
@@ -58,13 +59,13 @@ namespace XamarinShared
             return Context;
         }
 
-        public static void SetSecureValue(string key, string value) => _ = Xamarin.Essentials.SecureStorage.SetAsync(key, value);
+        public static void SetSecureValue(string key, string value) => _ = Microsoft.Maui.Storage.SecureStorage.SetAsync(key, value);
 
-        public static void RemoveSecureValue(string key) => _ = Xamarin.Essentials.SecureStorage.Remove(key);
+        public static void RemoveSecureValue(string key) => _ = Microsoft.Maui.Storage.SecureStorage.Remove(key);
 
         public static string GetSecureValue(string key)
         {
-            System.Threading.Tasks.Task<string> task = System.Threading.Tasks.Task.Run(async () => await Xamarin.Essentials.SecureStorage.GetAsync(key));
+            System.Threading.Tasks.Task<string> task = System.Threading.Tasks.Task.Run(async () => await Microsoft.Maui.Storage.SecureStorage.GetAsync(key));
             return task.Result;
         }
 

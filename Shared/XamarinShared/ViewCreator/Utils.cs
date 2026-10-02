@@ -1,8 +1,8 @@
 using System;
 using System.Globalization;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator
 {
@@ -24,26 +24,39 @@ namespace XamarinShared.ViewCreator
         public static void Click(this View view, EventHandler tapped)
         {
             var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += tapped;
+            tapGestureRecognizer.Tapped += (s, e) => tapped?.Invoke(s, e);
             tapGestureRecognizer.NumberOfTapsRequired = 1;
             view.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        public static void AddTap(this View view, EventHandler<TappedEventArgs> handler)
+        {
+            var tapGestureRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 1 };
+            tapGestureRecognizer.Tapped += handler;
+            view.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        public static void AddLongPress(this View view, EventHandler handler)
+        {
+            var pointerGestureRecognizer = new PointerGestureRecognizer();
+            System.Timers.Timer timer = null;
+            pointerGestureRecognizer.PointerPressed += (s, e) =>
+            {
+                timer = new System.Timers.Timer(500) { AutoReset = false };
+                timer.Elapsed += (ss, ee) => handler?.Invoke(view, EventArgs.Empty);
+                timer.Start();
+            };
+            pointerGestureRecognizer.PointerReleased += (s, e) =>
+            {
+                if (timer != null) { timer.Stop(); timer.Dispose(); timer = null; }
+            };
+            view.GestureRecognizers.Add(pointerGestureRecognizer);
         }
 
         public static void SetFontSizeBinding(this View view, int size)
         {
             view.BindingContext = MessageViewCreator.Instance;
             view.SetBinding(Label.FontSizeProperty, new Binding(nameof(MessageViewCreator.TextSize), converter: fontSizeConverter, converterParameter: 14));
-        }
-
-        public static object ByteArrayToObject(byte[] arrBytes)
-        {
-            MemoryStream memStream = new MemoryStream();
-            BinaryFormatter binForm = new BinaryFormatter();
-            memStream.Write(arrBytes, 0, arrBytes.Length);
-            memStream.Seek(0, SeekOrigin.Begin);
-            object obj = (object)binForm.Deserialize(memStream);
-
-            return obj;
         }
 
         public static string ReplaceURLWithHTMLLinks(string text)
@@ -71,20 +84,24 @@ namespace XamarinShared.ViewCreator
 
         public static readonly BindableProperty TagProperty = BindableProperty.Create("Tag", typeof(string), typeof(Utils), null);
 
-        public static string GetTag(this BindableObject bindable)
+        public static string GetTag(this object obj)
         {
+            var bindable = obj as BindableObject;
+            if (bindable == null) return string.Empty;
             return (string)bindable.GetValue(TagProperty) ?? string.Empty;
         }
 
-        public static void SetTag(this BindableObject bindable, string value)
+        public static void SetTag(this object obj, string value)
         {
+            var bindable = obj as BindableObject;
+            if (bindable == null) return;
             bindable.SetValue(TagProperty, value);
         }
 
         public static void SetSource(this Image image, byte[] data)
         {
             if (data == null || image == null) return;
-            Device.BeginInvokeOnMainThread(() => image.Source = ImageSource.FromStream(() => new MemoryStream(data)));
+            MainThread.BeginInvokeOnMainThread(() => image.Source = ImageSource.FromStream(() => new MemoryStream(data)));
         }
 
         public static int GetTotalDays(this DateTime dateTime)
@@ -101,7 +118,7 @@ namespace XamarinShared.ViewCreator
 
                 var timer = new System.Threading.Timer((object obj) =>
                 {
-                    Device.BeginInvokeOnMainThread(() =>
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
                         ((View)sender).IsEnabled = true;
                     });

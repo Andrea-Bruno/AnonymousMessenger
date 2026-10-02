@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EncryptedMessaging;
 using Microsoft.Maui.Controls;
 using static EncryptedMessaging.MessageFormat;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator.Views.Outgoing
 {
@@ -22,8 +23,8 @@ namespace XamarinShared.ViewCreator.Views.Outgoing
                 InitializeComponent(); // Some bugs on Xamarin forms load view
             }
             Message = message;
-            PancakeView.Content = new MR.Gestures.StackLayout { Padding = 12, Spacing = 0 };
-            MessageFrameContent = PancakeView.Content as MR.Gestures.StackLayout;
+            PancakeView.Content = new StackLayout { Padding = 12, Spacing = 0 };
+            MessageFrameContent = PancakeView.Content as StackLayout;
             MessageFrame = PancakeView;
             SelectionCheckBox = CheckBox;
             IsMyMessage = true;
@@ -33,7 +34,7 @@ namespace XamarinShared.ViewCreator.Views.Outgoing
 
             CheckBox.Color = Palette.CheckBoxColor;
             PancakeView.BackgroundColor = Palette.FrameBackgroundColor(true);
-            DropShadow.Color = Palette.FrameShadowColor;
+            DropShadow.Brush = new SolidColorBrush(Palette.FrameShadowColor);
         }
 
 

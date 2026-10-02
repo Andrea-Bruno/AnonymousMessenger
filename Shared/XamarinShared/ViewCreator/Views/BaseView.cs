@@ -4,18 +4,19 @@ using System.Text;
 using System.Threading.Tasks;
 using EncryptedMessaging;
 using Microsoft.Maui.Controls;
-using Xamarin.Forms.PancakeView;
 using XamarinShared.CustomViews;
 using XamarinShared.ViewCreator.Views;
 using static EncryptedMessaging.MessageFormat;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator
 {
     public abstract class BaseView : ReplySwipeLayout
     {
-        public MR.Gestures.StackLayout MessageFrameContent;
+        public StackLayout MessageFrameContent;
         public CustomCheckBox SelectionCheckBox;
-        public PancakeView MessageFrame;
+        public Border MessageFrame;
         public Message Message;
         public StackLayout FlagAndTime;
         public bool IsMyMessage = false;
@@ -80,7 +81,7 @@ namespace XamarinShared.ViewCreator
 
                 for (int i = isReplyLayoutLoaded ? 1 : 0; i < MessageFrameContent.Children.Count - 1; i++)
                 {
-                    View view = MessageFrameContent.Children[i];
+                    View view = (View)MessageFrameContent.Children[i];
                     view.Margin = new Thickness(0, 0, FlagAndTime.Width + 8, 0);
                 }
             }
@@ -109,7 +110,7 @@ namespace XamarinShared.ViewCreator
 
                 imageRowPosition += isReplyLayoutLoaded ? 1 : 0;
 
-                var imageView = MessageFrameContent.Children[imageRowPosition];
+                var imageView = (View)MessageFrameContent.Children[imageRowPosition];
 
                 if (imageView is Image)
                 {

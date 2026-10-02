@@ -1,7 +1,9 @@
 using System;
 using System.Threading.Tasks;
 using EncryptedMessaging;
+using Microsoft.Maui.Controls;
 using static EncryptedMessaging.MessageFormat;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator.Views.Incoming
 {
@@ -19,8 +21,8 @@ namespace XamarinShared.ViewCreator.Views.Incoming
                 InitializeComponent(); // Some bugs on xamarin forms load view
             }
             Message = message;
-            PancakeView.Content = new MR.Gestures.StackLayout { Padding = 12, Spacing = 0};
-            MessageFrameContent = PancakeView.Content as MR.Gestures.StackLayout;
+            PancakeView.Content = new StackLayout { Padding = 12, Spacing = 0 };
+            MessageFrameContent = PancakeView.Content as StackLayout;
             MessageFrame = PancakeView;
             SelectionCheckBox = CheckBox;
             Init(readStatus, sendNotification);
@@ -28,7 +30,7 @@ namespace XamarinShared.ViewCreator.Views.Incoming
             PancakeView.BindingContext = ChatPageSupport.GetContactViewItems(message.Contact);
             CheckBox.Color = Palette.CheckBoxColor;
             PancakeView.BackgroundColor = Palette.FrameBackgroundColor(false);
-            DropShadow.Color = Palette.FrameShadowColor;
+            DropShadow.Brush = new SolidColorBrush(Palette.FrameShadowColor);
         }
     }
 }

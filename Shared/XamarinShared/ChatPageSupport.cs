@@ -11,6 +11,8 @@ using System.IO;
 using System.Threading;
 using System.Linq;
 using XamarinShared.ViewCreator.ViewHolder;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared
 {
@@ -46,7 +48,7 @@ namespace XamarinShared
             // if (repliedMessageView == null) return;
             //
             //
-            // Device.BeginInvokeOnMainThread(() =>
+            // MainThread.BeginInvokeOnMainThread(() =>
             // {
             //     _scrollMessageContainer.ScrollToAsync(repliedMessageView, ScrollToPosition.MakeVisible, false);
             //     BlinkEffect(repliedMessageView);
@@ -142,7 +144,7 @@ namespace XamarinShared
 
         internal static void ViewMessage(Message message, bool isMyMessage)
         {
-            //Device.BeginInvokeOnMainThread(() =>
+            //MainThread.BeginInvokeOnMainThread(() =>
             //{
             Contact contact = message.Contact;
             if (contact == null)
@@ -185,7 +187,7 @@ namespace XamarinShared
                             contactViewItems.IsAllMessagesLoaded = false;
                     }
 
-                    Device.BeginInvokeOnMainThread(() =>
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
                         if (message == null || message.GetData() == null) return;
 
@@ -305,7 +307,7 @@ namespace XamarinShared
             //             var fileName = string.Format("{0}.{1}", ComputePsuedoHash.ToHex(SHA256.Create().ComputeHash(privateKey)), contentType);
             //             void deleteVideo(object folder)
             //             {
-            //                 var filePath = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, folder.ToString(), fileName);
+            //                 var filePath = Path.Combine(Microsoft.Maui.Storage.FileSystem.AppDataDirectory, folder.ToString(), fileName);
             //                 if (File.Exists(filePath))
             //                     File.Delete(filePath);
             //             }
@@ -463,7 +465,7 @@ namespace XamarinShared
 
         public static View GetDateLayout(string date)
         {
-            var stack = new StackLayout { ClassId = "MessageDateFrameContainer", BackgroundColor = Color.Transparent };
+            var stack = new StackLayout { ClassId = "MessageDateFrameContainer", BackgroundColor = Colors.Transparent };
             stack.SetTag("MessageDateFrameContainer@"+date);
             stack.Children.Add(GetDateFrame(date));
             return stack;
@@ -471,7 +473,7 @@ namespace XamarinShared
 
         public static Frame GetDateFrame(string date)
         {
-            var unreadMessagesFrame = new Frame { HasShadow = false, BackgroundColor = Color.Transparent, HorizontalOptions = LayoutOptions.CenterAndExpand};
+            var unreadMessagesFrame = new Frame { HasShadow = false, BackgroundColor = Colors.Transparent, HorizontalOptions = LayoutOptions.CenterAndExpand};
             var dateLabel = new Label
             {
                 HorizontalTextAlignment = TextAlignment.Center,

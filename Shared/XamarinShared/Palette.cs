@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 namespace XamarinShared
 {
@@ -24,7 +25,7 @@ namespace XamarinShared
         public static Color MainTextColor(bool isOutgoing)
         {
             if (Colors.ThemeColor == null)
-                return Color.Default;
+                return Microsoft.Maui.Graphics.Colors.Black;
             return isOutgoing ? Colors.MainBackgroundColor : Colors.ForegroundColor;
         }
 
@@ -32,7 +33,7 @@ namespace XamarinShared
     
         public static Color BoxView
         {
-            get => Color.Orange;
+            get => Microsoft.Maui.Graphics.Colors.Orange;
         }
 
 
@@ -44,7 +45,7 @@ namespace XamarinShared
         public static Color SliderMinimumColor(bool isOutgoing)
         {
             if (Colors.ThemeColor == null)
-                return Color.Default;
+                return Microsoft.Maui.Graphics.Colors.Black;
             return isOutgoing ? Colors.SecondaryBackgroundColor : Colors.ForegroundColor;
         }
 
@@ -72,7 +73,7 @@ namespace XamarinShared
             get {
                 if (Colors.ThemeColor == null)
                 {
-                    return Color.Default;
+                    return Microsoft.Maui.Graphics.Colors.Black;
                 }
                 return Colors.ForegroundColor;
             }
