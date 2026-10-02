@@ -1,5 +1,5 @@
-﻿using System;
-using Rg.Plugins.Popup.Services;
+using System;
+using Mopups.Services;
 using Utils;
 
 namespace Cryptogram.PopupViews
@@ -17,7 +17,7 @@ namespace Cryptogram.PopupViews
         void CloseButton_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            PopupNavigation.Instance.PopAsync(false);
+            MopupService.Instance.PopAsync(false);
             BackButtonAction?.Invoke();
         }
     }

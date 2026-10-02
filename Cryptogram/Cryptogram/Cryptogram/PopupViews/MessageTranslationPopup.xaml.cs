@@ -1,14 +1,19 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using EncryptedMessaging;
-using Rg.Plugins.Popup.Services;
+using Mopups.Services;
 using System;
 using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using Cryptogram.Services.GoogleTranslationService;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Essentials;
-using Xamarin.Forms.Xaml;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Cryptogram.PopupViews
 {
@@ -59,7 +64,7 @@ namespace Cryptogram.PopupViews
                             MainThread.BeginInvokeOnMainThread(() =>
                             {
 
-                                PopupNavigation.Instance.PopAsync(false);
+                                MopupService.Instance.PopAsync(false);
                                 this.DisplayToastAsync(Localization.Resources.Dictionary.MessageCouldNotTranslate);
                             });
                         }

@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using EncryptedMessaging;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 
 namespace Cryptogram.ViewModels
 {

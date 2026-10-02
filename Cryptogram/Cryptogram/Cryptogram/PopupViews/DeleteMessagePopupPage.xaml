@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <local2:BasePopupPage
     x:Class="Cryptogram.PopupViews.DeleteMessagePopupPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:local2="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:utils="clr-namespace:Utils;assembly=Utils"
     ios:Page.UseSafeArea="true"
@@ -31,10 +31,10 @@
             CornerRadius="15"
             HasShadow="False">
             <StackLayout Padding="0" Orientation="Vertical">
-                <pancakeview:PancakeView
+                <Border
                     Margin="0,0,0,0"
-                    BackgroundColor="{DynamicResource WhiteColor}"
-                    CornerRadius="15,15,0,0"
+                    Background="{DynamicResource WhiteColor}"
+                    StrokeShape="RoundRectangle 15,15,0,0"
                     HeightRequest="48">
                     <local2:CustomLabel
                         FontFamily="PoppinsMedium"
@@ -44,7 +44,7 @@
                         Text="{x:Static local1:Resources.Dictionary.DeleteMessage}"
                         TextColor="{DynamicResource PopupHeaderColor}"
                         VerticalOptions="Center" />
-                </pancakeview:PancakeView>
+                </Border>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <StackLayout
                         x:Name="DeleteForMe"

@@ -1,6 +1,6 @@
-﻿namespace Cryptogram.ViewModels
+namespace Cryptogram.ViewModels
 {
-    using Xamarin.Forms;
+    using Microsoft.Maui.Controls;
 
 
     public class QuestionAnswersInnerViewModel : BaseExpandableViewModel

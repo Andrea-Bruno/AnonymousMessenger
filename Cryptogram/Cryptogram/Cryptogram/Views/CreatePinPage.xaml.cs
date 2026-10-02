@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Security.Cryptography;
 using System.Text;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using XamarinShared;
 using Cryptogram.Services;
 using static Utils.Utils;
 using Utils;
 using CustomViewElements;
 using Cryptogram.DesignHandler;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
 
@@ -113,7 +113,7 @@ namespace Cryptogram.Views
                     StuffedPin(frame);
                 }
                 ShowProgressDialog();
-                new System.Threading.Timer((object obj) => { Device.BeginInvokeOnMainThread(() => OpenNavigationPage()); }, null, 100, System.Threading.Timeout.Infinite);
+                new System.Threading.Timer((object obj) => { MainThread.BeginInvokeOnMainThread(() => OpenNavigationPage()); }, null, 100, System.Threading.Timeout.Infinite);
             }
 
          
@@ -144,7 +144,7 @@ namespace Cryptogram.Views
                 if (GetHashString(_firstPin) == _lockPin)
                 {
                     ShowProgressDialog();
-                    new System.Threading.Timer((object obj) => { Device.BeginInvokeOnMainThread(() => OpenNavigationPage()); }, null, 100, System.Threading.Timeout.Infinite);
+                    new System.Threading.Timer((object obj) => { MainThread.BeginInvokeOnMainThread(() => OpenNavigationPage()); }, null, 100, System.Threading.Timeout.Infinite);
 
                 }
                 else

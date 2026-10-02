@@ -1,7 +1,12 @@
 using System;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using System.Diagnostics;
 using XamarinShared;
 using static Cryptogram.App;
@@ -11,6 +16,7 @@ using FontSizeConverter = XamarinShared.ViewCreator.FontSizeConverter;
 using Cryptogram.Services;
 using Plugin.LatestVersion;
 using Cryptogram.Backup;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -159,7 +165,7 @@ namespace Cryptogram.Views
             }
             if (sharedData != null)
             {
-                Device.BeginInvokeOnMainThread(() =>
+                MainThread.BeginInvokeOnMainThread(() =>
                 {
                     Application.Current.MainPage.Navigation.PushAsync(new GroupUserSelectPage(sharedData, App.SharedMessageType));
                 });
@@ -173,7 +179,7 @@ namespace Cryptogram.Views
                 if (contact != null)
                 {
 
-                    Device.BeginInvokeOnMainThread(() =>
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
                         Application.Current.MainPage.Navigation.PopToRootAsync();
                         Application.Current.MainPage.Navigation.PushAsync(new ChatRoom(contact));

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cryptogram.ViewModels;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 using EncryptedMessaging;
 using System.Collections.ObjectModel;
 using static EncryptedMessaging.Contacts;
@@ -11,9 +11,9 @@ using System.Text;
 using CustomViewElements;
 using Utils;
 using Cryptogram.DesignHandler;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using MessageCompose.Model;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 
 namespace Cryptogram.Views
 {

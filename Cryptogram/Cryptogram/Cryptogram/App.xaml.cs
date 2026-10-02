@@ -3,7 +3,7 @@ using Cryptogram.Services;
 using Cryptogram.Views;
 using EncryptedMessaging;
 using System.Collections.Generic;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using XamarinShared;
 using System.Threading.Tasks;
 using Plugin.Sensors;
@@ -19,7 +19,7 @@ using MessageCompose;
 using Cryptogram.Services.GoogleTranslationService;
 using MessageCompose.Model;
 using Cryptogram.DesignHandler;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using System.Threading;
 using Cryptogram.Backup;
 using Cryptogram.Models;
@@ -129,7 +129,7 @@ namespace Cryptogram
 
 		private void InitLocale()
 		{
-			string lang = Xamarin.Essentials.Preferences.Get("language", null);
+			string lang = Microsoft.Maui.Storage.Preferences.Get("language", null);
 			if (lang != null)
 			{
 				CultureInfo.CurrentCulture.ClearCachedData();
@@ -151,7 +151,7 @@ namespace Cryptogram
 
 		private void OpenNavigationPage()
         {
-            IsLogged = Xamarin.Essentials.Preferences.Get("IsLogged", false);
+            IsLogged = Microsoft.Maui.Storage.Preferences.Get("IsLogged", false);
             if (!IsLogged)
                MainPage = new NavigationPage(new CryptogramLoginSignupPage()); // first startup
             else if (Setup.GetSecureValue("LockPin") != null)
@@ -172,7 +172,7 @@ namespace Cryptogram
         {
 			try
 			{
-				Device.BeginInvokeOnMainThread(() =>
+				MainThread.BeginInvokeOnMainThread(() =>
 				{
 					DependencyService.Get<IEndCall>().FinishCall(message.ChatId + "");
 				});
@@ -406,13 +406,13 @@ namespace Cryptogram
 
 		private static async Task OpenMapAsync(double lat, double lng)
 		{
-			var supportsUri = await Xamarin.Essentials.Launcher.CanOpenAsync("comgooglemaps://");
+			var supportsUri = await Microsoft.Maui.ApplicationModel.Launcher.CanOpenAsync("comgooglemaps://");
 			try
 			{
 				if (supportsUri)
-					await Xamarin.Essentials.Launcher.OpenAsync($"comgooglemaps://?q={lat},{lng}({"Address"})");
+					await Microsoft.Maui.ApplicationModel.Launcher.OpenAsync($"comgooglemaps://?q={lat},{lng}({"Address"})");
 				else
-					await Xamarin.Essentials.Map.OpenAsync(lat, lng, new Xamarin.Essentials.MapLaunchOptions { Name = "Address" });
+					await Microsoft.Maui.ApplicationModel.Map.OpenAsync(lat, lng, new Microsoft.Maui.ApplicationModel.MapLaunchOptions { Name = "Address" });
 			}
 			catch (Exception) { }
 		}
@@ -420,8 +420,8 @@ namespace Cryptogram
 		public static void ReEstablishConnection(bool iMSureThereIsConnection = false)
 		{
 			if (iMSureThereIsConnection == false)
-				iMSureThereIsConnection = Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet
-					|| Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.ConstrainedInternet;
+				iMSureThereIsConnection = Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.Internet
+					|| Microsoft.Maui.Networking.Connectivity.NetworkAccess == Microsoft.Maui.Networking.NetworkAccess.ConstrainedInternet;
 			if (_isAppFullyLoaded) Context.ReEstablishInternetConnection(iMSureThereIsConnection);
 		}
 
@@ -515,7 +515,7 @@ namespace Cryptogram
 
 		public static void RestoreBackup()
 		{
-			Device.BeginInvokeOnMainThread(() =>
+			MainThread.BeginInvokeOnMainThread(() =>
 			{
 				((App)Current).GetRootPage()?.ShowProgressDialog();
 			});
@@ -536,7 +536,7 @@ namespace Cryptogram
 							contact.SetPost(data, new DateTime(Convert.ToInt64(file.Name)));
 					}
 				});
-				Device.BeginInvokeOnMainThread(() =>
+				MainThread.BeginInvokeOnMainThread(() =>
 				{
 					((App)Current).GetRootPage()?.HideProgressDialog();
 					((App)Current).GetRootPage()?.DisplayToastAsync(Localization.Resources.Dictionary.RestartApplication);

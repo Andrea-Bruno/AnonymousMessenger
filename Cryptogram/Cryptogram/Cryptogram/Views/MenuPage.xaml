@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:BasePage x:Class="Cryptogram.Views.MenuPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:dh="clr-namespace:Cryptogram.DesignHandler" xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements" xmlns:local1="clr-namespace:Localization;assembly=Localization" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" ios:Page.UseSafeArea="true" mc:Ignorable="d">
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage x:Class="Cryptogram.Views.MenuPage" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design" xmlns:dh="clr-namespace:Cryptogram.DesignHandler" xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls" xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements" xmlns:local1="clr-namespace:Localization;assembly=Localization" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" ios:Page.UseSafeArea="true" mc:Ignorable="d">
     <StackLayout x:Name="Menu_Page">
         <local:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local1:Resources.Dictionary.Settings}" />
         <ScrollView VerticalOptions="FillAndExpand">

@@ -1,8 +1,8 @@
-﻿<local1:BasePage
+<local1:BasePage
     x:Class="Cryptogram.Views.LanguagePage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
@@ -85,10 +85,10 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Frame>
-        <pancakeview:PancakeView
+        <Border
             x:Name="SaveButtonLyt"
-            BackgroundColor="{DynamicResource Color2}"
-            CornerRadius="12,12,0,0"
+            Background="{DynamicResource Color2}"
+            StrokeShape="RoundRectangle 12,12,0,0"
             HeightRequest="120"
             VerticalOptions="EndAndExpand">
             <Button
@@ -105,6 +105,6 @@
                 TextTransform="Uppercase"
                 VerticalOptions="CenterAndExpand"
                 WidthRequest="200" />
-        </pancakeview:PancakeView>
+        </Border>
     </StackLayout>
 </local1:BasePage>

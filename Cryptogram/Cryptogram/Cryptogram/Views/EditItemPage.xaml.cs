@@ -1,11 +1,11 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using System;
 using Cryptogram.DesignHandler;
 using Cryptogram.Services;
 using EncryptedMessaging;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Xamarin.CommunityToolkit.Extensions;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using CommunityToolkit.Maui;
 using Utils;
 
 namespace Cryptogram.Views
@@ -99,7 +99,7 @@ namespace Cryptogram.Views
             else
             {
                 ShowProgressDialog();
-                var timer = new System.Threading.Timer((object obj) => { Device.BeginInvokeOnMainThread(() => AddContact()); }, null, 100, System.Threading.Timeout.Infinite);
+                var timer = new System.Threading.Timer((object obj) => { MainThread.BeginInvokeOnMainThread(() => AddContact()); }, null, 100, System.Threading.Timeout.Infinite);
             }
         }
 

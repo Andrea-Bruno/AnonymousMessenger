@@ -1,12 +1,18 @@
-﻿using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using System;
 using Cryptogram.Services;
-using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
 using CustomViewElements;
 using System.Collections.Generic;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using Utils;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -62,7 +68,7 @@ namespace Cryptogram.Views
 			if (Validation())
 			{
 				ShowProgressDialog();
-				var timer = new System.Threading.Timer((object obj) => { Device.BeginInvokeOnMainThread(() => Save()); }, null, 100, System.Threading.Timeout.Infinite);
+				var timer = new System.Threading.Timer((object obj) => { MainThread.BeginInvokeOnMainThread(() => Save()); }, null, 100, System.Threading.Timeout.Infinite);
 			}
         }
 

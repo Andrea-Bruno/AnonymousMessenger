@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using Utils;
 
 namespace Cryptogram.ViewModels

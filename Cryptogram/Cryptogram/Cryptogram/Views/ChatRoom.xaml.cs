@@ -1,10 +1,10 @@
-using Rg.Plugins.Popup.Services;
+using Mopups.Services;
 using System;
 using Cryptogram.Services;
 using System.Collections.Generic;
 using EncryptedMessaging;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using System.Text;
 using XamarinShared;
 using Cryptogram.Views;
@@ -17,13 +17,20 @@ using Cryptogram.DesignHandler;
 using System.IO;
 using MessageCompose.Services;
 using Cryptogram.PopupViews;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using System.Linq;
 using Utils;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
 using Contact = EncryptedMessaging.Contact;
 using VideoFileCryptographyLibrary;
 using XamarinShared.ViewCreator.Views;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 [assembly: Dependency(typeof(ChatRoom))]
 
@@ -390,7 +397,7 @@ namespace Cryptogram.Views
         {
             sender.HandleButtonSingleClick();
             if (User_Photo.Content is Image)
-                await PopupNavigation.Instance
+                await MopupService.Instance
                     .PushAsync(new ImageViewPopupPage((User_Photo.Content as Image).Source), true).ConfigureAwait(true);
         }
 
@@ -417,9 +424,9 @@ namespace Cryptogram.Views
 
         protected override bool OnBackButtonPressed()
         {
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
+            if (MopupService.Instance.PopupStack.Count > 0)
             {
-                PopupNavigation.Instance.PopAsync(true);
+                MopupService.Instance.PopAsync(true);
             }
             else if (KeyboardView != null && KeyboardView.IsVisible) KeyboardView.IsVisible = false;
 
@@ -620,7 +627,7 @@ namespace Cryptogram.Views
             // try
             // {
             //     {
-            //         Device.BeginInvokeOnMainThread(() =>
+            //         MainThread.BeginInvokeOnMainThread(() =>
             //         {
             //             if (Device.RuntimePlatform == Device.iOS)
             //             {
@@ -644,7 +651,7 @@ namespace Cryptogram.Views
 
         private void ScrollPageToFirstUnreadedMessage()
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 // if (MessageContainer.Content is StackLayout layout)
                 // {
@@ -736,7 +743,7 @@ namespace Cryptogram.Views
             List<Message> messages = GetSelectedMessages();
             var isContainsOppenentMessage =
                 messages.Find(m => NavigationTappedPage.Context.My.Id != m.AuthorId) != null;
-            PopupNavigation.Instance.PushAsync(new DeleteMessagePopupPage(messages, !isContainsOppenentMessage), true);
+            MopupService.Instance.PushAsync(new DeleteMessagePopupPage(messages, !isContainsOppenentMessage), true);
             ClearMFToolbarState();
         }
 

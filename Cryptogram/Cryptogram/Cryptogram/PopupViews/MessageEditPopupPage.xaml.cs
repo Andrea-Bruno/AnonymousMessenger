@@ -1,8 +1,8 @@
-﻿using Rg.Plugins.Popup.Services;
+using Mopups.Services;
 using System;
 using System.Text;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using EncryptedMessaging;
 using XamarinShared;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using CustomViewElements;
 using static XamarinShared.ViewCreator.MessageViewCreator;
 using Cryptogram.Services.GoogleTranslationService;
 using Cryptogram.Views;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using Utils;
 
 namespace Cryptogram.PopupViews
@@ -80,13 +80,13 @@ namespace Cryptogram.PopupViews
             sender.HandleButtonSingleClick();
             CheckMessageDeleted();
             //_messageForwardClicked(_message);           
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
-                await PopupNavigation.Instance.PopAsync(false);
+            if (MopupService.Instance.PopupStack.Count > 0)
+                await MopupService.Instance.PopAsync(false);
         }
         private async void Reply_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            await PopupNavigation.Instance.PopAsync(false);
+            await MopupService.Instance.PopAsync(false);
         }
 
         private async void MessageInfo_Clicked(object sender, EventArgs e)
@@ -94,16 +94,16 @@ namespace Cryptogram.PopupViews
             sender.HandleButtonSingleClick();
             CheckMessageDeleted();
             _messageInfoClicked(readContacts);
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
-                await PopupNavigation.Instance.PopAsync(false);
+            if (MopupService.Instance.PopupStack.Count > 0)
+                await MopupService.Instance.PopAsync(false);
         }
 
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick();
             CheckMessageDeleted();
-            await PopupNavigation.Instance.PopAsync(false);
-            //await PopupNavigation.Instance.PushAsync(new DeleteMessagePopupPage(_message, _isMyMessage), true);
+            await MopupService.Instance.PopAsync(false);
+            //await MopupService.Instance.PushAsync(new DeleteMessagePopupPage(_message, _isMyMessage), true);
         }
 
         /*	private async void DeleteFromEveryOne_Clicked(object sender, EventArgs e)
@@ -112,15 +112,15 @@ namespace Cryptogram.PopupViews
 					ChatPageSupport.RemoveMessage(_message, true);
 				else
 					await this.DisplayToastAsync(Localization.Resources.Dictionary.SelectedMessageCannotBeDeleted);
-				await PopupNavigation.Instance.PopAsync(false);
+				await MopupService.Instance.PopAsync(false);
 			}*/
 
 
         private async void Translate_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            await PopupNavigation.Instance.PopAsync(false);
-            //await PopupNavigation.Instance.PushAsync(new MessageTranslationPopup(_message), true);
+            await MopupService.Instance.PopAsync(false);
+            //await MopupService.Instance.PushAsync(new MessageTranslationPopup(_message), true);
             ChatPageSupport.GetContactViewItems(_message.Contact, out var contactViewItems);
 
             if (!_message.Contact.TranslationOfMessages && contactViewItems.MessageTranslationCounter >= 2)
@@ -148,7 +148,7 @@ namespace Cryptogram.PopupViews
                             contactViewItems.MessageTranslationCounter++;
                         }
 
-                        Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                        XamarinShared.MainThread.BeginInvokeOnMainThread(() =>
                         {
                             _message.Translation = translatedText;
                             //Need to implement Translation switching with true and false
@@ -157,7 +157,7 @@ namespace Cryptogram.PopupViews
                     }
                     else
                     {
-                        Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                        XamarinShared.MainThread.BeginInvokeOnMainThread(() =>
                         {
                             this.DisplayToastAsync(Localization.Resources.Dictionary.MessageCouldNotTranslate);
                         });
@@ -178,7 +178,7 @@ namespace Cryptogram.PopupViews
             if (_message != null && _message.GetData() != null)
                 Xamarin.Essentials.Clipboard.SetTextAsync(Encoding.Unicode.GetString(_message.GetData()));
             this.DisplayToastAsync(Localization.Resources.Dictionary.CopiedToClipboard);
-            PopupNavigation.Instance.PopAsync(false);
+            MopupService.Instance.PopAsync(false);
         }
 
         private void Background_Clicked(object sender, EventArgs e)
@@ -192,7 +192,7 @@ namespace Cryptogram.PopupViews
             if (_message == null)
             {
                 this.DisplayToastAsync(Localization.Resources.Dictionary.MessageAlreadDeleted);
-                PopupNavigation.Instance.PopAsync(false);
+                MopupService.Instance.PopAsync(false);
                 return;
             }
         }

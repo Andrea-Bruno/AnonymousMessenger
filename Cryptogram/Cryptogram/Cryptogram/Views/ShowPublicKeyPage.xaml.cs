@@ -1,9 +1,14 @@
-﻿using System;
+using System;
 using CustomViewElements;
 using Utils;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
 
 namespace Cryptogram.Views
 {

@@ -1,12 +1,18 @@
 using System;
-using Xamarin.Forms;
-using Xamarin.Forms.PancakeView;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using Utils;
 using CustomViewElements;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
 using Cryptogram.DesignHandler;
 using FontSizeConverter = XamarinShared.ViewCreator.FontSizeConverter;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -61,11 +67,11 @@ namespace Cryptogram.Views
                 paddingRight = 5;
                 background = DesignResourceManager.GetColorFromStyle("Color2");
             }
-            var frame = new PancakeView()
+            var frame = new Border()
             {
                 HorizontalOptions = isMyMessage ? LayoutOptions.EndAndExpand : LayoutOptions.StartAndExpand,
-                CornerRadius = isMyMessage ? new CornerRadius(15, 15, 15, 0) : new CornerRadius(15, 15, 0, 15),
-                BackgroundColor = background,
+                StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle { CornerRadius = isMyMessage ? new CornerRadius(15, 15, 15, 0) : new CornerRadius(15, 15, 0, 15) },
+                Background = new SolidColorBrush(background),
                 Padding = 3,
                 MinimumHeightRequest = 200,
 
@@ -74,7 +80,7 @@ namespace Cryptogram.Views
 
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
                 Padding = isMyMessage ? new Thickness(35, 0, 0, 0): new Thickness(0, 0, 35, 0)
             };
 

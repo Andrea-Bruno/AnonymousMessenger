@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Cryptogram:BasePage
     x:Class="Cryptogram.Views.VerifyPassphrase"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
@@ -70,10 +70,10 @@
                     Wrap="Wrap" />
             </StackLayout>
         </ScrollView>
-        <pancakeview:PancakeView
+        <Border
             x:Name="NextButtonLyt"
-            BackgroundColor="{DynamicResource Color2}"
-            CornerRadius="12,12,0,0"
+            Background="{DynamicResource Color2}"
+            StrokeShape="RoundRectangle 12,12,0,0"
             HeightRequest="120"
             VerticalOptions="EndAndExpand">
             <Button
@@ -91,6 +91,6 @@
                 TextTransform="Uppercase"
                 VerticalOptions="CenterAndExpand"
                 WidthRequest="200" />
-        </pancakeview:PancakeView>
+        </Border>
     </StackLayout>
 </Cryptogram:BasePage>

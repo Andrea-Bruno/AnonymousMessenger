@@ -1,12 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using CustomViewElements;
-using Rg.Plugins.Popup.Services;
+using Mopups.Services;
 using Cryptogram.DesignHandler;
 using Cryptogram.PopupViews;
 using Utils;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Forms;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -206,7 +208,7 @@ namespace Cryptogram.Views
                 MinimumWidthRequest = 40,
                 Margin = new Thickness(0, 5),
                 Padding = new Thickness(4, 0, 4, 0),
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
                 HeightRequest = Device.RuntimePlatform == Device.Android ? 28 : 38,
                 BorderColor = DesignResourceManager.GetColorFromStyle("Gray"),
                 Content = label,
@@ -235,10 +237,10 @@ namespace Cryptogram.Views
 
         private void Save()
         {
-            Xamarin.Essentials.Preferences.Set("isPassphrase", true);
+            Microsoft.Maui.Storage.Preferences.Set("isPassphrase", true);
             var successPopup = new SuccessPopup();
             successPopup.BackButtonAction += CloseEventHandler;
-            PopupNavigation.Instance.PushAsync(successPopup, false);
+            MopupService.Instance.PushAsync(successPopup, false);
             OnBackButtonPressed();
         }
 

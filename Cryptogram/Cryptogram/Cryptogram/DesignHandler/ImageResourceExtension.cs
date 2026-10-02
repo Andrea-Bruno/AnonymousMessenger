@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Cryptogram.DesignHandler;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Cryptogram.DesignHandler
 {

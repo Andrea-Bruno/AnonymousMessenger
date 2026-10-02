@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using CustomViewElements;
 using Utils;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 using ZXing;
 
 namespace Cryptogram.Views
@@ -14,7 +14,7 @@ namespace Cryptogram.Views
 
         public void Handle_OnScanResult(Result result)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 PublicKey(result.Text);
                 qrScanner.IsScanning = false;

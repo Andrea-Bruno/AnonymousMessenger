@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <local11:BasePopupPage
     x:Class="Cryptogram.PopupViews.SuccessPopup"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:mpk="clr-namespace:MPowerKit.Lottie;assembly=MPowerKit.Lottie"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
     xmlns:local11="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
@@ -22,7 +22,7 @@
             ScaleIn="0.6"
             ScaleOut="0.6" />
     </local11:BasePopupPage.Animation>
-    <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Center">
         <Frame
             Margin="20,56,20,20"
             Padding="20,0"
@@ -60,18 +60,14 @@
                     TextTransform="Uppercase" />
             </StackLayout>
         </Frame>
-        <forms:AnimationView
+        <mpk:LottieView
             x:Name="SuccessIcon"
-            Animation="ok_animation.json"
+            Source="ok_animation.json"
+            AutoPlay="True"
             HeightRequest="120"
             HorizontalOptions="Center"
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                              Property=Width,
-                                                              Factor=0.5,
-                                                              Constant=-56}"
             RepeatCount="0"
-            Speed="5"
             VerticalOptions="Center"
             WidthRequest="120" />
-    </RelativeLayout>
+    </Grid>
 </local11:BasePopupPage>

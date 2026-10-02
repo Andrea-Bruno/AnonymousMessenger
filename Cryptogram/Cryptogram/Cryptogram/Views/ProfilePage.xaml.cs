@@ -1,15 +1,20 @@
-﻿
+
 using System;
 using System.IO;
 using Cryptogram.Services;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Rg.Plugins.Popup.Services;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using Mopups.Services;
 using System.Threading.Tasks;
 using CustomViewElements;
 using Cryptogram.DesignHandler;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Essentials;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
 using Utils;
 
 namespace Cryptogram.Views
@@ -72,10 +77,10 @@ namespace Cryptogram.Views
             try
             {
                 if (((FileImageSource)Edit.Source).File == "ic_save_profile")
-                    await PopupNavigation.Instance.PushAsync(new ImageViewPopupPage(Profile_Photo.Source), false).ConfigureAwait(true);
+                    await MopupService.Instance.PushAsync(new ImageViewPopupPage(Profile_Photo.Source), false).ConfigureAwait(true);
                 else
                 {
-                    await PopupNavigation.Instance.PushAsync(new ImageViewPopupPage(image), false).ConfigureAwait(true);
+                    await MopupService.Instance.PushAsync(new ImageViewPopupPage(image), false).ConfigureAwait(true);
                 }
             }
             catch (Exception)

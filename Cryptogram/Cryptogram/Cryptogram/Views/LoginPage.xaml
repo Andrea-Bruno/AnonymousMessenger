@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <res:BasePage
     x:Class="Cryptogram.Views.LoginPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:local2="clr-namespace:Cryptogram"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -95,10 +95,10 @@
                                 TextColor="{DynamicResource WhiteColor}"
                                 VerticalOptions="Center" />
                         </Frame>
-                        <pancakeview:PancakeView
+                        <Border
                             Margin="0,32,0,0"
-                            BackgroundColor="{DynamicResource LightColor}"
-                            CornerRadius="0,0,15,15"
+                            Background="{DynamicResource LightColor}"
+                            StrokeShape="RoundRectangle 0,0,15,15"
                             VerticalOptions="End">
                             <StackLayout
                                 Margin="10,8,10,8"
@@ -117,10 +117,10 @@
                                     Text="{x:Static local1:Resources.Dictionary.SetPhoto}"
                                     TextColor="{x:DynamicResource BlackColor}" />
                             </StackLayout>
-                            <pancakeview:PancakeView.GestureRecognizers>
+                            <Border.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SelectImage_Clicked" />
-                            </pancakeview:PancakeView.GestureRecognizers>
-                        </pancakeview:PancakeView>
+                            </Border.GestureRecognizers>
+                        </Border>
                     </StackLayout>
                 </Frame>
                 <Frame

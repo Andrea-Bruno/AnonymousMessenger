@@ -4,9 +4,14 @@ using System.Text;
 using System.Threading.Tasks;
 using EncryptedMessaging;
 using Cryptogram.Services.GoogleTranslationService;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
 using XamarinShared;
 
 namespace Cryptogram

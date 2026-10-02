@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Cryptogram:BasePage
     x:Class="Cryptogram.Views.RecoverPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local1="clr-namespace:Localization;assembly=Localization"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
@@ -125,10 +125,10 @@
                     JustifyContent="SpaceAround"
                     Wrap="Wrap" />
             </Frame>
-            <pancakeview:PancakeView
+            <Border
                 Padding="48,0,48,0"
-                BackgroundColor="{x:DynamicResource Color2}"
-                CornerRadius="12,12,0,0"
+                Background="{x:DynamicResource Color2}"
+                StrokeShape="RoundRectangle 12,12,0,0"
                 HeightRequest="120"
                 VerticalOptions="EndAndExpand">
                 <Button
@@ -147,7 +147,7 @@
                     TextTransform="Uppercase"
                     VerticalOptions="CenterAndExpand"
                     WidthRequest="200" />
-            </pancakeview:PancakeView>
+            </Border>
         </StackLayout>
     </Cryptogram:BasePage.Content>
 </Cryptogram:BasePage>

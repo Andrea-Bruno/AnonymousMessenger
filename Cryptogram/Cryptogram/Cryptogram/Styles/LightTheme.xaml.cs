@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 
 namespace Cryptogram.Styles
 {

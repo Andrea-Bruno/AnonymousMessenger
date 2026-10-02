@@ -1,10 +1,15 @@
-﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Translation.V2;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace Cryptogram.Services.GoogleTranslationService
 {

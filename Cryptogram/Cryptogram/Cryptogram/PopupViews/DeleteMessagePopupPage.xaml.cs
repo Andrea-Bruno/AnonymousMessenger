@@ -1,10 +1,10 @@
-﻿using CustomViewElements;
-using Rg.Plugins.Popup.Services;
+using CustomViewElements;
+using Mopups.Services;
 using System.Collections.Generic;
 using EncryptedMessaging;
 using XamarinShared;
-using Xamarin.Forms;
-using Xamarin.CommunityToolkit.Extensions;
+using Microsoft.Maui.Controls;
+using CommunityToolkit.Maui;
 using Utils;
 
 namespace Cryptogram.PopupViews
@@ -33,7 +33,7 @@ namespace Cryptogram.PopupViews
                 ChatPageSupport.RemoveMessages(_message, false);
             else
                 await this.DisplayToastAsync(Localization.Resources.Dictionary.SelectedMessageCannotBeDeleted);
-            await PopupNavigation.Instance.PopAsync(false);
+            await MopupService.Instance.PopAsync(false);
 
         }
 
@@ -46,7 +46,7 @@ namespace Cryptogram.PopupViews
                 ChatPageSupport.RemoveMessages(_message, true);
             else
                 await this.DisplayToastAsync(Localization.Resources.Dictionary.SelectedMessageCannotBeDeleted);
-            await PopupNavigation.Instance.PopAsync(false);
+            await MopupService.Instance.PopAsync(false);
         }
 
         private void CheckMessageDeleted()
@@ -54,7 +54,7 @@ namespace Cryptogram.PopupViews
             if (_message == null)
             {
                 this.DisplayToastAsync(Localization.Resources.Dictionary.MessageAlreadDeleted);
-                PopupNavigation.Instance.PopAsync(false);
+                MopupService.Instance.PopAsync(false);
                 return;
             }
         }
@@ -62,7 +62,7 @@ namespace Cryptogram.PopupViews
         private void Cancel_Clicked(object sender, System.EventArgs e)
         {
             sender.HandleButtonSingleClick(500);
-            PopupNavigation.Instance.PopAsync(false);
+            MopupService.Instance.PopAsync(false);
         }
     }
 }

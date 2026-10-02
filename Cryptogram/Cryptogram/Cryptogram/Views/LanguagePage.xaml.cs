@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using CustomViewElements;
@@ -6,9 +6,9 @@ using Cryptogram.DesignHandler;
 using Cryptogram.Services;
 using Cryptogram.ViewModels;
 using Utils;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Cryptogram.Views
 {
@@ -22,7 +22,7 @@ namespace Cryptogram.Views
         public LanguagePage()
         {
             InitializeComponent();
-            previousLanguage = lang = Xamarin.Essentials.Preferences.Get("language", null);
+            previousLanguage = lang = Microsoft.Maui.Storage.Preferences.Get("language", null);
         }
 
         protected override void OnAppearing()
@@ -64,7 +64,7 @@ namespace Cryptogram.Views
         {
             if (previousLanguage != lang)
             {
-                Xamarin.Essentials.Preferences.Set("language",lang);
+                Microsoft.Maui.Storage.Preferences.Set("language",lang);
             }
         }
 

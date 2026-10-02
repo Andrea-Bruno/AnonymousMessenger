@@ -1,7 +1,7 @@
 using CustomViewElements;
 using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using XamarinShared;
 using System.Globalization;
 using static EncryptedMessaging.MessageFormat;
@@ -75,7 +75,7 @@ namespace Cryptogram.Views
 
         private void AllCals_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 if (ItemsListView?.ItemsSource != null && !string.IsNullOrWhiteSpace(_searchQuery))
                     isPlaceholderVisible = ((System.Collections.IList)ItemsListView.ItemsSource).Count == 0;

@@ -1,10 +1,12 @@
-﻿using System;
-using Xamarin.Forms;
+using System;
+using Microsoft.Maui.Controls;
 using CustomViewElements;
 using Cryptogram.DesignHandler;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 using Utils;
 using System.Collections.Generic;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -98,7 +100,7 @@ namespace Cryptogram.Views
                 Padding = new Thickness(8, 0, 9, 0),
                 HeightRequest = 28,
                 BorderColor = DesignResourceManager.GetColorFromStyle("Gray"),
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
 
             };
             Label label = new Label()
@@ -128,13 +130,13 @@ namespace Cryptogram.Views
             if (CheckPassPhrase())
             {
                 ShowProgressDialog();
-                var timer = new System.Threading.Timer((object obj) => { Device.BeginInvokeOnMainThread(() => Save()); }, null, 100, System.Threading.Timeout.Infinite);
+                var timer = new System.Threading.Timer((object obj) => { MainThread.BeginInvokeOnMainThread(() => Save()); }, null, 100, System.Threading.Timeout.Infinite);
             }
         }
 
         private void Save()
         {
-            Xamarin.Essentials.Preferences.Set("isPassphrase", true);
+            Microsoft.Maui.Storage.Preferences.Set("isPassphrase", true);
             Application.Current.MainPage.Navigation.PushAsync(new NavigationTappedPage(isAccountRestored: true)); 
             var a = new List<Page>(Navigation.NavigationStack);
             foreach (Page page in a)

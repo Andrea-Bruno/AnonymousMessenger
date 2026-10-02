@@ -1,13 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using CustomViewElements;
 using Cryptogram.DesignHandler;
 using Utils;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using System.Linq;
 using static Cryptogram.Views.ChatRoom;
 using System.Threading;
@@ -216,7 +221,7 @@ namespace Cryptogram.Views
                         }
                     }
                     var selectedimages = selectedImageManagement.GetSelectedImageSources();
-                    Device.BeginInvokeOnMainThread(() =>
+                    MainThread.BeginInvokeOnMainThread(() =>
                     {
                         if (selectedImageManagement.ImageCount() > 1)
                             ScrollablePane.IsVisible = true;

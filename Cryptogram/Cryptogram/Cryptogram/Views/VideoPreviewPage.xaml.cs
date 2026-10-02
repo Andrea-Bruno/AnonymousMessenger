@@ -1,14 +1,21 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using System;
 using System.Threading.Tasks;
 using Cryptogram.DesignHandler;
 using Utils;
 using Xamarin.CommunityToolkit.Core;
 using Xamarin.CommunityToolkit.UI.Views;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using static MessageCompose.AttachmentPopupPage;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -84,7 +91,7 @@ namespace Cryptogram.Views
             VideoPlayer = new MediaElement()
             {
                 ShowsPlaybackControls = true,
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
                 AutoPlay = false,
                 KeepScreenOn = true,
                 Aspect = Aspect.AspectFit,

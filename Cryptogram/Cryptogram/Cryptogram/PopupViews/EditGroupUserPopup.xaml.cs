@@ -1,10 +1,10 @@
-﻿using CustomViewElements;
-using Rg.Plugins.Popup.Pages;
-using Rg.Plugins.Popup.Services;
+using CustomViewElements;
+using Mopups.Pages;
+using Mopups.Services;
 using System;
 using Cryptogram.ViewModels;
 using EncryptedMessaging;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 using Utils;
 
 namespace Cryptogram.Views

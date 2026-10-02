@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using CustomViewElements;
 using Utils;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
 
 namespace Cryptogram.Views
 {

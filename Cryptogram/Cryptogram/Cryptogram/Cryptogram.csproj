@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <Configurations>Debug;DEBUG_ALI;Release</Configurations>
+    <NoWarn>$(NoWarn);NU1605</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,16 +33,12 @@
   <ItemGroup>
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.67.0.3309" />
     <PackageReference Include="Google.Cloud.Translation.V2" Version="3.3.0" />
-    <PackageReference Include="Plugin.AudioRecorder" Version="1.1.0" />
-    <PackageReference Include="Plugin.Fingerprint" Version="2.1.4" />
-    <PackageReference Include="Plugin.MediaManager.Forms" Version="1.0.9" />
-    <PackageReference Include="Plugin.Sensors" Version="2.4.2" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <PackageReference Include="Xam.Plugin.LatestVersion" Version="2.1.0" />
-
     <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
-    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.43-beta" />
-    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+    <PackageReference Include="Plugin.Sensors" Version="2.5.0" />
+    <PackageReference Include="Mopups" Version="1.3.4" />
+    <PackageReference Include="MPowerKit.Lottie" Version="1.2.0" />
+    <PackageReference Include="CommunityToolkit.Maui" Version="14.2.2" />
+    <PackageReference Include="ZXing.Net.MAUI" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,59 +84,5 @@
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Helper\" />
     <Folder Include="Backup\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Resources\Fonts\Lato-Regular.ttf" />
-    <None Remove="Resources\Fonts\Lato-BoldItalic.ttf" />
-    <None Remove="Resources\Fonts\Lato-Black.ttf" />
-    <None Remove="Resources\Fonts\Poppins-Black.ttf" />
-    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
-    <None Remove="Resources\Fonts\Poppins-Italic.ttf" />
-    <None Remove="Resources\Fonts\Poppins-Light.ttf" />
-    <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
-    <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
-    <None Remove="Resources\Fonts\Roboto-Black.ttf" />
-    <None Remove="Resources\Fonts\Roboto-Bold.ttf" />
-    <None Remove="Resources\Fonts\Roboto-Italic.ttf" />
-    <None Remove="Resources\Fonts\Roboto-Light.ttf" />
-    <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
-    <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
-    <None Remove="Syncfusion.Xamarin.SfNumericUpDown" />
-    <None Remove="Views\ProfilePage.xaml.cs_" />
-    <None Remove="ZXing.Net.Mobile.Forms" />
-    <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
-    <None Remove="Syncfusion.Xamarin.Buttons" />
-    <None Remove="Helper\" />
-    <None Remove="Xamarin.FFImageLoading.Forms" />
-    <None Remove="Xamarin.FFImageLoading" />
-    <None Remove="Backup\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Views\ChatRoom.xaml" />
-    <None Include="Views\ChatUserProfilePage.xaml" />
-    <None Include="Views\CreatePinPage.xaml" />
-    <None Include="Views\EditImagePage.xaml" />
-    <None Include="Views\EditItemPage.xaml" />
-    <None Include="Views\FAQPage.xaml" />
-    <None Include="Views\GroupCreatePage.xaml" />
-    <None Include="Views\GroupUserSelectPage.xaml" />
-    <None Include="Views\ImagePreviewView.xaml" />
-    <None Include="Views\LanguagePage.xaml" />
-    <None Include="Views\LoginPage.xaml" />
-    <None Include="Views\LogsPage.xaml" />
-    <None Include="Views\MainPage.xaml" />
-    <None Include="Views\MenuPage.xaml" />
-    <None Include="Views\MessageInfoPage.xaml" />
-    <None Include="Views\NavigationTappedPage.xaml" />
-    <None Include="Views\PdfViewPage.xaml" />
-    <None Include="Views\ProfilePage.xaml" />
-    <None Include="Views\QRCodeScanPage.xaml" />
-    <None Include="Views\QRScanAndShowPage.xaml" />
-    <None Include="Views\TermsAndConditionsPage.xaml" />
-    <None Include="Views\CryptogramLoginSignupPage.xaml" />
-    <None Include="Views\CallPage.xaml" />
-    <None Include="Views\MainPage.xaml" />
-    <None Include="Views\QRCodeScanPage.xaml" />
-    <None Include="Views\TextSizePage.xaml" />
   </ItemGroup>
 </Project>

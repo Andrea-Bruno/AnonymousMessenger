@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -8,8 +8,8 @@ using Cryptogram.Models;
 using Cryptogram.Services;
 using Cryptogram.Views;
 using EncryptedMessaging;
-using Xamarin.Forms;
-using Xamarin.CommunityToolkit.Extensions;
+using Microsoft.Maui.Controls;
+using CommunityToolkit.Maui;
 
 [assembly: Dependency(typeof(CallManager))]
 namespace Cryptogram.CallHandler
@@ -79,7 +79,7 @@ namespace Cryptogram.CallHandler
         public async void StartCall(Contact _contact, bool isVideoCall, bool joinCall = false)
         {
             if (_contact.IsBlocked) return;
-            if (Xamarin.Essentials.Connectivity.NetworkAccess != Xamarin.Essentials.NetworkAccess.Internet)
+            if (Microsoft.Maui.Networking.Connectivity.NetworkAccess != Microsoft.Maui.Networking.NetworkAccess.Internet)
             {
                 await Application.Current.MainPage.DisplayToastAsync(Localization.Resources.Dictionary.CheckYourInternetConnection);
                 return;

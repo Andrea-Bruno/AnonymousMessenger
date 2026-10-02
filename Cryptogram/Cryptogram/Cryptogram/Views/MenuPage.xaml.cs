@@ -1,13 +1,19 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using System;
 using Cryptogram.Backup;
 using Cryptogram.DesignHandler;
 using Cryptogram.PopupViews;
 using Cryptogram.Services;
 using Utils;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Graphics;
 
 namespace Cryptogram.Views
 {
@@ -76,7 +82,7 @@ namespace Cryptogram.Views
             if (action)
             {
                 Preferences.Clear();
-                Xamarin.Essentials.SecureStorage.RemoveAll();
+                Microsoft.Maui.Storage.SecureStorage.RemoveAll();
                 DependencyService.Get<ICloseApplication>().CloseApplication();
             }
 
@@ -105,7 +111,7 @@ namespace Cryptogram.Views
         {
             sender.HandleButtonSingleClick();
             var clicked_Button = sender as Button;
-            MessageLimits_Zero.BorderColor = MessageLimits_Ten.BorderColor = MessageLimits_Twenty.BorderColor = MessageLimits_Thirty.BorderColor = Color.Transparent;
+            MessageLimits_Zero.BorderColor = MessageLimits_Ten.BorderColor = MessageLimits_Twenty.BorderColor = MessageLimits_Thirty.BorderColor = Microsoft.Maui.Graphics.Colors.Transparent;
             try
             {
                 NavigationTappedPage.Context.Setting.KeepPost = Convert.ToInt32(clicked_Button.Text);
@@ -121,7 +127,7 @@ namespace Cryptogram.Views
         {
             sender.HandleButtonSingleClick();
             var clicked_Button = sender as Button;
-            MessageDuration_Zero.BorderColor = MessageDuration_Ten.BorderColor = MessageDuration_Twenty.BorderColor = MessageDuration_Thirty.BorderColor = Color.Transparent;
+            MessageDuration_Zero.BorderColor = MessageDuration_Ten.BorderColor = MessageDuration_Twenty.BorderColor = MessageDuration_Thirty.BorderColor = Microsoft.Maui.Graphics.Colors.Transparent;
             try
             {
                 NavigationTappedPage.Context.Setting.PostPersistenceDays = Convert.ToInt32(clicked_Button.Text);

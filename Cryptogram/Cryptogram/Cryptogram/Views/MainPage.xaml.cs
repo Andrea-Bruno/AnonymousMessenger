@@ -1,10 +1,10 @@
-﻿using ChatComposer;
+using ChatComposer;
 using CustomViewElements;
 using System;
 using EncryptedMessaging;
 using XamarinShared;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using System.Diagnostics;
 namespace Cryptogram.Views
 {
@@ -31,7 +31,7 @@ namespace Cryptogram.Views
 
         public void PlaceHolderVisibility(bool isVisible)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 NoItemPage.IsVisible = isVisible && string.IsNullOrWhiteSpace(query);
                 NoResultPage.IsVisible = isVisible && !string.IsNullOrWhiteSpace(query);

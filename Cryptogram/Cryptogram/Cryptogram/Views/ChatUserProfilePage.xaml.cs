@@ -1,13 +1,13 @@
-﻿using Rg.Plugins.Popup.Services;
+using Mopups.Services;
 using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using System.Collections.Generic;
 using EncryptedMessaging;
 using Cryptogram.Services;
 using CustomViewElements;
 using Cryptogram.DesignHandler;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui;
 
 namespace Cryptogram.Views
 {
@@ -63,7 +63,7 @@ namespace Cryptogram.Views
         {
             var imagebox = (Image)sender;
             if (imagebox != null)
-                await PopupNavigation.Instance.PushAsync(new ImageViewPopupPage(imagebox.Source), false).ConfigureAwait(true);
+                await MopupService.Instance.PushAsync(new ImageViewPopupPage(imagebox.Source), false).ConfigureAwait(true);
         }
 
         private void Edit_Clicked(object _, EventArgs e)
@@ -97,7 +97,7 @@ namespace Cryptogram.Views
         {
             _lastItemSelected = args.SelectedItem as Contact;
             if (_lastItemSelected != null)
-                await PopupNavigation.Instance.PushAsync(new EditGroupUserPopup(_lastItemSelected), true).ConfigureAwait(true);
+                await MopupService.Instance.PushAsync(new EditGroupUserPopup(_lastItemSelected), true).ConfigureAwait(true);
         }
 
         private void Notification_Clicked(object _, EventArgs e)

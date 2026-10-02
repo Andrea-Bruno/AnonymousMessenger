@@ -1,9 +1,14 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using static Xamarin.Essentials.Permissions;
+using CommunityToolkit.Maui;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.Networking;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace Cryptogram.Services
 {

@@ -1,4 +1,4 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,9 +6,9 @@ using Cryptogram.DesignHandler;
 using Cryptogram.Services;
 using Cryptogram.ViewModels;
 using EncryptedMessaging;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Xamarin.CommunityToolkit.Extensions;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
+using CommunityToolkit.Maui;
 using Utils;
 
 namespace Cryptogram.Views
@@ -47,7 +47,7 @@ namespace Cryptogram.Views
             else if (_contactsList != null && !string.IsNullOrWhiteSpace(Group_Name.Text))
             {
                 ShowProgressDialog();
-                var timer = new System.Threading.Timer((object obj) => { Device.BeginInvokeOnMainThread(() => Save()); }, null, 100, System.Threading.Timeout.Infinite);
+                var timer = new System.Threading.Timer((object obj) => { MainThread.BeginInvokeOnMainThread(() => Save()); }, null, 100, System.Threading.Timeout.Infinite);
             }
         }
 

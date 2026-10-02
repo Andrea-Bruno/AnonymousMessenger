@@ -1,9 +1,9 @@
 <local1:BasePage
     x:Class="Cryptogram.Views.QRScanAndShowPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:dh="clr-namespace:Cryptogram.DesignHandler"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
     xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
@@ -14,10 +14,10 @@
         <local1:MyCustomToolbar x:Name="Toolbar" Title="{x:Static local:Resources.Dictionary.QRCode}" />
         <ScrollView>
             <StackLayout BackgroundColor="{DynamicResource Color1}">
-                <pancakeview:PancakeView
+                <Border
                     Margin="30,35,30,0"
-                    BackgroundColor="{DynamicResource Color2}"
-                    CornerRadius="15"
+                    Background="{DynamicResource Color2}"
+                    StrokeShape="RoundRectangle 15"
                     HeightRequest="330"
                     HorizontalOptions="FillAndExpand">
                     <StackLayout
@@ -33,10 +33,10 @@
                             HorizontalTextAlignment="Center"
                             TextColor="{x:DynamicResource Theme}"
                             VerticalOptions="Center" />
-                        <pancakeview:PancakeView
+                        <Border
                             Padding="0"
-                            BackgroundColor="{DynamicResource WhiteColor}"
-                            CornerRadius="15"
+                            Background="{DynamicResource WhiteColor}"
+                            StrokeShape="RoundRectangle 15"
                             HeightRequest="180"
                             HorizontalOptions="Center"
                             VerticalOptions="Center"
@@ -53,9 +53,9 @@
                                         PureBarcode="True" />
                                 </zxing:ZXingBarcodeImageView.BarcodeOptions>
                             </zxing:ZXingBarcodeImageView>
-                        </pancakeview:PancakeView>
+                        </Border>
                     </StackLayout>
-                </pancakeview:PancakeView>
+                </Border>
 
                 <Image
                     x:Name="User_Photo"

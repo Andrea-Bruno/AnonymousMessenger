@@ -1,8 +1,8 @@
-﻿using CustomViewElements;
+using CustomViewElements;
 using System;
 using System.IO;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using MessageCompose;
 using Utils;
 
