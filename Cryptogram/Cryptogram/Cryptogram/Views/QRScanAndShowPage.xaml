@@ -42,7 +42,7 @@
                             <zxing:BarcodeGeneratorView
                                 x:Name="QRcode"
                                 BackgroundColor="{DynamicResource WhiteColor}"
-                                BarColor="Black"
+                                ForegroundColor="Black"
                                 Format="QRCode"
                                 Value="-1"
                                 WidthRequest="227"
