@@ -1,6 +1,8 @@
 using CommunityToolkit.Maui;
+using Cryptogram.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 using Mopups;
@@ -36,7 +38,16 @@ namespace Cryptogram
 
         private static void RegisterServices(MauiAppBuilder builder)
         {
-            // Legacy DependencyService implementations are registered here.
+            // Neutralized legacy DependencyService contracts (original platform
+            // impls were in the removed Cryptogram.Android head). Registered as
+            // singletons before the App is constructed so the startup path finds
+            // a non-null instance instead of dereferencing null.
+            DependencyService.RegisterSingleton<IStatusBarColor>(new StatusBarColorStub());
+            DependencyService.RegisterSingleton<IEndCall>(new EndCallStub());
+            DependencyService.RegisterSingleton<ISharedPreference>(new SharedPreferenceStub());
+            DependencyService.RegisterSingleton<IAudioPlayerSpeakerService>(new AudioPlayerSpeakerStub());
+            DependencyService.RegisterSingleton<IProgressInterface>(new ProgressStub());
+            DependencyService.RegisterSingleton<ISecurityFlag>(new SecurityFlagStub());
         }
     }
 }

@@ -145,8 +145,10 @@ namespace Cryptogram
 
         private void InitServices()
         {
-			DependencyService.Register<IProgressInterface>();
-			DependencyService.Register<ISecurityFlag>();
+			// IProgressInterface and ISecurityFlag are registered as neutralized
+			// singletons in MauiProgram.RegisterServices; the legacy
+			// DependencyService.Register<T>() self-registration of an interface
+			// would fail to instantiate at runtime.
 		}
 
 		private void OpenNavigationPage()
