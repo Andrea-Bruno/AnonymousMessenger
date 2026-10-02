@@ -43,7 +43,7 @@
                                 x:Name="QRcode"
                                 BackgroundColor="{DynamicResource WhiteColor}"
                                 ForegroundColor="Black"
-                                Format="QRCode"
+                                Format="QrCode"
                                 Value="-1"
                                 WidthRequest="227"
                                 HeightRequest="227" />

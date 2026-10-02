@@ -153,13 +153,21 @@ namespace Cryptogram
 
 		private void OpenNavigationPage()
         {
-            IsLogged = Microsoft.Maui.Storage.Preferences.Get("IsLogged", false);
-            if (!IsLogged)
-               MainPage = new NavigationPage(new CryptogramLoginSignupPage()); // first startup
-            else if (Setup.GetSecureValue("LockPin") != null)
-                MainPage = new NavigationPage(new CreatePinPage()); // run with lock screen
-            else
-                MainPage = new NavigationPage(new NavigationTappedPage()); // normal runn
+            try
+            {
+                IsLogged = Microsoft.Maui.Storage.Preferences.Get("IsLogged", false);
+                if (!IsLogged)
+                   MainPage = new NavigationPage(new CryptogramLoginSignupPage()); // first startup
+                else if (Setup.GetSecureValue("LockPin") != null)
+                    MainPage = new NavigationPage(new CreatePinPage()); // run with lock screen
+                else
+                    MainPage = new NavigationPage(new NavigationTappedPage()); // normal runn
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("OPENNAV_FAIL >>> " + ex.ToString());
+                throw;
+            }
 		}
 
   //      internal static void OnViewMessage(Message message, bool isMy, out View content)
