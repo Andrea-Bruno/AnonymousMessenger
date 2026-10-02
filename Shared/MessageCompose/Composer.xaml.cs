@@ -1,13 +1,15 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using CustomViewElements;
 using EncryptedMessaging;
 using MessageCompose.Services;
-using Rg.Plugins.Popup.Services;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Mopups.Services;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.Media;
+using XamarinShared;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using System.Diagnostics;
 using VideoFileCryptographyLibrary;
 using System.Linq;
@@ -16,6 +18,8 @@ using static EncryptedMessaging.MessageFormat;
 using VideoFileCryptographyLibrary.Models;
 using System.Threading;
 using System.Collections.Generic;
+using Microsoft.Maui;
+using Microsoft.Maui.Graphics;
 
 namespace MessageCompose
 {
@@ -105,7 +109,7 @@ namespace MessageCompose
             var button = new Button
             {
                 Text = "X",
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Microsoft.Maui.Graphics.Colors.Transparent,
                 VerticalOptions = LayoutOptions.Start,
                 WidthRequest = 35,
                 HeightRequest = 35,
@@ -178,7 +182,7 @@ namespace MessageCompose
                     _onVideoFileSelected?.Invoke(data, true, replyToPostId: ReplyToPostId);
                 }
             };
-            PopupNavigation.Instance.PushAsync(attachmentPopup, true);
+            MopupService.Instance.PushAsync(attachmentPopup, true);
         }
 
         private void Cancel_Clicked(object sender, EventArgs e)
@@ -377,26 +381,26 @@ namespace MessageCompose
             }
             else HideProgressDialog();
 
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
-                await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+            if (MopupService.Instance.PopupStack.Count > 0)
+                await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
         }
 
 
         public void PlayAudio()
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
                 PlayTxt.Text = Localization.Resources.Dictionary.Pause;
-                Play.Source = Icons.IconProvider?.Invoke("ic_audio_pause");
+                Play.Source = Utils.Icons.IconProvider?.Invoke("ic_audio_pause");
             });
 
         }
 
         public void StopAudio()
         {
-            Device.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                Play.Source = Icons.IconProvider?.Invoke("ic_new_play");
+                Play.Source = Utils.Icons.IconProvider?.Invoke("ic_new_play");
                 PlayTxt.Text = Localization.Resources.Dictionary.Play;
             });
         }

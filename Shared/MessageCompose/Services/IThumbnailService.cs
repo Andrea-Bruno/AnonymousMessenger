@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.IO;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
 
 namespace MessageCompose.Services
 {

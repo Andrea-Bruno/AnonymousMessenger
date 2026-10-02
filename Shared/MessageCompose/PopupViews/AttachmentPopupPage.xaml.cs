@@ -1,17 +1,21 @@
-using Rg.Plugins.Popup.Services;
+using Mopups.Services;
 using System;
 using System.Threading.Tasks;
 using MessageCompose.Services;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Xaml;
 using CustomViewElements;
-using Xamarin.Essentials;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Media;
 using System.Collections.Generic;
 using MessageCompose.Model;
-using Xamarin.CommunityToolkit.Extensions;
+using CommunityToolkit.Maui.Alerts;
 using Utils;
 using System.Threading;
-using NativeMedia;
 using System.Linq;
 
 namespace MessageCompose
@@ -47,50 +51,36 @@ namespace MessageCompose
         private async void Image_Clicked(object sender, EventArgs e)
         {
             sender.HandleButtonSingleClick();
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
-                await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+            if (MopupService.Instance.PopupStack.Count > 0)
+                await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
 
             if (await PermissionManager.CheckStoragePermission())
             {
-                // Code using Xamarin.MediaGallery
-                var cts = new CancellationTokenSource();
                 try
                 {
                     ShowProgressDialog();
-                    IMediaFile[] images = null;
-                    var request = new MediaPickRequest(30, MediaFileType.Image)
-                    {
-                        PresentationSourceBounds = System.Drawing.Rectangle.Empty,
-                        UseCreateChooser = true,
-                        Title = "Select"
-                    };
-                    cts.CancelAfter(TimeSpan.FromMinutes(5));
-                    var results = await MediaGallery.PickAsync(request, cts.Token);
-                    images = results?.Files?.ToArray();
-                    if (images.Count() > 0)
+                    var request = new MediaPickerOptions { Title = "Select" };
+                    var images = await MediaPicker.PickPhotosAsync(request);
+                    if (images != null && images.Count > 0)
                     {
                         var listImages = new List<byte[]>();
                         foreach (var image in images)
                         {
-                            if (image.Type == MediaFileType.Image)
+                            using (var stream = await image.OpenReadAsync())
                             {
-                                using (var stream = await image.OpenReadAsync())
-                                {
-                                    listImages.Add(Utils.Utils.StreamToByteArray(stream));
-                                }
+                                listImages.Add(Utils.Utils.StreamToByteArray(stream));
                             }
                         }
                         if (listImages.Count > 0)
                             AttachPicture(listImages);
                         else
-                            Application.Current?.MainPage?.DisplayToastAsync(Localization.Resources.Dictionary.SelectedImageTypeIsNotSupported);
+                            await Toast.Make(Localization.Resources.Dictionary.SelectedImageTypeIsNotSupported).Show();
                     }
                 }
                 catch (Exception){}
                 finally
                 {
                     HideProgressDialog();
-                    cts.Dispose();
                 }
             }
         }
@@ -112,8 +102,8 @@ namespace MessageCompose
                             IsVideoUploading = true;
                             HideProgressDialog();
                         }
-                        if (PopupNavigation.Instance.PopupStack.Count > 0)
-                            await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+                        if (MopupService.Instance.PopupStack.Count > 0)
+                            await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
                         HideProgressDialog();
                     }
                 }
@@ -139,7 +129,7 @@ namespace MessageCompose
                 }
                 if (!DependencyService.Get<IGpsService>().IsGpsEnable())
                 {
-                    await this.DisplayToastAsync(Localization.Resources.Dictionary.LocationPermissionDidNotGranted);
+                    await Toast.Make(Localization.Resources.Dictionary.LocationPermissionDidNotGranted).Show();
                     DependencyService.Get<IGpsService>().OpenSettings();
                 }
                 else
@@ -164,13 +154,13 @@ namespace MessageCompose
             if (location != null)
             {
                 AttachLocation(location.Latitude, location.Longitude);
-                if (PopupNavigation.Instance.PopupStack.Count > 0)
-                    await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+                if (MopupService.Instance.PopupStack.Count > 0)
+                    await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
                 HideProgressDialog();
             }
             else
             {
-                await this.DisplayToastAsync(Localization.Resources.Dictionary.PleaseClickAgain);
+                await Toast.Make(Localization.Resources.Dictionary.PleaseClickAgain).Show();
                 HideProgressDialog();
             }
         }
@@ -210,8 +200,8 @@ namespace MessageCompose
                         var audio = Utils.Utils.StreamToByteArray(stream);
                         AttachAudio(audio);
                     }
-                    if (PopupNavigation.Instance.PopupStack.Count > 0)
-                        await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+                    if (MopupService.Instance.PopupStack.Count > 0)
+                        await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
                 }
 
                 return result;
@@ -224,7 +214,7 @@ namespace MessageCompose
             return null;
         }
 
-        private async void Background_Clicked(object _, EventArgs e) => await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+        private async void Background_Clicked(object _, EventArgs e) => await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
 
         private async void PdfDocument_Clicked(object sender, EventArgs e)
         {
@@ -264,8 +254,8 @@ namespace MessageCompose
                             AttachPdfDocument(Utils.Utils.ObjectToByteArray(serializableFileData));
                         }
                     }
-                    if (PopupNavigation.Instance.PopupStack.Count > 0)
-                        await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+                    if (MopupService.Instance.PopupStack.Count > 0)
+                        await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
                 }
 
                 return result;
@@ -295,8 +285,8 @@ namespace MessageCompose
             {
 
             }
-            if (PopupNavigation.Instance.PopupStack.Count > 0)
-                await PopupNavigation.Instance.PopAsync(true).ConfigureAwait(true);
+            if (MopupService.Instance.PopupStack.Count > 0)
+                await MopupService.Instance.PopAsync(true).ConfigureAwait(true);
         }
 
         private ContactDetails ConvertToContactDetails(Contact contact)

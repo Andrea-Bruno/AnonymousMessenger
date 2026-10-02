@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
-using Xamarin.CommunityToolkit.Extensions;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using static Xamarin.Essentials.Permissions;
+using System.Threading.Tasks;
+using CommunityToolkit.Maui.Alerts;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace MessageCompose.Services
 {
@@ -13,7 +14,7 @@ namespace MessageCompose.Services
             var status = await CheckAndRequestPermissionAsync(new StorageRead());
             if (status != PermissionStatus.Granted)
             {
-                Application.Current?.MainPage?.DisplayToastAsync(Localization.Resources.Dictionary.StoragePermissionIsNeeded);
+                await Toast.Make(Localization.Resources.Dictionary.StoragePermissionIsNeeded).Show();
                 return false;
             }
             return true;
@@ -24,7 +25,7 @@ namespace MessageCompose.Services
             var status = await CheckAndRequestPermissionAsync(new Microphone());
             if (status != PermissionStatus.Granted)
             {
-                Application.Current?.MainPage?.DisplayToastAsync(Localization.Resources.Dictionary.MicrophonePermissionIsNeeded);
+                await Toast.Make(Localization.Resources.Dictionary.MicrophonePermissionIsNeeded).Show();
                 return false;
             }
             return true;
@@ -35,7 +36,7 @@ namespace MessageCompose.Services
             var status = await CheckAndRequestPermissionAsync(new Camera());
             if (status != PermissionStatus.Granted)
             {
-                Application.Current?.MainPage?.DisplayToastAsync(Localization.Resources.Dictionary.CameraPermissionIsNeeded);
+                await Toast.Make(Localization.Resources.Dictionary.CameraPermissionIsNeeded).Show();
                 return false;
             }
             return true;
@@ -58,7 +59,7 @@ namespace MessageCompose.Services
             var status = await CheckAndRequestPermissionAsync(new ContactsRead());
             if (status != PermissionStatus.Granted)
             {
-                Application.Current?.MainPage?.DisplayToastAsync(Localization.Resources.Dictionary.ContactPermissionIsNeeded);
+                await Toast.Make(Localization.Resources.Dictionary.ContactPermissionIsNeeded).Show();
                 return false;
             }
             return true;

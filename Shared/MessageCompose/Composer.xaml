@@ -1,13 +1,12 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <customViewElements:BaseContentView
     x:Class="MessageCompose.Composer"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:customViewElements="clr-namespace:CustomViewElements;assembly=CustomViewElements"
-    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mpk="clr-namespace:MPowerKit.Lottie;assembly=MPowerKit.Lottie"
     xmlns:local="clr-namespace:Localization;assembly=Localization"
-    xmlns:utils="clr-namespace:Utils;assembly=Utils"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    xmlns:utils="clr-namespace:Utils;assembly=Utils">
     <customViewElements:BaseContentView.Content>
         <StackLayout
             x:Name="MainLayout"
@@ -42,11 +41,11 @@
                     Spacing="0">
                     <Frame
                         Padding="0"
-                        BackgroundColor="{x:DynamicResource Background}"
+                        BackgroundColor="{DynamicResource Background}"
                         CornerRadius="5"
                         HorizontalOptions="FillAndExpand">
                         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                            <BoxView BackgroundColor="{x:DynamicResource BoxView}" WidthRequest="5" />
+                            <BoxView BackgroundColor="{DynamicResource BoxView}" WidthRequest="5" />
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
                                 <Label
                                     x:Name="UserName"
@@ -91,7 +90,7 @@
                     Grid.Column="1"
                     Margin="0,12,6,12"
                     Padding="10,0,10,2"
-                    BackgroundColor="{x:DynamicResource Color2}"
+                    BackgroundColor="{DynamicResource Color2}"
                     CornerRadius="20"
                     HasShadow="False"
                     HorizontalOptions="FillAndExpand"
@@ -105,7 +104,7 @@
                         FontSize="16"
                         Keyboard="Chat"
                         Placeholder="{x:Static local:Resources.Dictionary.TypeAMessage}"
-                        PlaceholderColor="{x:DynamicResource PlaceholColor}"
+                        PlaceholderColor="{DynamicResource PlaceholColor}"
                         TextChanged="MessageText_Changed"
                         TextColor="{DynamicResource WhiteColor}" />
                 </Frame>
@@ -177,7 +176,7 @@
             </Grid>
             <StackLayout
                 x:Name="SelectionState"
-                BackgroundColor="{x:DynamicResource Background}"
+                BackgroundColor="{DynamicResource Background}"
                 HeightRequest="35"
                 HorizontalOptions="FillAndExpand"
                 IsVisible="false"
@@ -202,7 +201,7 @@
                         FontSize="14"
                         HorizontalTextAlignment="Start"
                         Text="Reply"
-                        TextColor="{x:DynamicResource Foreground}"
+                        TextColor="{DynamicResource Foreground}"
                         VerticalOptions="Center" />
                 </StackLayout>
                 <StackLayout
@@ -218,7 +217,7 @@
                         HorizontalOptions="EndAndExpand"
                         HorizontalTextAlignment="End"
                         Text="Forward"
-                        TextColor="{x:DynamicResource Foreground}"
+                        TextColor="{DynamicResource Foreground}"
                         VerticalOptions="Center" />
                     <Image
                         HeightRequest="24"
@@ -239,7 +238,7 @@
                     Padding="16,10"
                     AbsoluteLayout.LayoutBounds="0,0,1,-1"
                     AbsoluteLayout.LayoutFlags="WidthProportional"
-                    BackgroundColor="{x:DynamicResource Color2}"
+                    BackgroundColor="{DynamicResource Color2}"
                     CornerRadius="20"
                     HasShadow="False"
                     HorizontalOptions="FillAndExpand"
@@ -284,7 +283,7 @@
                                 LineBreakMode="TailTruncation"
                                 MaxLines="1"
                                 Text="{x:Static local:Resources.Dictionary.AudioRecording}"
-                                TextColor="{x:DynamicResource Audio}"
+                                TextColor="{DynamicResource Audio}"
                                 VerticalOptions="Center" />
                             <Label
                                 x:Name="AudioTime"
@@ -292,26 +291,26 @@
                                 FontSize="15"
                                 MaxLines="1"
                                 Text="00:00"
-                                TextColor="{x:DynamicResource Audio}"
+                                TextColor="{DynamicResource Audio}"
                                 VerticalOptions="Center" />
                         </Grid>
                     </StackLayout>
                 </Frame>
-                <yummy:PancakeView
+                <Border
                     AbsoluteLayout.LayoutBounds="1,0"
                     AbsoluteLayout.LayoutFlags="XProportional"
-                    CornerRadius="33">
-                    <forms:AnimationView
+                    StrokeShape="RoundRectangle 33">
+                    <mpk:LottieView
                         x:Name="recorderIcon"
-                        Animation="microphone-animation.json"
+                        Source="microphone-animation.json"
                         AutoPlay="True"
-                        BackgroundColor="{x:DynamicResource Color2}"
+                        BackgroundColor="{DynamicResource Color2}"
                         HeightRequest="66"
                         HorizontalOptions="FillAndExpand"
-                        RepeatMode="Infinite"
+                        RepeatCount="0"
                         VerticalOptions="Center"
                         WidthRequest="66" />
-                </yummy:PancakeView>
+                </Border>
             </AbsoluteLayout>
             <AbsoluteLayout x:Name="SendState" IsVisible="false">
                 <Frame
@@ -319,7 +318,7 @@
                     Padding="0"
                     AbsoluteLayout.LayoutBounds="0,0,1,-1"
                     AbsoluteLayout.LayoutFlags="WidthProportional"
-                    BackgroundColor="{x:DynamicResource Color2}"
+                    BackgroundColor="{DynamicResource Color2}"
                     CornerRadius="20"
                     HasShadow="False"
                     HorizontalOptions="FillAndExpand"
@@ -344,7 +343,7 @@
                                 FontSize="14"
                                 HorizontalTextAlignment="Start"
                                 Text="{x:Static local:Resources.Dictionary.Play}"
-                                TextColor="{x:DynamicResource Audio}"
+                                TextColor="{DynamicResource Audio}"
                                 VerticalOptions="Center" />
                         </StackLayout>
                         <StackLayout
@@ -360,7 +359,7 @@
                                 HorizontalOptions="EndAndExpand"
                                 HorizontalTextAlignment="End"
                                 Text="{x:Static local:Resources.Dictionary.Delete}"
-                                TextColor="{x:DynamicResource Audio}"
+                                TextColor="{DynamicResource Audio}"
                                 VerticalOptions="Center" />
                             <Image
                                 x:Name="Delete"
