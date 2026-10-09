@@ -236,7 +236,7 @@
                 x:Name="MessagesLyt"
                 Margin="0"
                 ItemSizingStrategy="MeasureAllItems"
-                BackgroundColor="Red"
+                BackgroundColor="Transparent"
                 VerticalOptions="EndAndExpand"/>
             
             <Frame

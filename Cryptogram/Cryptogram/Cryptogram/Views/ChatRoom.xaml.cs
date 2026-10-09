@@ -89,7 +89,11 @@ namespace Cryptogram.Views
                     messageContainerUI = new EncryptedMessaging.Contacts.Observable<object>();
                     contact.MessageContainerUI = messageContainerUI;
                 }
-                messageContainerUI.CollectionChanged += ((sender, args) => { });
+                messageContainerUI.CollectionChanged += ((sender, args) =>
+                {
+                    if (args.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+                        ScrollToEnd();
+                });
                 selectedMessages.CollectionChanged += SelectedMessages_CollectionChanged;
                 _audioPlayer = DependencyService.Get<XamarinShared.ViewCreator.IAudioPlayer>();
                 User_Photo.Contact = contact;
@@ -217,6 +221,7 @@ namespace Cryptogram.Views
 
             MessagesLyt.ItemsSource = ChatPageSupport.GetMessageContainerOfContact(_contact) ?? (EncryptedMessaging.Contacts.Observable<object>)_contact.MessageContainerUI;
             MessagesLyt.ItemTemplate = new RowTemplateSelector(Setup.MessageReadStatus, App.SendNotification);
+            ScrollToEnd();
 
             // MessagesLyt.ItemTemplate = new DataTemplate(() =>
             // {
@@ -628,31 +633,19 @@ namespace Cryptogram.Views
 
         public void ScrollToEnd(bool animate = false)
         {
-            // if (MessageContainer == null || MessageContainer.Content == null) // chatroom hot reload
-            //     return;
-            // try
-            // {
-            //     {
-            //         MainThread.BeginInvokeOnMainThread(() =>
-            //         {
-            //             if (Device.RuntimePlatform == Device.iOS)
-            //             {
-            //                 var lastElement = (MessageContainer.Content as StackLayout).Children.Count > 0
-            //                     ? (MessageContainer.Content as StackLayout).Children[
-            //                         (MessageContainer.Content as StackLayout).Children.Count - 1]
-            //                     : MessageContainer.Content;
-            //                 MessageContainer.ScrollToAsync(lastElement, ScrollToPosition.End, animate);
-            //             }
-            //             else
-            //
-            //                 MessageContainer.ScrollToAsync(0, MessageContainer.ContentSize.Height, animate);
-            //         });
-            //     }
-            // }
-            // catch (Exception e)
-            // {
-            //     //prevent element does not belong to this ScrollView Parameter name: element
-            // }
+            if (MessagesLyt?.ItemsSource is not System.Collections.ICollection items || items.Count == 0)
+                return;
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                try
+                {
+                    MessagesLyt.ScrollTo(items.Count - 1, position: ScrollToPosition.End, animate: animate);
+                }
+                catch
+                {
+                    // item may not be realized yet; ignore
+                }
+            });
         }
 
         private void ScrollPageToFirstUnreadedMessage()
