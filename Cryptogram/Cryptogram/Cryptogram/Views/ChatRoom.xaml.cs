@@ -78,14 +78,23 @@ namespace Cryptogram.Views
                     NavigationTappedPage.Context.Messaging.SendPicture(file, _contact);
                 }
 
-                var messageContainerUI = (EncryptedMessaging.Contacts.Observable<object>)contact.MessageContainerUI;
-                var a = messageContainerUI.Count;
+                // The message container is lazily created by the messaging layer;
+                // the raw MessageContainerUI property can still be null here, so
+                // resolve it through the support accessor and initialize a fresh
+                // observable as a fallback before binding.
+                EncryptedMessaging.Contacts.Observable<object> messageContainerUI =
+                    ChatPageSupport.GetMessageContainerOfContact(contact);
+                if (messageContainerUI == null)
+                {
+                    messageContainerUI = new EncryptedMessaging.Contacts.Observable<object>();
+                    contact.MessageContainerUI = messageContainerUI;
+                }
                 messageContainerUI.CollectionChanged += ((sender, args) => { });
                 selectedMessages.CollectionChanged += SelectedMessages_CollectionChanged;
                 _audioPlayer = DependencyService.Get<XamarinShared.ViewCreator.IAudioPlayer>();
                 User_Photo.Contact = contact;
                 NavigationTappedPage.Context.Setting.MessagePagination = 5;
-                // Setting.MessagePageCount = 5;                
+                // Setting.MessagePageCount = 5;
                 AddStickyDateFrame();
             }
         }
