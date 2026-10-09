@@ -31,7 +31,7 @@ namespace XamarinShared.ViewCreator.Views
                 });
             }
 
-            throw new ArgumentException("Element not supported", nameof(item));
+            return new DataTemplate(() => new ContentView());
         }
     }
 }
