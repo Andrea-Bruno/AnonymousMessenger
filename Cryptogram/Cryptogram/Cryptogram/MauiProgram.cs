@@ -34,6 +34,7 @@ namespace Cryptogram
         private static void RegisterHandlers(MauiAppBuilder builder)
         {
             // Custom renderers from the legacy Xamarin.Android head are registered here as handlers.
+            CustomLinkLabelHandler.Register();
         }
 
         private static void RegisterServices(MauiAppBuilder builder)
