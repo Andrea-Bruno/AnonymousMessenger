@@ -215,8 +215,8 @@ namespace Cryptogram.Views
             DependencyService.Get<IStatusBarColor>()
                 .SetStatusbarColor(DesignResourceManager.GetColorFromStyle("Color2"));
 
-            MessagesLyt.ItemsSource = (EncryptedMessaging.Contacts.Observable<object>)_contact.MessageContainerUI;
-            // MessagesLyt.ItemTemplate = new RowTemplateSelector(Setup.MessageReadStatus, App.SendNotification);
+            MessagesLyt.ItemsSource = ChatPageSupport.GetMessageContainerOfContact(_contact) ?? (EncryptedMessaging.Contacts.Observable<object>)_contact.MessageContainerUI;
+            MessagesLyt.ItemTemplate = new RowTemplateSelector(Setup.MessageReadStatus, App.SendNotification);
 
             // MessagesLyt.ItemTemplate = new DataTemplate(() =>
             // {

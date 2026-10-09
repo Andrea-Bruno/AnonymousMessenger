@@ -10,7 +10,7 @@ using Microsoft.Maui.Graphics;
 
 namespace XamarinShared.ViewCreator.Views.Incoming
 {
-    public class TextIncomingView : ViewCell
+    public class TextIncomingView : ContentView
     {
         private MessageReadStatus readStatus;
         private Func<Contact, MessageFormat.MessageType, Task> sendNotification;
@@ -29,10 +29,18 @@ namespace XamarinShared.ViewCreator.Views.Incoming
         {
             var message = textRow.message;
             var baseView = new IncomingBaseView(message, readStatus, sendNotification);
+            Content = baseView;
             var box = baseView.MessageFrameContent;
             var isMyMessage = false;
             var contact = message.Contact;
-            var textMessage = Encoding.Unicode.GetString(message.GetData());
+            string textMessage = null;
+            try {
+                var data = message.GetData();
+                if (data != null) textMessage = Encoding.Unicode.GetString(data);
+            } catch { }
+            if (string.IsNullOrEmpty(textMessage)) textMessage = textRow.OriginalMessage;
+            if (string.IsNullOrEmpty(textMessage)) return;
+            textRow.OriginalMessage = textMessage;
 
             /// Defining message label
             var label = new CustomLinkLabel
