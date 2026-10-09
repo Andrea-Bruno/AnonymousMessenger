@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <local1:BaseContentView
     x:Class="ChatComposer.ChatList"
+    x:Name="chatListRoot"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local1="clr-namespace:CustomViewElements;assembly=CustomViewElements"
@@ -21,7 +22,7 @@
                             <SwipeItems>
                                 <SwipeItemView
                                     BackgroundColor="{x:DynamicResource DarkColor}"
-                                    Command="{Binding Path=BindingContext.ClearCommand, Source={x:Reference Name=ChatList}}"
+                                    Command="{Binding Path=BindingContext.ClearCommand, Source={x:Reference Name=chatListRoot}}"
                                     CommandParameter="{Binding .}"
                                     WidthRequest="80">
                                     <Label
@@ -34,7 +35,7 @@
                                 </SwipeItemView>
                                 <SwipeItemView
                                     BackgroundColor="{x:DynamicResource DarkColor}"
-                                    Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=ChatList}}"
+                                    Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference Name=chatListRoot}}"
                                     CommandParameter="{Binding .}"
                                     WidthRequest="80">
                                     <Label
@@ -51,7 +52,7 @@
                             <SwipeItems>
                                 <SwipeItemView
                                     BackgroundColor="{x:DynamicResource DarkColor}"
-                                    Command="{Binding Path=BindingContext.EditCommand, Source={x:Reference Name=ChatList}}"                                    
+                                    Command="{Binding Path=BindingContext.EditCommand, Source={x:Reference Name=chatListRoot}}"                                    
                                     CommandParameter="{Binding .}"
                                     WidthRequest="80">
                                     <Label

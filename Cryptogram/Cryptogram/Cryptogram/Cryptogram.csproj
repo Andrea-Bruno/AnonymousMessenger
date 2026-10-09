@@ -10,6 +10,11 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <Configurations>Debug;DEBUG_ALI;Release</Configurations>
     <NoWarn>$(NoWarn);NU1605</NoWarn>
+    <!-- Force the managed SocketsHttpHandler instead of the native Android
+         (com.android.okhttp) handler. The native handler crashes with
+         IllegalStateException "Unbalanced enter/exit" in okio AsyncTimeout
+         during EncryptedMessaging's long-poll response teardown. -->
+    <UseNativeHttpHandler>false</UseNativeHttpHandler>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -23,7 +23,10 @@ namespace XamarinShared
         public static Task BeginInvokeOnMainThread(Func<Task> func)
         {
             var tcs = new TaskCompletionSource<object>();
-            BeginInvokeOnMainThread(async () =>
+            // Cast the async lambda to Action so it binds to the Action overload.
+            // Without the cast the async lambda is a Func<Task> and overload
+            // resolution would call this same method, recursing infinitely.
+            BeginInvokeOnMainThread((Action)(async () =>
             {
                 try
                 {
@@ -34,7 +37,7 @@ namespace XamarinShared
                 {
                     tcs.SetException(ex);
                 }
-            });
+            }));
             return tcs.Task;
         }
 
