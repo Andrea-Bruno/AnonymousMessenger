@@ -50,11 +50,11 @@ namespace Cryptogram
             DependencyService.RegisterSingleton<IAudioPlayerSpeakerService>(new AudioPlayerSpeakerStub());
             DependencyService.RegisterSingleton<IProgressInterface>(new ProgressStub());
             DependencyService.RegisterSingleton<ISecurityFlag>(new SecurityFlagStub());
-            DependencyService.RegisterSingleton<CustomViewElements.Services.IProgressInterface>(new CustomViewProgressStub());
+            DependencyService.RegisterSingleton<CustomViewElements.Services.IProgressInterface>(new ProgressImpl());
             DependencyService.RegisterSingleton<IImageCompressionService>(new ImageCompressionStub());
             DependencyService.RegisterSingleton<ICloseApplication>(new CloseApplicationStub());
-            DependencyService.RegisterSingleton<CustomViewElements.Services.IKeyboardRegistrationService>(new KeyboardRegistrationStub());
-            DependencyService.RegisterSingleton<MessageCompose.Services.IThumbnailService>(new ThumbnailStub());
+            DependencyService.RegisterSingleton<CustomViewElements.Services.IKeyboardRegistrationService>(new KeyboardRegistrationImpl());
+            DependencyService.RegisterSingleton<MessageCompose.Services.IThumbnailService>(new ThumbnailImpl());
             DependencyService.RegisterSingleton<MessageCompose.Services.IAudioRecorder>(new AudioRecorderImpl());
             DependencyService.RegisterSingleton<MessageCompose.Services.IGpsService>(new GpsStub());
             DependencyService.RegisterSingleton<Cryptogram.Backup.IDriveService>(new DriveServiceStub());
