@@ -21,7 +21,14 @@ namespace Cryptogram.Services
 
     internal sealed class CloseApplicationStub : ICloseApplication
     {
-        public void CloseApplication() { }
+        public void CloseApplication()
+        {
+#if ANDROID
+            Microsoft.Maui.ApplicationModel.Platform.CurrentActivity?.FinishAndRemoveTask();
+#else
+            Application.Current?.Quit();
+#endif
+        }
     }
 
     internal sealed class KeyboardRegistrationStub : CustomViewElements.Services.IKeyboardRegistrationService
@@ -44,12 +51,31 @@ namespace Cryptogram.Services
         public void DeleteOutput() { }
     }
 
-    // IsGpsEnable returns true so the attachment flow does not force the
-    // "enable GPS" settings redirect on every location share.
+    // Real GPS availability check via the Android LocationManager; opens the
+    // device location settings when the caller requests it.
     internal sealed class GpsStub : MessageCompose.Services.IGpsService
     {
-        public bool IsGpsEnable() => true;
-        public void OpenSettings() { }
+        public bool IsGpsEnable()
+        {
+#if ANDROID
+            var ctx = Microsoft.Maui.ApplicationModel.Platform.AppContext;
+            if (ctx?.GetSystemService(Android.Content.Context.LocationService) is Android.Locations.LocationManager lm)
+                return lm.IsProviderEnabled(Android.Locations.LocationManager.GpsProvider)
+                    || lm.IsProviderEnabled(Android.Locations.LocationManager.NetworkProvider);
+            return false;
+#else
+            return true;
+#endif
+        }
+
+        public void OpenSettings()
+        {
+#if ANDROID
+            var intent = new Android.Content.Intent(Android.Provider.Settings.ActionLocationSourceSettings);
+            intent.SetFlags(Android.Content.ActivityFlags.NewTask);
+            Microsoft.Maui.ApplicationModel.Platform.CurrentActivity?.StartActivity(intent);
+#endif
+        }
     }
 
     // SupportBackup returns false so the Drive backup flow is skipped cleanly.
