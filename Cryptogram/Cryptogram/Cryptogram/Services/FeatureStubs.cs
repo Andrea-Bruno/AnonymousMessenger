@@ -1,17 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Cryptogram.Models;
 
 namespace Cryptogram.Services
 {
-    // Neutralized implementations of the remaining legacy DependencyService
-    // contracts whose original platform impls lived in the removed
-    // Cryptogram.Android head. Registered as singletons in MauiProgram so the
-    // shared code paths (ChatRoom, ProfilePage, MenuPage, Composer, etc.) get a
-    // non-null instance instead of dereferencing null. The features themselves
-    // (audio record/play, thumbnails, GPS, Drive backup, keyboard metrics,
-    // app-close) remain non-functional no-ops until ported.
+    // Remaining legacy DependencyService contracts whose original platform impls
+    // lived in the removed Cryptogram.Android head. Registered as singletons in
+    // MauiProgram so the shared code paths (ChatRoom, ProfilePage, MenuPage,
+    // Composer, etc.) get a non-null instance instead of dereferencing null.
+    // GPS and app-close are real implementations; image compression is a faithful
+    // no-op (the original also returned the input unchanged); Drive backup is
+    // disabled (SupportBackup() == false).
 
     internal sealed class ImageCompressionStub : IImageCompressionService
     {
@@ -29,26 +28,6 @@ namespace Cryptogram.Services
             Application.Current?.Quit();
 #endif
         }
-    }
-
-    internal sealed class KeyboardRegistrationStub : CustomViewElements.Services.IKeyboardRegistrationService
-    {
-        public void RegisterForKeyboardNotifications() { }
-        public void UnregisterForKeyboardNotifications() { }
-    }
-
-    internal sealed class ThumbnailStub : MessageCompose.Services.IThumbnailService
-    {
-        public byte[] GenerateThumbImage(string url, long usecond) => null;
-    }
-
-    internal sealed class AudioRecorderStub : MessageCompose.Services.IAudioRecorder
-    {
-        public void StartRecording() { }
-        public void StopRecording() { }
-        public void PlayRecording() { }
-        public byte[] GetOutput() => null;
-        public void DeleteOutput() { }
     }
 
     // Real GPS availability check via the Android LocationManager; opens the
@@ -92,28 +71,5 @@ namespace Cryptogram.Services
         public List<FileData> GetFolders(string parentFolderId) => new List<FileData>();
         public byte[] ReadFileContent(string fileId, string folderId = null) => null;
         public bool SupportBackup() => false;
-    }
-
-    internal sealed class AudioPlayerStub : XamarinShared.ViewCreator.IAudioPlayer
-    {
-#pragma warning disable CS0067 // required by IAudioPlayer; never raised by the no-op stub
-        public event EventHandler PlaybackEnded;
-#pragma warning restore CS0067
-        public double Duration => 0;
-        public double CurrentPosition => 0;
-        public double Volume { get; set; }
-        public double Balance { get; set; }
-        public bool IsPlaying => false;
-        public string Path => string.Empty;
-        public bool Loop { get; set; }
-        public bool CanSeek => false;
-        public bool Load(Stream audioStream) => false;
-        public bool Load(string fileName) => false;
-        public void Play() { }
-        public void Pause() { }
-        public void Stop() { }
-        public void Seek(double position) { }
-        public void ChangeSpeaker(bool isEarpieceEnabled, int currentPosition) { }
-        public void Dispose() { }
     }
 }

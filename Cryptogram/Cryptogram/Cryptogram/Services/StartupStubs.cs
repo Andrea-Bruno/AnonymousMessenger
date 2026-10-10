@@ -82,14 +82,4 @@ namespace Cryptogram.Services
 #endif
         }
     }
-
-    // CustomViewElements resolves its OWN same-named contract (a different CLR
-    // type from the Cryptogram.Services one). BasePage / CustomTabbedPage call it
-    // without a null-conditional, so an unregistered lookup NREs on the shared
-    // code path (e.g. LoginPage SAVE -> BasePage.ShowProgressDialog).
-    internal sealed class CustomViewProgressStub : CustomViewElements.Services.IProgressInterface
-    {
-        public void Show(string title = "Loading") { }
-        public void Hide() { }
-    }
 }
