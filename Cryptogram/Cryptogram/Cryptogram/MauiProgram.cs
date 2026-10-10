@@ -55,10 +55,10 @@ namespace Cryptogram
             DependencyService.RegisterSingleton<ICloseApplication>(new CloseApplicationStub());
             DependencyService.RegisterSingleton<CustomViewElements.Services.IKeyboardRegistrationService>(new KeyboardRegistrationStub());
             DependencyService.RegisterSingleton<MessageCompose.Services.IThumbnailService>(new ThumbnailStub());
-            DependencyService.RegisterSingleton<MessageCompose.Services.IAudioRecorder>(new AudioRecorderStub());
+            DependencyService.RegisterSingleton<MessageCompose.Services.IAudioRecorder>(new AudioRecorderImpl());
             DependencyService.RegisterSingleton<MessageCompose.Services.IGpsService>(new GpsStub());
             DependencyService.RegisterSingleton<Cryptogram.Backup.IDriveService>(new DriveServiceStub());
-            DependencyService.RegisterSingleton<XamarinShared.ViewCreator.IAudioPlayer>(new AudioPlayerStub());
+            DependencyService.RegisterSingleton<XamarinShared.ViewCreator.IAudioPlayer>(new AudioPlayerImpl());
         }
     }
 }
